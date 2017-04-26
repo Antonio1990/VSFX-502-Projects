@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Tcl Built-In Commands - pid manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<h3><a name="M2">NAME</a></h3>
+
+<p>pid - Retrieve process id(s)</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>pid</b> ?<i>fileId</i>?<br>
+</p>
+
+<h3><a name="M4">DESCRIPTION</a></h3>
+
+<p>If the <i>fileId</i> argument is given then it should normally
+refer to a process pipeline created with the <b><a href=
+"../TclCmd/open.htm">open</a></b> command. In this case the
+<b>pid</b> command will return a list whose elements are the
+process identifiers of all the processes in the pipeline, in order.
+The list will be empty if <i>fileId</i> refers to an open file that
+isn't a process pipeline. If no <i>fileId</i> argument is given
+then <b>pid</b> returns the process identifier of the current
+process. All process identifiers are returned as decimal
+strings.</p>
+
+<h3><a name="M5">SEE ALSO</a></h3>
+
+<p><b><a href="../TclCmd/exec.htm">exec</a></b>, <b><a href=
+"../TclCmd/open.htm">open</a></b></p>
+
+<h3><a name="M6">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/F.htm#file">file</a>, <a href=
+"../Keywords/P.htm#pipeline">pipeline</a>, <a href=
+"../Keywords/P.htm#process identifier">process identifier</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1993 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1996 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

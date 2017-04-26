@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Tcl Built-In Commands - switch manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<dl>
+<dd><a href="switch.htm#M2" name="L1260">NAME</a> 
+
+<dl>
+<dd>switch - Evaluate one of several scripts, depending on a given
+value</dd>
+</dl>
+</dd>
+
+<dd><a href="switch.htm#M3" name="L1261">SYNOPSIS</a> 
+
+<dl>
+<dd><b>switch</b> ?<i>options</i>? <i>string pattern body</i>
+?<i>pattern body</i> ...?</dd>
+
+<dd><b>switch</b> ?<i>options</i>? <i>string</i> {<i>pattern
+body</i> ?<i>pattern body</i> ...?}</dd>
+</dl>
+</dd>
+
+<dd><a href="switch.htm#M4" name="L1262">DESCRIPTION</a> 
+
+<dl>
+<dd><a href="switch.htm#M5" name="L1263"><b>-exact</b></a></dd>
+
+<dd><a href="switch.htm#M6" name="L1264"><b>-glob</b></a></dd>
+
+<dd><a href="switch.htm#M7" name="L1265"><b>-regexp</b></a></dd>
+
+<dd><a href="switch.htm#M8" name="L1266"><b>-&nbsp;-</b></a></dd>
+</dl>
+</dd>
+
+<dd><a href="switch.htm#M9" name="L1267">SEE ALSO</a></dd>
+
+<dd><a href="switch.htm#M10" name="L1268">KEYWORDS</a></dd>
+</dl>
+
+<hr>
+<h3><a name="M2">NAME</a></h3>
+
+<p>switch - Evaluate one of several scripts, depending on a given
+value</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>switch</b> ?<i>options</i>? <i>string pattern body</i>
+?<i>pattern body</i> ...?<br>
+<b>switch</b> ?<i>options</i>? <i>string</i> {<i>pattern body</i>
+?<i>pattern body</i> ...?}<br>
+</p>
+
+<h3><a name="M4">DESCRIPTION</a></h3>
+
+<p>The <b>switch</b> command matches its <i>string</i> argument
+against each of the <i>pattern</i> arguments in order. As soon as
+it finds a <i>pattern</i> that matches <i>string</i> it evaluates
+the following <i>body</i> argument by passing it recursively to the
+Tcl interpreter and returns the result of that evaluation. If the
+last <i>pattern</i> argument is <b>default</b> then it matches
+anything. If no <i>pattern</i> argument matches <i>string</i> and
+no default is given, then the <b>switch</b> command returns an
+empty string.</p>
+
+<p>If the initial arguments to <b>switch</b> start with <b>-</b>
+then they are treated as options. The following options are
+currently supported:</p>
+
+<dl>
+<dt><a name="M5"><b>-exact</b></a></dt>
+
+<dd>Use exact matching when comparing <i>string</i> to a pattern.
+This is the default.</dd>
+
+<dt><a name="M6"><b>-glob</b></a></dt>
+
+<dd>When matching <i>string</i> to the patterns, use glob-style
+matching (i.e. the same as implemented by the <b><a href=
+"../TclCmd/string.htm">string match</a></b> command).</dd>
+
+<dt><a name="M7"><b>-regexp</b></a></dt>
+
+<dd>When matching <i>string</i> to the patterns, use regular
+expression matching (as described in the <b><a href=
+"../TclCmd/re_syntax.htm">re_syntax</a></b> reference page).</dd>
+
+<dt><a name="M8"><b>-&nbsp;-</b></a></dt>
+
+<dd>Marks the end of options. The argument following this one will
+be treated as <i>string</i> even if it starts with a <b>-</b>.</dd>
+</dl>
+
+<p>Two syntaxes are provided for the <i>pattern</i> and <i>body</i>
+arguments. The first uses a separate argument for each of the
+patterns and commands; this form is convenient if substitutions are
+desired on some of the patterns or commands. The second form places
+all of the patterns and commands together into a single argument;
+the argument must have proper list structure, with the elements of
+the list being the patterns and commands. The second form makes it
+easy to construct multi-line switch commands, since the braces
+around the whole list make it unnecessary to include a backslash at
+the end of each line. Since the <i>pattern</i> arguments are in
+braces in the second form, no command or variable substitutions are
+performed on them; this makes the behavior of the second form
+different than the first form in some cases.</p>
+
+<p>If a <i>body</i> is specified as ``<b>-</b>'' it means that the
+<i>body</i> for the next pattern should also be used as the body
+for this pattern (if the next pattern also has a body of
+``<b>-</b>'' then the body after that is used, and so on). This
+feature makes it possible to share a single <i>body</i> among
+several patterns.</p>
+
+<p>Beware of how you place comments in <b>switch</b> commands.
+Comments should only be placed <b>inside</b> the execution body of
+one of the patterns, and not intermingled with the patterns.</p>
+
+<p>Below are some examples of <b>switch</b> commands:</p>
+
+<pre>
+<b>switch abc a - b {format 1} abc {format 2} default {format 3}</b>
+</pre>
+
+<p>will return <b>2</b>,</p>
+
+<pre>
+<b>switch -regexp aaab {
+    ^a.*b$ -
+    b {format 1}
+    a* {format 2}
+    default {format 3}
+}</b>
+</pre>
+
+<p>will return <b>1</b>, and</p>
+
+<pre>
+<b>switch xyz {
+    a
+        -
+    b
+        {
+        # Correct Comment Placement
+        format 1
+    }
+    a*
+        {format 2}
+    default
+        {format 3}
+}</b>
+</pre>
+
+<p>will return <b>3</b>.</p>
+
+<h3><a name="M9">SEE ALSO</a></h3>
+
+<p><b><a href="../TclCmd/for.htm">for</a></b>, <b><a href=
+"../TclCmd/if.htm">if</a></b>, <b><a href=
+"../TclCmd/regexp.htm">regexp</a></b></p>
+
+<h3><a name="M10">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/S.htm#switch">switch</a>, <a href=
+"../Keywords/M.htm#match">match</a>, <a href=
+"../Keywords/R.htm#regular expression">regular expression</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1993 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1997 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

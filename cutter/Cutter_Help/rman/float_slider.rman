@@ -1,0 +1,1 @@
+Declare param {float PNAME_FLOAT} {	label "YourFloatLabel"	subtype slider	range {0 1 .001}	description "No description."	}

@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Tk Library Procedures - Tk_GetVisual manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<dl>
+<dd><a href="GetVisual.htm#M2" name="L379">NAME</a> 
+
+<dl>
+<dd>Tk_GetVisual - translate from string to visual</dd>
+</dl>
+</dd>
+
+<dd><a href="GetVisual.htm#M3" name="L380">SYNOPSIS</a></dd>
+
+<dd><a href="GetVisual.htm#M4" name="L381">ARGUMENTS</a></dd>
+
+<dd><a href="GetVisual.htm#M5" name="L382">DESCRIPTION</a> 
+
+<dl>
+<dd><a href="GetVisual.htm#M6" name="L383"><i>class
+depth</i></a></dd>
+
+<dd><a href="GetVisual.htm#M7" name="L384"><b>default</b></a></dd>
+
+<dd><a href="GetVisual.htm#M8" name="L385"><i>pathName</i></a></dd>
+
+<dd><a href="GetVisual.htm#M9" name="L386"><i>number</i></a></dd>
+
+<dd><a href="GetVisual.htm#M10" name="L387"><b>best</b>
+?<i>depth</i>?</a></dd>
+</dl>
+</dd>
+
+<dd><a href="GetVisual.htm#M11" name="L388">CREDITS</a></dd>
+
+<dd><a href="GetVisual.htm#M12" name="L389">KEYWORDS</a></dd>
+</dl>
+
+<hr>
+<h3><a name="M2">NAME</a></h3>
+
+<p>Tk_GetVisual - translate from string to visual</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>#include &lt;tk.h&gt;</b><br>
+Visual *<br>
+<b>Tk_GetVisual(</b><i>interp, tkwin, string, depthPtr,
+colormapPtr</i><b>)</b><br>
+</p>
+
+<h3><a name="M4">ARGUMENTS</a></h3>
+
+<dl>
+<dt><a href="../TclLib/Interp.htm">Tcl_Interp</a> <b>*interp</b>
+(in)</dt>
+
+<dd>Interpreter to use for error reporting.</dd>
+
+<dt>Tk_Window <b>tkwin</b> (in)</dt>
+
+<dd>Token for window in which the visual will be used.</dd>
+
+<dt>CONST char <b>*string</b> (in)</dt>
+
+<dd>String that identifies the desired visual. See below for valid
+formats.</dd>
+
+<dt>int <b>*depthPtr</b> (out)</dt>
+
+<dd>Depth of returned visual gets stored here.</dd>
+
+<dt>Colormap <b>*colormapPtr</b> (out)</dt>
+
+<dd>If non-NULL then a suitable colormap for visual is found and
+its identifier is stored here.</dd>
+</dl>
+
+<h3><a name="M5">DESCRIPTION</a></h3>
+
+<p><b>Tk_GetVisual</b> takes a string description of a visual and
+finds a suitable X Visual for use in <i>tkwin</i>, if there is one.
+It returns a pointer to the X Visual structure for the visual and
+stores the number of bits per pixel for it at <i>*depthPtr</i>. If
+<i>string</i> is unrecognizable or if no suitable visual could be
+found, then NULL is returned and <b>Tk_GetVisual</b> leaves an
+error message in <i>interp-&gt;result</i>. If <i>colormap</i> is
+non-NULL then <b>Tk_GetVisual</b> also locates an appropriate
+colormap for use with the result visual and stores its X identifier
+at <i>*colormapPtr</i>.</p>
+
+<p>The <i>string</i> argument specifies the desired visual in one
+of the following ways:</p>
+
+<dl>
+<dt><a name="M6"><i>class depth</i></a></dt>
+
+<dd>The string consists of a class name followed by an integer
+depth, with any amount of white space (including none) in between.
+<i>class</i> selects what sort of visual is desired and must be one
+of <b>directcolor</b>, <b>grayscale</b>, <b>greyscale</b>,
+<b>pseudocolor</b>, <b>staticcolor</b>, <b>staticgray</b>,
+<b>staticgrey</b>, or <b>truecolor</b>, or a unique abbreviation.
+<i>depth</i> specifies how many bits per pixel are needed for the
+visual. If possible, <b>Tk_GetVisual</b> will return a visual with
+this depth; if there is no visual of the desired depth then
+<b>Tk_GetVisual</b> looks first for a visual with greater depth,
+then one with less depth.</dd>
+
+<dt><a name="M7"><b>default</b></a></dt>
+
+<dd>Use the default visual for <i>tkwin</i>'s screen.</dd>
+
+<dt><a name="M8"><i>pathName</i></a></dt>
+
+<dd>Use the visual for the window given by <i>pathName</i>.
+<i>pathName</i> must be the name of a window on the same screen as
+<i>tkwin</i>.</dd>
+
+<dt><a name="M9"><i>number</i></a></dt>
+
+<dd>Use the visual whose X identifier is <i>number</i>.</dd>
+
+<dt><a name="M10"><b>best</b> ?<i>depth</i>?</a></dt>
+
+<dd>Choose the ``best possible'' visual, using the following rules,
+in decreasing order of priority: (a) a visual that has exactly the
+desired depth is best, followed by a visual with greater depth than
+requested (but as little extra as possible), followed by a visual
+with less depth than requested (but as great a depth as possible);
+(b) if no <i>depth</i> is specified, then the deepest available
+visual is chosen; (c) <b>pseudocolor</b> is better than
+<b>truecolor</b> or <b>directcolor</b>, which are better than
+<b>staticcolor</b>, which is better than <b>staticgray</b> or
+<b>grayscale</b>; (d) the default visual for the screen is better
+than any other visual.</dd>
+</dl>
+
+<h3><a name="M11">CREDITS</a></h3>
+
+<p>The idea for <b>Tk_GetVisual</b>, and the first implementation,
+came from Paul Mackerras.</p>
+
+<h3><a name="M12">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/C.htm#colormap">colormap</a>, <a href=
+"../Keywords/S.htm#screen">screen</a>, <a href=
+"../Keywords/V.htm#visual">visual</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1996 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

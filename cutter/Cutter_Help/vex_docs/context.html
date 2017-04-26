@@ -1,0 +1,1551 @@
+<!--
+ - PROPRIETARY INFORMATION.  This software is proprietary to
+ - Side Effects Software Inc., and is not to be reproduced,
+ - transmitted, or disclosed in any way without written permission.
+ -
+ -	Side Effects
+ -	477 Richmond Street West
+ -	Toronto, Ontario
+ -	Canada   M5V 3E7
+ -	416-504-9876
+ -->
+
+<html>
+
+<head>
+   <title> VEX Context Definitions</title>
+</head>
+
+<body bgcolor="#ffffff" text="#000000">
+
+<table width=100%>
+<tr>
+   <td><img hspace=15 vspace=5 ALT="[SESI logo]" SRC="logo.jpg"</td>
+   <td>
+      <center>
+         <h1>VEX Language Reference - Version 7.0</h1>
+	 Side Effects Software Inc.  2004
+      </center>
+   </td>
+</tr>
+</table>
+
+<hr>
+<center><h1>VEX Context Definitions</h1></center>
+
+<menu>
+    <li> <a href="#ctx_op">OP Contexts</a>
+    <li> <a href="#ctx_cop2">COP Context</a>
+    <li> <a href="#ctx_pop">SOP/POP Context</a>
+    <li> <a href="#ctx_chop">CHOP Context</a>
+    <li> <a href="#ctx_image3d">3D Image Context</a>
+    <li> <a href="shading.html">Shading Contexts</a>
+</menu>
+
+<hr>
+<a name="ctx_op">
+<center><h1>OP Contexts</h1></center>
+</a>
+
+There are several functions which are common to all OP contexts.  The
+OP contexts refer to SOP, COP, POP, and CHOP contexts.  These
+functions are not available in any of the shading contexts (Surface,
+Displacement, Light, etc.).<p>
+
+These are:
+<menu>
+    <a name="fn_ch">
+    <li><b>float ch(string channel)<br>
+	   float ch(string channel, float time)<br>
+	   string ch(string channel)<br>
+	   string ch(string channel, float time)</b><br>
+	These functions evaluate a channel (or parameter) and return
+	its value.  When evaluating string parameters at a specified
+	time, the time value must be the same for all evaluations of
+	the parameter.  If the time is not constant over the all the
+	points/pixels being evaluated, results are not predictable.
+	For example, the following functions will produce
+	unpredictable results:
+<listing>
+	string s = ch(channel_path, ptnum);		// SOP/POP
+	string s = ch(channel_path, cinput(X, Y).r);	// COP
+	string s = ch(channel_path, age);		// SOP/POP
+	string s = ch(channel_path, V);			// CHOP
+</listing>
+	since the time specified will be different for every
+	evaluation of the VEX function.  The following functions will
+	work correctly.
+<listing>
+	string s = ch(channel_path, Time*.7);	// SOP/POP
+	string s = ch(channel_path, XRES);	// COP
+	string s = ch(channel_path, SR);	// CHOP
+</listing>
+	since the time specified will be the same for every evaluation
+	of the VEX function.  The time specified is in seconds.<p>
+
+    <a name="fn_optransform">
+    <li><b>matrix optransform(string path)<br>
+	   matrix optransform(string path; float time)</b><br>
+	These functions will return the transform associated with an
+	OP.  If the OP specified has no transform associated with it
+	(for example a COP), then an identity matrix is returned.  It
+	is possible to specify the time to evaluate the transform
+	at (in seconds, not frames).<p>
+
+    <a name="fn_ndc">
+    <li><b>vector toNDC(string camera_name; vector point)</b><br>
+	This function will transform a position to the normal device
+	coordinates for a camera.  The point should be in the local
+	space of the object (i.e. not in the space of the camera).<p>
+</menu>
+
+<br><a NAME="ctx_cop2"></a>
+<h1>
+COP VEX Context</h1>
+The COP evaluation works by setting either the R, G, B, A or the Cr,Cg,
+Cb,C4 variables. The variables are initialized to the color of the first
+input (or zero for R, G, B and 1 for A if there is no input). It then calls
+the COP function. If any of the variables are modified, then they will
+be used to determine the new color for the current pixel.
+<p>The RGBA variables are for programmer convenience; they read and write
+directly to the Color and Alpha planes. Reading from RGB and A will give
+you the value of the first input's color plane and alpha plane. If one
+or both of these planes do not exist, 0 will be returned. If you are writing
+to R, G, B or A and either Color and/or Alpha doesn't exist, the planes
+will be created for you. If you only write to R, a full Color plane will
+be created, but with the G and B channels set to 0.
+<p>The channel variables, Cr to C4, are more flexible. They allow you to
+write to any plane's channels. If a channel of a plane does not exist and
+you write to it, nothing happens. For example,&nbsp; when cooking the Alpha
+plane (with only 1 channel),&nbsp; if Cg, Cb or C4 is written to, the data
+is lost; only Cr is valid. However, no error occurs, since it is possible
+to have planes with different sizes in the same sequence. You can read
+from a channel variable in exactly the same way as reading from the R,G,B
+and A variables. The channel variable will be filled with the pixel values
+from the plane in the first input corresponding to the one being cooked.
+<p>You should not mix writing to R,G,B,A and Cr,Cg,Cb,C4 in the same VEX
+function. While it will not harm anything, it can lead to confusing results
+if you are writing different things to R and Cr and the function is cooking
+the Color plane. Confusing code is bad code, and bad code shouldn't be
+written :)
+<h3>
+Global Variables</h3>
+
+<table BORDER WIDTH="100%" NOSAVE >
+<tr BGCOLOR="#000000" NOSAVE>
+<td NOSAVE><b><font color="#FFFFFF">Variable</font></b></td>
+
+<td><b><font color="#FFFFFF">Type</font></b></td>
+
+<td><b><font color="#FFFFFF">Read/Write</font></b></td>
+
+<td><b><font color="#FFFFFF">Description</font></b></td>
+</tr>
+
+<tr NOSAVE>
+<td><b>XRES</b></td>
+
+<td NOSAVE><b>int</b></td>
+
+<td><b>Read Only</b></td>
+
+<td>Contains the horizontal resolution (in pixels) of the image being processed.</td>
+</tr>
+
+<tr>
+<td><b>YRES</b></td>
+
+<td><b>int</b></td>
+
+<td><b>Read Only</b></td>
+
+<td>Contains the vertical resolution (in pixels) of the image being processed.</td>
+</tr>
+
+<tr>
+<td><b>AR</b></td>
+
+<td><b>float</b></td>
+
+<td><b>Read Only</b></td>
+
+<td>Contains the aspect ratio of the image being processed.</td>
+</tr>
+
+<tr>
+<td><b>IX</b></td>
+
+<td><b>int</b></td>
+
+<td><b>Read Only</b></td>
+
+<td>Contains the horizontal position of the pixel currently being shaded.
+This will be in the range of (0, XRES-1).</td>
+</tr>
+
+<tr NOSAVE>
+<td><b>IY</b></td>
+
+<td NOSAVE><b>int</b></td>
+
+<td><b>Read Only</b></td>
+
+<td>Contains the vertical position of the pixel currently being shaded.
+This will be in the range of (0, XRES-1).</td>
+</tr>
+
+<tr>
+<td><b>X</b></td>
+
+<td><b>float</b></td>
+
+<td><b>Read Only</b></td>
+
+<td>Contains the horizontal location of the center of the current pixel
+being shaded in the range 0 to 1. Zero being the left hand side of the
+image, and 1 being the right hand side.</td>
+</tr>
+
+<tr>
+<td><b>Y</b></td>
+
+<td><b>float</b></td>
+
+<td><b>Read Only</b></td>
+
+<td>Contains the vertical location of the center of the current pixel being
+shaded in the range 0 to 1. Zero being the bottom of the image, and 1 being
+the top.</td>
+</tr>
+
+<tr>
+<td><b>H</b></td>
+
+<td><b>float</b></td>
+
+<td><b>Read Only</b></td>
+
+<td>Contains the hue of the current pixel. The hue is expressed as a floating
+point number between zero and one. HSV is calculated based on the Color
+plane (C), not the current plane.</td>
+</tr>
+
+<tr>
+<td><b>S</b></td>
+
+<td><b>float</b></td>
+
+<td><b>Read Only</b></td>
+
+<td>Contains the saturation of the current pixel. The saturation is expressed
+as a floating point number between zero and one.</td>
+</tr>
+
+<tr>
+<td><b>V</b></td>
+
+<td><b>float</b></td>
+
+<td><b>Read Only</b></td>
+
+<td>Contains the value (or intensity) of the current pixel. The value is
+expressed as a floating point number between zero and one.</td>
+</tr>
+
+<tr>
+<td><b>R</b></td>
+
+<td><b>float</b></td>
+
+<td><b>Read/Write</b></td>
+
+<td>Contains the value of the red channel of the current pixel. The value
+is expressed as a floating point number between zero and one. If the COP
+does not have a color plane (C), one will be created.</td>
+</tr>
+
+<tr>
+<td><b>G</b></td>
+
+<td><b>float</b></td>
+
+<td><b>Read/Write</b></td>
+
+<td>Contains the value of the green channel of the current pixel. The value
+is expressed as a floating point number between zero and one. If the COP
+does not have a color plane (C), one will be created.</td>
+</tr>
+
+<tr>
+<td><b>B</b></td>
+
+<td><b>float</b></td>
+
+<td><b>Read/Write</b></td>
+
+<td>Contains the value of the blue channel of the current pixel. The value
+is expressed as a floating point number between zero and one. If the COP
+does not have a color plane (C), one will be created.</td>
+</tr>
+
+<tr>
+<td><b>A</b></td>
+
+<td><b>float</b></td>
+
+<td><b>Read/Write</b></td>
+
+<td>Contains the value of the alpha channel of the current pixel. The value
+is expressed as a floating point number between zero and one. If the COP
+does not have an alpha plane (A), one will be created.</td>
+</tr>
+
+<tr>
+<td><b>Cr,Cg,Cb,C4</b></td>
+
+<td><b>float</b></td>
+
+<td><b>Read/Write</b></td>
+
+<td>Contains the value of the plane component 1, 2, 3 or 4. Unlike the
+R,G,B or A variables, these components represent the current plane's values.</td>
+</tr>
+
+<tr>
+<td><b>PNAME</b></td>
+
+<td><b>string</b></td>
+
+<td><b>Read Only</b></td>
+
+<td>Contains the name of the current plane being cooked.</td>
+</tr>
+
+<tr>
+<td><b>PL</b></td>
+
+<td><b>int</b></td>
+
+<td><b>Read Only</b></td>
+
+<td>Contains the index of the current plane being cooked.</td>
+</tr>
+
+<tr>
+<td><b>PS</b></td>
+
+<td><b>int&nbsp;</b></td>
+
+<td><b>Read Only</b></td>
+
+<td>Contains the size of the current plane being cooked (the number of
+channels).&nbsp;</td>
+</tr>
+
+<tr>
+<td><b>AI</b></td>
+
+<td><b>int</b></td>
+
+<td><b>Read Only</b></td>
+
+<td>Contains the array index of the current plane that is being cooked
+(from 0 to AS-1).</td>
+</tr>
+
+<tr>
+<td><b>AS</b></td>
+
+<td><b>int</b></td>
+
+<td><b>Read Only</b></td>
+
+<td>Contains the array size of the current plane.</td>
+</tr>
+
+<tr NOSAVE>
+<td NOSAVE><b>NP</b></td>
+
+<td><b>int</b></td>
+
+<td><b>Read Only</b></td>
+
+<td>Returns the number of planes in the image (ie, for a RGBA image, this
+would be 2 since the COP must contain 2 planes, Color and Alpha).</td>
+</tr>
+
+<tr>
+<td><b>NI</b></td>
+
+<td><b>int</b></td>
+
+<td><b>Read Only</b></td>
+
+<td>Returns the number of images in the sequence (ie, a sequence with a
+frame range of 1 to 19 would have 20 images in it).</td>
+</tr>
+
+<tr>
+<td><b>F</b></td>
+
+<td><b>int</b></td>
+
+<td><b>Read Only</b></td>
+
+<td>The frame number of the current image.</td>
+</tr>
+
+<tr>
+<td><b>SF</b></td>
+
+<td><b>int</b></td>
+
+<td><b>Read Only</b></td>
+
+<td>The starting frame of the current sequence.</td>
+</tr>
+
+<tr>
+<td><b>EF</b></td>
+
+<td><b>int</b></td>
+
+<td><b>Read Only</b></td>
+
+<td>The end frame of the current sequence.</td>
+</tr>
+
+<tr>
+<td><b>I</b></td>
+
+<td><b>int</b></td>
+
+<td><b>Read Only</b></td>
+
+<td>The index number of the current image, which always starts at zero
+for the first image in the sequence.</td>
+</tr>
+
+<tr>
+<td><b>TIME</b></td>
+
+<td><b>float</b></td>
+
+<td><b>Read Only</b></td>
+
+<td>The time of the current image.</td>
+</tr>
+
+<tr>
+<td><b>TINC</b></td>
+
+<td><b>float</b></td>
+
+<td><b>Read Only</b></td>
+
+<td>The time increment between frames at the global frame rate.</td>
+</tr>
+
+<tr>
+<td><b>FR</b></td>
+
+<td><b>int</b></td>
+
+<td><b>Read Only</b></td>
+
+<td>The frame rate of the current sequence.</td>
+</tr>
+</table>
+
+<h3>
+COP Specific Functions</h3>
+Many of the input functions have changed from the old COP context to allow
+access to any plane, instead of having specific functions to return color,
+depth or bump values. All pixel values are converted to floating point
+values (colors between 0 and 1). There are two classes of input functions,
+point sampled and filtered.
+<br>&nbsp;
+<h4>
+<a name="cop2_planefunc">
+Output Plane Functions</h4>
+
+<li>
+<b>int hasplane(string planename)</b></li>
+
+<br>Returns 1 if the plane specified by the parameter exists in this COP.
+<br>&nbsp;
+<li>
+<b>int planeindex(string planename)</b></li>
+
+<br>Returns the index of the plane specified by the parameter, starting
+at zero.
+<br>&nbsp;
+<li>
+<b>string planename(int planeindex)</b></li>
+
+<br>Returns the name of the plane specified by the index (ie. "C", "A").
+<br>&nbsp;
+<li>
+<b>string chname(int planeindex, int chindex)</b></li>
+
+<br>Returns the channel name of the indexed plane. (ie. "r", "x")
+<br>&nbsp;
+<li>
+<b>int planesize(int planeindex)</b></li>
+
+<br>Return the number of components in the plane (1 for scalar planes and
+up to 4 for vector planes). If the index is out of range, 0 is returned.
+<br>&nbsp;
+<li>
+<b>string colorname()</b></li>
+
+<li>
+<b>string alphaname()</b></li>
+
+<li>
+<b>string maskname()</b></li>
+
+<li>
+<b>string depthname()</b></li>
+
+<li>
+<b>string lumname()</b></li>
+
+<li>
+<b>string bumpname()</b></li>
+
+<li>
+<b>string pointname()</b></li>
+
+<li>
+<b>string normalname()</b></li>
+
+<li>
+<b>string velocityname()</b></li>
+
+<br>Return the default name of the indicated type of plane (as it appears
+in the Compositor Preferences). This allows you to write COP2&nbsp;VEX&nbsp;functions
+that don't hardcode the names of planes, so the function is portable between
+different Houdini configurations. The defaults are "C", "A", "M", "Z",
+"L", "B", "P", "N" and "V".
+<br>&nbsp;
+<a name="cop2_inputfunc">
+<h4>
+Input Structure Functions</h4>
+
+<li>
+<b>int isconnected(int input_number)</b></li>
+
+<br>Returns 1 if there is an input connected to the specified number. Input
+numbers start at 0.
+<br>&nbsp;
+<li>
+<b>int inumplanes(int input_number)</b></li>
+
+<br>Returns the number of planes in the given input.
+<br>&nbsp;
+<li>
+<b>int ihasplane(int input_number, string planename)</b></li>
+
+<br>This function will return 1 if the specified input has a plane named
+'planename'. Input numbers start at 0.
+<br>&nbsp;
+<li>
+<b>string iplanename(int input_number, int planeindex)</b></li>
+
+<br>Returns the name of the plane specified by the planeindex of the given
+input (ie. "C", "A").
+<br>&nbsp;
+<li>
+<b>string ichname(int planeindex, int chindex)</b></li>
+
+<br>Returns the channel name of the indexed plane of the given input (ie.
+"r" or "x").
+<br>&nbsp;
+<li>
+<b>int iplaneindex(int input_number, string planename)</b></li>
+
+<br>This function will return the index of the plane named 'planename'
+in the specified input. Input numbers start at 0.
+<br>&nbsp;
+<li>
+<b>int iplanesize(int input_number, int planeindex)</b></li>
+
+<br>This function will return the number of components in the plane named
+'planename' in the specified input. Input numbers start at 0.
+<br>&nbsp;
+<li>
+<b>float irate(int input_number)</b></li>
+
+<br>This function returns the frame rate of the specified input.
+<br>&nbsp;
+<li>
+<b>int istart(int input_number)</b></li>
+
+<br>This function returns starting frame of the specified input.
+<br>&nbsp;
+<li>
+<b>int iend(int input_number)</b></li>
+
+<br>This function returns last frame of the specified input.
+<br>&nbsp;
+<li>
+<b>float istarttime(int input_number)</b></li>
+
+<br>This function returns the start time of the specified input.
+<br>&nbsp;
+<li>
+<b>float iendtime(int input_number)</b></li>
+
+<br>This function returns the end time of the specified input.
+<br>&nbsp;
+<li>
+<b>int ixres(int input_number)</b></li>
+
+<br>This function returns the X resolution of the specified input.
+<br>&nbsp;
+<li>
+<b>int iyres(int input_number)</b></li>
+
+<br>This function returns the Y resolution of the specified input.
+<br>&nbsp;
+
+<li>
+<b>float iaspect(int input_number)</b></li>
+
+<br>This function returns the aspect ratio of the specified input.
+<br>&nbsp;
+
+<a name="cop2_colorfunc">
+<h4>
+Input Color Functions</h4>
+Point Sampled input functions are prefixed with "c", bilinear sampled functions
+are prefixed by "b", while filtered input functions are prefixed with "f". 
+Point sampled input functions should
+be used whenever discrete pixel values are being modified, since these
+functions are much faster. Filtered functions should be used whenever UV
+coordinates are being manipulated. If multiple subsamples are being read and 
+combined, bilinear lookups can produce a similar result to finput but much
+faster.
+<p>Each function may take either floating point or integer UV coordinates.
+If floating point UVs are used, the values are interpreted as 0-1 UV values;
+that is, (0.5, 0.5) is the center of the image. If integer UVs are used,
+the values are considered to be in pixel units, ranging from (0,0) to (XRES-1,
+YRES-1).
+<p>Each input function can return a float, vector or vector4 value. If
+the channel does not exist, the value returned for it will be 0. Whenever
+possible, use the vector versions rather that multiple float versions.
+<p>There are three different complexity levels for each input function.
+The first level contains only UV parameters. The second contains the input
+#, plane # and UV parameters. The last level contains all the parameters:
+input #, plane #, array index, UV and frame #.&nbsp; If not specified in
+the function, the input number is always 0, the plane index is the current
+cooked plane, the array index is the currently cooked array index, and
+the frame is the current frame.
+<p>So,
+<br><b>cinput(u, v)&nbsp;</b><i> is the same as</i>&nbsp; <b>cinput(0,
+PL, u,v)</b>&nbsp; <i>is the same as</i> <b>cinput(0, PL, AI, u,v, F)</b>
+<br>&nbsp;
+<p><i><u><font size=+1>Simple point sampled and filtered input functions:</font></u></i>
+<blockquote><b>Syntax:</b>
+<br><b>float</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+{c,b,f}<b>input(</b> <b>int channel;</b> {int, float} <b>u,v; ...)</b>
+<br>{vector, vector4}&nbsp; {c,b,f}<b>input(</b> {int,float} <b>u,v; ...)</b></blockquote>
+
+<li>
+<b>float&nbsp;&nbsp;&nbsp;&nbsp; cinput(int channel; int u, v; ...)</b></li>
+
+<li>
+<b>float&nbsp;&nbsp;&nbsp;&nbsp; cinput(int channel; float u, v; ...)</b></li>
+
+<br>&nbsp;
+<li>
+<b>vector&nbsp;&nbsp; cinput(int u, v; ...)</b></li>
+
+<li>
+<b>vector&nbsp;&nbsp; cinput(float u, v; ...)</b></li>
+
+<br>&nbsp;
+<li>
+<b>vector4 cinput(int u,v; ...)</b></li>
+
+<li>
+<b>vector4 cinput(float u,v; ...)</b></li>
+
+<br>&nbsp;
+<li>
+<b>float&nbsp;&nbsp;&nbsp;&nbsp; binput(int channel; int u, v; ...)</b></li>
+
+<li>
+<b>float&nbsp;&nbsp;&nbsp;&nbsp; binput(int channel; float u, v; ...)</b></li>
+
+<br>&nbsp;
+<li>
+<b>vector&nbsp;&nbsp; binput(int u, v; ...)</b></li>
+
+<li>
+<b>vector&nbsp;&nbsp; binput(float u, v; ...)</b></li>
+
+<br>&nbsp;
+<li>
+<b>vector4 binput(int u,v; ...)</b></li>
+
+<li>
+<b>vector4 binput(float u,v; ...)</b></li>
+
+<br>&nbsp;
+<li>
+<b>float&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; finput(int channel; int u, v; ...)</b></li>
+
+<li>
+<b>float&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; finput(int channel; float u, v;
+...)</b></li>
+
+<br>&nbsp;
+<li>
+<b>vector&nbsp;&nbsp; finput(int u, v; ...)</b></li>
+
+<li>
+<b>vector&nbsp;&nbsp; finput(float u, v; ...)</b></li>
+
+<br>&nbsp;
+<li>
+<b>vector4 finput(int u,v; ...)</b></li>
+
+<li>
+<b>vector4 finput(float u,v; ...)</b></li>
+
+<br>&nbsp;
+<p><i><u><font size=+1>Normal point sampled and filtered input functions:</font></u></i>
+<blockquote><b>Syntax:</b>
+<br><b>float&nbsp;&nbsp;</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+{c,f}<b>input( int input_number, plane_index, channel;</b> {int, float}<b>
+u,v; ...)</b>
+<br>{vector, vector4} {c,b,f}<b>input( int input_number, plane_index;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
+{int, float}<b> u,v; ...)</b></blockquote>
+
+<li>
+<b>float&nbsp;&nbsp;&nbsp;&nbsp; cinput(int input_number, planeindex, component;
+int&nbsp; u,v; ...)</b></li>
+
+<li>
+<b>float&nbsp;&nbsp;&nbsp;&nbsp; cinput(int input_number, planeindex, component;
+float&nbsp; u,v; ...)</b></li>
+
+<br>&nbsp;
+<li>
+<b>vector&nbsp; cinput(int input_number, planeindex; int&nbsp; u,v; ...)</b></li>
+
+<li>
+<b>vector&nbsp; cinput(int input_number, planeindex; float u,v; ...)</b></li>
+
+<br>&nbsp;
+<li>
+<b>vector4 cinput(int input_number, planeindex; int u,v; ...)</b></li>
+
+<li>
+<b>vector4 cinput(int input_number, planeindex; float u,v; ...)</b></li>
+
+<br>&nbsp;
+<li>
+<b>float&nbsp;&nbsp;&nbsp;&nbsp; binput(int input_number, planeindex, component;
+int&nbsp; u,v; ...)</b></li>
+
+<li>
+<b>float&nbsp;&nbsp;&nbsp;&nbsp; binput(int input_number, planeindex, component;
+float&nbsp; u,v; ...)</b></li>
+
+<br>&nbsp;
+<li>
+<b>vector&nbsp; binput(int input_number, planeindex; int&nbsp; u,v; ...)</b></li>
+
+<li>
+<b>vector&nbsp; binput(int input_number, planeindex; float u,v; ...)</b></li>
+
+<br>&nbsp;
+<li>
+<b>vector4 binput(int input_number, planeindex; int u,v; ...)</b></li>
+
+<li>
+<b>vector4 binput(int input_number, planeindex; float u,v; ...)</b></li>
+
+<br>&nbsp;
+<li>
+<b>float&nbsp;&nbsp;&nbsp;&nbsp; finput(int input_number, planeindex, component;
+int&nbsp; u,v; ...)</b></li>
+
+<li>
+<b>float&nbsp;&nbsp;&nbsp;&nbsp; finput(int input_number, planeindex, component;
+float&nbsp; u,v; ...)</b></li>
+
+<br>&nbsp;
+<li>
+<b>vector&nbsp; finput(int input_number, planeindex; int&nbsp; u,v; ...)</b></li>
+
+<li>
+<b>vector&nbsp; finput(int input_number, planeindex; float u,v; ...)</b></li>
+
+<br>&nbsp;
+<li>
+<b>vector4 finput(int input_number, planeindex; int u,v; ...)</b></li>
+
+<li>
+<b>vector4 finput(int input_number, planeindex; float u,v; ...)</b></li>
+
+<br>&nbsp;
+<p><i><u><font size=+1>Full Point sampled input functions:</font></u></i>
+<blockquote><b>Syntax:</b>
+<br><b>float</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+{c,b,f}<b>input( int input_number, plane_index, channel;</b> {int, float}<b>
+u,v; ...)</b>
+<br>{vector, vector4}&nbsp; {c,b,f}i<b>nput( int input_number, plane_index;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</b>{int, float}<b> u,v; ...)</b></blockquote>
+
+<li>
+<b>float&nbsp;&nbsp;&nbsp;&nbsp; cinput(int input_number, planeindex, arrayindex,
+component; int&nbsp; u,v; int frame; ...)</b></li>
+
+<li>
+<b>float&nbsp;&nbsp;&nbsp;&nbsp; cinput(int input_number, planeindex, arrayindex,
+component; float&nbsp; u,v; int frame; ...)</b></li>
+
+<br>&nbsp;
+<li>
+<b>vector&nbsp;&nbsp; cinput(int input_number, planeindex, arrayindex;
+int&nbsp; u,v; int frame; ...)</b></li>
+
+<li>
+<b>vector&nbsp;&nbsp; cinput(int input_number, planeindex, arrayindex;
+float u,v; int frame; ...)</b></li>
+
+<br>&nbsp;
+<li>
+<b>vector4 cinput(int input_number, planeindex, arrayindex; int u,v; int
+frame; ...)</b></li>
+
+<li>
+<b>vector4 cinput(int input_number, planeindex, arrayindex; float u,v;
+int frame; ...)</b></li>
+
+<br>&nbsp;
+<li>
+<b>float&nbsp;&nbsp;&nbsp;&nbsp; binput(int input_number, planeindex, arrayindex,
+component; int&nbsp; u,v; int frame; ...)</b></li>
+
+<li>
+<b>float&nbsp;&nbsp;&nbsp;&nbsp; binput(int input_number, planeindex, arrayindex,
+component; float&nbsp; u,v; int frame; ...)</b></li>
+
+<br>&nbsp;
+<li>
+<b>vector&nbsp;&nbsp; binput(int input_number, planeindex, arrayindex;
+int&nbsp; u,v; int frame; ...)</b></li>
+
+<li>
+<b>vector&nbsp;&nbsp; binput(int input_number, planeindex, arrayindex;
+float u,v; int frame; ...)</b></li>
+
+<br>&nbsp;
+<li>
+<b>vector4 binput(int input_number, planeindex, arrayindex; int u,v; int
+frame; ...)</b></li>
+
+<li>
+<b>vector4 binput(int input_number, planeindex, arrayindex; float u,v;
+int frame; ...)</b></li>
+
+<br>&nbsp;<li>
+<b>float&nbsp;&nbsp;&nbsp;&nbsp; finput(int input_number, planeindex, arrayindex,
+component; int&nbsp; u,v; int frame; ...)</b></li>
+
+<li>
+<b>float&nbsp;&nbsp;&nbsp;&nbsp; finput(int input_number, planeindex, arrayindex,
+component; float&nbsp; u,v; int frame; ...)</b></li>
+
+<br>&nbsp;
+<li>
+<b>vector&nbsp; finput(int input_number, planeindex, arrayindex; int&nbsp;
+u,v; int frame; ...)</b></li>
+
+<li>
+<b>vector&nbsp; finput(int input_number, planeindex, arrayindex; float
+u,v; int frame; ...)</b></li>
+
+<br>&nbsp;
+<li>
+<b>vector4 finput(int input_number, planeindex, arrayindex; int u,v; int
+frame; ...)</b></li>
+
+<li>
+<b>vector4 finput(int input_number, planeindex, arrayindex; float u,v;
+int frame; ...)</b></li>
+
+<br><b></b>&nbsp;
+<p><i><u><font size=+1>Pixel Neighbor Input Function</font></u></i>
+<br><i><u><font size=+1></font></u></i>&nbsp;
+<p>The function ninput() can be used to read a pixel and its eight neighbors
+into a 3x3 matrix, ideal for simple kernel and subpixel operations. Only one
+component is read at a time. To read a Color plane, you would need to call
+ninput() three times to read R,G and B (with component set to 0, 1 and 2).
+<p>
+<li><b>matrix&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ninput(int inputnumber, planeindex, arrayindex, component; </b>{float,int}<b> u,v; int frame);</b></li>
+<p>
+<br>
+<a name="cop2_derivfunc">
+<p><i><u><font size=+1>Derivative Functions</font></u></i>
+<br><i><u><font size=+1></font></u></i>&nbsp;
+<li>
+<b>float&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Du(float&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+var ...)</b></li>
+
+<li>
+<b>vector&nbsp;&nbsp; Du(vector&nbsp;&nbsp;&nbsp; var ...)</b></li>
+
+<li>
+<b>vector4 Du(vector4&nbsp; var ...)</b></li>
+
+<br>&nbsp;
+<li>
+<b>float&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dv(float&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+var ...)</b></li>
+
+<li>
+<b>vector&nbsp;&nbsp; Dv(vector&nbsp;&nbsp;&nbsp; var ...)</b></li>
+
+<li>
+<b>vector4 Dv(vector4&nbsp; var ...)</b></li>
+
+<br>&nbsp;&nbsp;&nbsp; The derivative of any VEX variable may be taken
+with respect to U or V. An optional parameter, "extrapolate" can be added
+to specify whether derivative extrapolation is done at the edges. It is
+enabled by default.
+<br>&nbsp;
+<li>
+<b>float&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; area(vector uv ...)</b></li>
+
+<br>&nbsp;&nbsp;&nbsp; This computes the area of the current pixel, which
+will not be1 if the UV coordinates are transformed. The optional parameter
+"extrapolate" may also be specified in this function.
+<br>&nbsp;</menu>
+
+<hr>
+<a name="ctx_pop">
+<center><h1>The POP/SOP Context</h1></center>
+
+The POP context has the same variables and functions as the SOP
+context.  Both of these contexts allow processing of point attribute
+data.  With the POP context, the points are typically used in a
+particle system, however, this is not a requirement of the context.
+In general, a function written for POPs will work as a SOP or vice
+versa.<p>
+
+<b>Export</b> variables in the POP/SOP contexts will cause new
+attributes to be created on the geometry.  The attribute will have the
+name and size of the export variable.<p>
+
+<h3>Global Variables</h3>
+<center><table border=1 cellpadding=5>
+      <tr bgcolor=black>
+	 <td><font color=white><b>Variable</b></font></td>
+	 <td><font color=white><b>Type</b></font></td>
+	 <td><font color=white><b>Read/Write</b></font></td>
+	 <td><font color=white><b>Description</b></font></td>
+      </tr>
+
+      <tr>
+	<td><b>ptnum</b></td>
+	<td><b>int</b></td>
+	<td><b>Read Only</b></td>
+	<td>
+	    Contains the point number of the point being processed.
+	</td>
+      </tr>
+      <tr>
+	<td><b>Npt</b></td>
+	<td><b>int</b></td>
+	<td><b>Read Only</b></td>
+	<td>
+	    Contains the total number of points geometry.
+	</td>
+      </tr>
+
+      <tr>
+	<td><b>Frame</b></td>
+	<td><b>float</b></td>
+	<td><b>Read Only</b></td>
+	<td>
+	    Contains the current frame.  This may not be an integer
+	    value.
+	</td>
+      </tr>
+      <tr>
+	<td><b>Time</b></td>
+	<td><b>float</b></td>
+	<td><b>Read Only</b></td>
+	<td>
+	    Contains the current time (in seconds)
+	</td>
+      </tr>
+      <tr>
+	<td><b>TimeInc</b></td>
+	<td><b>float</b></td>
+	<td><b>Read Only</b></td>
+	<td>
+	    Contains the time increment for particle simulations.  In
+	    the SOP context, this contains the time increment between
+	    frames.
+	</td>
+      </tr>
+
+
+      <tr>
+	<td><b>P</b></td>
+	<td><b>vector</b></td>
+	<td><b>Read/Write</b></td>
+	<td>
+	    Contains the position of the current point.
+	</td>
+      </tr>
+      <tr>
+	<td><b>v</b></td>
+	<td><b>vector</b></td>
+	<td><b>Read/Write</b></td>
+	<td>
+	    Contains the velocity of the current point.
+	</td>
+      </tr>
+      <tr>
+	<td><b>accel</b></td>
+	<td><b>vector</b></td>
+	<td><b>Read/Write</b></td>
+	<td>
+	    Contains the acceleration of the current point.
+	</td>
+      </tr>
+      <tr>
+	<td><b>Cd</b></td>
+	<td><b>vector</b></td>
+	<td><b>Read/Write</b></td>
+	<td>
+	    Contains the color (RGB) of the current point.
+	</td>
+      </tr>
+      <tr>
+	<td><b>id</b></td>
+	<td><b>int</b></td>
+	<td><b>Read/Write</b></td>
+	<td>
+	    Contains the value of the id attribute.<br>
+	    <b>WARNING</b> If this value is modified, it is possible
+	    to generate duplicate id's for particles.
+	</td>
+      </tr>
+      <tr>
+	<td><b>age</b></td>
+	<td><b>float</b></td>
+	<td><b>Read/Write</b></td>
+	<td>
+	    Contains the age associated with the current point.  This
+	    represents how many seconds a particle has been alive.
+	</td>
+      </tr>
+      <tr>
+	<td><b>life</b></td>
+	<td><b>float</b></td>
+	<td><b>Read/Write</b></td>
+	<td>
+	    Contains the expected lifetime (in seconds) of the current
+	    point.  It is possible that a particle may die earlier
+	    than expected (if a collision or some other event occurs).
+	</td>
+      </tr>
+      <tr>
+	<td><b>pstate</b></td>
+	<td><b>int</b></td>
+	<td><b>Read/Write</b></td>
+	<td>
+	    Contains the state of the current particle.  This is an
+	    integer bit field which has the following bits defined:
+	    <menu>
+		<li> <b>0x01</b>  - The particle is a "primary"
+		    particle (not birthed off an existing particle).
+		<li> <b>0x02</b>  - The particle will die before the
+		    next frame.
+		<li> <b>0x04</b>  - The particle is flagged as
+		    stopped.
+		<li> <b>0x08</b>  - The particle has collided
+		<li> <b>0x10</b>  - The particle is stuck to static or
+		    moving geometry.
+		<li> <b>0x20</b>  - The particle is associated with a
+		    rigid body dynamic simulation.
+		<li> <b>0x40</b>  - The particle is currently active
+		<li> <b>0x80</b>  - The particle motion is overridden
+		    by a CHOP.
+	    </menu>
+	    The bit-field associated with this variable may change in
+	    the future.  Please see <b>$HFS/houdini/vex/include/pop.h</b>
+	</td>
+      </tr>
+</table></center>
+
+
+<a name="ctx_popfunc">
+<h3> POP/SOP Specific Functions </h3>
+<menu>
+    <a name="fn_addattribute">
+    <li><b>void addattribute(string aname; int value; ...)</b><br>
+        <b>void addattribute(string aname; float value; ...)</b><br>
+        <b>void addattribute(string aname; vector value; ...)</b><br>
+        <b>void addattribute(string aname; vector4 value; ...)</b><br>
+        <b>void addattribute(string aname; matrix3 value; ...)</b><br>
+        <b>void addattribute(string aname; matrix value; ...)</b><br>
+	This function will add a new point attribute (or write to an
+	existing attribute).  The value of the attribute will be set
+	to the value passed in.<p>
+
+	In Houdini, there are some additional type qualifiers on
+	attributes.  The addattribute() function will scan the
+	variadic arguments for keywords to specify these additional
+	type qualifiers.  The keywords which are meaningful are:
+
+<center><table border=1>
+    <tr bgcolor=black>
+	<td><font color=white><b>Keyword</b></font></td>
+	<td><font color=white><b>Meaning</b></font></td>
+    </tr>
+    <tr>
+	<td> <b>vector</b> </td>
+	<td>
+	    Instead of an array of 3 floats, this attribute should
+	    have special consideration when the geometry is
+	    transformed.  Examples of <b>vector</b> attributes are
+	    <b>N</b> and <b>v</b>.<br>
+	    This qualifier is only valid when the attribute being
+	    added is a <b>vector</b>.
+	</td>
+    </tr>
+    <tr>
+	<td> <b>indexpair</b> </td>
+	<td>
+	    The attribute should be considered as a set of index
+	    pairs.  Currently, only the <b>capture</b> attributes are this
+	    type of attribute.<br>
+	    This qualifier is only valid when the attribute being
+	    added is a <b>vector4</b> or <b>matrix</b> since an even
+	    number of floats should be specified.
+	</td>
+    </tr>
+</table></center><p>
+
+
+    <a name="fn_addvariablename">
+    <li><b>void addvariablename(string aname; string vname)</b><br>
+	This function will add the mapping of the attribute aname to
+	the local variable vname.  In SOPs that support this, such as
+	the Point SOP, one will then have the local variable $vname
+	reference the attribute aname.  This emulates the behaviour of
+	the AttribCreate SOP.<p>
+    <a name="fn_newgroup">
+    <li><b>void newgroup(string group_name)</b><br>
+	This will create a new group in which to put particles.<p>
+    <a name="fn_addgroup">
+    <li><b>void addgroup(string group_name; int point_number)</b><br>
+	Adds the particle specified by point_number to the group
+	specified.  The point_number is not the id of the particle,
+	but rather the geometry point associated with the particle.<p>
+    <a name="fn_ingroup">
+    <li><b>int ingroup(string group_name; int point_number)</b><br>
+	Returns 1 if the particle specified by the point number is in
+	the group specified by the string.  This function returns 0 if
+	the group doesn't exist or the point is not contained in the
+	group.<p>
+    <a name="fn_getbbox">
+    <li><b>void getbbox(vector &min, &max)</b><br>
+	This will return two vectors representing the minimum and
+	maximum corners of the bounding box for the entire
+	geometry.<p>
+    <a name="fn_relbbox">
+    <li><b>vector relbbox(vector position)</b><br>
+	This will return the relative position of the point given with
+	respect to the bounding box of the entire geometry.  This is
+	equivalent to getting $BBX, $BBY, $BBZ in the point SOP.<p>
+    <a name="fn_computenormal">
+    <li><b>void computenormal(int state)</b><br>
+	The VEX context attempts to be intelligent about normals on
+	the geometry.  If:<ol>
+	    <li> A normal attribute exists on the geometry before cooking
+	    <li> The position (<b>P</b>) is modified by the VEX code
+	    <li> The normal (<b>N</b>) is <i>not</i> modified by the
+		VEX code
+	</ol>
+	then the VEX cooker will assume that the normal is out-of-date
+	and re-compute it.  In most cases, this is the desired
+	behaviour.  However, in some cases, this is not desired.  The
+	<b>computenormal()</b> function allows some control over this
+	behaviour.  The <b>state</b> parameter passed into the
+	function behaves as follows:
+	<menu>
+	    <li> <b>0</b> - normals will be un-modified at the
+		conclusion of the cook.
+	    <li> <b>1</b> - normals will be re-computed if the cooker
+		believes they are required.
+	    <li> <b>2</b> - normals will be forcibly computed
+		regardless of whether they need to be re-computed or not.
+	</menu>
+	Note:  This function is performed at the conclusion of the
+	cook and thus, this function has no effect on the state of the
+	<b>N</b> variable during execution of VEX code.<p>
+</menu>
+
+<h3> SOP specific functions </h3>
+The SOP Context has some additional functions which the POP context
+does not have.  This is because VEX SOPs allow for multiple inputs,
+whereas the POPs only allow one input.  The additional functions are:
+
+<a name="ctx_sopfunc">
+<menu>
+    <a name="fn_isconnected">
+    <li><b>int isconnected(int input_number)</b><br>
+	This function returns 1 if a geometry is available on the
+	input number specified.  Input numbers start at 0.<p>
+    <a name="fn_npoints">
+    <li><b>int npoints(int input_number)</b><br>
+	This function returns the number of points in the input
+	specified.  This function will return 0 if there is no input
+	connected.<p>
+    <a name="fn_getneighbourcount">
+    <li><b>int getneighbourcount(int ptnum, int inputnum)</b><br>
+	This function returns the number of points that are connected
+	to the specified point.  A point is considered connected if it
+	is adjacent in some polygon, or is one of the four surrounding
+	points in a grid or NURBs surface.  This function will return
+	0 if there is no input, or the point number is out of range.<p>
+    <a name="fn_getneighbour">
+    <li><b>int getneighbour(int ptnum, int neighbournum, int inputnum)</b><br>
+	This function returns the point index of the given neighbour
+	of the given point.  The order is undefined, but will be
+	consistent for consistent geometry.  This will return -1 if
+	the neighbournum is out of range for that point, or the point
+	is out of range for that input, or the input doesn't exist.<p>
+    <a name="fn_import">
+    <li><b>int import(string attrib_name; int &result; int input)<br>
+	   int import(string attrib_name; float &result; int input)<br>
+	   int import(string attrib_name; vector &result; int input)<br>
+	   int import(string attrib_name; vector4 &result; int input)<br>
+	   int import(string attrib_name; matrix3 &result; int input)<br>
+	   int import(string attrib_name; matrix4 &result; int input)</b><br>
+	<b>int import(string attrib_name; int &result; int input, pt_num)<br>
+	 int import(string attrib_name; float &result; int input, pt_num)<br>
+	 int import(string attrib_name; vector &result; int input, pt_num)<br>
+	 int import(string attrib_name; vector4 &result; int input, pt_num)<br>
+	 int import(string attrib_name; matrix3 &result; int input, pt_num)<br>
+	 int import(string attrib_name; matrix4 &result; int input, pt_num)</b>
+	 <br>
+	 <br>
+	The <b>import()</b> function will import attribute data from
+	the SOP connected to the input specified.  The return code of
+	the function will be 1 if the data was successfully imported
+	or 0 if the import failed.  If the import was successful, the
+	result will be set to the value of the attribute.  Possible
+	reasons for failure are:
+	    <ol>
+		<li> No input is connected to the specified index.
+		<li> The attribute doesn't exist on the input geometry.
+		<li> The attribute size/type doesn't match the VEX type.
+		<li> The input geometry has fewer points than the VEX
+		    SOPs geometry.  Or the point number given is
+		    larger than the number of points in the input.
+	    </ol>
+	There are two forms for the <b>import()</b> function.  The
+	first form will import the attribute data from the current
+	point that the VEX function is working on.  The second form
+	allows you to specify an arbitrary point number of the input.
+	Point numbers are indexed from 0.<p>
+</menu>
+
+<hr>
+<a name="ctx_chop">
+<center><h1>The CHOP Context</h1></center>
+
+The CHOP context allows users to change values of channels in a CHOP.
+Each CHOP function works on a single sample of a single channel of a
+CHOP.<p>
+
+<h3>Global Variables</h3>
+<center><table border=1 cellpadding=5>
+      <tr bgcolor=black>
+	 <td><font color=white><b>Variable</b></font></td>
+	 <td><font color=white><b>Type</b></font></td>
+	 <td><font color=white><b>Read/Write</b></font></td>
+	 <td><font color=white><b>Description</b></font></td>
+      </tr>
+
+      <tr>
+	<td><b>V</b></td>
+	<td><b>float</b></td>
+	<td><b>Read/Write</b></td>
+	<td>
+	    Contains the value of the current sample.  This variable
+	    should be set to the new value by the function.  The
+	    variable is initialized to the value of the first input's
+	    channels.
+	</td>
+      </tr>
+      <tr>
+	<td><b>I</b></td>
+	<td><b>int</b></td>
+	<td><b>Read Only</b></td>
+	<td>
+	    Contains the index or sample number of the current
+	    channel.
+	</td>
+      </tr>
+
+      <tr>
+	<td><b>S</b></td>
+	<td><b>int</b></td>
+	<td><b>Read Only</b></td>
+	<td>
+	    Contains the index of the start of the current channel.
+	    This is the index of the first sample.
+	</td>
+      </tr>
+      <tr>
+	<td><b>E</b></td>
+	<td><b>int</b></td>
+	<td><b>Read Only</b></td>
+	<td>
+	    Contains the index of the last sample (end sample).
+	</td>
+      </tr>
+      <tr>
+	<td><b>SR</b></td>
+	<td><b>float</b></td>
+	<td><b>Read Only</b></td>
+	<td>
+	    Contains the sample rate for the channel.
+	</td>
+      </tr>
+
+      <tr>
+	<td><b>L</b></td>
+	<td><b>int</b></td>
+	<td><b>Read Only</b></td>
+	<td>
+	    Contains the length of the channel (total number of
+	    samples).
+	</td>
+      </tr>
+      <tr>
+	<td><b>C</b></td>
+	<td><b>int</b></td>
+	<td><b>Read Only</b></td>
+	<td>
+	    Contains the channel number for the current channel.  When
+	    processing multiple channels, this is the index of the
+	    channel currently being evaluated.
+	</td>
+      </tr>
+      <tr>
+	<td><b>NC</b></td>
+	<td><b>int</b></td>
+	<td><b>Read Only</b></td>
+	<td>
+	    Contains the total number of channels the CHOP will
+	    affect.
+	</td>
+      </tr>
+</table></center>
+
+<a name="ctx_chopfunc">
+<h3> CHOP Specific Functions </h3>
+<menu>
+    <a name="fn_isconnected_chop">
+    <li><b>int isconnected(int input_number)</b><br>
+	Returns one if the specified input is connected to the CHOP.
+	If the input is not connected, zero will be returned.  Input
+	numbering begins at 0.<p>
+    <a name="fn_chinput">
+    <li><b>float chinput(int input, channel, sample)</b><br>
+	<b>float chinput(int input, channel; float sample)</b><br>
+	Returns the value of a channel at the specified sample in an
+	input.  If the sample is fractional, the value is linearly
+	interpolated from the two nearest points.<p>
+    <a name="fn_chstart">
+    <li><b>int chstart(int input)</b><br>
+	Returns the start sample of the input specified.<p>
+    <a name="fn_chstartt">
+    <li><b>float chstartt(int input)</b><br>
+	Returns the time corresponding to the first sample of the
+	input specified.<p>
+    <a name="fn_chstartf">
+    <li><b>float chstartf(int input)</b><br>
+	Returns the frame corresponding to the first sample of the
+	input specified.<p>
+    <a name="fn_chend">
+    <li><b>int chend(int input)</b><br>
+	Returns the end sample of the input specified.<p>
+    <a name="fn_chendt">
+    <li><b>float chendt(int input)</b><br>
+	Returns the time corresponding to the last sample of the
+	input specified.<p>
+    <a name="fn_chendf">
+    <li><b>float chendf(int input)</b><br>
+	Returns the frame corresponding to the last sample of the
+	input specified.<p>
+    <a name="fn_chrate">
+    <li><b>float chrate(int input)</b><br>
+	Returns the sample rate of the input specified.<p>
+    <a name="fn_chnumchan">
+    <li><b>int chnumchan(int input)</b><br>
+	Returns the number of channels in the input specified.<p>
+    <a name="fn_isframes">
+    <li><b>int isframes()</b><br>
+	Returns 1 if the Vex CHOP's Unit Menu is currently set to
+	'frames', 0 otherwise.
+	otherwise.<p>
+    <a name="fn_isseconds">
+    <li><b>int isseconds()</b><br>
+	Returns 1 if the Vex CHOP's Unit Menu is currently set to
+	'seconds', 0 otherwise
+	otherwise.<p>
+    <a name="fn_issamples">
+    <li><b>int issamples()</b><br>
+	Returns 1 if the Vex CHOP's Unit Menu is currently set to
+	'samples', 0 otherwise
+	otherwise.<p>
+</menu>
+
+<hr>
+<a name="ctx_image3d">
+<center><h1>The 3D Image Context</h1></center>
+</a>
+
+The Image3D context is used by the stand-alone program <b>i3dgen</b>
+to generate 3D texture images.  In turn, these 3D texture images may
+be used by the <a href="functions.html#image3d">texture3d()</a>
+function calls in VEX to efficiently evaluate the 3D texture images.<p>
+
+Any <b>export</b> variables in the image3d context will cause
+additional channels to be created in the 3D texture map.<p>
+
+<h3> Image 3D Specific Statements </h3>
+    In the image3d context, when geometry is specified (i.e. metaball
+    geometry or particles), it is possible to "loop" through all the
+    metaballs which affect a point in space.  The syntax for this type
+    of loop is:<p>
+<listing>
+	forpoints ( position, [distance] )
+	    statement;
+</listing>
+    Where the position is a vector representing a point in space.  The
+    statement in the loop may in fact be multiple statements (like a
+    while or for loop).  The statement will be executed once for each
+    metaball/particle which contains the position passed in.<p>
+
+    If the distance is specified, all metaballs/particles within the
+    distance of the point specified will be iterated through.  The
+    distance parameter is optional and may result in slower execution
+    of the shader.<p>
+
+    Inside the loop, the <b>mdensity</b> and <b>mattrib</b> functions
+    may be called to query the contribution of the current point
+    instead of getting a "blended" value.<p>
+
+    For example, the following code will take the point color of the
+    metaball which contributes the maximum weight to the point in
+    space:
+<listing>
+	float	d = 0, max = 0;
+	vector	clr = 0;
+	vector	blended_color;
+
+	forpoints( P )
+	{
+	    d = mdensity(P);
+	    if (d > max)
+	    {
+		clr = mattrib("Cd", P);
+		max = d;
+	    }
+	}
+	blended_color = d * clr;
+</listing>
+    Note that when calling mattrib() inside of a forpoints() loop, the
+    attribute is not pre-blended by the density of the metaball.
+
+
+<h3>Global Variables</h3>
+<center><table border=1 cellpadding=5>
+      <tr bgcolor=black>
+	 <td><font color=white><b>Variable</b></font></td>
+	 <td><font color=white><b>Type</b></font></td>
+	 <td><font color=white><b>Read/Write</b></font></td>
+	 <td><font color=white><b>Description</b></font></td>
+      </tr>
+
+      <tr>
+	<td><b>P</b></td>
+	<td><b>vector</b></td>
+	<td><b>Read Only</b></td>
+	<td>
+	    Contains the position being evaluated.
+	</td>
+      </tr>
+
+      <tr>
+	<td><b>density</b></td>
+	<td><b>float</b></td>
+	<td><b>Read/Write</b></td>
+	<td>
+	    Specifies the value of the density channel at point
+	    <b>P</b>.
+	</td>
+      </tr>
+
+</table></center>
+<p>
+<a name="ctx_i3dfunc">
+<h3> Image 3D Specific Functions </h3>
+<menu>
+    <a name="fn_mdensity">
+    <li><b>float mdensity(vector P)</b><br>
+	Returns the density of the metaball field if metaball
+	geometry is specified to <b>i3dgen</b>.<p>
+
+    <a name="fn_mattrib">
+    <li><b>float mattrib(string name; vector P)</b><br>
+	<b>vector mattrib(string name; vector P)</b><br>
+	<b>vector4 mattrib(string name; vector P)</b><br>
+	Returns the value of the point attribute for the metaballs if
+	metaball geometry is specified to <b>i3dgen</b>.<p>
+
+    <a name="fn_mspace">
+    <li><b>vector mspace(vector P)</b><br>
+	This function transforms the position specified into the
+	"local" space of the metaball.  This function is only valid
+	inside the <b>forpoints</b> loop construct.  An example use of
+	this function would be to compute noise based on a "rest"
+	position...  For example:
+<listing>
+	forpoints(P) {
+	    vector npos = mspace(P) - mattrib("rest", P);
+	    nval += noise(npos);
+	}
+</listing>
+
+</menu>
+
+
+<!-------------------------------------------------------------------!>
+<br>
+<hr>
+<center>
+<font size=-2>
+  Copyright &#169; 1999-2004 Side Effects Software Inc.<br>
+  477 Richmond Street West, Toronto, Ontario, Canada M5V 3E7
+</font>
+</center>
+
+</body>
+</html>

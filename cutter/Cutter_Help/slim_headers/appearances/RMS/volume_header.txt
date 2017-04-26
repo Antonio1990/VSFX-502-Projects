@@ -1,0 +1,4 @@
+slim 1 appearance slim {
+    instance volume "@SHADER_NAME" "@SHADER_PATH" {
+    description { @SHADER_DESCRIPTION }
+

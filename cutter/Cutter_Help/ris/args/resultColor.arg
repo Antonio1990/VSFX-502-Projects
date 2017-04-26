@@ -1,0 +1,5 @@
+	<output name="resultRGB">
+		<tags>
+			<tag value="color"/>
+		</tags>
+	</output>

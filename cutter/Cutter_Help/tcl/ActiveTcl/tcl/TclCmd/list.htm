@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Built-In Commands - list manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<h3><a name="M2">NAME</a></h3>
+
+<p>list - Create a list</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>list</b> ?<i>arg arg ...</i>?<br>
+</p>
+
+<h3><a name="M4">DESCRIPTION</a></h3>
+
+<p>This command returns a list comprised of all the <i>arg</i>s, or
+an empty string if no <i>arg</i>s are specified. Braces and
+backslashes get added as necessary, so that the <b><a href=
+"../TclCmd/lindex.htm">lindex</a></b> command may be used on the
+result to re-extract the original arguments, and also so that <b><a
+href="../TclCmd/eval.htm">eval</a></b> may be used to execute the
+resulting list, with <i>arg1</i> comprising the command's name and
+the other <i>arg</i>s comprising its arguments. <b>List</b>
+produces slightly different results than <b><a href=
+"../TclCmd/concat.htm">concat</a></b>: <b><a href=
+"../TclCmd/concat.htm">concat</a></b> removes one level of grouping
+before forming the list, while <b>list</b> works directly from the
+original arguments. For example, the command</p>
+
+<pre>
+<b>list a b {c d e} {f {g h}}</b>
+</pre>
+
+<p>will return</p>
+
+<pre>
+<b>a b {c d e} {f {g h}}</b>
+</pre>
+
+<p>while <b><a href="../TclCmd/concat.htm">concat</a></b> with the
+same arguments will return</p>
+
+<pre>
+<b>a b c d e f {g h}</b>
+</pre>
+
+<h3><a name="M5">SEE ALSO</a></h3>
+
+<p><b><a href="../TclCmd/lappend.htm">lappend</a></b>, <b><a href=
+"../TclCmd/lindex.htm">lindex</a></b>, <b><a href=
+"../TclCmd/linsert.htm">linsert</a></b>, <b><a href=
+"../TclCmd/llength.htm">llength</a></b>, <b><a href=
+"../TclCmd/lsearch.htm">lsearch</a></b>, <b><a href=
+"../TclCmd/lset.htm">lset</a></b>, <b><a href=
+"../TclCmd/lsort.htm">lsort</a></b>, <b><a href=
+"../TclCmd/lrange.htm">lrange</a></b>, <b><a href=
+"../TclCmd/lreplace.htm">lreplace</a></b></p>
+
+<h3><a name="M6">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/E.htm#element">element</a>, <a href=
+"../Keywords/L.htm#list">list</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1993 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1996 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 2001 Kevin B. Kenny. All rights reserved.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

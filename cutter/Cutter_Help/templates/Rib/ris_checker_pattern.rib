@@ -1,0 +1,32 @@
+# The manifold can control the repetitions of the checker.
+Pattern "PxrManifold2D" "PxrManifold2D1"
+		"float angle" [0]
+		"float scaleS" [5]
+		"float scaleT" [5]
+		"float offsetS" [0]
+		"float offsetT" [0]
+		"int invertT" [1]
+		"string primvarS" [""]
+		"string primvarT" [""]
+		# "PxrManifold2D1:result"    uses->|struct|manifold| 
+
+Pattern "PxrMayaChecker" "PxrMayaChecker1"
+		"color color1" [1 1 1]
+		"color color2" [0 0 0]
+		"float contrast" [1.0]
+		"int invert" [0]
+		"int alphaIsLuminance" [0]
+		"color defaultColor" [0.5 0.5 0.5]
+		"color colorGain" [1 1 1]
+		"color colorOffset" [0 0 0]
+		"float alphaGain" [1.0]
+		"float alphaOffset" [0]
+		"float filter" [1.0]
+		"float filterOffset" [0]
+		# Example manifold connection
+		"reference struct manifold" ["PxrManifold2D1:result"]
+		# "PxrMayaChecker1:outColor"    uses->|color|vector|normal|point|pattern| 
+
+Bxdf "PxrSurface" "PxrSurface1"
+		"float diffuseGain" [1.0]
+		"reference color diffuseColor" ["PxrMayaChecker1:outColor"]

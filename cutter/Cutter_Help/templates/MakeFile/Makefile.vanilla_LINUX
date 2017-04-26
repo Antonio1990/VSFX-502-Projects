@@ -1,0 +1,16 @@
+STRICT	= -Wall -fPIC
+CFLAGS	= ${STRICT} -g -I/usr/include -I./
+LIBPATH	= 
+LIBS	= 
+OBJS	= _EXE_NAME_.o _OTHER_OBJS_
+
+.cpp.o :
+	_COMPILER_ $(CFLAGS) -c $<	
+.c.o :
+	_COMPILER_ $(CFLAGS) -c $<
+
+all: _EXE_NAME_
+
+_EXE_NAME_: ${OBJS}
+	_COMPILER_ ${CFLAGS} ${LIBPATH} ${LIBS} ${OBJS} -o $@
+	rm ./*.o

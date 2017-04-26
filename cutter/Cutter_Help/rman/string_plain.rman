@@ -1,0 +1,1 @@
+Declare param {string PNAME_STR} {	label "YourStringLabel"	description "No description."	}

@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Tcl Library Procedures - Tcl_DoWhenIdle manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<h3><a name="M2">NAME</a></h3>
+
+<p>Tcl_DoWhenIdle, Tcl_CancelIdleCall - invoke a procedure when
+there are no pending events</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>#include &lt;tcl.h&gt;</b><br>
+<b>Tcl_DoWhenIdle</b>(<i>proc, clientData</i>)<br>
+<b>Tcl_CancelIdleCall</b>(<i>proc, clientData</i>)<br>
+</p>
+
+<h3><a name="M4">ARGUMENTS</a></h3>
+
+<dl>
+<dt>Tcl_IdleProc <b>*proc</b> (in)</dt>
+
+<dd>Procedure to invoke.</dd>
+
+<dt>ClientData <b>clientData</b> (in)</dt>
+
+<dd>Arbitrary one-word value to pass to <i>proc</i>.</dd>
+</dl>
+
+<h3><a name="M5">DESCRIPTION</a></h3>
+
+<p><b>Tcl_DoWhenIdle</b> arranges for <i>proc</i> to be invoked
+when the application becomes idle. The application is considered to
+be idle when <b><a href=
+"../TclLib/DoOneEvent.htm">Tcl_DoOneEvent</a></b> has been called,
+couldn't find any events to handle, and is about to go to sleep
+waiting for an event to occur. At this point all pending
+<b>Tcl_DoWhenIdle</b> handlers are invoked. For each call to
+<b>Tcl_DoWhenIdle</b> there will be a single call to <i>proc</i>;
+after <i>proc</i> is invoked the handler is automatically removed.
+<b>Tcl_DoWhenIdle</b> is only usable in programs that use <b><a
+href="../TclLib/DoOneEvent.htm">Tcl_DoOneEvent</a></b> to dispatch
+events.</p>
+
+<p><i>Proc</i> should have arguments and result that match the type
+<b>Tcl_IdleProc</b>:</p>
+
+<pre>
+typedef void Tcl_IdleProc(ClientData <i>clientData</i>);
+</pre>
+
+<p>The <i>clientData</i> parameter to <i>proc</i> is a copy of the
+<i>clientData</i> argument given to <b>Tcl_DoWhenIdle</b>.
+Typically, <i>clientData</i> points to a data structure containing
+application-specific information about what <i>proc</i> should
+do.</p>
+
+<p><b>Tcl_CancelIdleCall</b> may be used to cancel one or more
+previous calls to <b>Tcl_DoWhenIdle</b>: if there is a
+<b>Tcl_DoWhenIdle</b> handler registered for <i>proc</i> and
+<i>clientData</i>, then it is removed without invoking it. If there
+is more than one handler on the idle list that refers to
+<i>proc</i> and <i>clientData</i>, all of the handlers are removed.
+If no existing handlers match <i>proc</i> and <i>clientData</i>
+then nothing happens.</p>
+
+<p><b>Tcl_DoWhenIdle</b> is most useful in situations where (a) a
+piece of work will have to be done but (b) it's possible that
+something will happen in the near future that will change what has
+to be done or require something different to be done.
+<b>Tcl_DoWhenIdle</b> allows the actual work to be deferred until
+all pending events have been processed. At this point the exact
+work to be done will presumably be known and it can be done exactly
+once.</p>
+
+<p>For example, <b>Tcl_DoWhenIdle</b> might be used by an editor to
+defer display updates until all pending commands have been
+processed. Without this feature, redundant redisplays might occur
+in some situations, such as the processing of a command file.</p>
+
+<h3><a name="M6">BUGS</a></h3>
+
+<p>At present it is not safe for an idle callback to reschedule
+itself continuously. This will interact badly with certain features
+of Tk that attempt to wait for all idle callbacks to complete. If
+you would like for an idle callback to reschedule itself
+continuously, it is better to use a timer handler with a zero
+timeout period.</p>
+
+<h3><a name="M7">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/C.htm#callback">callback</a>, <a href=
+"../Keywords/D.htm#defer">defer</a>, <a href=
+"../Keywords/I.htm#idle callback">idle callback</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1990 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1996 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

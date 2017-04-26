@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Built-In Commands - foreach manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<h3><a name="M2">NAME</a></h3>
+
+<p>foreach - Iterate over all elements in one or more lists</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>foreach</b> <i>varname list body</i><br>
+<b>foreach</b> <i>varlist1 list1</i> ?<i>varlist2 list2 ...</i>?
+<i>body</i><br>
+</p>
+
+<h3><a name="M4">DESCRIPTION</a></h3>
+
+<p>The <b>foreach</b> command implements a loop where the loop
+variable(s) take on values from one or more lists. In the simplest
+case there is one loop variable, <i>varname</i>, and one list,
+<i>list</i>, that is a list of values to assign to <i>varname</i>.
+The <i>body</i> argument is a Tcl script. For each element of
+<i>list</i> (in order from first to last), <b>foreach</b> assigns
+the contents of the element to <i>varname</i> as if the <b><a href=
+"../TclCmd/lindex.htm">lindex</a></b> command had been used to
+extract the element, then calls the Tcl interpreter to execute
+<i>body</i>.</p>
+
+<p>In the general case there can be more than one value list (e.g.,
+<i>list1</i> and <i>list2</i>), and each value list can be
+associated with a list of loop variables (e.g., <i>varlist1</i> and
+<i>varlist2</i>). During each iteration of the loop the variables
+of each <i>varlist</i> are assigned consecutive values from the
+corresponding <i>list</i>. Values in each <i>list</i> are used in
+order from first to last, and each value is used exactly once. The
+total number of loop iterations is large enough to use up all the
+values from all the value lists. If a value list does not contain
+enough elements for each of its loop variables in each iteration,
+empty values are used for the missing elements.</p>
+
+<p>The <b><a href="../TclCmd/break.htm">break</a></b> and <b><a
+href="../TclCmd/continue.htm">continue</a></b> statements may be
+invoked inside <i>body</i>, with the same effect as in the <b><a
+href="../TclCmd/for.htm">for</a></b> command. <b>Foreach</b>
+returns an empty string.</p>
+
+<h3><a name="M5">EXAMPLES</a></h3>
+
+<p>The following loop uses i and j as loop variables to iterate
+over pairs of elements of a single list.</p>
+
+<pre>
+set x {}
+foreach {i j} {a b c d e f} {
+    lappend x $j $i
+}
+# The value of x is "b a d c f e"
+# There are 3 iterations of the loop.
+</pre>
+
+<p>The next loop uses i and j to iterate over two lists in
+parallel.</p>
+
+<pre>
+set x {}
+foreach i {a b c} j {d e f g} {
+    lappend x $i $j
+}
+# The value of x is "a d b e c f {} g"
+# There are 4 iterations of the loop.
+</pre>
+
+<p>The two forms are combined in the following example.</p>
+
+<pre>
+set x {}
+foreach i {a b c} {j k} {d e f g} {
+    lappend x $i $j $k
+}
+# The value of x is "a d e b f g c {} {}"
+# There are 3 iterations of the loop.
+</pre>
+
+<h3><a name="M6">SEE ALSO</a></h3>
+
+<p><b><a href="../TclCmd/for.htm">for</a></b>, <b><a href=
+"../TclCmd/while.htm">while</a></b>, <b><a href=
+"../TclCmd/break.htm">break</a></b>, <b><a href=
+"../TclCmd/continue.htm">continue</a></b></p>
+
+<h3><a name="M7">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/F.htm#foreach">foreach</a>, <a href=
+"../Keywords/I.htm#iteration">iteration</a>, <a href=
+"../Keywords/L.htm#list">list</a>, <a href=
+"../Keywords/L.htm#looping">looping</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1993 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1996 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

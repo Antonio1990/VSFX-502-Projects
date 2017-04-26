@@ -1,0 +1,1 @@
+Declare param {string PNAME_GDMap} {	label "Bake"	subtype connection	range {		pass:render:RenderRadiosity		pass:command:MakeApproxGlobalDiffuse		pass:command:MakeGlobalDiffuse3d 		}	}

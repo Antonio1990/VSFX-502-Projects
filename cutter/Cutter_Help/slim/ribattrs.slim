@@ -1,0 +1,334 @@
+ribattribute color Cs {
+	label Cs
+	description {The RenderMan Surface Color Attribute.
+				Note that some shaders don't automatically use
+				this value.  You may need to explicitly choose
+				Surface Color as the parameter value.
+				}
+	default {1 1 1}
+	}
+---
+ ribattribute color Os {
+	label Os
+	description {The RenderMan Surface Opacity Attribute.
+				Note that some shaders don't automatically use
+				this value.  You may need to explicitly choose
+				Surface Opacity as the parameter value.
+				}
+	default {1 1 1}
+	}
+---
+ribattribute float ShadingRate {
+	label "Shading Rate"
+	description {Controls the quality of the shader evaluation
+				on a per-ensemble basis. If 0, the global value will be
+				used. Generally you'll only want to use this value in
+				the rare case that you want to override the global
+				behavior.
+				}
+	range {0 1000 .05}
+	default 0
+	subtype vslider
+	}
+---
+ribattribute float displacementbound {
+	label "Displacement Bound"
+	description {This number represents the maximum displacement
+				in shaderspace that your surface will undergo.  Be very
+				careful with this parameter as it can dramatically
+				influence rendering times.  In particular, make SURE to
+				set this to 0 (zero) if you aren't performing any displacement.
+				}
+	default 0
+	range {0 1000 .005}
+	subtype vslider
+	}
+---
+ribattribute float Scale {
+	description {An additional uniform scale factor applied
+				on top of the optional coordinate system.
+				}
+	default 1
+	subtype vslider
+	range {0 100 .01}
+	}
+---
+ribattribute string CoordSysTransform {
+	label "Shader Space"
+	description {The coordinate system in which a shader is defined.
+				Most shaders perform important calculations relative to
+				this space and so transforming it affects their appearance.
+				If empty, the shader space is the object space associated
+				with the attached primitive.  Place the name of a
+				coordinate system object here to set the shader space
+				for the shader.  If you're using file referencing, use
+				the \"coordsys\" function to translate the name of the
+				coordinate system (eg: \[coordsys mtorCoordSysShape10\].}
+				}
+---
+torattribute int EmitsPhotons {
+	label {Emits Photons}
+	description {This attribute determines whether a light should take
+				part in photon map generation.  Light sources that don't
+				emit real illumination (like indirect) should NOT take
+				part in photon map generation since their purpose is
+				to collect illuminance information in other contexts.
+				}
+	subtype switch
+	default 0
+	}
+---
+ribattribute int sides:doubleshaded {
+	label "Double Shade"
+	description {Controls whether a primitive should be shaded twice.
+				Usually you'll want this set to off.  If you
+				wish to introduce thickness on a
+				primitive without explicitly modeling it,
+				then this is the attribute for you!
+				}
+	default 0
+	subtype switch
+	}
+----------
+ribattribute int trace:samplemotion {
+	label "Sample Motion"
+	description {Controls whether motion blurred objects appear in 
+				ray traced results.  If your reflective object is 
+				moving or deforming you should disable this parameter 
+				to avoid self-intersection artifacts.  If your mirror 
+				isn't moving, set this to 1 to see the reflected 
+				objects properly blurred.
+				}
+	subtype switch
+	default 0
+	}
+---
+ribattribute int trace:displacements {
+	label "Trace Displacements"
+	description {Controls whether to run displacement shaders to
+				determine ray intersection points.  Disabling this
+				option will result in a bump-mapped appearance and
+				make your renders faster.  Only enable this if you
+				need to run displacements on the associated primitives.
+				}
+	subtype switch
+	default 0
+	}
+---
+ribattribute float trace:bias {
+	label "Trace Bias"
+	description {Specifies a "fudge factor" for ray intersections.
+				This bias value is added to the ray origin
+				(and endpoint for shadows) to reduce artifacts
+				pertaining to numerial precision limitations
+				and self-intersection.  Set this value to
+				0 to inherit the scene-wide default trace bias.
+				}
+	default 0
+	subtype vslider
+	range {0 100 .00005}
+	}
+---
+ribattribute int trace:maxspeculardepth {
+	label "Max Specular Depth"
+	description {Limits the number of reflection and refraction ray 
+				bounces relative to the associated primitive. The
+				behavior of this setting can be confusing when you
+				consider that it might have different settings along
+				a particular ray path.  Lower numbers result in fewer
+				bounces and faster renders.  Usually you'll want to set
+				this value to 1 or 2 but you should set this value
+				to the lowest number that gives you the 
+				inter-reflection effects you need. Setting this value 
+				to -1 results in the default specular ray depth limit
+				}
+	default -1
+	subtype slider
+	range {-1 9 1}
+	}
+---
+ribattribute int trace:maxdiffusedepth { 
+	label "Max Diffuse Depth"
+	description {Limits the number of soft indirect ray bounces relative 
+				to the associated primitive. The soft indirect rays are 
+				used to estimate color bleeding and similar effects.  
+				The default limit of 1 implies that we should only look 
+				a single bounce away to determine color bleeding. The 
+				behavior of this setting can be confusing when you 
+				consider that there might be different settings along 
+				a particular ray path.  Lower numbers result in fewer
+				bounces and faster renders.  Usually you'll want to set
+				this value to 1 but you should set this value to the 
+				lowest number that gives you the inter-reflection 
+				effects you need. When used with global photon maps
+				you should never need to set this to a value greater than
+ 				1. Setting this value to -1 results in the default 
+				diffuse ray depth limit.
+				}
+	default -1
+	subtype slider
+	range {-1 9 1}
+	}
+----------
+ribattribute string "shade:strategy" {
+	label "Shading Strategy"
+	description {Selects a strategy for where in the rendering
+				pipeline to shade geometry.  The traditional
+				strategy, grids, causes shading to occur on
+				micropolygon vertices.  The vpvolumes strategy
+				causes volume shdaders of type Atmosphere and
+				Interior to be computed after visibility is
+				determined. Because of this certain volumetric
+				affects are possible without ray tracing enabled.
+				}
+	default "(inherited)"
+	subtype selector
+	range {
+		Inherit "(inherited)"
+		Grids grids
+		VPVolumes vpvolumes
+		}
+	}
+---
+ribattribute string "shade:volumeintersectionstrategy" {
+	label "Interior Intersection"
+	description {Allows regions with overlapping Interior shaders to
+				combine  their effects.  In conjunction with the
+				Intersection Priority the Strategy allows you to
+				describe complicated interactions between Interior
+				shaders.
+				}
+	subtype selector
+	default "(inherited)"
+	range {
+		Inherit "(inherited)"
+		Additive additive
+		Exclusive exclusive
+		}
+	}
+---
+ribattribute float "shade:volumeintersectionpriority" {
+	description {Sets the priority of an Interior volume when it
+				overlaps other Interior regions.  In conjunction
+				with Intersction Strategy,  the Priority allows
+				you to describe complicated interactions between
+				Interior shaders.
+				}
+	label "Interior Priority"
+	default 0
+	subtype slider
+	range {0 100 1}
+	}
+---
+ribattribute string shade:transmissionhitmode { 
+	label "Transmission Hit Mode"
+	description {
+                Provides limited control over whether or not shaders will 
+                actually execute at the attached object's shading points 
+                ("hits"). The renderer generates shading points for objects 
+                seen directly by the camera, and also at the points where 
+                rays from ray-tracing functions intersect objects. These 
+                attributes are typically used to control shading expense 
+                at ray hit points. Full shading is typically desirable 
+                in very coherent (specular) secondary reflections; if 
+                the same objects are also sampled by very diffuse rays, 
+                then expensive full shading may not be necessary in those 
+                contexts.
+				}
+	default primitive 
+	subtype selector
+	range {
+			shader shader
+			primitive primitive
+			}
+	}
+----------
+ribattribute float volume:depthrelativeshadingrate {
+	label "Depth Relative Shading Rate"
+	description {This attributes allow for anisotropic shading rates
+				through the volume. By default, shading rates are
+				isotropic: the shading rate in depth is the same as that
+				for the shading rate perpendicular to the camera or
+				incoming ray and is specified by ShadingRate. If a
+				depthrelativeshadingrate  attribute is specified, then
+				this number multiplies the current ShadingRate
+				independently from relativeshadingrate  and the product
+				determines the actual shading rate in depth of the
+				volumetric. This can be used to accelerate volumetric
+				rendering. Note that when this attribute is used the
+				resulting voxels can be very stretched and may be very
+				difficult to antialias correctly. 
+				}
+	range {1 10 1}
+	default 3
+	}
+---
+ribattribute string volume:depthinterpolation { 
+	label "Depth Interpolation"
+	description {This attribute controls the interpolation of color on
+				voxels in the dimension parallel to the camera. The
+				default value is "smooth", which leads to a result akin
+				to performing a piecewise trapezoidal integration of
+				the volume elements along the depth of the volume. If
+				your shader performs its own integration within the
+				volume element along the depth, it may be more
+				appropriate to perform a piecewise rectangular
+				integration, in which case you would choose to use
+				"constant"  for the depth interpolation.
+				}
+	subtype selector
+	range { Constant constant Smooth smooth }
+	default smooth
+	}
+----------
+
+ribattribute string "dice:strategy" {
+	label "Dicing Strategy"
+	default "(inherited)"
+	description {Controls the metric used to decide how
+				to tesselate geometry into micropolygons.
+				Spherical was intruduced in prman 12
+				and may has better properties when
+				geometry crosses the eye plane.
+				}
+	subtype selector
+	range {
+		Inherit "(inherited)"
+		Planar planarprojection
+		Spherical sphericalprojection
+		}
+	}
+---
+ribattribute string "dice:referencecamera" {
+	label "Dicing Camera"
+	default "(inherited)"
+	subtype selector
+	description {Selects the camera to use to make tesselation
+				decisions. Unless you've gone to the trouble
+				to define a multiframe camera, you should 
+				leave this at (inherited). 
+				}
+	range {
+		Inherit "(inherited)"
+		viewing worldcamera
+		multiframe framecamera
+		}
+	}
+---
+
+ribattribute string photon:shadingmodel {
+	label {Shading Model}
+	description {Specifies a simplified shading model to employ
+				when tracing photons.
+				}
+	subtype selector
+	range { Glass glass
+			Water water
+			Chrome chrome
+			Matte matte
+			Transparent transparent
+			(inherited) (inherited)
+			}
+	default (inherited)
+	}
+---

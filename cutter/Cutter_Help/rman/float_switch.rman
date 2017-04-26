@@ -1,0 +1,1 @@
+Declare param {float PNAME_FLOAT} {	label "YourSwitchLabel"	description "No description."	subtype switch	}

@@ -1,0 +1,157 @@
+AttributeBegin
+#Handle - Test ------------------------------
+	#AttributeBegin
+	#TransformBegin
+		#Translate 0 1 -0.25
+		#Rotate 180 0 1 0
+		#Rotate -25 1 0 0
+		#Scale 0.25 0.25 1.5
+		#Paraboloid 1.0 0.15 1.2 360 
+	#TransformEnd
+	#AttributeEnd
+#Pot Main base ----------------------------------------------------	
+	# Main Container Sphere
+	AttributeBegin
+	TransformBegin
+		Translate 0 1 0
+		Rotate 90 1 0 0
+		Scale 1 1 0.85
+		Sphere 1 -0.8 0.8 360
+	TransformEnd
+	AttributeEnd
+	
+	AttributeBegin
+	TransformBegin
+		Translate 0 1 0
+		Rotate 90 1 0 0
+		Scale 0.9 0.9 0.85
+		Sphere 1 -0.8 0.5 360
+	TransformEnd
+	AttributeEnd
+	
+#Top Lid ----------------------------------------------------	
+	#Lid side-cylinder
+	AttributeBegin
+	TransformBegin
+		Translate 0 1.8 0
+		Rotate -90 1 0 0
+		Scale 1 1 1
+		Cylinder 0.5 0 0.05 360
+	TransformEnd
+	AttributeEnd
+	
+	#Lid-FlatTop
+	AttributeBegin
+	TransformBegin
+		Translate 0 1.55 0
+		Rotate -90 1 0 0
+		Scale 0.5 0.5 1
+		Hyperboloid -0.2 1.0 0.28 -0.1 0.8 0.3 360
+	TransformEnd
+	AttributeEnd
+	
+	#Lid-TopBell
+	AttributeBegin
+	TransformBegin
+		Translate 0 2.05 0
+		Rotate 90 1 0 0
+		Scale 1 1 1
+		Paraboloid 0.45 0.0 0.2 360
+	TransformEnd
+	AttributeEnd
+	
+#Bevelled lip ------------------------------------------------
+	#Lip Torus
+	AttributeBegin
+	TransformBegin
+		Translate 0 1.8 0
+		Rotate 90 1 0 0
+		Scale -0.7 -0.7 -0.7
+		Torus 0.85 0.1 0 180 360 
+	TransformEnd
+	AttributeEnd
+	
+	#Inward Curve
+	AttributeBegin
+	TransformBegin
+		Translate 0 1.7 0
+		Rotate 90 1 0 0
+		Scale 0.65 0.65 0.1
+		Hyperboloid -0.2 1.0 -1.0 0.7 0.8 1.0 360  
+	TransformEnd
+	AttributeEnd
+	
+#Spout
+#AttributeBegin
+# Spout Piece 01 -------------------------------------------
+	#AttributeBegin
+		#TransformBegin
+			#Translate 1.4 1.5 0
+			#Rotate 180 0 1 0
+			#Rotate 90 0 1 0
+			#Rotate 25 1 0 0
+			#Scale 0.25 0.25 0.5
+			#Paraboloid 1.5 0.15 1.2 360 
+	#TransformEnd
+	#AttributeEnd
+# Spout Piece 02 -------------------------------------------	
+	#AttributeBegin
+		#TransformBegin
+			#Translate 1.4 1.5 0
+			#Rotate 180 0 1 0
+			#Rotate 90 0 1 0
+			#Rotate 25 1 0 0
+			#Scale 0.25 0.25 0.5
+			#Paraboloid 1.5 0.15 1.2 360 
+	#TransformEnd
+	#AttributeEnd
+	
+# Handle ---------------------------------------------------	
+	#Handle Top-Torus
+	AttributeBegin
+		TransformBegin
+			Translate 1.1 1.2 0
+			Rotate 0 0 1 0
+			Scale 1.2 1.2 1
+			Torus 0.3 0.08 0 360 180  
+	TransformEnd
+	AttributeEnd
+	
+	#Handle Bottom-Torus
+	#AttributeBegin
+		#TransformBegin
+			#Translate 0.85 0.85 0
+			#Rotate 180 0 0 1
+			#Scale 1.2 1.2 1
+			#Torus 0.3 0.08 0 360 135  
+	#TransformEnd
+	#AttributeEnd
+	
+	#Handle MidCurve-Torus
+	AttributeBegin
+	TransformBegin
+			Translate 1.1 1.2 0
+			Rotate 320 0 0 1
+			Scale 1.2 1.2 1
+			Torus 0.3 0.08 0 360 45  
+	TransformEnd
+	AttributeEnd
+	
+	#Handle Mid-Cylinder
+	AttributeBegin
+	TransformBegin
+			Translate 0.9 1.0 0
+			Rotate 275 0 0 1
+			Rotate 0 0 0 1
+			Scale 1.2 1.2 1
+			Translate -0.5 -0.17 0.0
+			Torus 0.8 0.08 0 360 45  
+	TransformEnd
+	AttributeEnd
+	
+	
+	
+#AttributeEnd
+	
+	
+AttributeEnd

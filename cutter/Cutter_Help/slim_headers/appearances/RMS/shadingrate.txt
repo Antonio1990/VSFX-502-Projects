@@ -1,0 +1,1 @@
+    #attribute float ShadingRate {    #    default 1    #    range {0 1000 .05}    #    subtype vslider    #    label {Shading Rate}    #    description {If 0, the global value will be used. Set a value to override the global value.}    #}

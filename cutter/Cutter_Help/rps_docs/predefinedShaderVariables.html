@@ -1,0 +1,781 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Pre-defined Shader Variables</TITLE>
+<LINK rel=StyleSheet href="RELATIVE_PATH.css" TYPE="text/css" TITLE="YOUR_STYLE_NAME">
+	
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+	
+	<TABLE BORDER="0" CELLSPACING="0">
+		<TD WIDTH="50" NOWRAP> <!-- GUTTER --></TD>
+		<TD WIDTH="550" NOWRAP>
+			<B>
+			<CODE><FONT COLOR="#ff0000">The information in this document has been taken from the Pixar 
+			RenderMan Pro-Server document "shadingProcessOverview.html". You are strongly advised to
+			review the information in that document.</FONT></CODE>
+			</B>
+			<h4>Surface Shaders</h4>
+			<p>The geometry is characterized by the surface position P which is a
+			function of the surface parameters <em>(u,v)</em>. The rate of change of
+			surface parameters are available as <em>(du,dv)</em>. The parametric
+			derivatives of position are also available as <em>dPdu</em> and <em>dPdv</em>. The actual
+			change in position between points on the surface is given by
+			<tt class="docutils literal"><span class="pre">P(u+du)=P+dPdu*du</span></tt> and <tt class="docutils literal"><span class="pre">P(v+dv)=P+dPdv*dv</span></tt>. The calculated geometric
+			normal perpendicular to the tangent plane at P is Ng. The shading normal N is
+			initially set equal to Ng unless normals are explicitly provided with the
+			geometric primitive. The shading normal can be changed freely; the geometric
+			normal is automatically recalculated by the renderer when P changes, and
+			cannot be changed by shaders. The texture coordinates are available as
+			<em>(s,t)</em>. <a class="reference external" href="#figure-12-1">Figure 3</a> shows a small surface element and its associated state.</p>
+			<p>The optical environment in the neighborhood of a surface is described by
+			the incident ray <tt class="docutils literal"><span class="pre">I</span></tt> and light rays <tt class="docutils literal"><span class="pre">L</span></tt>. The incoming rays come either
+			directly from light sources or indirectly from other surfaces. The direction
+			of each of these rays is given by <tt class="docutils literal"><span class="pre">L</span></tt>; this direction points from the
+			surface towards the source of the light. A surface shader computes the
+			outgoing light in the direction <tt class="docutils literal"><span class="pre">-I</span></tt> from all the incoming light. The color
+			and opacity of the outgoing ray is <tt class="docutils literal"><span class="pre">Ci</span></tt> and <tt class="docutils literal"><span class="pre">Oi</span></tt>. (Rays have an opacity so
+			that compositing can be done after shading. In a ray tracing environment,
+			opacity is normally not computed.) If either <tt class="docutils literal"><span class="pre">Ci</span></tt> or <tt class="docutils literal"><span class="pre">Oi</span></tt> are not set,
+			they default to black and opaque, respectively.</p>
+			<div align="center" class="figure" id="figure-12-1">
+			<img alt="images/Figure.12.1.big.gif" src="images/Figure.12.1.big.gif" />
+			<p class="caption"><strong>Figure 3:</strong> <em>Surface shader state</em></p>
+			</div>
+			<A NAME="table-12-1"></A>
+			<table border="1" class="data-list docutils" id="table-12-1">
+			<caption><strong>Predefined Surface Shader Variables</strong></caption>
+			<colgroup>
+			<col width="15%" />
+			<col width="15%" />
+			<col width="20%" />
+			<col width="50%" />
+			</colgroup>
+			<thead valign="bottom">
+			<tr><th class="head">Name</th>
+			<th class="head">Type</th>
+			<th class="head">Storage Class</th>
+			<th class="head">Description</th>
+			</tr>
+			</thead>
+			<tbody valign="top">
+			<tr><td><tt class="docutils literal"><span class="pre">Cs</span></tt></td>
+			<td><em>color</em></td>
+			<td>varying/uniform</td>
+			<td>Surface color</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">Os</span></tt></td>
+			<td><em>color</em></td>
+			<td>varying/uniform</td>
+			<td>Surface opacity</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">P</span></tt></td>
+			<td><em>point</em></td>
+			<td>varying</td>
+			<td>Surface position</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">dPdu</span></tt></td>
+			<td><em>vector</em></td>
+			<td>varying</td>
+			<td>Derivative of surface position along <em>u</em></td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">dPdv</span></tt></td>
+			<td><em>vector</em></td>
+			<td>varying</td>
+			<td>Derivative of surface position along <em>v</em></td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">N</span></tt></td>
+			<td><em>normal</em></td>
+			<td>varying</td>
+			<td>Surface shading normal</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">Ng</span></tt></td>
+			<td><em>normal</em></td>
+			<td>varying/uniform</td>
+			<td>Surface geometric normal</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">u,v</span></tt></td>
+			<td><em>float</em></td>
+			<td>varying</td>
+			<td>Surface parameters</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">du,dv</span></tt></td>
+			<td><em>float</em></td>
+			<td>varying/uniform</td>
+			<td>Change in surface parameters</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">s,t</span></tt></td>
+			<td><em>float</em></td>
+			<td>varying</td>
+			<td>Surface texture coordinates</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">L</span></tt></td>
+			<td><em>vector</em></td>
+			<td>varying/uniform</td>
+			<td>Incoming light ray direction <a class="footnote-reference" href="#id4" id="id1">[1]</a></td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">Cl</span></tt></td>
+			<td><em>color</em></td>
+			<td>varying/uniform</td>
+			<td>Incoming light ray color <a class="footnote-reference" href="#id4" id="id2">[1]</a></td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">Ol</span></tt></td>
+			<td><em>color</em></td>
+			<td>varying/uniform</td>
+			<td>Incoming light ray opacity <a class="footnote-reference" href="#id4" id="id3">[1]</a></td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">E</span></tt></td>
+			<td><em>point</em></td>
+			<td>uniform</td>
+			<td>Position of the eye</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">I</span></tt></td>
+			<td><em>vector</em></td>
+			<td>varying</td>
+			<td>Incident ray direction</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">ncomps</span></tt></td>
+			<td><em>float</em></td>
+			<td>uniform</td>
+			<td>Number of color components</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">time</span></tt></td>
+			<td><em>float</em></td>
+			<td>varying</td>
+			<td>Current shutter time</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">dtime</span></tt></td>
+			<td><em>float</em></td>
+			<td>varying</td>
+			<td>The amount of time covered by this shading sample</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">dPdtime</span></tt></td>
+			<td><em>vector</em></td>
+			<td>varying</td>
+			<td>How the surface position P is changing per unit time, as described by
+			motion blur in the scene.</td>
+			</tr>
+			<tr><td><strong>Result Variables</strong></td>
+			<td><div class="first last line-block">
+			<div class="line"><br /></div>
+			</div>
+			</td>
+			<td><div class="first last line-block">
+			<div class="line"><br /></div>
+			</div>
+			</td>
+			<td><div class="first last line-block">
+			<div class="line"><br /></div>
+			</div>
+			</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">Ci</span></tt></td>
+			<td><em>color</em></td>
+			<td>varying</td>
+			<td>Incident ray color</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">Oi</span></tt></td>
+			<td><em>color</em></td>
+			<td>varying</td>
+			<td>Incident ray opacity</td>
+			</tr>
+			</tbody>
+			</table>
+			<table class="docutils footnote" frame="void" id="id4" rules="none">
+			<colgroup><col class="label" /><col /></colgroup>
+			<tbody valign="top">
+			<tr><td class="label">[1]</td><td><em>(<a class="fn-backref" href="#id1">1</a>, <a class="fn-backref" href="#id2">2</a>, <a class="fn-backref" href="#id3">3</a>)</em> Available only inside illuminance statements.</td></tr>
+			</tbody>
+			</table>
+			</div>
+			<div class="section" id="light-source-shaders">
+			<h4>Light Source Shaders</h4>
+			<p>A light source shader is slightly different (see <a class="reference external" href="#figure12-2">Figure 4</a>:
+			<em>Light source shader state</em>). It computes the amount of light cast along
+			the direction <tt class="docutils literal"><span class="pre">L</span></tt> which arrives at some point in space <tt class="docutils literal"><span class="pre">Ps</span></tt>.
+			The color of the light is <tt class="docutils literal"><span class="pre">Cl</span></tt> while the opacity is <tt class="docutils literal"><span class="pre">Ol</span></tt>.
+			The geometric parameters described above (<tt class="docutils literal"><span class="pre">P,</span> <span class="pre">du,</span> <span class="pre">N</span></tt>, etc.) are available
+			in light source shaders; however, they are the parameters of the light
+			emitting surface (e.g., the surface of an area light source)--<em>not</em> the
+			parameters of any primitive being illuminated. If the light source is a point
+			light, <tt class="docutils literal"><span class="pre">P</span></tt> is the origin of the light source shader space and the
+			other geometric parameters are zero. If either <tt class="docutils literal"><span class="pre">Cl</span></tt> or <tt class="docutils literal"><span class="pre">Ol</span></tt>
+			are not set, they default to black and opaque, respectively.</p>
+			<div align="center" class="figure" id="figure-12-2">
+			<img alt="images/Figure.12.2.big.gif" src="images/Figure.12.2.big.gif" />
+			<p class="caption"><strong>Figure 4:</strong> <em>Light source shader state</em></p>
+			</div>
+			<A NAME="table-12-2"></A>
+			<table border="1" class="data-list docutils" id="table-12-2">
+			<caption><strong>Predefined Light Source Variables</strong></caption>
+			<colgroup>
+			<col width="15%" />
+			<col width="15%" />
+			<col width="20%" />
+			<col width="50%" />
+			</colgroup>
+			<thead valign="bottom">
+			<tr><th class="head"><tt class="docutils literal"><span class="pre">P</span></tt></th>
+			<th class="head"><em>point</em></th>
+			<th class="head">varying</th>
+			<th class="head">Surface position</th>
+			</tr>
+			</thead>
+			<tbody valign="top">
+			<tr><td><tt class="docutils literal"><span class="pre">dPdu</span></tt></td>
+			<td><em>vector</em></td>
+			<td>varying</td>
+			<td>Derivative of surface position along <em>u</em></td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">dPdv</span></tt></td>
+			<td><em>vector</em></td>
+			<td>varying</td>
+			<td>Derivative of surface position along <em>v</em></td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">N</span></tt></td>
+			<td><em>normal</em></td>
+			<td>varying</td>
+			<td>Surface shading normal</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">Ng</span></tt></td>
+			<td><em>normal</em></td>
+			<td>varying/uniform</td>
+			<td>Surface geometric normal</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">u,v</span></tt></td>
+			<td><em>float</em></td>
+			<td>varying</td>
+			<td>Surface parameters</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">du,dv</span></tt></td>
+			<td><em>float</em></td>
+			<td>varying/uniform</td>
+			<td>Change in surface parameters</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">s,t</span></tt></td>
+			<td><em>float</em></td>
+			<td>varying</td>
+			<td>Surface texture coordinates</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">L</span></tt></td>
+			<td><em>vector</em></td>
+			<td>varying/uniform</td>
+			<td>Incoming light ray direction <a class="footnote-reference" href="#id6" id="id5">[2]</a></td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">Ps</span></tt></td>
+			<td><em>point</em></td>
+			<td>varying</td>
+			<td>Position being illuminated</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">E</span></tt></td>
+			<td><em>point</em></td>
+			<td>uniform</td>
+			<td>Position of the eye</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">ncomps</span></tt></td>
+			<td><em>float</em></td>
+			<td>uniform</td>
+			<td>Number of color components</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">time</span></tt></td>
+			<td><em>float</em></td>
+			<td>uniform</td>
+			<td>Current shutter time</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">dtime</span></tt></td>
+			<td><em>float</em></td>
+			<td>uniform</td>
+			<td>The amount of time covered by this shading sample.</td>
+			</tr>
+			<tr><td><strong>Result Variables</strong></td>
+			<td><div class="first last line-block">
+			<div class="line"><br /></div>
+			</div>
+			</td>
+			<td><div class="first last line-block">
+			<div class="line"><br /></div>
+			</div>
+			</td>
+			<td><div class="first last line-block">
+			<div class="line"><br /></div>
+			</div>
+			</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">Cl</span></tt></td>
+			<td><em>color</em></td>
+			<td>varying/uniform</td>
+			<td>Outgoing light ray color</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">Ol</span></tt></td>
+			<td><em>color</em></td>
+			<td>varying/uniform</td>
+			<td>Outgoing light ray opacity</td>
+			</tr>
+			</tbody>
+			</table>
+			<table class="docutils footnote" frame="void" id="id6" rules="none">
+			<colgroup><col class="label" /><col /></colgroup>
+			<tbody valign="top">
+			<tr><td class="label"><a class="fn-backref" href="#id5">[2]</a></td><td>Only available inside solar or illuminate statements.</td></tr>
+			</tbody>
+			</table>
+			</div>
+			<div class="section" id="volume-shaders">
+			<h4>Volume Shaders</h4>
+			<p>A volume shader is not associated with a surface, but rather attenuates a
+			ray color as it travels through space. As such, it does not have access to any
+			geometric surface parameters, but only to the light ray <tt class="docutils literal"><span class="pre">I</span></tt> and its
+			associated values. The shader computes the new ray color at the ray origin
+			<tt class="docutils literal"><span class="pre">P-I</span></tt>. The length of <tt class="docutils literal"><span class="pre">I</span></tt> is the distance traveled
+			through the volume from the origin of the ray to the point <tt class="docutils literal"><span class="pre">P</span></tt>.</p>
+			<A NAME="table-12-3"></A>
+			<table border="1" class="data-list docutils" id="table-12-3">
+			<caption><strong>Predefined Volume Shader Variables</strong></caption>
+			<colgroup>
+			<col width="15%" />
+			<col width="15%" />
+			<col width="20%" />
+			<col width="50%" />
+			</colgroup>
+			<thead valign="bottom">
+			<tr><th class="head">Name</th>
+			<th class="head">Type</th>
+			<th class="head">Storage Class</th>
+			<th class="head">Description</th>
+			</tr>
+			</thead>
+			<tbody valign="top">
+			<tr><td><tt class="docutils literal"><span class="pre">P</span></tt></td>
+			<td><em>point</em></td>
+			<td>varying</td>
+			<td>Light ray origin</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">E</span></tt></td>
+			<td><em>point</em></td>
+			<td>uniform</td>
+			<td>Position of the eye</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">I</span></tt></td>
+			<td><em>vector</em></td>
+			<td>varying</td>
+			<td>Incident ray direction</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">Ci</span></tt></td>
+			<td><em>color</em></td>
+			<td>varying</td>
+			<td>Ray color</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">Oi</span></tt></td>
+			<td><em>color</em></td>
+			<td>varying</td>
+			<td>Ray opacity</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">ncomps</span></tt></td>
+			<td><em>float</em></td>
+			<td>uniform</td>
+			<td>Number of color components</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">time</span></tt></td>
+			<td><em>float</em></td>
+			<td>uniform</td>
+			<td>Current shutter time</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">dtime</span></tt></td>
+			<td><em>float</em></td>
+			<td>uniform</td>
+			<td>The amount of time covered by this shading sample.</td>
+			</tr>
+			<tr><td><strong>Result Variables</strong></td>
+			<td><div class="first last line-block">
+			<div class="line"><br /></div>
+			</div>
+			</td>
+			<td><div class="first last line-block">
+			<div class="line"><br /></div>
+			</div>
+			</td>
+			<td><div class="first last line-block">
+			<div class="line"><br /></div>
+			</div>
+			</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">Ci</span></tt></td>
+			<td><em>color</em></td>
+			<td>varying</td>
+			<td>Attenuated ray color at origin</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">Oi</span></tt></td>
+			<td><em>color</em></td>
+			<td>varying</td>
+			<td>Attenuated ray opacity at origin</td>
+			</tr>
+			</tbody>
+			</table>
+			</div>
+			<div class="section" id="displacement-shaders">
+			<h4>Displacement Shaders</h4>
+			<p>The displacement shader environment is very similar to a surface
+			shader, except that it only has access to the geometric surface
+			parameters. It computes a new <tt class="docutils literal"><span class="pre">P</span></tt> and optionally a new <tt class="docutils literal"><span class="pre">N</span></tt> and
+			<tt class="docutils literal"><span class="pre">dPdtime</span></tt>.  In rendering implementations that do not support the
+			<em>Displacement</em> capability, modifications to <tt class="docutils literal"><span class="pre">P</span></tt> or <tt class="docutils literal"><span class="pre">dPdtime</span></tt> will
+			not actually move the surface (change the hidden surface elimination
+			calculation); however, modifications to <tt class="docutils literal"><span class="pre">N</span></tt> will still occur
+			correctly.</p>
+			<A NAME="table-12-4"></A>
+			<table border="1" class="data-list docutils" id="table-12-4">
+			<caption><strong>Predefined Displacement Shader Variables</strong></caption>
+			<colgroup>
+			<col width="15%" />
+			<col width="15%" />
+			<col width="20%" />
+			<col width="50%" />
+			</colgroup>
+			<thead valign="bottom">
+			<tr><th class="head">Name</th>
+			<th class="head">Type</th>
+			<th class="head">Storage Class</th>
+			<th class="head">Description</th>
+			</tr>
+			</thead>
+			<tbody valign="top">
+			<tr><td><tt class="docutils literal"><span class="pre">P</span></tt></td>
+			<td><em>point</em></td>
+			<td>varying</td>
+			<td>Surface position</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">dPdu</span></tt></td>
+			<td><em>vector</em></td>
+			<td>varying</td>
+			<td>Derivative of surface position along <em>u</em></td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">dPdv</span></tt></td>
+			<td><em>vector</em></td>
+			<td>varying</td>
+			<td>Derivative of surface position along <em>v</em></td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">N</span></tt></td>
+			<td><em>normal</em></td>
+			<td>varying</td>
+			<td>Surface shading normal</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">Ng</span></tt></td>
+			<td><em>normal</em></td>
+			<td>varying/uniform</td>
+			<td>Surface geometric normal</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">I</span></tt></td>
+			<td><em>vector</em></td>
+			<td>varying</td>
+			<td>Incident ray direction</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">E</span></tt></td>
+			<td><em>point</em></td>
+			<td>uniform</td>
+			<td>Position of the eye</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">u,v</span></tt></td>
+			<td><em>float</em></td>
+			<td>varying</td>
+			<td>Surface parameters</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">du,dv</span></tt></td>
+			<td><em>float</em></td>
+			<td>varying/uniform</td>
+			<td>Change in surface parameters</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">s,t</span></tt></td>
+			<td><em>float</em></td>
+			<td>varying</td>
+			<td>Surface texture coordinates</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">ncomps</span></tt></td>
+			<td><em>float</em></td>
+			<td>uniform</td>
+			<td>Number of color components</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">time</span></tt></td>
+			<td><em>float</em></td>
+			<td>uniform</td>
+			<td>Current shutter time</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">dtime</span></tt></td>
+			<td><em>float</em></td>
+			<td>uniform</td>
+			<td>The amount of time covered by this shading sample.</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">dPdtime</span></tt></td>
+			<td><em>vector</em></td>
+			<td>varying</td>
+			<td>How the surface position P is changing per unit time, as described by
+			motion blur in the scene.</td>
+			</tr>
+			<tr><td><strong>Result Variables</strong></td>
+			<td><div class="first last line-block">
+			<div class="line"><br /></div>
+			</div>
+			</td>
+			<td><div class="first last line-block">
+			<div class="line"><br /></div>
+			</div>
+			</td>
+			<td><div class="first last line-block">
+			<div class="line"><br /></div>
+			</div>
+			</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">P</span></tt></td>
+			<td><em>point</em></td>
+			<td>varying</td>
+			<td>Displaced surface position</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">N</span></tt></td>
+			<td><em>point</em></td>
+			<td>varying</td>
+			<td>Displaced surface shading normal</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">dPdtime</span></tt></td>
+			<td><em>vector</em></td>
+			<td>varying</td>
+			<td>How the displaced surface position P is changing per unit time</td>
+			</tr>
+			</tbody>
+			</table>
+			</div>
+			<div class="section" id="imager-shaders-and-pixelsampleimager-shaders">
+			<span id="imager-shaders"></span><h4>Imager Shaders and <tt class="docutils literal"><span class="pre">PixelSampleImager</span></tt> Shaders</h4>
+			<p>An Imager shader manipulates a final pixel color after all of the
+			geometric and shading processing has concluded.</p>
+			<p>In the context of an imager shader, <tt class="docutils literal"><span class="pre">P</span></tt> is the position of the of the pixel
+			center in <em>current space</em> as it is for all shaders. The other geometric
+			variables have their usual meanings.  The variables <tt class="docutils literal"><span class="pre">u</span></tt> and <tt class="docutils literal"><span class="pre">v</span></tt>
+			run from 0 to 1 over the entire output image (over the <tt class="docutils literal"><span class="pre">ScreenWindow</span></tt>).</p>
+			<p>The imager shader environment also provides access to texture mapping
+			variables <tt class="docutils literal"><span class="pre">s,t</span></tt>, which are the texture mapping coordinates over the
+			<tt class="docutils literal"><span class="pre">ScreenWindow</span></tt>.  These coordinates represent pixel centers, such that calls
+			to <tt class="docutils literal"><span class="pre">texture()</span></tt> can map an appropriately prepared image over the entire
+			output resolution.  A raster coordinate may be obtained using this formula:
+			<tt class="docutils literal"><span class="pre">(s*xres-0.5,t*yres-0.5)</span></tt>.</p>
+			<p>A <tt class="docutils literal"><span class="pre">PixelSampleImager</span></tt> manipulates pixel samples, prior to pixel filtering.
+			Such a shader has access to the exact (possibly jittered) pixel positions of
+			the samples, as specified by <tt class="docutils literal"><span class="pre">RiPixelSamples</span></tt>.  The shader is still applied
+			after all geometric processing and hidden surface determination is complete.
+			Both Imager and <tt class="docutils literal"><span class="pre">PixelSampleImager</span></tt> shaders have access to any arbitrary
+			output variables generated by shading.</p>
+			<A NAME="table-12-5"></A>
+			<table border="1" class="data-list docutils" id="table-12-5">
+			<caption><strong>Predefined Imager Shader Variables</strong></caption>
+			<colgroup>
+			<col width="15%" />
+			<col width="15%" />
+			<col width="20%" />
+			<col width="50%" />
+			</colgroup>
+			<thead valign="bottom">
+			<tr><th class="head">Name</th>
+			<th class="head">Type</th>
+			<th class="head">Storage Class</th>
+			<th class="head">Description</th>
+			</tr>
+			</thead>
+			<tbody valign="top">
+			<tr><td><tt class="docutils literal"><span class="pre">P</span></tt></td>
+			<td><em>point</em></td>
+			<td>varying</td>
+			<td>Surface position</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">dPdu</span></tt></td>
+			<td><em>vector</em></td>
+			<td>varying</td>
+			<td>Derivative of <tt class="docutils literal"><span class="pre">P</span></tt> along u</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">dPdv</span></tt></td>
+			<td><em>vector</em></td>
+			<td>varying</td>
+			<td>Derivative of <tt class="docutils literal"><span class="pre">P</span></tt> along <em>v</em></td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">E</span></tt></td>
+			<td><em>point</em></td>
+			<td>uniform</td>
+			<td>Position of the eye</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">I</span></tt></td>
+			<td><em>vector</em></td>
+			<td>varying</td>
+			<td>Ray direction from eye to <tt class="docutils literal"><span class="pre">P</span></tt> in <em>current space</em></td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">u,v</span></tt></td>
+			<td><em>float</em></td>
+			<td>varying</td>
+			<td>Surface parameters, running 0-1 over the output image resolution</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">du,dv</span></tt></td>
+			<td><em>float</em></td>
+			<td>varying/uniform</td>
+			<td>Change in surface parameters</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">s,t</span></tt></td>
+			<td><em>float</em></td>
+			<td>varying</td>
+			<td>Texture coordinates</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">Ci</span></tt></td>
+			<td><em>color</em></td>
+			<td>varying</td>
+			<td>Pixel color</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">Oi</span></tt></td>
+			<td><em>color</em></td>
+			<td>varying</td>
+			<td>Pixel opacity</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">alpha</span></tt></td>
+			<td><em>float</em></td>
+			<td>uniform</td>
+			<td>Fractional pixel coverage</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">ncomps</span></tt></td>
+			<td><em>float</em></td>
+			<td>uniform</td>
+			<td>Number of color components</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">time</span></tt></td>
+			<td><em>float</em></td>
+			<td>uniform</td>
+			<td>Current shutter time</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">dtime</span></tt></td>
+			<td><em>float</em></td>
+			<td>uniform</td>
+			<td>The amount of time covered by this shading sample.</td>
+			</tr>
+			</tbody>
+			</table>
+			<table border="1" class="data-list docutils">
+			<caption><strong>Result Variables</strong></caption>
+			<colgroup>
+			<col width="15%" />
+			<col width="15%" />
+			<col width="20%" />
+			<col width="50%" />
+			</colgroup>
+			<thead valign="bottom">
+			<tr><th class="head">Name</th>
+			<th class="head">Type</th>
+			<th class="head">Storage Class</th>
+			<th class="head">Description</th>
+			</tr>
+			</thead>
+			<tbody valign="top">
+			<tr><td><tt class="docutils literal"><span class="pre">Ci</span></tt></td>
+			<td><em>color</em></td>
+			<td>varying</td>
+			<td>Output pixel color</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">Oi</span></tt></td>
+			<td><em>color</em></td>
+			<td>varying</td>
+			<td>Output pixel opacity</td>
+			</tr>
+			</tbody>
+			</table>
+			</div>
+			</div>
+			<hr class="docutils" />
+			<div class="section" id="special-shader-parameters">
+			<A NAME="table-special"></A>
+			<h3>Special Shader Parameters</h3>
+			<p>Certain shader parameters beginning with <tt class="docutils literal"><span class="pre">__</span></tt> are interpreted specially by
+			the renderer and help control the <a class="reference internal" href="#shading-pipeline">shading pipeline</a>.</p>
+			<table border="1" class="data-list docutils">
+			<caption><strong>Renderer-interpreted Shader Parameters</strong></caption>
+			<colgroup>
+			<col width="15%" />
+			<col width="35%" />
+			<col width="50%" />
+			</colgroup>
+			<thead valign="bottom">
+			<tr><th class="head">Name</th>
+			<th class="head">Relevant shaders</th>
+			<th class="head">Description</th>
+			</tr>
+			</thead>
+			<tbody valign="top">
+			<tr><td><tt class="docutils literal"><span class="pre">__computesOpacity</span></tt></td>
+			<td>surface shader</td>
+			<td><p class="first">A value of <strong>0</strong> means that the shader does not compute opacity (i.e
+			<tt class="docutils literal"><span class="pre">Oi</span> <span class="pre">==</span> <span class="pre">Os</span></tt>). This can be used to override a transmission hit mode of
+			<tt class="docutils literal"><span class="pre">shader</span></tt>.  For such shaders, the <tt class="docutils literal"><span class="pre">opacity()</span></tt> method will be skipped
+			for transmission rays.</p>
+			<p>A value of <strong>1</strong> means that the shader does indeed compute opacity.
+			Such shaders will be run to evaluate their opacity for transmission
+			rays. That result may be cached by the renderer, and thus must be
+			view-independent.</p>
+			<p class="last">A value of <strong>2</strong> means that the shader computes opacity in
+			view-dependent manner.  As such the renderer will avoid caching opacity
+			for transmission rays. The opacity is still cached for the purpose of
+			controlling continuations on diffuse and specular rays, but
+			view-dependent shadows may be generated using <tt class="docutils literal"><span class="pre">areashadow()</span></tt> or
+			<tt class="docutils literal"><span class="pre">transmission()</span></tt>.  For mode 2, the <tt class="docutils literal"><span class="pre">opacity()</span></tt> method must only
+			depend on view-dependent entities within a check for <tt class="docutils literal"><span class="pre">raytype</span> <span class="pre">==</span>
+			<span class="pre">&quot;transmission&quot;</span></tt>.</p>
+			</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">__category</span></tt></td>
+			<td>co-shader or light shader</td>
+			<td><p class="first">The <tt class="docutils literal"><span class="pre">getlights()</span></tt> shading function may be optionally passed a
+			category, which it matches against the shader parameter <tt class="docutils literal"><span class="pre">__category</span></tt>
+			when constructing a list of shaders to return. <tt class="docutils literal"><span class="pre">getshaders()</span></tt> may
+			also use category matching to control which shaders are returned.</p>
+			<p class="last">The matching syntax is described in the <a class="reference external" href="rslFunctions.html#shader-and-message-passing-functions">Shader and Message Passing
+			Functions</a>
+			documentation.</p>
+			</td>
+			</tr>
+			<tr><td><tt class="docutils literal"><span class="pre">__ignoresShaderSpace</span></tt></td>
+			<td>all shaders</td>
+			<td>Shaders can be annotated with a hint to the renderer indicating that
+			they do not care about shader space. When <tt class="docutils literal"><span class="pre">uniform</span> <span class="pre">float</span>
+			<span class="pre">__ignoresShaderSpace</span> <span class="pre">=</span> <span class="pre">1</span></tt> is found on a shader the renderer will force
+			the shader space to be <em>identity</em>. Gprims that share identical shaders
+			but have different coordinate systems will be combinable.</td>
+			</tr>
+			</tbody>
+			</table>
+			</div>
+			</div>
+			<hr color="#CCCCCC" noshade size="1">
+			
+			
+			<center>
+			<table border="0" width="705" cellspacing="0" cellpadding="0">
+			<tr>
+		</TD>
+	</TR>
+</TABLE>			
+			
+<!-- Pixar Footer -->
+<div align="right">
+  <table border="0" width="360">
+    <tr>
+      <td>
+        <p style="margin-top: 0; margin-bottom: 0" class="pixar"><font size=-3 color="#CCCCCC"> 
+        <a href="http://www.pixar.com" target="_blank">Pixar Animation Studios</a> </font>
+        <br><font size=-3 color="#CCCCCC">
+        Copyright&copy; 
+<script LANGUAGE="javascript">
+<!-- 
+current = new Date();
+document.write(current.getFullYear());
+// -->
+</script>
+	Pixar. All rights reserved. <br>
+        Pixar&reg; and RenderMan&reg; are registered trademarks of Pixar.<br>
+        All other trademarks are the properties of their respective holders.</font></td>
+    </tr>
+  </table>
+</div>
+</center>
+<!-- Footer End -->
+</BODY>
+</html>

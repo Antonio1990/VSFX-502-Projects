@@ -1,0 +1,29 @@
+// Use this for assigning one color per selected object. For example,
+// 1  Select the objects.
+// 2  Execute this command, addConstColorPrimVar("mycolor", <<0,0,0>>,<<1,1,1>>);
+
+global proc addConstColorPrimVar(string $shortname, vector $minval, vector $maxval) {
+	string $sel[] = `ls -sl`;
+	string $fullname = "rmanC" + $shortname;
+	for($current in $sel) {
+	    string $shapes[] = `listRelatives -s $current`;
+	    string $shape = $shapes[0];
+		if(size($shape) == 0)
+			continue;
+		string $r_attr = $shortname +"_r";
+		string $g_attr = $shortname +"_g";
+		string $b_attr = $shortname +"_b";
+	    if(attributeExists($fullname, $shape) == 0) {
+	        addAttr -ln $fullname -nn $fullname -at "float3" -usedAsColor -k 1 $shape;
+			addAttr -ln $r_attr -at "float" -k 1 -parent $fullname $shape;
+			addAttr -ln $g_attr -at "float" -k 1 -parent $fullname $shape;
+			addAttr -ln $b_attr -at "float" -k 1 -parent $fullname $shape;
+	        }
+	
+	    vector $rgb = rand($minval, $maxval);
+		float $r = $rgb.x;
+	    float $g = $rgb.y;
+	    float $b = $rgb.z;
+	    setAttr ($shape + "." + $fullname) -type "float3" $r_attr $g_attr $b_attr;
+	    }
+	}

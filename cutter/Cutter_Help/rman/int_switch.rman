@@ -1,0 +1,1 @@
+Declare param {int PNAME_INT} {	label "YourSwitchLabel"	description "No description."	subtype switch	}

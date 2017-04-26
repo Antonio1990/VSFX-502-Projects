@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Built-In Commands - option manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<dl>
+<dd><a href="option.htm#M2" name="L871">NAME</a> 
+
+<dl>
+<dd>option - Add/retrieve window options to/from the option
+database</dd>
+</dl>
+</dd>
+
+<dd><a href="option.htm#M3" name="L872">SYNOPSIS</a> 
+
+<dl>
+<dd><b>option add</b> <i>pattern value</i> ?<i>priority</i>?</dd>
+
+<dd><b>option clear</b></dd>
+
+<dd><b>option get</b> <i>window name class</i></dd>
+
+<dd><b>option readfile</b> <i>fileName</i> ?<i>priority</i>?</dd>
+</dl>
+</dd>
+
+<dd><a href="option.htm#M4" name="L873">DESCRIPTION</a> 
+
+<dl>
+<dd><a href="option.htm#M5" name=
+"L874"><b>widgetDefault</b></a></dd>
+
+<dd><a href="option.htm#M6" name="L875"><b>startupFile</b></a></dd>
+
+<dd><a href="option.htm#M7" name="L876"><b>userDefault</b></a></dd>
+
+<dd><a href="option.htm#M8" name="L877"><b>interactive</b></a></dd>
+</dl>
+</dd>
+
+<dd><a href="option.htm#M9" name="L878">KEYWORDS</a></dd>
+</dl>
+
+<hr>
+<h3><a name="M2">NAME</a></h3>
+
+<p>option - Add/retrieve window options to/from the option
+database</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>option add</b> <i>pattern value</i> ?<i>priority</i>?<br>
+<b>option clear</b><br>
+<b>option get</b> <i>window name class</i><br>
+<b>option readfile</b> <i>fileName</i> ?<i>priority</i>?<br>
+</p>
+
+<h3><a name="M4">DESCRIPTION</a></h3>
+
+<p>The <b>option</b> command allows you to add entries to the Tk
+option database or to retrieve options from the database. The
+<b>add</b> form of the command adds a new option to the database.
+<i>Pattern</i> contains the option being specified, and consists of
+names and/or classes separated by asterisks or dots, in the usual X
+format. <i>Value</i> contains a text string to associate with
+<i>pattern</i>; this is the value that will be returned in calls to
+<b><a href="../TkLib/GetOption.htm">Tk_GetOption</a></b> or by
+invocations of the <b>option get</b> command. If <i>priority</i> is
+specified, it indicates the priority level for this option (see
+below for legal values); it defaults to <b>interactive</b>. This
+command always returns an empty string.</p>
+
+<p>The <b>option clear</b> command clears the option database.
+Default options (from the <b>RESOURCE_MANAGER</b> property or the
+<b>.Xdefaults</b> file) will be reloaded automatically the next
+time an option is added to the database or removed from it. This
+command always returns an empty string.</p>
+
+<p>The <b>option get</b> command returns the value of the option
+specified for <i>window</i> under <i>name</i> and <i>class</i>. If
+several entries in the option database match <i>window</i>,
+<i>name</i>, and <i>class</i>, then the command returns whichever
+was created with highest <i>priority</i> level. If there are
+several matching entries at the same priority level, then it
+returns whichever entry was most recently entered into the option
+database. If there are no matching entries, then the empty string
+is returned.</p>
+
+<p>The <b>readfile</b> form of the command reads <i>fileName</i>,
+which should have the standard format for an X resource database
+such as <b>.Xdefaults</b>, and adds all the options specified in
+that file to the option database. If <i>priority</i> is specified,
+it indicates the priority level at which to enter the options;
+<i>priority</i> defaults to <b>interactive</b>.</p>
+
+<p>The <i>priority</i> arguments to the <b>option</b> command are
+normally specified symbolically using one of the following
+values:</p>
+
+<dl>
+<dt><a name="M5"><b>widgetDefault</b></a></dt>
+
+<dd>Level 20. Used for default values hard-coded into widgets.</dd>
+
+<dt><a name="M6"><b>startupFile</b></a></dt>
+
+<dd>Level 40. Used for options specified in application-specific
+startup files.</dd>
+
+<dt><a name="M7"><b>userDefault</b></a></dt>
+
+<dd>Level 60. Used for options specified in user-specific defaults
+files, such as <b>.Xdefaults</b>, resource databases loaded into
+the X server, or user-specific startup files.</dd>
+
+<dt><a name="M8"><b>interactive</b></a></dt>
+
+<dd>Level 80. Used for options specified interactively after the
+application starts running. If <i>priority</i> isn't specified, it
+defaults to this level.</dd>
+</dl>
+
+<p>Any of the above keywords may be abbreviated. In addition,
+priorities may be specified numerically using integers between 0
+and 100, inclusive. The numeric form is probably a bad idea except
+for new priority levels other than the ones given above.</p>
+
+<h3><a name="M9">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/D.htm#database">database</a>, <a href=
+"../Keywords/O.htm#option">option</a>, <a href=
+"../Keywords/P.htm#priority">priority</a>, <a href=
+"../Keywords/R.htm#retrieve">retrieve</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1990 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1996 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

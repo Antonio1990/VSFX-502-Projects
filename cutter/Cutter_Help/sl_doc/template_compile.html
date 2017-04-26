@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+"http://www.w3.org/TR/REC-html40/loose.dtd">
+
+
+<!-- Author Malcolm Kesson -->
+<HTML>
+<HEAD>
+<TITLE>Cutter Help - SL Templates and Compiling</TITLE>
+<LINK rel=StyleSheet href="../help.css" TYPE="text/css" TITLE="Cutter Style">
+
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" LINK="#000066" VLINK="#006633">
+
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">
+    <TR>
+    	<TD WIDTH="5" NOWRAP><!-- Gutter --></TD>
+		<TD VALIGN="TOP" ALIGN="LEFT" WIDTH="455">
+			<H3><FONT FACE="sans-serif" COLOR="black"><B>Cutter Help</B></FONT><BR>
+			<FONT COLOR="red"><B>SL Templates and Compiling</B></FONT></H3>
+			<P>
+			<A HREF="../rman_index.html">[return to index]</A>
+			</P>
+			<BR>
+			<DL>
+				<DT><B>Contents</B></DT>
+				<DD><A HREF="#creating">Creating a SL Document</A></DD>
+				<DD><A HREF="#online">Using On-line docs</A></DD>
+				<DD><A HREF="#coloration">Syntax Coloration</A></DD>
+				<DD><A HREF="#compiling">Compiling a SL Document</A></DD>
+				<DD><A HREF="#sli">mtor sli files</A></DD>
+			</DL>
+			<P>
+			<BR>
+	<A NAME="creating"></A>
+			<FONT FACE="sans-serif"><B>Creating a SL Document</B></FONT><BR>
+			Cutter can create template shading language (SL) documents, however, as of version
+			1.8.0 only two types of templates are supported.
+			From the Rman Tools <B>Documents-&gt;SL Docs</B> popup menu choose either a surface
+			or a displacement shader.<BR> 
+			<BR>
+			<IMG SRC="new_sl_disp_doc.gif" ALT=""><BR>
+			<BR>
+			Cutter will open a new document window containing
+			template code and at the same time it will activate the Rman Tools SL tab. The 
+			popups shown under the SL tab list the functions built into the shading language.
+			The functions are grouped into four types, namely,<BR>
+			<BR>
+			<B>Geometry</B> - 17 functions<BR>
+			<B>Maths</B> - 27 functions<BR>
+			<B>Color</B> - 4 function + 1 global variable<BR>
+			<B>Mapping</B> - 5 functions<BR>
+			<BR>
+			Selecting a function, for example, noise1D from the Maths popup,<BR>
+			<BR>
+			<IMG SRC="choose_noise_1d.gif" ALT=""><BR>
+			<BR>
+			will insert the function into your source code file. For example,
+			<BR>
+			<BR>
+			<CODE>
+			<FONT COLOR="#0000ff">float</FONT>  noise1D = <FONT COLOR="#4C78A6">noise</FONT>(<FONT COLOR="#0000ff">s</FONT>);
+			</CODE>
+			<P>
+			Cutter makes no attempt to understand the context in which the function will 
+			be used. In most cases you will need to declare a variable to store a value
+			returned from the function. Cutter will suggest a variable name as well as
+			give its data type. In the example shown above it would be up to you to decide 
+			how the variable noise1D would be used within the body of the shader.
+			<BR>
+			<BR>
+	<A NAME="online"></A>
+			<FONT FACE="HELVETICA"><B>Using On-line docs</B></FONT><BR>
+			To obtain information about a function, data type or global variable, press the
+			option key and double-click on its name. Cutter will display the relevant PIXAR 
+			documentation for the function, data type or global you have selected.
+			<BR>
+			<BR>
+			To find the relevant documentation Cutter points its web browser
+			at the URL specified in Preferences. For example,
+			</P>
+		</TD>
+	</TR>
+</TABLE>	
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">
+    <TR>
+    	<TD WIDTH="5" NOWRAP><!-- Gutter --></TD>
+		<TD NOWRAP VALIGN="TOP" ALIGN="LEFT" WIDTH="455">
+		<IMG SRC="prefs.gif" ALT=""><BR>
+		<BR>
+		<P>
+		Use the button marked with a '?' to browse for the directories. I you do
+		not have the Pixar documentation loaded on your computer but you do have
+		a good connection to the internet you can enter the following URL into the
+		rispec field. 
+		</P>
+<CODE>"http://www.pixar.com/products/rispec/rispec_3_1"</CODE>
+		</TD>
+	</TR>
+</TABLE>	
+	<A NAME="coloration"></A>
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">
+    <TR>
+    	<TD WIDTH="5" NOWRAP><!-- Gutter --></TD>
+		<TD VALIGN="TOP" ALIGN="LEFT" WIDTH="455">
+			<P>
+			<FONT FACE="sans-serif"><B>Syntax Coloration</B></FONT><BR>
+			Cutter uses syntax coloration to help you identify significant words and symbols.
+			<DL>
+				<DT>Examples
+				<DD>syntax - <FONT COLOR="#0000ff">while if for</FONT>
+				<DD>functions - <FONT COLOR="#4C78A6">calculatenormal</FONT>()
+				<DD>datatype - <FONT COLOR="#0000ff">float string point</FONT>
+				<DD>global variables - <FONT COLOR="#710371">Cs Oi P</FONT>
+				<DD>spacenames - <FONT COLOR="#666666">"<U>world</U>" "<U>rgb</U>"</FONT>
+				<DD>comment - <FONT COLOR="#CC0000">/* comment */</FONT>
+				<DD>shader type - <FONT COLOR="#710371">displacement</FONT>
+			</DL>
+	<A NAME="compiling"></A>
+			<P>
+			<FONT FACE="sans-serif"><B>Compiling a SL Document</B></FONT><BR>
+			To compile a SL document, ensure it is the front window then click
+			the button displayed at the base of the Rman Tools SL tab. If you are
+			using PIXAR's system the button will be titled "shader". When using
+			BMRT the title will be "slc".
+			<BR>
+			<BR>
+			When Cutter invokes the compiler it will display a SLMonitor window in
+			which messages about the success or failure of the compilation will be
+			shown. For example,<BR>
+			</P>
+		</TD>
+	</TR>
+</TABLE>	
+<TABLE BORDER="0" CELLSPACING="0">
+    <TR>
+    	<TD WIDTH="5" NOWRAP><!-- Gutter --></TD>
+		<TD VALIGN="TOP" ALIGN="LEFT" >
+			<IMG SRC="sl_monitor1.gif" ALT=""><BR>
+			</P>
+		</TD>
+	</TR>
+</TABLE>	
+
+
+	
+<A NAME="sli"></A>
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">
+    <TR>
+    	<TD WIDTH="5" NOWRAP><!-- Gutter --></TD>
+		<TD VALIGN="TOP" ALIGN="LEFT" WIDTH="455">
+			<P>
+			If the compilation of your source code has been successful two things
+			will happen.
+			<BR>
+			<BR>
+			<B>Firstly</B>, a shader file with a file extension approriate to your
+			chosen rendering system will be saved by the compiler into your <B>shaders</B>
+			directory. The shaders directory is the one identified in Cutters Preferences
+			dialog box.
+			</P>
+			<BR>
+			<IMG SRC="prefs2.gif" ALT=""><BR>
+			<BR>
+			
+			<P>
+			Incidently, either the forward or back slash can be used - Cutter 
+			substitutes the "correct" slash appropriate to your operating
+			system.
+			<BR>
+			<BR>
+			
+			<FONT FACE="sans-serif"><B>mtor sli files</B></FONT><BR>
+			<B>Secondly</B>, an interface file suitable for use by
+			PIXAR's Maya to RenderMan plugin ie. "mtor" is produced by Cutter. This file 
+			will have the same name as the shader but with a ".sli" file extension.
+			Cutter saves the sli file in your shaders directory. 
+			<BR>
+			<BR>
+			Although "sli" files are only of interest to users of Maya and mtor
+			at a later date Cutter may use the information contained in these 
+			files to configure aspects of its own GUI. Therefore, I have chosen 
+			to produce "sli" files whether or not they are of immediate 
+			benefit of the user. 
+			</P>
+		</TD>
+	</TR>
+</TABLE>	
+<BR>
+<BR>
+</BODY>
+</HTML>

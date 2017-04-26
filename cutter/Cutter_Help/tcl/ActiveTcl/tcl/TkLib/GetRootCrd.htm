@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Library Procedures - Tk_GetRootCoords manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<h3><a name="M2">NAME</a></h3>
+
+<p>Tk_GetRootCoords - Compute root-window coordinates of window</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>#include &lt;tk.h&gt;</b><br>
+<b>Tk_GetRootCoords</b>(<i>tkwin, xPtr, yPtr</i>)<br>
+</p>
+
+<h3><a name="M4">ARGUMENTS</a></h3>
+
+<dl>
+<dt>Tk_Window <b>tkwin</b> (in)</dt>
+
+<dd>Token for window.</dd>
+
+<dt>int <b>*xPtr</b> (out)</dt>
+
+<dd>Pointer to location in which to store root-window x-coordinate
+corresponding to left edge of <i>tkwin</i>'s border.</dd>
+
+<dt>int <b>*yPtr</b> (out)</dt>
+
+<dd>Pointer to location in which to store root-window y-coordinate
+corresponding to top edge of <i>tkwin</i>'s border.</dd>
+</dl>
+
+<h3><a name="M5">DESCRIPTION</a></h3>
+
+<p>This procedure scans through the structural information
+maintained by Tk to compute the root-window coordinates
+corresponding to the upper-left corner of <i>tkwin</i>'s border. If
+<i>tkwin</i> has no border, then <b>Tk_GetRootCoords</b> returns
+the root-window coordinates corresponding to location (0,0) in
+<i>tkwin</i>. <b>Tk_GetRootCoords</b> is relatively efficient,
+since it doesn't have to communicate with the X server.</p>
+
+<h3><a name="M6">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/C.htm#coordinates">coordinates</a>, <a
+href="../Keywords/R.htm#root window">root window</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1990 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1996 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

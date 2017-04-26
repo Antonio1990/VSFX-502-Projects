@@ -1,0 +1,36 @@
+# A script to auto-configure the slim.ini file
+# Author: Malcolm Kesson October 21 2007
+#
+set mUserSlimDir M:/maya/projects/RMS_slim
+if { [file exists $mUserSlimDir] } {
+    set slimfiles [glob -nocomplain -directory $mUserSlimDir *slim]
+    foreach item $slimfiles {
+        
+        set slimName [file tail $item]
+  
+        set fileID [open $mUserSlimDir/$slimName r]
+        # Read the first line of text
+        gets $fileID info
+        close $fileID
+        
+        # Remove the comment character and any leading white
+        # space 
+        set info [string trimleft $info "\# "]
+    
+        # Does the line begin with the "menuInfo" tag?
+        if { [string equal -nocase -length 8 $info "menuInfo"] == 0} {
+            continue
+            }
+        set info [string trimleft $info]
+        # Remove the tag
+        set info [string range $info 8 end]
+        set info [string trimleft $info]
+        
+        set rltStr     "::Slim::RegisterLazyTemplates \{\n"
+        append rltStr  "    $mUserSlimDir/$slimName \{\n"
+        append rltStr  "        \{ $info \}\n"
+        append rltStr  "    \}\n"
+        append rltStr  "\}"
+        eval $rltStr
+        }
+    }

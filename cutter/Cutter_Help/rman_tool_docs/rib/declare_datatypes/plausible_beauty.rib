@@ -1,0 +1,45 @@
+Display "plausible" "it" "rgba"
+Format 640 480 1
+Projection "perspective" "fov" 20
+ShadingRate 5
+ 
+Translate  0 0 10
+Rotate -15 1 0 0
+Rotate 20   0 1 0
+Scale 1 1 -1
+#Imager "background" "background" [1 1 1]
+WorldBegin
+	Declare "specular" "int"
+	Declare "diffuse" "int"
+	Declare "transmission" "int"
+	Declare "maxdiffusedepth" "int"
+	Declare "maxspeculardepth" "int"
+	Declare "intensity" "float"
+	Declare "diffuseColor" "color"
+	Declare "diffuseGain" "float"
+ 	Declare "specularGain" "float"
+
+	Attribute "visibility" "specular" [1] "diffuse" [1] "transmission" [1]
+	Attribute "trace" "maxdiffusedepth" [1] "maxspeculardepth" [2]
+	
+	TransformBegin
+		Rotate 180  0 1 0	# orbit 
+		Rotate 30  1 0 0	# elevation
+		Translate 0 0 -8   	# distance to world center
+		Scale 8 8 1
+		LightSource "ppAreaLight" 2 "intensity" 8
+	TransformEnd
+	AttributeBegin
+		Surface "ppMatte" "diffuseColor" [1 1 1] "diffuseGain" 0.4
+		Translate 0 0.5 0
+		Rotate -90 1 0 0
+		Scale 1 1 1
+		Polygon "P" [-0.5 0 -0.5  -0.5 0 0.5  0.5 0 0.5  0.5 0 -0.5] 
+	AttributeEnd
+	AttributeBegin
+		Surface "ppShiny" "diffuseColor" [1 1 1] "specularGain" 0.75
+		Scale 5 1 5
+		Polygon "P" [-0.5 0 -0.5  -0.5 0 0.5  0.5 0 0.5  0.5 0 -0.5] 
+				"st" [0 0  0 1  1 1  1 0]
+	AttributeEnd
+WorldEnd

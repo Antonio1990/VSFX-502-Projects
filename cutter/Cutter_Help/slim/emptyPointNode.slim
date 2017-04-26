@@ -1,0 +1,33 @@
+slim 1 extensions AUTHOR {
+extensions STUDIO PREFIX {
+	template point UNTITLED_PNT {
+		description {
+			Description of the node goes here.
+			}
+		previewinfo {
+			shadingrate 1
+			objectsize 1
+			objectshape Sphere
+			frame 1
+			}
+		#__custom parameters Begin____________
+
+
+		#__custom parameters End______________
+
+		parameter point result {
+			access output
+			display hidden
+			}
+		RSLFunction {
+		void cutrUNTITLED_PNT (
+			// parameter vars goes here...
+			//
+			output point result;
+			)
+		{
+		result = point(1,1,1);
+		}
+	}
+}
+}}

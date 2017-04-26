@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Tcl Built-In Commands - subst manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<h3><a name="M2">NAME</a></h3>
+
+<p>subst - Perform backslash, command, and variable
+substitutions</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>subst</b> ?<b>-nobackslashes</b>? ?<b>-nocommands</b>?
+?<b>-novariables</b>? <i>string</i><br>
+</p>
+
+<h3><a name="M4">DESCRIPTION</a></h3>
+
+<p>This command performs variable substitutions, command
+substitutions, and backslash substitutions on its <i>string</i>
+argument and returns the fully-substituted result. The
+substitutions are performed in exactly the same way as for Tcl
+commands. As a result, the <i>string</i> argument is actually
+substituted twice, once by the Tcl parser in the usual fashion for
+Tcl commands, and again by the <i>subst</i> command.</p>
+
+<p>If any of the <b>-nobackslashes</b>, <b>-nocommands</b>, or
+<b>-novariables</b> are specified, then the corresponding
+substitutions are not performed. For example, if <b>-nocommands</b>
+is specified, command substitution is not performed: open and close
+brackets are treated as ordinary characters with no special
+interpretation.</p>
+
+<p>Note that the substitution of one kind can include substitution
+of other kinds. For example, even when the <b>-novariables</b>
+option is specified, command substitution is performed without
+restriction. This means that any variable substitution necessary to
+complete the command substitution will still take place. Likewise,
+any command substitution necessary to complete a variable
+substitution will take place, even when <b>-nocommands</b> is
+specified. See the EXAMPLES below.</p>
+
+<p>If an error occurs during substitution, then <b>subst</b> will
+return that error. If a break exception occurs during command or
+variable substitution, the result of the whole substitution will be
+the string (as substituted) up to the start of the substitution
+that raised the exception. If a continue exception occurs during
+the evaluation of a command or variable substitution, an empty
+string will be substituted for that entire command or variable
+substitution (as long as it is well-formed Tcl.) If a return
+exception occurs, or any other return code is returned during
+command or variable substitution, then the returned value is
+substituted for that substitution. See the EXAMPLES below. In this
+way, all exceptional return codes are ``caught'' by <b>subst</b>.
+The <b>subst</b> command itself will either return an error, or
+will complete successfully.</p>
+
+<h3><a name="M5">EXAMPLES</a></h3>
+
+<p>When it performs its substitutions, <i>subst</i> does not give
+any special treatment to double quotes or curly braces (except
+within command substitutions) so the script</p>
+
+<pre>
+<b>set a 44
+subst {xyz {$a}}</b>
+</pre>
+
+<p>returns ``<b>xyz {44}</b>'', not ``<b>xyz {$a}</b>'' and the
+script</p>
+
+<pre>
+<b>set a "p\} q \{r"
+subst {xyz {$a}}</b>
+</pre>
+
+<p>return ``<b>xyz {p} q {r}</b>'', not ``<b>xyz {p\} q
+\{r}</b>''.</p>
+
+<p>When command substitution is performed, it includes any variable
+substitution necessary to evaluate the script.</p>
+
+<pre>
+<b>set a 44
+subst -novariables {$a [format $a]}</b>
+</pre>
+
+<p>returns ``<b>$a 44</b>'', not ``<b>$a $a</b>''. Similarly, when
+variable substitution is performed, it includes any command
+substitution necessary to retrieve the value of the variable.</p>
+
+<pre>
+<b>proc b {} {return c}
+array set a {c c [b] tricky}
+subst -nocommands {[b] $a([b])}</b>
+</pre>
+
+<p>returns ``<b>[b] c</b>'', not ``<b>[b] tricky</b>''.</p>
+
+<p>The continue and break exceptions allow command substitutions to
+prevent substitution of the rest of the command substitution and
+the rest of <i>string</i> respectively, giving script authors more
+options when processing text using <i>subst</i>. For example, the
+script</p>
+
+<pre>
+<b>subst {abc,[break],def}</b>
+</pre>
+
+<p>returns ``<b>abc,</b>'', not ``<b>abc,,def</b>'' and the
+script</p>
+
+<pre>
+<b>subst {abc,[continue;expr 1+2],def}</b>
+</pre>
+
+<p>returns ``<b>abc,,def</b>'', not ``<b>abc,3,def</b>''.</p>
+
+<p>Other exceptional return codes substitute the returned value</p>
+
+<pre>
+<b>subst {abc,[return foo;expr 1+2],def}</b>
+</pre>
+
+<p>returns ``<b>abc,foo,def</b>'', not ``<b>abc,3,def</b>'' and</p>
+
+<pre>
+<b>subst {abc,[return -code 10 foo;expr 1+2],def}</b>
+</pre>
+
+<p>also returns ``<b>abc,foo,def</b>'', not
+``<b>abc,3,def</b>''.</p>
+
+<h3><a name="M6">SEE ALSO</a></h3>
+
+<p><b><a href="../TclCmd/Tcl.htm">Tcl</a></b>, <b><a href=
+"../TclCmd/eval.htm">eval</a></b>, <b><a href=
+"../TclCmd/break.htm">break</a></b>, <b><a href=
+"../TclCmd/continue.htm">continue</a></b></p>
+
+<h3><a name="M7">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/B.htm#backslash substitution">backslash
+substitution</a>, <a href=
+"../Keywords/C.htm#command substitution">command substitution</a>,
+<a href="../Keywords/V.htm#variable substitution">variable
+substitution</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1996 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 2001 Donal K. Fellows
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

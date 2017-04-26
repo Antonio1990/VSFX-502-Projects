@@ -1,0 +1,23 @@
+	<output name="resultXYZ"> 
+		<tags>
+			<tag value ="vector"/>
+			<tag value ="normal"/>
+			<tag value ="point"/>
+			<tag value ="color"/>
+		</tags>
+	</output>
+	<output name="resultX">
+		<tags>
+			<tag value ="float"/>
+		</tags>
+	</output>
+	<output name="resultY">
+		<tags>
+			<tag value ="float"/>
+		</tags>
+	</output>
+	<output name="resultZ">
+		<tags>
+			<tag value ="float"/>
+		</tags>
+	</output>

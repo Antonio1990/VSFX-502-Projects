@@ -1,0 +1,375 @@
+<!--
+ - PROPRIETARY INFORMATION.  This software is proprietary to
+ - Side Effects Software Inc., and is not to be reproduced,
+ - transmitted, or disclosed in any way without written permission.
+ -
+ - AUTOMATICALLY GENERATED HTML - DO NOT EDIT BY HAND
+ -->
+
+<html>
+
+<head>
+   <title> VEX Function Quick Reference</title>
+</head>
+
+<body bgcolor="#ffffff" text="#000000">
+
+<center><table width=100%>
+<tr>
+   <td><img hspace=15 vspace=5 ALT="[SESI logo]" SRC="logo.jpg"</td>
+   <td>
+      <center>
+         <h1>VEX Language Reference - Version 7.0</h1>
+	 Side Effects Software Inc.  2004
+      </center>
+   </td>
+</tr>
+</table>
+
+<hr>
+<center><h1>VEX Function Quick Reference</h1></center>
+
+<center><table border=1 cellpadding=5 cellspacing=0>
+<tr>
+  <td><a href="context.html#fn_addvariablename"><b>addvariablename</b></a></td>
+  <td><a href="shading.html#fn_Du"><b>Du</b></a> &nbsp;(<a href="context.html#cop2_derivfunc"><b>1</b></a>)</td>
+  <td><a href="shading.html#fn_Dv"><b>Dv</b></a> &nbsp;(<a href="context.html#cop2_derivfunc"><b>1</b></a>)</td>
+  <td><a href="functions.html#basic"><b>abs</b></a></td>
+  <td><a href="functions.html#basic"><b>acos</b></a></td>
+</tr>
+<tr>
+  <td><a href="context.html#fn_addattribute"><b>addattribute</b></a></td>
+  <td><a href="context.html#fn_addgroup"><b>addgroup</b></a></td>
+  <td><a href="context.html#cop2_planefunc"><b>alphaname</b></a></td>
+  <td><a href="shading.html#fn_ambient"><b>ambient</b></a></td>
+  <td><a href="functions.html#anoise"><b>anoise</b></a></td>
+</tr>
+<tr>
+  <td><a href="shading.html#fn_area"><b>area</b></a> &nbsp;(<a href="context.html#cop2_derivfunc"><b>1</b></a>)</td>
+  <td><a href="functions.html#basic"><b>asin</b></a></td>
+  <td><a href="functions.html#fn_assign"><b>assign</b></a></td>
+  <td><a href="functions.html#basic"><b>atan</b></a></td>
+  <td><a href="functions.html#fn_atoi"><b>atof</b></a></td>
+</tr>
+<tr>
+  <td><a href="functions.html#fn_atoi"><b>atoi</b></a></td>
+  <td><a href="functions.html#fn_atten"><b>atten</b></a></td>
+  <td><a href="functions.html#fn_avg"><b>avg</b></a></td>
+  <td><a href="shading.html#fn_phong"><b>blinn</b></a></td>
+  <td><a href="shading.html#fn_specularBRDF"><b>blinnBRDF</b></a></td>
+</tr>
+<tr>
+  <td><a href="functions.html#bump"><b>bumpmap</b></a></td>
+  <td><a href="functions.html#bump"><b>bumpmapA</b></a></td>
+  <td><a href="functions.html#bump"><b>bumpmapB</b></a></td>
+  <td><a href="functions.html#bump"><b>bumpmapG</b></a></td>
+  <td><a href="functions.html#bump"><b>bumpmapL</b></a></td>
+</tr>
+<tr>
+  <td><a href="functions.html#bump"><b>bumpmapR</b></a></td>
+  <td><a href="context.html#cop2_planefunc"><b>bumpname</b></a></td>
+  <td><a href="functions.html#basic"><b>ceil</b></a></td>
+  <td><a href="context.html#fn_ch"><b>ch</b></a></td>
+  <td><a href="context.html#fn_chend"><b>chend</b></a></td>
+</tr>
+<tr>
+  <td><a href="context.html#fn_chinput"><b>chinput</b></a></td>
+  <td><a href="context.html#cop2_planefunc"><b>chname</b></a></td>
+  <td><a href="context.html#fn_chnumchan"><b>chnumchan</b></a></td>
+  <td><a href="context.html#fn_chrate"><b>chrate</b></a></td>
+  <td><a href="context.html#fn_chstart"><b>chstart</b></a></td>
+</tr>
+<tr>
+  <td><a href="context.html#cop2_colorfunc"><b>cinput</b></a></td>
+  <td><a href="functions.html#fn_ckspline"><b>ckspline</b></a></td>
+  <td><a href="functions.html#fn_clamp"><b>clamp</b></a></td>
+  <td><a href="functions.html#fn_clip"><b>clip</b></a></td>
+  <td><a href="functions.html#color"><b>colormap</b></a></td>
+</tr>
+<tr>
+  <td><a href="context.html#cop2_planefunc"><b>colorname</b></a></td>
+  <td><a href="shading.html#computenormal"><b>computenormal</b></a> &nbsp;(<a href="context.html#fn_computenormal"><b>1</b></a>)</td>
+  <td><a href="functions.html#fn_concat"><b>concat</b></a></td>
+  <td><a href="functions.html#basic"><b>cos</b></a></td>
+  <td><a href="functions.html#basic"><b>cosh</b></a></td>
+</tr>
+<tr>
+  <td><a href="functions.html#fn_cross"><b>cross</b></a></td>
+  <td><a href="functions.html#fn_cspline"><b>cspline</b></a></td>
+  <td><a href="functions.html#basic"><b>degrees</b></a></td>
+  <td><a href="functions.html#zdepth"><b>depthmap</b></a></td>
+  <td><a href="context.html#cop2_planefunc"><b>depthname</b></a></td>
+</tr>
+<tr>
+  <td><a href="functions.html#matrix"><b>determinant</b></a></td>
+  <td><a href="shading.html#fn_diffuse"><b>diffuse</b></a></td>
+  <td><a href="shading.html#fn_specularBRDF"><b>diffuseBRDF</b></a></td>
+  <td><a href="functions.html#matrix"><b>dihedral</b></a></td>
+  <td><a href="shading.html#surf_import"><b>dimport</b></a> &nbsp;(<a href="shading.html#light_import"><b>1</b></a>) &nbsp;(<a href="shading.html#shadow_import"><b>2</b></a>) &nbsp;(<a href="shading.html#fog_import"><b>3</b></a>)</td>
+</tr>
+<tr>
+  <td><a href="functions.html#fn_distance"><b>distance</b></a></td>
+  <td><a href="functions.html#fn_distance"><b>distance2</b></a></td>
+  <td><a href="functions.html#fn_dot"><b>dot</b></a></td>
+  <td><a href="shading.html#fn_environment"><b>environment</b></a></td>
+  <td><a href="functions.html#basic"><b>exp</b></a></td>
+</tr>
+<tr>
+  <td><a href="shading.html#fn_fastshadow"><b>fastshadow</b></a></td>
+  <td><a href="shading.html#fn_filtershadow"><b>filtershadow</b></a></td>
+  <td><a href="shading.html#fn_filterstep"><b>filterstep</b></a></td>
+  <td><a href="context.html#cop2_colorfunc"><b>finput</b></a></td>
+  <td><a href="functions.html#fn_fit"><b>fit</b></a></td>
+</tr>
+<tr>
+  <td><a href="functions.html#basic"><b>floor</b></a></td>
+  <td><a href="functions.html#basic"><b>frac</b></a></td>
+  <td><a href="functions.html#fn_fresnel"><b>fresnel</b></a></td>
+  <td><a href="functions.html#fn_ndc"><b>fromNDC</b></a></td>
+  <td><a href="functions.html#fn_frontface"><b>frontface</b></a></td>
+</tr>
+<tr>
+  <td><a href="shading.html#otransform"><b>ftransform</b></a></td>
+  <td><a href="context.html#fn_getbbox"><b>getbbox</b></a></td>
+  <td><a href="functions.html#fn_getbounds"><b>getbounds</b></a></td>
+  <td><a href="functions.html#fn_getcomp"><b>getcomp</b></a></td>
+  <td><a href="shading.html#fn_getglobalraylevel"><b>getglobalraylevel</b></a></td>
+</tr>
+<tr>
+  <td><a href="shading.html#fn_getlightname"><b>getlightname</b></a></td>
+  <td><a href="context.html#fn_getneighbour"><b>getneighbour</b></a></td>
+  <td><a href="context.html#fn_getneighbourcount"><b>getneighbourcount</b></a></td>
+  <td><a href="shading.html#getobjectname"><b>getobjectname</b></a></td>
+  <td><a href="shading.html#fn_getraylevel"><b>getraylevel</b></a></td>
+</tr>
+<tr>
+  <td><a href="shading.html#fn_getrayweight"><b>getrayweight</b></a></td>
+  <td><a href="functions.html#fn_gradient3d"><b>gradient3d</b></a></td>
+  <td><a href="context.html#cop2_planefunc"><b>hasplane</b></a></td>
+  <td><a href="functions.html#hnoise"><b>hscript_noise</b></a></td>
+  <td><a href="functions.html#random"><b>hscript_rand</b></a></td>
+</tr>
+<tr>
+  <td><a href="functions.html#hnoise"><b>hscript_snoise</b></a></td>
+  <td><a href="functions.html#hnoise"><b>hscript_sturb</b></a></td>
+  <td><a href="functions.html#hnoise"><b>hscript_turb</b></a></td>
+  <td><a href="functions.html#fn_hsvtorgb"><b>hsvtorgb</b></a></td>
+  <td><a href="context.html#cop2_inputfunc"><b>iaspect</b></a></td>
+</tr>
+<tr>
+  <td><a href="context.html#cop2_inputfunc"><b>ichname</b></a></td>
+  <td><a href="functions.html#matrix"><b>ident</b></a></td>
+  <td><a href="context.html#cop2_inputfunc"><b>iend</b></a></td>
+  <td><a href="context.html#cop2_inputfunc"><b>iendtime</b></a></td>
+  <td><a href="context.html#cop2_inputfunc"><b>ihasplanes</b></a></td>
+</tr>
+<tr>
+  <td><a href="context.html#fn_import"><b>import</b></a></td>
+  <td><a href="context.html#fn_ingroup"><b>ingroup</b></a></td>
+  <td><a href="functions.html#basic"><b>int</b></a></td>
+  <td><a href="functions.html#fn_integrate3d"><b>integrate3d</b></a></td>
+  <td><a href="functions.html#fn_integrate3dClip"><b>integrate3dClip</b></a></td>
+</tr>
+<tr>
+  <td><a href="functions.html#fn_intersect"><b>intersect</b></a></td>
+  <td><a href="functions.html#fn_intersect3d"><b>intersect3d</b></a></td>
+  <td><a href="context.html#cop2_inputfunc"><b>inumplanes</b></a></td>
+  <td><a href="functions.html#matrix"><b>invert</b></a></td>
+  <td><a href="context.html#cop2_inputfunc"><b>iplaneindex</b></a></td>
+</tr>
+<tr>
+  <td><a href="context.html#cop2_inputfunc"><b>iplanesize</b></a></td>
+  <td><a href="context.html#cop2_inputfunc"><b>irate</b></a></td>
+  <td><a href="shading.html#fn_irradiance"><b>irradiance</b></a> &nbsp;(<a href="shading.html#light_import"><b>1</b></a>)</td>
+  <td><a href="functions.html#fn_isbound"><b>isbound</b></a></td>
+  <td><a href="context.html#fn_isconnected"><b>isconnected</b></a> &nbsp;(<a href="context.html#cop2_inputfunc"><b>1</b></a>) &nbsp;(<a href="context.html#fn_isconnected_chop"><b>2</b></a>)</td>
+</tr>
+<tr>
+  <td><a href="shading.html#fn_isfogray"><b>isfogray</b></a></td>
+  <td><a href="context.html#fn_isframes"><b>isframes</b></a></td>
+  <td><a href="context.html#fn_issamples"><b>issamples</b></a></td>
+  <td><a href="context.html#fn_isseconds"><b>isseconds</b></a></td>
+  <td><a href="shading.html#fn_isshadowray"><b>isshadowray</b></a></td>
+</tr>
+<tr>
+  <td><a href="context.html#cop2_inputfunc"><b>istart</b></a></td>
+  <td><a href="context.html#cop2_inputfunc"><b>istarttime</b></a></td>
+  <td><a href="context.html#cop2_inputfunc"><b>ixres</b></a></td>
+  <td><a href="context.html#cop2_inputfunc"><b>iyres</b></a></td>
+  <td><a href="functions.html#fn_length"><b>length</b></a></td>
+</tr>
+<tr>
+  <td><a href="functions.html#fn_length"><b>length2</b></a></td>
+  <td><a href="functions.html#fn_lerp"><b>lerp</b></a></td>
+  <td><a href="shading.html#surf_import"><b>limport</b></a> &nbsp;(<a href="shading.html#shadow_import"><b>1</b></a>) &nbsp;(<a href="shading.html#fog_import"><b>2</b></a>)</td>
+  <td><a href="functions.html#fn_lkspline"><b>lkspline</b></a></td>
+  <td><a href="functions.html#basic"><b>log</b></a></td>
+</tr>
+<tr>
+  <td><a href="functions.html#basic"><b>log10</b></a></td>
+  <td><a href="functions.html#matrix"><b>lookat</b></a></td>
+  <td><a href="functions.html#fn_lspline"><b>lspline</b></a></td>
+  <td><a href="shading.html#otransform"><b>ltransform</b></a></td>
+  <td><a href="functions.html#fn_luminance"><b>luminance</b></a></td>
+</tr>
+<tr>
+  <td><a href="context.html#cop2_planefunc"><b>lumname</b></a></td>
+  <td><a href="functions.html#matrix"><b>maketransform</b></a></td>
+  <td><a href="context.html#cop2_planefunc"><b>maskname</b></a></td>
+  <td><a href="functions.html#fn_match"><b>match</b></a></td>
+  <td><a href="context.html#fn_mattrib"><b>mattrib</b></a></td>
+</tr>
+<tr>
+  <td><a href="functions.html#fn_avg"><b>max</b></a> &nbsp;(<a href="functions.html#fn_min2"><b>1</b></a>)</td>
+  <td><a href="context.html#fn_mdensity"><b>mdensity</b></a></td>
+  <td><a href="functions.html#fn_metastart"><b>metaimport</b></a></td>
+  <td><a href="functions.html#fn_metamarch"><b>metamarch</b></a></td>
+  <td><a href="functions.html#fn_metastart"><b>metanext</b></a></td>
+</tr>
+<tr>
+  <td><a href="functions.html#fn_metastart"><b>metastart</b></a></td>
+  <td><a href="functions.html#fn_metaweight"><b>metaweight</b></a></td>
+  <td><a href="functions.html#fn_avg"><b>min</b></a> &nbsp;(<a href="functions.html#fn_min2"><b>1</b></a>)</td>
+  <td><a href="context.html#fn_mspace"><b>mspace</b></a></td>
+  <td><a href="context.html#fn_newgroup"><b>newgroup</b></a></td>
+</tr>
+<tr>
+  <td><a href="functions.html#noise"><b>noise</b></a></td>
+  <td><a href="functions.html#fn_normalize"><b>normalize</b></a></td>
+  <td><a href="context.html#cop2_planefunc"><b>normalname</b></a></td>
+  <td><a href="functions.html#fn_npoints"><b>npoints</b></a> &nbsp;(<a href="context.html#fn_npoints"><b>1</b></a>)</td>
+  <td><a href="functions.html#fn_nprimitives"><b>nprimitives</b></a></td>
+</tr>
+<tr>
+  <td><a href="functions.html#nrandom"><b>nrandom</b></a></td>
+  <td><a href="shading.html#fn_occlusion"><b>occlusion</b></a> &nbsp;(<a href="shading.html#light_import"><b>1</b></a>)</td>
+  <td><a href="functions.html#onoise"><b>onoise</b></a></td>
+  <td><a href="context.html#fn_optransform"><b>optransform</b></a></td>
+  <td><a href="shading.html#otransform"><b>otransform</b></a></td>
+</tr>
+<tr>
+  <td><a href="functions.html#qr_xform"><b>ow_nspace</b></a></td>
+  <td><a href="functions.html#qr_xform"><b>ow_space</b></a></td>
+  <td><a href="functions.html#qr_xform"><b>ow_vspace</b></a></td>
+  <td><a href="functions.html#fn_pcclose"><b>pcclose</b></a></td>
+  <td><a href="functions.html#fn_pcexport"><b>pcexport</b></a></td>
+</tr>
+<tr>
+  <td><a href="functions.html#fn_pcfarthest"><b>pcfarthest</b></a></td>
+  <td><a href="functions.html#fn_pcfilter"><b>pcfilter</b></a></td>
+  <td><a href="functions.html#fn_pcimport"><b>pcimport</b></a></td>
+  <td><a href="functions.html#fn_pciterate"><b>pciterate</b></a></td>
+  <td><a href="functions.html#fn_pcopen"><b>pcopen</b></a></td>
+</tr>
+<tr>
+  <td><a href="functions.html#fn_pcunshaded"><b>pcunshaded</b></a></td>
+  <td><a href="shading.html#fn_phong"><b>phong</b></a></td>
+  <td><a href="shading.html#fn_specularBRDF"><b>phongBRDF</b></a></td>
+  <td><a href="shading.html#fn_photon_diffuse"><b>photon_diffuse</b></a></td>
+  <td><a href="shading.html#fn_photon_reflect"><b>photon_reflect</b></a></td>
+</tr>
+<tr>
+  <td><a href="shading.html#fn_photon_store"><b>photon_store</b></a></td>
+  <td><a href="shading.html#fn_photon_switch"><b>photon_switch</b></a></td>
+  <td><a href="shading.html#fn_photon_transmit"><b>photon_transmit</b></a></td>
+  <td><a href="functions.html#fn_photonmap"><b>photonmap</b></a></td>
+  <td><a href="context.html#cop2_planefunc"><b>planeindex</b></a></td>
+</tr>
+<tr>
+  <td><a href="context.html#cop2_planefunc"><b>planename</b></a></td>
+  <td><a href="context.html#cop2_planefunc"><b>planesize</b></a></td>
+  <td><a href="functions.html#noise"><b>pnoise</b></a></td>
+  <td><a href="context.html#cop2_planefunc"><b>pointname</b></a></td>
+  <td><a href="functions.html#basic"><b>pow</b></a></td>
+</tr>
+<tr>
+  <td><a href="functions.html#fn_prim_attribute"><b>prim_attribute</b></a></td>
+  <td><a href="functions.html#fn_prim_normal"><b>prim_normal</b></a></td>
+  <td><a href="functions.html#fn_printf"><b>printf</b></a></td>
+  <td><a href="functions.html#fn_ptlined"><b>ptlined</b></a></td>
+  <td><a href="functions.html#basic"><b>radians</b></a></td>
+</tr>
+<tr>
+  <td><a href="functions.html#random"><b>random</b></a></td>
+  <td><a href="functions.html#bump"><b>rawbumpmap</b></a></td>
+  <td><a href="functions.html#bump"><b>rawbumpmapA</b></a></td>
+  <td><a href="functions.html#bump"><b>rawbumpmapB</b></a></td>
+  <td><a href="functions.html#bump"><b>rawbumpmapG</b></a></td>
+</tr>
+<tr>
+  <td><a href="functions.html#bump"><b>rawbumpmapL</b></a></td>
+  <td><a href="functions.html#bump"><b>rawbumpmapR</b></a></td>
+  <td><a href="functions.html#color"><b>rawcolormap</b></a></td>
+  <td><a href="shading.html#fn_rayhittest"><b>rayhittest</b></a></td>
+  <td><a href="functions.html#fn_reflect"><b>reflect</b></a></td>
+</tr>
+<tr>
+  <td><a href="shading.html#fn_reflectlight"><b>reflectlight</b></a></td>
+  <td><a href="functions.html#fn_refract"><b>refract</b></a></td>
+  <td><a href="shading.html#fn_refractlight"><b>refractlight</b></a></td>
+  <td><a href="context.html#fn_relbbox"><b>relbbox</b></a></td>
+  <td><a href="shading.html#renderstate"><b>renderstate</b></a></td>
+</tr>
+<tr>
+  <td><a href="functions.html#fn_rgbtohsv"><b>rgbtohsv</b></a></td>
+  <td><a href="functions.html#basic"><b>rint</b></a></td>
+  <td><a href="functions.html#matrix"><b>rotate</b></a></td>
+  <td><a href="functions.html#matrix"><b>scale</b></a></td>
+  <td><a href="functions.html#fn_set"><b>set</b></a></td>
+</tr>
+<tr>
+  <td><a href="functions.html#fn_setcomp"><b>setcomp</b></a></td>
+  <td><a href="shading.html#fn_shadow"><b>shadow</b></a></td>
+  <td><a href="functions.html#zdepth"><b>shadowmap</b></a></td>
+  <td><a href="shading.html#surf_import"><b>shimport</b></a> &nbsp;(<a href="shading.html#fog_import"><b>1</b></a>)</td>
+  <td><a href="shading.html#fog_import"><b>simport</b></a></td>
+</tr>
+<tr>
+  <td><a href="functions.html#basic"><b>sin</b></a></td>
+  <td><a href="functions.html#basic"><b>sinh</b></a></td>
+  <td><a href="functions.html#fn_sleep"><b>sleep</b></a></td>
+  <td><a href="functions.html#fn_smooth"><b>smooth</b></a></td>
+  <td><a href="functions.html#snoise"><b>snoise</b></a></td>
+</tr>
+<tr>
+  <td><a href="shading.html#fn_phong"><b>specular</b></a></td>
+  <td><a href="shading.html#fn_specularBRDF"><b>specularBRDF</b></a></td>
+  <td><a href="functions.html#fn_printf"><b>sprintf</b></a></td>
+  <td><a href="functions.html#basic"><b>sqrt</b></a></td>
+  <td><a href="functions.html#fn_strlen"><b>strlen</b></a></td>
+</tr>
+<tr>
+  <td><a href="functions.html#basic"><b>tan</b></a></td>
+  <td><a href="functions.html#basic"><b>tanh</b></a></td>
+  <td><a href="shading.html#texture"><b>texture</b></a></td>
+  <td><a href="functions.html#fn_texture3d"><b>texture3d</b></a></td>
+  <td><a href="functions.html#fn_texture3dBox"><b>texture3dBox</b></a></td>
+</tr>
+<tr>
+  <td><a href="functions.html#fn_ndc"><b>toNDC</b></a> &nbsp;(<a href="context.html#fn_ndc"><b>1</b></a>)</td>
+  <td><a href="shading.html#fn_trace"><b>trace</b></a></td>
+  <td><a href="functions.html#matrix"><b>translate</b></a></td>
+  <td><a href="functions.html#matrix"><b>transpose</b></a></td>
+  <td><a href="functions.html#qr_xform"><b>tw_nspace</b></a></td>
+</tr>
+<tr>
+  <td><a href="functions.html#qr_xform"><b>tw_space</b></a></td>
+  <td><a href="functions.html#qr_xform"><b>tw_vspace</b></a></td>
+  <td><a href="context.html#cop2_planefunc"><b>velocityname</b></a></td>
+  <td><a href="functions.html#vnoise"><b>vnoise</b></a></td>
+  <td><a href="functions.html#matrix"><b>vtransform</b></a></td>
+</tr>
+<tr>
+  <td><a href="functions.html#wnoise"><b>wnoise</b></a></td>
+  <td><a href="functions.html#qr_xform"><b>wo_nspace</b></a></td>
+  <td><a href="functions.html#qr_xform"><b>wo_space</b></a></td>
+  <td><a href="functions.html#qr_xform"><b>wo_vspace</b></a></td>
+  <td><a href="functions.html#qr_xform"><b>wt_nspace</b></a></td>
+</tr>
+<tr>
+  <td><a href="functions.html#qr_xform"><b>wt_space</b></a></td>
+  <td><a href="functions.html#qr_xform"><b>wt_vspace</b></a></td>
+</tr>
+</table></center>
+</body>
+</html>

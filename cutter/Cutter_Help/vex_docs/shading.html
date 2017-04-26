@@ -1,0 +1,2049 @@
+<!--
+ - PROPRIETARY INFORMATION.  This software is proprietary to
+ - Side Effects Software Inc., and is not to be reproduced,
+ - transmitted, or disclosed in any way without written permission.
+ -
+ -	Side Effects
+ -	477 Richmond Street West
+ -	Toronto, Ontario
+ -	Canada   M5V 3E7
+ -	416-504-9876
+ -->
+
+<html>
+
+<head>
+   <title> VEX Shading Contexts</title>
+</head>
+
+<body bgcolor="#ffffff" text="#000000">
+
+<table width=100%>
+<tr>
+   <td><img hspace=15 vspace=5 ALT="[SESI logo]" SRC="logo.jpg"</td>
+   <td>
+      <center>
+         <h1>VEX Language Reference - Version 7.0</h1>
+	 Side Effects Software Inc.  2004
+      </center>
+   </td>
+</tr>
+</table>
+
+<hr>
+<center><h1>VEX Shading Contexts</h1></center>
+
+<menu>
+    <li> <a href="#ctx_general">Common Interface</a>
+    <li> <a href="#ctx_surface">Surface Context</a>
+    <li> <a href="#ctx_photon">Photon Context</a>
+    <li> <a href="#ctx_displace">Displacement Context</a>
+    <li> <a href="#ctx_light">Light Context</a>
+    <li> <a href="#ctx_shadow">Shadow Context</a>
+    <li> <a href="#ctx_fog">Fog Context</a>
+    <li> <a href="#ctx_special">Special variables</a>
+    <li> <a href="#ctx_spaces">Transform Spaces</a>
+    <li> <a href="#ctx_opacity">Opacity vs. Alpha</a>
+</menu>
+
+<hr>
+<a name="ctx_general">
+<center><h1>Shading Contexts -- Common information</h1></center>
+</a>
+
+The shading contexts share many common attributes.  Each context
+represents a different stage in the rendering pipeline.  Displacement
+shading is done first, followed by surface shading and then
+fog/atmosphere shaders are run.  During surface and fog shading, light
+and shadow shaders may be run in order to compute illumination.  The
+global variables which are used in the shading contexts are:
+
+<h3>Global Variables</h3>
+<center><table border=1 cellpadding=5>
+      <tr bgcolor=black>
+	 <td><font color=white><b>Variable</b></font></td>
+	 <td><font color=white><b>Type</b></font></td>
+	 <td><font color=white><b>Description</b></font></td>
+      </tr>
+
+      <tr>
+	<td><b>Cf</b></td>
+	<td><b>vector</b></td>
+	<td>The final color for the surface.  The vector represents the
+	    RGB color for the surface.</td>
+      </tr>
+
+      <tr>
+	<td><b><a href="#ctx_opacity">Of</a></b></td>
+	<td><b>vector</b></td>
+	<td>The final opacity for the surface.  A value of {1,1,0}
+	    will be opaque in red/green, but let through blue light
+	    from behind.</td>
+      </tr>
+
+      <tr>
+	<td><b><a href="#ctx_opacity">Af</a></b></td>
+	<td><b>float</b></td>
+	<td>The final alpha for the surface.  This is the value which
+	    is placed in the alpha channel of the output image.</td>
+      </tr>
+
+      <tr>
+	<td><b>P</b></td>
+	<td><b>vector</b></td>
+	<td>The position of the point on the surface being shaded.<br>
+	    In light or shadow shaders, the <b>P</b> variable contains
+	    the point on the light source</td>
+      </tr>
+
+      <tr>
+	<td><b>Pz</b></td>
+	<td><b>float</b></td>
+	<td>The z component of the point being shaded.</td>
+      </tr>
+
+
+      <tr>
+	<td><b>Ps</b></td>
+	<td><b>vector</b></td>
+	<td>In light & shadow shaders, this is the position of the point
+	    on the surface being illuminated.</td>
+      </tr>
+
+      <tr>
+	<td><b>I</b></td>
+	<td><b>vector</b></td>
+	<td>The direction from the eye to the point being shaded.
+	    This may or may not be a normalized vector.</td>
+      </tr>
+
+      <tr>
+	<td><b>Eye</b></td>
+	<td><b>vector</b></td>
+	<td>The position of the eye.</td>
+      </tr>
+
+      <tr>
+	<td><b>s</b></td>
+	<td><b>float</b></td>
+	<td>The parametric s (sometimes called u) coordinate of the
+	    surface being shaded.</td>
+      </tr>
+
+      <tr>
+	<td><b>t</b></td>
+	<td><b>float</b></td>
+	<td>The parametric t (sometimes called v) coordinate of the
+	    surface being shaded.</td>
+      </tr>
+
+      <tr>
+	<td><b>dPds, dPdt</b></td>
+	<td><b>vector</b></td>
+	<td>The change in position with respect to the parametric
+	    coordinates s, t</td>
+      </tr>
+
+      <tr>
+	<td><b>N</b></td>
+	<td><b>vector</b></td>
+	<td>The shading normal for the surface.</td>
+      </tr>
+
+      <tr>
+	<td><b>Ng</b></td>
+	<td><b>vector</b></td>
+	<td>The geometric normal for the surface.  This normal
+	    represents the "true" normal of the surface being shaded.
+	    For example, with Phong shading, the <b>N</b> variable
+	    represents the interpolated normal, while the <b>Ng</b>
+	    variable represents the true polygon normal</td>
+      </tr>
+
+      <tr>
+	<td><b>Cl</b></td>
+	<td><b>vector</b></td>
+	<td>Light color</td>
+      </tr>
+
+      <tr>
+	<td><b>L</b></td>
+	<td><b>vector</b></td>
+	<td>The vector from the point on the surface to the light
+	    source.  The length of this vector represents the distance
+	    to the light source.  Please see <a
+	    href="#LVariable">here</a> for further information on how
+	    the L variable is initialized</td>
+      </tr>
+
+      <tr>
+	<td><b>Lz</b></td>
+	<td><b>vector</b></td>
+	<td>The z-axis in the space of the light.  This is a unit
+	    vector.</td>
+      </tr>
+</table></center>
+<p>
+
+Each context is responsible for setting or modifying different
+variables.  For example, the displacement context can modify the
+position of the surface being rendered, while the light context is
+responsible for setting the color of the light source.  The Read/Write
+access of the variables for each context can be described below.
+
+<h3>Global Variable Access</h3>
+<center><table border=1 cellpadding=5>
+      <tr bgcolor=black>
+	 <td><font color=white><b>Variable</b></font></td>
+	 <td><font color=white><b>Displacement</b></font></td>
+	 <td><font color=white><b>Surface</b></font></td>
+	 <td><font color=white><b>Light</b></font></td>
+	 <td><font color=white><b>Shadow</b></font></td>
+	 <td><font color=white><b>Fog</b></font></td>
+	 <td><font color=white><b>Photon</b></font></td>
+      </tr>
+
+      <tr>
+	<td><b>Cf</b></td>
+	<td><b>N/A</b></td>
+	<td><b>Write</b></td>
+	<td><b>N/A</b></td>
+	<td><b>N/A</b></td>
+	<td><b>Read/Write</b></td>
+	<td><b>N/A</b></td>
+      </tr>
+
+      <tr>
+	<td><b>Of</b></td>
+	<td><b>N/A</b></td>
+	<td><b>Write</b></td>
+	<td><b>N/A</b></td>
+	<td><b>N/A</b></td>
+	<td><b>Read/Write</b></td>
+	<td><b>N/A</b></td>
+      </tr>
+
+      <tr>
+	<td><b>Af</b></td>
+	<td><b>N/A</b></td>
+	<td><b>Write</b></td>
+	<td><b>N/A</b></td>
+	<td><b>N/A</b></td>
+	<td><b>Read/Write</b></td>
+	<td><b>N/A</b></td>
+      </tr>
+
+      <tr>
+	<td><b>P</b></td>
+	<td><b>Read/Write</b></td>
+	<td><b>Read/Write(*)</b></td>
+	<td><b>Read</b></td>
+	<td><b>Read</b></td>
+	<td><b>Read</b></td>
+	<td><b>Read</b></td>
+      </tr>
+
+      <tr>
+	<td><b>Pz</b></td>
+	<td><b>Read</b></td>
+	<td><b>Read</b></td>
+	<td><b>N/A</b></td>
+	<td><b>N/A</b></td>
+	<td><b>Read</b></td>
+	<td><b>Read</b></td>
+      </tr>
+
+      <tr>
+	<td><b>Ps</b></td>
+	<td><b>N/A</b></td>
+	<td><b>N/A<b></td>
+	<td><b>Read</b></td>
+	<td><b>Read</b></td>
+	<td><b>N/A</b></td>
+	<td><b>N/A</b></td>
+      </tr>
+
+      <tr>
+	<td><b>I</b></td>
+	<td><b>N/A</b></td>
+	<td><b>Read<b></td>
+	<td><b>Read</b></td>
+	<td><b>Read</b></td>
+	<td><b>Read</b></td>
+	<td><b>Read</b></td>
+      </tr>
+
+      <tr>
+	<td><b>Eye</b></td>
+	<td><b>N/A</b></td>
+	<td><b>Read<b></td>
+	<td><b>Read</b></td>
+	<td><b>Read</b></td>
+	<td><b>Read</b></td>
+	<td><b>Read</b></td>
+      </tr>
+
+      <tr>
+	<td><b>s</b></td>
+	<td><b>Read</b></td>
+	<td><b>Read<b></td>
+	<td><b>Read</b></td>
+	<td><b>Read</b></td>
+	<td><b>Read</b></td>
+	<td><b>Read</b></td>
+      </tr>
+
+      <tr>
+	<td><b>t</b></td>
+	<td><b>Read</b></td>
+	<td><b>Read<b></td>
+	<td><b>Read</b></td>
+	<td><b>Read</b></td>
+	<td><b>Read</b></td>
+	<td><b>Read</b></td>
+      </tr>
+
+      <tr>
+	<td><b>dPds, dPdt</b></td>
+	<td><b>Read</b></td>
+	<td><b>Read<b></td>
+	<td><b>Read</b></td>
+	<td><b>Read</b></td>
+	<td><b>Read</b></td>
+	<td><b>Read</b></td>
+      </tr>
+
+      <tr>
+	<td><b>N</b></td>
+	<td><b>Read/Write</b></td>
+	<td><b>Read/Write<b></td>
+	<td><b>Read</b></td>
+	<td><b>Read</b></td>
+	<td><b>Read</b></td>
+	<td><b>Read</b></td>
+      </tr>
+
+      <tr>
+	<td><b>Ng</b></td>
+	<td><b>Read</b></td>
+	<td><b>Read<b></td>
+	<td><b>Read</b></td>
+	<td><b>Read</b></td>
+	<td><b>Read</b></td>
+	<td><b>Read</b></td>
+      </tr>
+
+      <tr>
+	<td><b>Cl</b></td>
+	<td><b>N/A</b></td>
+	<td><b>Read/Write<b></td>
+	<td><b>Write</b></td>
+	<td><b>Read/Write</b></td>
+	<td><b>Read/Write</b></td>
+	<td><b>Read</b></td>
+      </tr>
+
+      <tr>
+	<td><b>L</b></td>
+	<td><b>N/A</b></td>
+	<td><b>Read<b></td>
+	<td><b>Read/Write</b></td>
+	<td><b>Read</b></td>
+	<td><b>Read</b></td>
+	<td><b>Read</b></td>
+      </tr>
+
+      <tr>
+	<td><b>Lz</b></td>
+	<td><b>N/A</b></td>
+	<td><b>N/A<b></td>
+	<td><b>Read</b></td>
+	<td><b>Read</b></td>
+	<td><b>N/A</b></td>
+	<td><b>Read</b></td>
+      </tr>
+</table>
+<b>*</b> Although P is modifiable in the surface context, at the
+    current time, changing P will not affect rendering of the surface,
+    only shading.
+</center>
+
+<a name="qr_common">
+<h3> Common Shading Functions </h3>
+
+The following functions are available in all shading contexts.<p>
+
+<menu>
+    <a name="fn_Du">
+    <li><b>float Du(float var, ...)</b><br>
+	<b>vector Du(vector var, ...)</b><br>
+	<b>vector4 Du(vector4 var, ...)</b><br>
+
+	Computes the derivative of the variable with respect to the
+	<b>s</b> parametric coordinate.  This is the change in the
+	variable over the area being shaded.<p>
+	<a href="#ctx_extrapolation">Additional arguments</a> may be
+	specified to control the derivative computation.<p>
+
+    <a name="fn_Dv">
+    <li><b>float Dv(float var, ...)</b><br>
+	<b>vector Dv(vector var, ...)</b><br>
+	<b>vector4 Dv(vector4 var, ...)</b><br>
+
+	Computes the derivative of the variable with respect to the
+	<b>t</b> parametric coordinate.  This is the change in the
+	variable over the area being shaded.<p>
+	<a href="#ctx_extrapolation">Additional arguments</a> may be
+	specified to control the derivative computation.<p>
+
+    <a name="fn_area">
+    <li><b>float area(vector var, ...)</b><br>
+	Computes the shading area of the variable.  This is typically
+	used to get a representation of the area being shaded in terms
+	of pixels.<p>
+	<a href="#ctx_extrapolation">Additional arguments</a> may be
+	specified to control the area computation.<p>
+
+    <a name="fn_filterstep">
+    <li><b>float filterstep(float edge, x, ...)</b><br>
+	<b>float filterstep(float edge, x0, x1, ...)</b><br>
+	Returns the anti-aliased weight of the step function.  The
+	step function returns 0 if <b>x</b> is less than <b>edge</b>
+	and 1 if <b>x</b> is greater than <b>edge</b>.  The
+	filterstep() function will return a fraction representing the
+	filtered area under the step function.  Optionally an
+	arbitrary <a href="functions.html#image_filter"> filter kernel
+	and width may</a> be specified using the "filter" and "width"
+	additional arguments in the same fashion as for texture()
+	functions.  Example:
+<listing>
+    f = filterstep(0.5, s+t, "filter", "gauss", "width", 2);
+</listing>
+	The first form is roughly equivalent to:
+<listing>
+    f = filterstep(edge, x, x + abs(Du(x)+Dv(x)));
+</listing><p>
+	
+<a name="computenormal">
+    <li><b>vector computenormal(vector P, ...)</b><br>
+	<b>vector computenormal(vector P, N, Ng, ...)</b><br>
+
+	Computes the normal for the described by P.  This is done
+	performing the cross product of the derivatives of P.  The
+	second form takes the original surface normal and geometric
+	normal.  The computed normal will be "adjusted" so that
+	interpolated normals will be relatively correct.<p>
+	<a href="#ctx_extrapolation">Additional arguments</a> may be
+	specified to control the area computation.<p>
+
+<a name="getobjectname">
+    <li><b>string getobjectname()</b><br>
+	This function returns the name of the current "object" whose
+	shader is being run.  Within light/shadow contexts, this is
+	the name of the light object which has the shader bound to it.
+	For surface/displacement contexts, this function will return
+	the name of the object being shaded.  The function will also
+	return the name of the atmosphere object being shaded from
+	within fog shaders.<p>
+
+<a name="renderstate">
+    <li><b>int renderstate(string query, int &value)<br>
+	   int renderstate(string query, float &value)<br>
+	   int renderstate(string query, vector &value)<br>
+	   int renderstate(string query, vector4 &value)<br>
+	   int renderstate(string query, matrix3 &value)<br>
+	   int renderstate(string query, matrix4 &value)<br>
+	   int renderstate(string query, string &value)<br>
+	</b></br>
+
+	This function queries the renderer about certain state
+	information.  If the renderer is unable to evaluate the query,
+	then the function will return 0 (and the value variable will
+	remain unchanged).  If the renderer is able to provide
+	information for the query, then the function will return
+	non-zero and the value will be set to the result of the query.
+	Currently, mantra supports the following queries:
+
+	<center><table width=80% border=1>
+	    <tr bgcolor=black>
+		<td><font color=white><b>Query</b></font></td>
+		<td><font color=white><b>Return Type</b></font></td>
+		<td><font color=white><b>Description</b></font></td>
+	    </tr>
+	    <tr>
+		<td><b>renderer:name</b></td>
+		<td><b>string</b></td>
+		<td>
+		    The name of the renderer.
+		</td>
+	    </tr>
+	    <tr>
+		<td><b>renderer:version</b></td>
+		<td><b>string</b>/<b>vector</b></td>
+		<td>
+		    The version of the renderer.  The string returned
+		    will be of the form "major.minor.build".  As a
+		    vector, this is returned with the major version
+		    number in the x component, the minor number in the
+		    y and the build number in the z component.
+		</td>
+	    </tr>
+	    <tr></tr>
+	    <tr>
+		<td><b>image:name</b></td>
+		<td><b>string</b></td>
+		<td>
+		    The name of the image being rendered.
+		</td>
+	    </tr>
+	    <tr>
+		<td><b>image:resolution</b></td>
+		<td><b>vector</b></td>
+		<td>
+		    The three components of the vector will be set to
+		    the X resolution, the Y resolution and the total
+		    number of samples per pixel.
+		</td>
+	    </tr>
+	    <tr>
+		<td><b>image:samples</b></td>
+		<td><b>vector</b></td>
+		<td>
+		    The three components of the vector will be set to
+		    the number of X samples, the number of Y samples
+		    and 0.
+		</td>
+	    </tr>
+	    <tr>
+		<td><b>image:raysamples</b></td>
+		<td><b>vector</b></td>
+		<td>
+		    The three components will be set to the number of
+		    ray-tracing samples in X, Y and zero.
+		</td>
+	    </tr>
+	    <tr></tr>
+	    <tr>
+		<td><b>object:name</b></td>
+		<td><b>string</b></td>
+		<td>
+		    The name of the object being shaded.  This is
+		    valid within light and shadow shaders and can be
+		    used to query which object is being lit (or
+		    shadowed) by the light source.
+		</td>
+	    </tr>
+	    <tr>
+		<td><b>object:reflectscope</b></td>
+		<td><b>string</b></td>
+		<td>
+		    The default reflection scope pattern for the
+		    object being shaded.
+		</td>
+	    </tr>
+	    <tr>
+		<td><b>object:refractscope</b></td>
+		<td><b>string</b></td>
+		<td>
+		    The default refraction scope pattern for the
+		    object being shaded.
+		</td>
+	    </tr>
+	    <tr>
+		<td><b>object:reflectlimit</b></td>
+		<td><b>float</b>/<b>int</b></td>
+		<td>
+		    The hard limit for maximum reflection bounces
+		    for the object being shaded.
+		</td>
+	    </tr>
+	    <tr>
+		<td><b>object:refractlimit</b></td>
+		<td><b>float</b>/<b>int</b></td>
+		<td>
+		    The hard limit for maximum refraction bounces
+		    for the object being shaded.
+		</td>
+	    </tr>
+	    <tr>
+		<td><b>object:shadingquality</b></td>
+		<td><b>float</b></td>
+		<td>
+		    The shading quality for the object being shaded.
+		</td>
+	    </tr>
+	    <tr></tr>
+	    <tr>
+		<td><b>light:name</b></td>
+		<td><b>string</b></td>
+		<td>
+		    The name of the light object which is currently
+		    active in the illuminance loop.
+		</td>
+	    </tr>
+	    <tr>
+		<td><b>light:shadowmask</b></td>
+		<td><b>string</b></td>
+		<td>
+		    The shadow mask of the light object currently
+		    active in the illuminance loop.
+		</td>
+	    </tr>
+	    <tr></tr>
+	    <tr>
+		<td><b>shader:name</b></td>
+		<td><b>string</b></td>
+		<td>
+		    The name of the current shader being run.
+		</td>
+	    </tr>
+	</table></center>
+	<br>
+
+    For example:
+    <listing>
+	surface showversion() {
+	    string	rname, rversion;
+	    if (!renderstate("renderer:name", rname))
+		rname = "Unknown renderer";
+	    if (!renderstate("renderer:version", rversion))
+		rversion = "Unknown version";
+	    printf("Image rendered by %s (%s)\n", rname, rversion);
+	}
+
+	vector
+	mapToScreen(vector NDC_P)
+	{
+	    // Given a point in NDC space, find out which pixel it
+	    // maps to.
+	    vector	result;
+	    if (!renderstate("image:resolution", result))
+		result = {640, 486, 0};
+	    return result * NDC_P;
+	}
+    </listing>
+
+<a name="rayfunc">
+    <a name="fn_trace">
+    <li><b>void trace(vector &cv, &of; float &af; vector P, D;
+		      float bias, max_contrib,
+		      [<a href="#ctx_rayopt">options</a>])</b><br>
+
+	This function will send a ray starting at P and in the
+	direction specified by the normalized vector D.  The resulting
+	color, opacity and alpha will be returned.  The bias parameter
+	is typically a small number which is used to prevent
+	self-shading of the trace() function.  The max_contrib
+	parameter is used to give the renderer an idea of how much the
+	result of the trace() call will contribute to the resulting
+	pixel color.  The max_contrib parameter has no effect on the
+	results of the trace() call.<p>
+
+    <a name="fn_rayhittest">
+    <li><b>float rayhittest(vector P, D; float bias,
+		      [<a href="#ctx_rayopt">options</a>])</b><br>
+	<b>float rayhittest(vector P, D; vector &pHit, &nHit; float bias,
+		      [<a href="#ctx_rayopt">options</a>])</b><br>
+	This function will send a ray from the position P along the
+	direction specified by the direction D.  The length of the D
+	vector represents the farthest distance considered when check
+	for occlusion.  The function will return the distance to the
+	object intersected.  If no object is hit, the distance will
+	less than 0.  If <b>pHit</b> and <b>nHit</b> are specified,
+	they will be set to the position and normal of the hit
+	surface.<p>
+	Note:  Though it is possible, in many cases, the area sampling
+	features will not produce usable results with the
+	<b>rayhittest()</b> function.<p>
+
+    <a name="fn_fastshadow">
+    <li><b>float fastshadow(vector P, D; float bias,
+		    [<a href="#ctx_rayopt">options</a>])</b><br>
+	This function will send a ray from the position P along the
+	direction specified by the direction D.  The length of the D
+	vector represents the farthest distance considered when check
+	for occlusion.  The function will return 1 if there are no
+	occluding objects found, or 0 if the ray hit any object in
+	between.<p>
+
+    <a name="fn_filtershadow">
+    <li><b>vector filtershadow(vector P, D; float bias,
+		    [<a href="#ctx_rayopt">options</a>])</b><br>
+	This function will send a ray from the position P along the
+	direction specified by the direction D.  The length of the D
+	vector represents the farthest distance considered when check
+	for occlusion.  Each occluding surface will be evaluated and
+	its opacity will be added to the total occlusion.  The return
+	code of this function is the total occlusion of shaded
+	surfaces between the point P and the point specified by
+	P+D.<p>
+
+    <a name="fn_getraylevel">
+    <li><b>int getraylevel()</b><br>
+	Returns the depth of the ray tree for the current shading.
+	If the returned value is 0, this represents a ray from the
+	camera to the scene.  If the ray level is 1, the ray
+	represents either a reflection/refraction ray.  If the level
+	is 2, then this represents a reflection/refraction which
+	appears in a previous reflection/refraction etc.<p>
+
+    <a name="fn_getrayweight">
+    <li><b>float getrayweight()</b><br>
+	Returns the an approximation to the contribution of the ray to
+	the  final pixel color.  Often, this is a better metric for
+	judging contribution to the final pixel color than
+	<b>getraylevel()</b>.  However, this does rely on prior
+	shaders giving good estimates on the contribution to their
+	shading (see <b>reflectlight()</b>).<p>
+
+    <a name="fn_getglobalraylevel">
+    <li><b>int getglobalraylevel()</b><br>
+	Returns the depth of the ray tree for computing global
+	illumination.  If this function returns a non-zero value, the
+	shader is being called for the purpose of evaluating global
+	illumination.<p>
+
+    <a name="fn_specularBRDF">
+    <li><b>float specularBRDF(vector L, N, V; float rough)</b><br>
+	<b>float phongBRDF(vector L, N, V; float rough)</b><br>
+	<b>float blinnBRDF(vector L, N, V; float rough)</b><br>
+	<b>float diffuseBRDF(vector L, N, V; float rough)</b><br>
+	<b>float diffuseBRDF(vector L, N)</b><br>
+	These functions return the computed BRDFs for the different
+	lighting models used in VEX shading.  They can be used in
+	custom illuminance() loops to replicate the lighting models of
+	the corresponding VEX lighting functions.  For example:
+    <listing>
+    vector nn = normalize(frontface(N, I));
+    vector ii = normalize(-I);
+    Cf = 0;
+    illuminance(P, nn)
+    {
+	vector ll = normalize(L);
+	Cf += Cl * (specularBRDF(ll, nn, ii, rough) + diffuseBRDF(ll, nn));
+    }
+    </listing>
+	The <b>diffuseBRDF(vector L, N)</b> is equivalent to
+	<b>clamp(dot(L, N), 0, 1)</b>.<p>
+
+<a name="texture">
+    <li><b>vector texture(string map; ...)</b><br>
+	<b>vector texture(string map; float ss, tt; ...)</b><br>
+	<b>vector texture(string map; float s0, t0, s1, t1, s2, t2,
+				      s3, t3; ...)</b><br>
+	<b>vector4 texture(string map; ...)</b><br>
+	<b>vector4 texture(string map; float ss, tt; ...)</b><br>
+	<b>vector4 texture(string map; float s0, t0, s1, t1, s2, t2,
+				      s3, t3; ...)</b><br>
+
+	The texture() functions compute a filtered sample of the
+	texture map specified.  With no coordinates given, the values
+	of the <b>s</b> and <b>t</b> variables are used to index the
+	texture.  The forms returning vector4 will have the alpha from
+	the texture map in the fourth component.<p>
+	Additional arguments can be used to specify <a
+	href="functions.html#image_filter">filtering
+	options.</a><p>
+
+    <a name="fn_environment">
+    <li><b>vector  environment(string map; vector D)</b><br>
+	<b>vector4 environment(string map; vector D)</b><br>
+
+	The map specified will be considered an environment map (on an
+	infinite sphere).  The color of the environment texture is
+	returned.<p>
+	Additional arguments can be used to specify <a
+	href="functions.html#image_filter">filtering
+	options.</a><p>
+
+<a name="otransform">
+    <li><b>matrix otransform(string name);</b><br>
+	<b>matrix ltransform(string name);</b><br>
+	<b>matrix ftransform(string name);</b><br>
+
+	These functions query the scene for a geometry object, light
+	or fog object of the given name.  If the object is found, the
+	transform matrix applied to that object is returned.<p>
+	Because of the way particle instancing is implemented for
+	vmantra, the <b>otransform</b> function will return the
+	transform for one and only one particle for the given
+	object.<p>
+	When referring to objects which are contained in sub-networks,
+	the path of the object (without the leading "/obj/") should be
+	used to reference the object.  This applies to objects, lights
+	and atmosphere objects.<p>
+
+    <li><b>vector otransform(string name, vector);</b><br>
+	<b>vector ltransform(string name, vector);</b><br>
+	<b>vector ftransform(string name, vector);</b><br>
+	<b>vector ontransform(string name, vector);</b><br>
+	<b>vector lntransform(string name, vector);</b><br>
+	<b>vector fntransform(string name, vector);</b><br>
+	<b>vector ovtransform(string name, vector);</b><br>
+	<b>vector lvtransform(string name, vector);</b><br>
+	<b>vector fvtransform(string name, vector);</b><br>
+
+	These functions query the scene for a geometry object, light
+	or fog object of the given name.  If the object is found, the
+	world space vector is transformed into the space of the given
+	object.  Otherwise, the vector remains unchanged.  The
+	<b>n</b> methods transform normal vectors, the <b>v</b>
+	methods transform direction vectors.  The base methods
+	transform positions.<p>
+
+</menu>
+
+<hr>
+<a name="ctx_rayopt">
+<h3>Area Sampling</h3>
+Many of the ray-tracing functions can perform area-sampling rather
+than point sampling.  There are two optional parameters which control
+this behaviour.
+<center><table width=80% border=1>
+    <tr bgcolor=black>
+	<td><font color=white><b>Parameter</b></font></td>
+	<td><font color=white><b>Functions</b></font></td>
+	<td><font color=white><b>Description</b></font></td>
+    </tr>
+    <!--  All functions are
+	fastshadow
+	filtershadow
+	rayhittest
+	reflectlight
+	refractlight
+	trace
+	irradiance
+	occlusion
+      -->
+    <tr>
+	<td> <b>"scope",&nbsp;string&nbsp;spec</b> </td>
+	<td> all <br>
+	     </td>
+	<td> This option allows an override of the scope for
+	     ray-intersections.  More information on specification of
+	     scope can be found <a href="#ctx_scope">here</a>.
+	</td>
+    </tr>
+    <tr>
+	<td> <b>"bias",&nbsp;float&nbsp;value</b> </td>
+	<td> irradiance<br>
+	     occlusion</td>
+	<td> The <b>irradiance</b> and <b>occlusion</b> functions take
+	    an optional <b>bias</b> parameter which gives control over
+	    self-intersection.
+	</td>
+    </tr>
+    <tr>
+	<td> <b>"maxdist",&nbsp;float&nbsp;value</b> </td>
+	<td> all </td>
+	<td> This option allows an override of the maximum distance
+	    the ray can travel when testing for intersections.  Some
+	    functions (i.e. fastshadow()) have the maximum distance
+	    implicitly defined (by the length of the ray) and should
+	    probably avoid using this option.  However, this option
+	    can be used effectively when computing reflections, global
+	    illumination, refraction etc.
+	</td>
+    </tr>
+    <tr>
+	<td> <b>"variance",&nbsp;float&nbsp;value</b> </td>
+	<td> reflectlight<br>
+	     refractlight<br>
+	     fastshadow<br>
+	     filtershadow<br>
+	     trace<br>
+	<td> This option overrides the global variance control
+	    (mantra's -v option) which is used to determine
+	    anti-aliasing quality of ray tracing.  For more
+	    information please refer to the documentation on mantra.
+	</td>
+    </tr>
+    <tr>
+	<td> <b>"angle",&nbsp;float&nbsp;value</b> </td>
+	<td> reflectlight<br>
+	     refractlight<br>
+	     fastshadow<br>
+	     filtershadow<br>
+	     trace<br>
+	     </td>
+	<td> This value of this parameter specifies a cone angle over
+	     which samples will be distributed.  To be effective, the
+	     <b>samples</b> parameter should also be specified.  The
+	     value is specified in radians.
+	</td>
+    </tr>
+    <tr>
+	<td> <b>"samples",&nbsp;int&nbsp;value</b> </td>
+	<td> reflectlight<br>
+	     refractlight<br>
+	     fastshadow<br>
+	     filtershadow<br>
+	     trace<br>
+	     irradiance<br>
+	     occlusion<br>
+	     </td>
+	<td> The value of this parameter tells how many samples should
+	    be sent out to filter rays.  For the <b>irradiance</b> and
+	    <b>occlusion</b> functions, specifying a <b>samples</b>
+	    parameter will override the default irradiance sampling.
+	    </td>
+    </tr>
+    <tr>
+	<td> <b>"environment",&nbsp;string&nbsp;map</b> </td>
+	<td> reflectlight<br>
+	     refractlight<br>
+	     trace<br>
+	     irradiance<br>
+	     occlusion<br>
+	     </td>
+	<td> If the ray sent out to the scene misses everything, then
+	    it's possible to specify an environment map to evaluate.
+	    Using the ray's direction, the environment map specified
+	    will be evaluated and the resulting color will be
+	    returned.  Most likely, it will be necessary to specify a
+	    transform space for the environment map evaluations.<br>
+	    In the case of <b>refractlight</b> and <b>trace</b> the Of
+	    and Af variables will be set to 0 regardless of the
+	    background color specified.  the resulting color.<p>
+	    When an environment map is specified, the <a
+	    href="functions.html#image_filter">standard texture
+	    filtering options</a> are also supported.
+	    </td>
+    </tr>
+
+    <tr>
+	<td> <b>"envobject",&nbsp;string&nbsp;objectname</b><br>
+	     <b>"envlight",&nbsp;string&nbsp;lightname</b><br>
+	     <b>"envfog",&nbsp;"string&nbsp;fogname</b></td>
+	<td> reflectlight<br>
+	     refractlight<br>
+	     trace<br>
+	     irradiance<br>
+	     occlusion<br>
+	     </td>
+	<td> If an environment map is used, the orientation of
+	    the environment map can be specified by transforming the
+	    ray into the space of another object, light or fog object
+	    in the scene.  In Houdini, <b>null</b> objects can be used
+	    to specify the orientation.  For example:
+	    <listing>
+   Cf = R*reflectlight(bias, max(R),
+			"environment", "map.rat",
+			"envobject", "null_object_name");
+	    </listing>
+	    </td>
+    </tr>
+    <tr>
+	<td> <b>"envtint",&nbsp;vector&nbsp;color</b></td>
+	<td> reflectlight<br>
+	     refractlight<br>
+	     trace<br>
+	     irradiance<br>
+	     occlusion<br>
+	     </td>
+	<td> If an environment map is used, it's possible to "tint"
+	    the resulting color.
+	    </td>
+    </tr>
+    <tr>
+	<td> <b>"background",&nbsp;vector&nbsp;color</b></td>
+	<td> reflectlight<br>
+	     refractlight<br>
+	     trace<br>
+	     irradiance<br>
+	     occlusion<br>
+	     </td>
+	<td> If a ray misses all objects, it's possible to specify
+	    the background color of the scene.<br>
+	    In the case of <b>refractlight</b> and <b>trace</b> the Of
+	    and Af variables will be set to 0 regardless of the
+	    background color specified.
+	    </td>
+    </tr>
+    <tr>
+	<td> <b>"distribution",&nbsp;string&nbsp;style</b></td>
+	<td> irradiance </td>
+	<td> This determines the distribution for computing
+	    irradiance.  The default is to use a cosine distribution
+	    (diffuse illumination).  The possible values for the style
+	    are:
+	    <menu>
+		<li> <b>uniform</b> - Uniform sampling
+		<li> <b>cosine</b> - Cosine weighted sampling
+	    </menu>
+	    </td>
+    </tr>
+</table></center><br>
+
+For area sampling to occur, both the angle and sample parameters must
+be specified.  For example:
+<listing>
+    surface
+    blurry_mirror(float angle = 3; int samples = 16; float bias=0.05)
+    {
+	Cf = reflectlight(bias, 1, "angle", angle, "samples",
+			    samples);
+    }
+</listing>
+For reference, the following functions accept the area/samples
+parameters:
+<menu>
+    <li><b>fastshadow()</b>
+    <li><b>filtershadow()</b>
+    <li><b>rayhittest()</b>
+    <li><b>reflectlight()</b>
+    <li><b>refractlight()</b>
+    <li><b>trace()</b>
+</menu>
+
+<hr>
+<a name="ctx_scope">
+<h3>Ray-Intersection Scoping</h3>
+When sending rays, the list of objects to intersect against are
+typically limited by a "scope" which is specified in Houdini.  For
+example, sending a reflection ray will limit the objects which are
+tested for ray-intersection to the objects which match the reflection
+mask of the reflective object.  However, it is possible to override
+the scope of objects to perform intersection tests against by
+specifying an additional scope argument.  For example,<p>
+<listing>
+    Cr = reflectlight(bias, max_contrib, "scope", "geo1,geo2");
+</listing>
+will only cause objects "geo1" and "geo2" to be picked up in the
+reflections.  All of the Houdini scoping rules (excepting group
+expansion) are supported:<p>
+<menu>
+    <li> <b>*</b> - wild-card match
+    <li> <b>?</b> - single character match
+    <li> <b>^</b> - exclusion operator
+    <li> <b>[list]</b> - character list match
+</menu>
+Some example patterns are:
+<menu>
+    <li> <b>geo*</b> - Matches all objects starting with "geo"
+    <li> <b>geo*,^geo2</b> - Matches all objects starting with "geo"
+	except for "geo2"
+    <li> <b>leg*,arm[123]</b> - Matches all objects starting with
+	"leg" as well as "arm1", "arm2", and "arm3".
+</menu>
+
+For reference these are the ray-intersection scopes used by default
+for each ray-tracing function.
+<center><table width=80% border=1>
+    <tr bgcolor=black>
+	<td><font color=white><b>Function</b></font></td>
+	<td><font color=white><b>Light/Shadow Shader</b></font></td>
+	<td><font color=white><b>Surface Shader</b></font></td>
+    </tr>
+    <tr><td>fastshadow()</td>
+	<td>Light's shadow scope</td>
+	<td>Object's reflection scope</td>
+    </tr>
+    <tr><td>filtershadow()</td>
+	<td>Light's shadow scope</td>
+	<td>Object's reflection scope</td>
+    </tr>
+    <tr><td>rayhittest()</td>
+	<td>Light's shadow scope</td>
+	<td>Object's reflection scope</td>
+    </tr>
+    <tr><td>reflectlight()</td>
+	<td>Object's reflection scope</td>
+	<td>Object's reflection scope</td>
+    </tr>
+    <tr><td>refractlight()</td>
+	<td>All objects (scope = "*")</td>
+	<td>All objects (scope = "*")</td>
+    </tr>
+    <tr><td>trace()</td>
+	<td>Object's reflection scope</td>
+	<td>Object's reflection scope</td>
+    </tr>
+    <tr><td>irradiance()</td>
+	<td>Object's reflection scope</td>
+	<td>Object's reflection scope</td>
+    </tr>
+    <tr><td>occlusion()</td>
+	<td>Light's shadow scope</td>
+	<td>Object's reflection scope</td>
+    </tr>
+</table></center>
+
+<br>
+
+<hr>
+<a name="ctx_lightmask">
+<h3>Illuminance Light Mask</h3>
+When evaluating light and shadow shaders, objects have pre-defined
+light masks.  This mask is usually specified in the geometry object
+and specifies a list of lights which are used to illuminate a surface
+or fog shader.  It is possible to override the default light mask by
+specifying a "lightmask" argument.  For example:
+<listing>
+    diff = diffuse(nml, "lightmask", "light*,^light2");
+</listing>
+will cause all lights whose names begin with "light" except for
+a light named "light2" to be considered for diffuse illumination.
+All of the Houdini scoping rules (excepting group expansion) are
+supported:<p>
+<menu>
+    <li> <b>*</b> - wild-card match
+    <li> <b>?</b> - single character match
+    <li> <b>^</b> - exclusion operator
+    <li> <b>[list]</b> - character list match
+</menu>
+If an empty string is passed as a lightmask, the default lightmask
+will be used.<p>
+
+<hr>
+<a name="ctx_extrapolation">
+<h3>Derivative Arguments</h3>
+When functions are required to compute derivatives (i.e. computing
+texture coordinates for filtering of maps), there are options to
+control the quality of derivatives.<p>
+Extrapolation of deriatives can be used to hint that derivatives are
+"smooth" across patch boundaries.  In most cases this is true and if
+extrapolation is turned on, derivative computation should be exact for
+C2 surfaces.  However, when the VEX variables are changing with a high
+frequency (i.e. a high frequency displacement map will cause high
+frequency changes to the P variable), extrapolation of derivative
+computation may cause exaggeration of discontinuities between patch
+boundaries.<p>
+Derivative "smoothing" will cause the magnitude of the differentials
+to be adjusted non-uniformly over patches.  This will usually help to
+get rid of patch discontinuities in displacement/textured shaders.
+However, in some odd cases, it may be desirable to turn this feature
+off.<p>
+All of the functions which compute derivatives take additional
+arguments to allow tuning of the derivative computation:
+
+<center><table width=80% border=1>
+    <tr bgcolor=black>
+	<td><font color=white><b>Keyword</b></font></td>
+	<td><font color=white><b>Values</b></font></td>
+    </tr>
+    <tr>
+	<td><b>extrapolate</b></td>
+	<td>
+	    Turns derivative extrapolation on or off (default is off)
+	</td>
+    </tr>
+    <tr>
+	<td><b>smooth</b></td>
+	<td>
+	    Turns derivative smoothing on or off (default is on)<br>
+	    <b>Note</b>: This option is only valid for shading contexts.
+	</td>
+    </tr>
+</table></center>
+<br>
+Example:
+<listing>
+    N = computenormal(P, "extrapolate", 1, "smooth", 0);
+</listing>
+
+<hr>
+<a name="ctx_surface">
+<center><h1>Surface Shading Context</h1></center>
+</a>
+The surface shading context's purpose is to set the final color,
+opacity and alpha of the surface being rendered.  If the <b>Of</b> and
+<b>Af</b> varaibles are not set, they will default to 1.  If the
+<b>Af</b> variable is not set, it will resolve to <b>avg(Of)</b>.  It
+is possible to set the <b>Af</b> variable to any arbitrary value,
+making it possible to build matte/cutout shaders.<p>
+
+<a name="illuminance">
+Inside the surface context, it is possible to loop through all light
+sources in the scene computing their illumination and shadows.  This
+is done using the illuminance() construct.  This creates will loop
+through all light sources, calling the light shader for each light
+source to ensure that the <b>Cl</b> and <b>L</b> variables are set
+properly.  The shadow shader will not be called unless specifically
+requested.  However, once the shadow shader has been called, the value
+of <b>Cl</b> will be changed for the duration of the surface shader.
+The shadow shader is automatically called when using any of the
+built-in lighting calls (i.e. <b>diffuse(), specular(),
+ambient()</b>).  The structure of an illuminance clause is:<p>
+<listing>
+    ...
+    illuminance(position, [axis], [angle], [light_typemask], [<a href="#ctx_lightmask">lightmask</a>])
+    {
+	// Here, Cl and L will be set to the value/direction for the
+	// current light source.
+
+	// To force the shadow shader to be called, simply uncomment
+	// the following line:
+	//
+	// shadow(Cl);
+    }
+</listing>
+
+<center><img src="illuminance.gif"></center>
+<p>
+The default value for the axis is the surface normal.  The default
+value for the axis is <b>PI/2</b>.  The default value for the light
+mask is <b>LIGHT_DIFFUSE|LIGHT_SPECULAR</b> (please see shading.h for
+the light definitions).  The illuminance() statement will loop through
+all light sources which meet the criteria <b>dot(L, axis) &gt
+cos(angle)</b>.
+
+<a name="surface_func">
+<h3> Surface Shader Specific Functions </h3>
+<menu>
+    <a name="fn_shadow">
+    <li><b>void shadow(vector &Cl)</b><br>
+	<b>void shadow(vector &Cl; vector P, L)</b><br>
+	Call shadow shaders for the current light source.  This
+	function can only be called from within an illuminance()
+	statement.  Once the shadows have been computed for a light
+	source, they are fixed for the duration of the shader.<p>
+
+    <a name="fn_ambient">
+    <li><b>vector ambient(
+		    [<a href="#ctx_lightmask">lightmask</a>])</b><br>
+	Returns the color of ambient light in the scene.<p>
+
+    <a name="fn_irradiance">
+    <li><b>vector irradiance(vector P, vector N,
+		      [<a href="#ctx_rayopt">options</a>])</b><br>
+	Computes irradiance (global illumination) at the point
+	<b>P</b> with the normal <b>N</b>.<p>
+
+    <a name="fn_occlusion">
+    <li><b>vector occlusion(vector P, vector N,
+		      [<a href="#ctx_rayopt">options</a>])</b><br>
+	Computes ambient occlusion  at the point
+	<b>P</b> with the normal </b>N</b>.  Just as in the
+	<b>irradiance</b> function, the hemisphere is sampled.
+	However, unlike the <b>irradiance</b> function, surfaces which
+	are intersected during the hemisphere sampling are not shaded.
+	For this function to work properly, either a constant
+	background color or an environment map must be specified in
+	the optional scope parameters.<p>
+
+    <li><b>void occlusion(float &coverage, vector &missed_direction,
+		      [<a href="#ctx_rayopt">options</a>])</b><br>
+	Instead of computing color information from ambient occlusion,
+	this form of the <b>occlusion()</b> function will compute the
+	<b>coverage</b> (the percentage of occlusion), and the average
+	direction of empty space.  The average direction can be used
+	to lookup the color in a pre-blurred environment map.<p>
+
+
+    <a name="fn_diffuse">
+    <li><b>vector diffuse(vector nml,
+		    [<a href="#ctx_lightmask">lightmask</a>])</b><br>
+	<b>vector diffuse(vector nml, V; float roughness,
+		    [<a href="#ctx_lightmask">lightmask</a>])</b><br>
+	Returns the diffuse (Lambertian) illimination given the
+	normalized surface normal.  The second form uses the
+	Oren-Nayar lighting model to compute the diffuse illumination
+	for the surface.  The Oren-Nayar lighting model is a more
+	sophisticated lighting model than Lambertian lighting.  The
+	<b>V</b> vector represents a vector from the surface to the
+	eye (i.e. <b>-normalize(I)</b>).  With a roughness of 0, the
+	Oren-Nayar lighting model is equivalent to the Lambertian model.
+	As roughness increases toward 1, the illumination changes to
+	mimic rougher materials (like clay).  The Oren-Nayar form of
+	diffuse() is more expensive than Lambertian diffuse lighting.<p>
+
+    <a name="fn_getlightname">
+    <li><b>string getlightname()</b><br>
+	This function returns the name of the current light when
+	called from within an illuminance loop.<p>
+
+    <a name="fn_phong">
+    <li><b>vector phong(vector nml, V; float shinyness,
+		    [<a href="#ctx_lightmask">lightmask</a>])</b><br>
+	<b>vector blinn(vector nml, V; float roughness,
+		    [<a href="#ctx_lightmask">lightmask</a>])</b><br>
+	<b>vector specular(vector nml, V; float roughness,
+		    [<a href="#ctx_lightmask">lightmask</a>])</b><br>
+	Returns the illumination for specular highlights using
+	different lighting models.  The <b>V</b> parameter represents
+	the normalized vector from the surface to the eye (i.e.
+	<b>-normalize(I)</b>.  <b>shinyness</b> is the Phong exponent
+	(typically around 20 or higher).  The <b>roughness</b>
+	parameter represents the surface roughness (typically 0 to 1).<p>
+
+    <a name="fn_reflectlight">
+    <li><b>vector reflectlight(float bias, max_contrib,
+		      [<a href="#ctx_rayopt">options</a>])</b><br>
+	<b>vector reflectlight(vector P, D; float bias, max_contrib,
+		      [<a href="#ctx_rayopt">options</a>])</b><br>
+	<b>vector reflectlight(vector P, N, I; float bias, max_contrib,
+		      [<a href="#ctx_rayopt">options</a>])</b><br>
+	Computes the amount of reflected light which hits the surface.
+	The bias is typically a small number (i.e. 0.005) and is used
+	to help eliminate self-reflection.  The <b>max_contrib</b> is
+	used to help the renderer get an idea of how much the
+	reflected light will contribute to the final color of the pixel.
+	This is typically the maximum of the reflection component of a
+	lighting model.  This has no effect on the resultant color.
+	Typically, values less than 1 should be given.<p>
+	There are two "general" forms of reflectlight which take a
+	position and direction; or a position, direction and incident
+	ray.  The latter computes the reflection vector.<p>
+	Example:<br>
+	<listing>
+		surface mirror(vector refl_color=1; float bias=.005)
+		{
+		    Cf = refl_color * reflectlight(bias, max(refl_color));
+		}
+	</listing>
+    <a name="fn_refractlight">
+    <li><b>void refractlight(vector &cf, &of; float &af;
+		       vector P, D; float bias, max_contrib,
+		      [<a href="#ctx_rayopt">options</a>])</b><br>
+        <b>void refractlight(vector &cf, &of; float &af;
+		   vector P, N, I; float eta; float bias, max_contrib,
+		      [<a href="#ctx_rayopt">options</a>])</b><br>
+	Computes the illumination of surfaces refracted by the current
+	surface.  The output color, opacity and alpha are computed and
+	returned by these functions.  The <b>bias</b> parameter is
+	typically a small number and is used to prevent
+	self-refraction.  The <b>max_contrib</b> parameter is used to
+	help the renderer get an idea of how much the refracted light
+	will contribute to the final pixel color.  This has no effect
+	on the color returned by the <b>refractlight()</b> calls.<p>
+
+	The first form of the <b>refractlight()</b> function takes a
+	position and direction, typically computed by the
+	<a href="functions.html#render">refract()</a> or
+	<a href="functions.html#render">fresnel()</a> functions.<p>
+	In order to prevent the renderer from computing standard
+	transparency (i.e. non-refracted transparency), the Of
+	variable must be set to {1,1,1} to make the surface "opaque".
+	The Af variable can be set to any arbitrary value.<p>
+
+	Example:<br>
+	<listing>
+		surface glass(float eta=1.3, bias = 0.005)
+		{
+		    float	Kr, Kt;
+		    vector	R, T;
+		    vector	cf, of;
+		    float	af;
+
+		    frensel(normalize(I), normalize(N), eta, Kr, Kt, R, T);
+		    Cf  = Kr * reflectlight(P, R, bias, Kr);
+		    refractlight(cf, of, af, P, T, bias, Kt);
+		    Cf += Kt * cf;
+		    Af = clamp(Kr + af*Kt, 0, 1);
+		    Of = 1;
+		}
+	</listing>
+
+    <a name="fn_isshadowray">
+    <li><b>int isshadowray()</b><br>
+	Returns 1 if the shader is being called to evaluate opacity
+	for shadow rays, 0 if the shader is being called to evaluate
+	for surface color.  This function can be used to compute
+	different opacity if the surface is shadowing another
+	surface.<p>
+
+    <a name="fn_isfogray">
+    <li><b>int isfogray()</b><br>
+	Returns 1 if the shader is being called to evaluate
+	illumination for fog objects, or 0 if the light or shadow
+	shader is being called to evaluate surface illumination.<p>
+	This function is only valid inside <a
+	href="#ctx_light">light</a> and <a href="#ctx_shadow">shadow</a>
+	contexts and can be used to simplify light shaders when being
+	evaluated for fog.<p>
+
+<a name="surf_import">
+    <li><b>int dimport(string name; int &value)</b><br>
+	<b>int dimport(string name; float &value)</b><br>
+	<b>int dimport(string name; vector &value)</b><br>
+	<b>int dimport(string name; vector4 &value)</b><br>
+	<b>int dimport(string name; matrix3 &value)</b><br>
+	<b>int dimport(string name; matrix &value)</b><br>
+	<b>int dimport(string name; string &value)</b><br>
+	Imports a variable from the displacement shader for the
+	surface.  If the variable is not defined and exported, a value
+	of 0 is returned by the function.  Otherwise, a value of 1 is
+	returned, and the value exported from the displacement shader
+	is assigned to the variable.<p>
+
+    <li><b>int limport(string name; int &value)</b><br>
+	<b>int limport(string name; float &value)</b><br>
+	<b>int limport(string name; vector &value)</b><br>
+	<b>int limport(string name; vector4 &value)</b><br>
+	<b>int limport(string name; matrix3 &value)</b><br>
+	<b>int limport(string name; matrix &value)</b><br>
+	<b>int limport(string name; string &value)</b><br>
+	Imports a variable from the light shader for the surface.  If
+	the variable is not defined and exported, a value of 0 is
+	returned by the function.  Otherwise, a value of 1 is
+	returned, and the value exported from the light shader is
+	assigned to the variable.  This function is only valid inside
+	of an illuminance() loop.<p>
+
+    <li><b>int shimport(string name; int &value)</b><br>
+	<b>int shimport(string name; float &value)</b><br>
+	<b>int shimport(string name; vector &value)</b><br>
+	<b>int shimport(string name; vector4 &value)</b><br>
+	<b>int shimport(string name; matrix3 &value)</b><br>
+	<b>int shimport(string name; matrix &value)</b><br>
+	<b>int shimport(string name; string &value)</b><br>
+	Imports a variable from the shadow shader for the surface.  If
+	the variable is not defined and exported, a value of 0 is
+	returned by the function.  Otherwise, a value of 1 is
+	returned, and the value exported from the light shader is
+	assigned to the variable.  This function is only valid inside
+	of an illuminance() loop after the shadow shader has been
+	invoked.<p>
+
+</menu>
+
+<hr>
+<a name="ctx_photon">
+<center><h1>Photon Shading Context</h1></center>
+</a>
+When mantra is generating photon maps, photon shaders are used instead
+of surface shaders.  Thus, the photon context is very similar to the
+surface context.  However, because of the behavioural differences
+between the contexts, most of the surface context specific functions
+are not valid in the photon context.<p>
+
+When mantra is rendering a photon map, photons are spawned from light
+sources.  Each photon represents a "bit" of energy that has left the
+light and will interact with the scene.  When a surface is hit by a
+photon, the photon shader is invoked.<p>
+
+When a photon hits a surface, a fraction of the photon's energy will
+be absorbed by the surface, and another portion of the energy will be
+reflected into the scene.  For example, a mirror surface would absorb
+very little of the energy of the photon, but reflect a large amount of
+the energy back into the scene (creating a caustic effect), while a
+diffuse surface would be more likely to absorb energy, but might still
+distribute a fraction of the energy (creating color bleeding).<p>
+
+However, to create "good" photon maps, all of the photons stored in
+the map should have roughly the same energy levels (otherwise
+filtering will be biased).  Thus, instead of storing a fraction of the
+energy and distributing the remainder, the typical method distributing
+photons is to use a monte-carlo technique called "Russian Roulette".
+Rather than dealing with fractions of the energy, it's better to deal
+with fractions of photons.  For example, instead of storing a photon
+with 30% of the incoming energy, instead, only store 30% of the
+photons which hit the surface (and reflect the other 70%).<p>
+
+When a photon strikes a surface, there are four standard light paths
+for spawning new photons.
+<ol>
+    <li>  The photon will be absorbed by the surface (terminating the
+	light path).
+    <li>  The photon will be reflected as diffuse light (diffuse light
+	will scatter over the hemisphere above the surface)
+    <li>  The photon will be reflected specularly (as in a mirror
+	reflection)
+    <li>  The photon will be refracted
+</ol>
+<center>
+<img src="photon_path.gif">
+</center>
+When a photon gets stored, it may be stored in one or more maps.
+Mantra keeps track of three individual maps:
+<ol>
+    <li> Direct Photon Map:  If a photon is stored and has
+	not undergone any bounces (i.e. <b>getraybounce() == 0</b>),
+	the photon will be stored in the direct illumination map (if
+	defined).  Note that light sources may specify that their
+	photons may not contribute to direct photon illumination.
+    <li> Caustic Photon Map:  If a photon is stored and has
+	undergone either specular reflection or transmission, it will
+	be stored in the caustic photon map.
+    <li> Global Photon Map:  Any photon which gets stored is added to
+	the global photon map.  Thus, the global photon map will
+	contain all photons in the direct map, all caustic photons as
+	well as any diffuse reflected photons.  Note that light
+	sources may specify that their photons may not contribute to
+	direct photon illumination.
+</ol>
+
+In some ways, the structure of the photon shader is dependent on how
+the photon map will be accessed.  Typically, the photon map will store
+incoming illumination.  That is, photons directly from the light
+sources, or indirectly from other surfaces.  Before a photon is
+reflected from the photon shader, the "color" of the surface would be
+used to modulate the photon color.  That is, if the surface were red,
+the photon color would be tinted red.<p>
+However, it's also possible to pre-compute the combined illumination
+
+The meaning of the global variables in the photon context are:
+<h3>Photon Global Variables </h3>
+<center><table border=1 cellpadding=5>
+      <tr bgcolor=black>
+	 <td><font color=white><b>Variable</b></font></td>
+	 <td><font color=white><b>Description</b></font></td>
+      </tr>
+
+      <tr>
+	<td><b>P</b></td>
+	<td>The position on the surface being shaded (similar to the
+	    surface context).
+      </tr>
+
+      <tr>
+	<td><b>Pz</b></td>
+	<td>The Z coordinate of <b>P</b>
+      </tr>
+
+      <tr>
+	<td><b>I</b></td>
+	<td>The incoming direction of the photon.
+      </tr>
+
+      <tr>
+	<td><b>Eye</b></td>
+	<td>The origin of the photon (the light source or reflecting
+	    surface).
+      </tr>
+
+      <tr>
+	<td><b>s, t</b></td>
+	<td>The parametric coordinates of the surface being
+	    shaded.
+      </tr>
+
+      <tr>
+	<td><b>dPds, dPdt</b></td>
+	<td>The surface derivatives.</td>
+      </tr>
+
+      <tr>
+	<td><b>N, Ng</b></td>
+	<td>The interpolated and geometric normal at the point being shaded.</td>
+      </tr>
+
+      <tr>
+	<td><b>Cl</b></td>
+	<td>The incoming energy of the photon.</td>
+      </tr>
+
+      <tr>
+	<td><b>L</b></td>
+	<td>The direction from the light to the surface (this is the
+	    same as <b>I</b>, but may have a different magnitude).</td>
+      </tr>
+
+      <tr>
+	<td><b>Lz</b></td>
+	<td>The Z-axis in the space of the light.</td>
+      </tr>
+</table></center>
+
+<a name="surface_func">
+<h3> Photon Shader Specific Functions </h3>
+<menu>
+    <a name="fn_photon_switch">
+    <li><b>int photon_switch(float diff, spec, transmit)</b><br>
+	This function takes three arguments which represent the
+	probabilities for each of the reflective paths.  The
+	probabilities should add up to a number less than or equal to
+	one.  Based on the probabilities, one of the four paths will
+	be returned.  There are defines available in &lt;shading.h&gt
+	which set:
+	<listing>
+	    #define PHOTON_STORE    0
+	    #define PHOTON_DIFFUSE  1
+	    #define PHOTON_REFLECT  2
+	    #define PHOTON_TRANSMIT 3
+	</listing>
+	For example,
+	<listing>
+	    result = photon_switch(.2, .1, .3);
+	</listing>
+	will have result set to <b>PHOTON_DIFFUSE</b>(1) 20% of the
+	time, <b>PHOTON_REFLECT</b>(2) 10%, <b>PHOTON_TRANSMIT</b>(3)
+	30% of the time and will return <b>PHOTON_STORE</b>(0) the
+	rest of the time (40%).
+	<p>
+
+    <a name="fn_photon_diffuse">
+    <li><b>void photon_diffuse(vector P, N, Cl)</b><br>
+	This generates a new diffuse photon path.  The path will be
+	randomly distributed over the hemisphere defined by <b>P</b>
+	and <b>N</b>.  The photon will have the energy <b>Cl</b>.
+	<p>
+
+    <a name="fn_photon_reflect">
+    <li><b>void photon_reflect(vector P, R, Cl)</b><br>
+	This generates a new specular photon path.  The path is
+	defined by the ray starting at <b>P</b> and travelling along <b>R</b>
+	(the reflection direction).
+	<p>
+
+    <a name="fn_photon_transmit">
+    <li><b>void photon_transmit(vector P, R, Cl)</b><br>
+	This generates a new transmission photon path.  The path is
+	defined by the ray starting at <b>P</b> and travelling along <b>R</b>
+	(the refraction direction).
+	<p>
+
+    <a name="fn_photon_store">
+    <li><b>void photon_store(vector P, N, Cl, I)</b><br>
+	Store a photon in the appropriate maps.  The position, normal,
+	energy and incident direction are used when filtering the
+	photons (using the <a
+	href="functions.html#fn_photonmap">photonmap</a> function).
+	<p>
+</menu>
+
+
+<hr>
+<a name="ctx_displace">
+<center><h1>Displacement Shading Context</h1></center>
+</a>
+
+Displacement shading can be used to move the position of the surface
+before the surface gets rendered.  It is intended as a mechanism to
+add fine detail to a surface, not as a modelling technique.  After
+moving a surface, you must typically re-compute the normals of the
+surface.  For surfaces which have interpolated normals (i.e. polygons
+which are smooth shaded), the <a
+href="#computenormal">computenormal(vector P, N, Ng)</a> method can be
+used to approximate what the "smooth" displaced normal will be.<p>
+
+There are no functions specific to displacement shading.<p>
+
+<hr>
+<a name="ctx_light">
+<center><h1>Light Shading Context</h1></center>
+</a>
+
+Light shaders will get called from surface or fog shaders to compute
+the illumination from a given light source.  The light shader can be
+invoked using the illuminance() loop or using the standard
+<b>diffuse()</b>, <b>specular()</b>, etc. functions.
+
+<a name="light_import">
+<h3> Light Shader Specific Functions </h3>
+<menu>
+    <li><b>int dimport(string name; int &value)</b><br>
+	<b>int dimport(string name; float &value)</b><br>
+	<b>int dimport(string name; vector &value)</b><br>
+	<b>int dimport(string name; vector4 &value)</b><br>
+	<b>int dimport(string name; matrix3 &value)</b><br>
+	<b>int dimport(string name; matrix &value)</b><br>
+	<b>int dimport(string name; string &value)</b><br>
+	Imports a variable from the displacement shader for the
+	surface.  If the variable is not defined and exported, a value
+	of 0 is returned by the function.  Otherwise, a value of 1 is
+	returned, and the value exported from the displacement shader
+	is assigned to the variable.<p>
+
+    <li><b>vector irradiance(vector P, vector N,
+		      [<a href="#ctx_rayopt">options</a>])</b><br>
+	This is identical to the function in the <a
+	href="#fn_irradiance">surface context.</a><p>
+
+    <li> <b>vector occlusion(vector P, vector N,
+		      [<a href="#ctx_rayopt">options</a>])</b><br>
+	<b>void occlusion(float &coverage, vector &miss_direction,
+		vector P, vector N, [<a href="#ctx_rayopt">options</a>])</b><br>
+	These is identical to the function in the <a
+	href="#fn_occlusion">surface context.</a><p>
+</menu>
+
+<hr>
+<a name="ctx_shadow">
+<center><h1>Shadow Shading Context</h1></center>
+</a>
+
+Shadow shaders will get called from surface or fog shaders to occlude
+the illumination from a given light source.  The light will already
+have been computed by calling the light shader.  The function of a
+shadow shader is to modify the <b>Cl</b> variable.  Typically, the
+light will be occluded, causing the <b>Cl</b> variable to decrease in
+intensity.  However, it is possible to create "negative" shadows, and
+increase the illumination due to occlusion.<p>
+
+The shadow context is typically used to separate illumination from
+expensive ray-tracing calls (like fastshadow() or filtershadow()).
+This allows fog shaders (or surface shaders) to bypass shadow
+testing.<p>
+
+<a name="shadow_import">
+<h3> Shadow Shader Specific Functions </h3>
+<menu>
+    <li><b>int dimport(string name; int &value)</b><br>
+	<b>int dimport(string name; float &value)</b><br>
+	<b>int dimport(string name; vector &value)</b><br>
+	<b>int dimport(string name; vector4 &value)</b><br>
+	<b>int dimport(string name; matrix3 &value)</b><br>
+	<b>int dimport(string name; matrix &value)</b><br>
+	<b>int dimport(string name; string &value)</b><br>
+
+	Imports a variable from the displacement shader for the
+	surface.  If the variable is not defined and exported, a value
+	of 0 is returned by the function.  Otherwise, a value of 1 is
+	returned, and the value exported from the displacement shader
+	is assigned to the variable.<p>
+
+    <li><b>int limport(string name; int &value)</b><br>
+	<b>int limport(string name; float &value)</b><br>
+	<b>int limport(string name; vector &value)</b><br>
+	<b>int limport(string name; vector4 &value)</b><br>
+	<b>int limport(string name; matrix3 &value)</b><br>
+	<b>int limport(string name; matrix &value)</b><br>
+	<b>int limport(string name; string &value)</b><br>
+	Imports a variable from the light shader for the surface.  If
+	the variable is not defined and exported, a value of 0 is
+	returned by the function.  Otherwise, a value of 1 is
+	returned, and the value exported from the light shader is
+	assigned to the variable.<p>
+</menu>
+
+<hr>
+<a name="ctx_fog">
+<center><h1>Fog Shading Context</h1></center>
+</a>
+
+A fog shader is responsible for modifying the <b>Cf</b>, <b>Of</b> or
+<b>Af</b> variables after the surface shader has completed its
+shading.  It is possible to use <a href="#illuminance">
+illuminance()</a> statements inside of fog shaders.<p>
+
+<h3> Fog Shader Specific Functions </h3>
+<a name="fog_import">
+<menu>
+    <li><b>int dimport(string name; int &value)</b><br>
+	<b>int dimport(string name; float &value)</b><br>
+	<b>int dimport(string name; vector &value)</b><br>
+	<b>int dimport(string name; vector4 &value)</b><br>
+	<b>int dimport(string name; matrix3 &value)</b><br>
+	<b>int dimport(string name; matrix &value)</b><br>
+	<b>int dimport(string name; string &value)</b><br>
+	Imports a variable from the displacement shader for the
+	surface.  If the variable is not defined and exported, a value
+	of 0 is returned by the function.  Otherwise, a value of 1 is
+	returned, and the value exported from the displacement shader
+	is assigned to the variable.<p>
+
+    <li><b>int limport(string name; int &value)</b><br>
+	<b>int limport(string name; float &value)</b><br>
+	<b>int limport(string name; vector &value)</b><br>
+	<b>int limport(string name; vector4 &value)</b><br>
+	<b>int limport(string name; matrix3 &value)</b><br>
+	<b>int limport(string name; matrix &value)</b><br>
+	<b>int limport(string name; string &value)</b><br>
+	Imports a variable from the light shader.  If the variable is
+	not defined and exported, a value of 0 is returned by the
+	function.  Otherwise, a value of 1 is returned, and the value
+	exported from the light shader is assigned to the variable.
+	This function is only valid inside of an illuminance()
+	loop.<p>
+
+    <li><b>int shimport(string name; int &value)</b><br>
+	<b>int shimport(string name; float &value)</b><br>
+	<b>int shimport(string name; vector &value)</b><br>
+	<b>int shimport(string name; vector4 &value)</b><br>
+	<b>int shimport(string name; matrix3 &value)</b><br>
+	<b>int shimport(string name; matrix &value)</b><br>
+	<b>int shimport(string name; string &value)</b><br>
+	Imports a variable from the shadow shader.  If the variable is
+	not defined and exported, a value of 0 is returned by the
+	function.  Otherwise, a value of 1 is returned, and the value
+	exported from the light shader is assigned to the variable.
+	This function is only valid inside of an illuminance() loop
+	after the shadow shader has been invoked.<p>
+
+
+    <li><b>int simport(string name; int &value)</b><br>
+	<b>int simport(string name; float &value)</b><br>
+	<b>int simport(string name; vector &value)</b><br>
+	<b>int simport(string name; vector4 &value)</b><br>
+	<b>int simport(string name; matrix3 &value)</b><br>
+	<b>int simport(string name; matrix &value)</b><br>
+	<b>int simport(string name; string &value)</b><br>
+	Imports a variable from the surface shader.  If the variable
+	is not defined and exported, a value of 0 is returned by the
+	function.  Otherwise, a value of 1 is returned, and the value
+	exported from the surface shader is assigned to the
+	variable.<p>
+
+    <li><b>string getlightname()</b><br>
+	This function returns the name of the current light when
+	called from within an illuminance loop.<p>
+</menu>
+
+
+<hr>
+<a name="LVariable">
+<center><h1>Initialization of the L Variable</h1></center>
+</a>
+In the Light and Shadow contexts, the <b>P</b> variable represents the
+position of the light source and the <b>Ps</b> variable represents the
+position of the surface point being shaded.<p>
+
+In Houdini, lights can have either perspective or orthographic
+projections.  An orthographic light in Houdini is used to represent an
+infinite (or very distant) light source which has all the light rays
+parallel with each other.  A perspective light acts more as a point
+light source.<p>
+
+When a perspective light shader runs, the <b>L</b> variable is
+initialized as follows:
+<listing>
+    L = P - Ps;
+</listing>
+
+Orthographic lights, on the other hand, are initialized so that the
+direction of L is the same for each light ray eminating from the light
+source.
+<listing>
+    L = Lz * dot(Lz, P - Ps);
+</listing>
+Where <b>Lz</b> represents the normalized "z-axis" of the light source
+(i.e. a unit vector pointing down the z-axis in the space of the
+light).  Thus, the scale of the L variable will be the orthographic
+distance from the plane of the light source and the surface point
+being shaded.<p>
+In a light shader, it is possible to change the L variable to any
+value you choose.  However, this is how the L variable is
+initialized.<p>
+
+<hr>
+<a name="ctx_special">
+<center><h1>Special Variables</h1></center>
+</a>
+There are several "special" variables used in the shading contexts.
+These special variables are specified as parameters to shaders.
+Typically, these are export parameters.<p>
+
+<center><table border=1 cellpadding=5>
+      <tr bgcolor=black>
+	 <td><font color=white><b>Variable</b></font></td>
+	 <td><font color=white><b>Context</b></font></td>
+	 <td><font color=white><b>Description</b></font></td>
+      </tr>
+      <tr>
+	<td><b>__nondiffuse</b></td>
+	<td><b>Light</b></td>
+	<td>If this variable is set to a non-zero value, the light
+	    shader will not contribute to diffuse illumination in
+	    the standard <b>diffuse()</b> functions.
+	</td>
+    </tr>
+    <tr>
+	<td><b>__nonspecular</b></td>
+	<td><b>Light</b></td>
+	<td>If this variable is set to a non-zero value, the light
+	    shader will not contribute to specular illumination in the
+	    standard <b>phong(), blinn(), or specular()</b> functions.
+	</td>
+    </tr>
+    <tr>
+	<td><b>__nofog</b></td>
+	<td><b>Surface</b></td>
+	<td>If this variable is set to a non-zero value, no fog
+	    shaders will affect the surface color.
+	</td>
+    </tr>
+</table></center>
+
+<hr>
+<a name="ctx_spaces">
+<center><h1>Transform Spaces</h1></center>
+</a>
+
+One of the key features of VEX shading is the concept of spaces.
+There are at least two or three transform spaces defined for each
+context.  Often, shading it is important to transform a position or
+vector in one space to a different space.  This is done using the <a
+href="functions.html#qr_xform">wt_space(), wo_space(), etc.</a>
+functions.  However, it is important to know what space variables are
+in and to which space the transform functions will take a
+variable.<p>
+
+In all VEX contexts, global variables are in "world" space.  In the
+mantra renderer, this space is defined with the camera at the origin
+pointing down the positive Z axis.  Each shader has a local "object"
+space associated with it.  This is the space which defined as the
+object at the origin of the space.  Displacement, Surface and Light
+shaders also have a special "NDC" space associated with them.<p>
+
+<center><table border=1 cellpadding=5>
+  <tr bgcolor=black>
+     <td><font color=white><b>Context</b></font></td>
+     <td><font color=white><b>Space</b></font></td>
+     <td><font color=white><b>Description</b></font></td>
+  </tr>
+
+  <tr>
+    <td>Displacement<br>Surface</td>
+    <td><b>World</b></td>
+    <td>The space which has the camera at the origin, looking down the
+	positive Z axis.</td>
+  </tr>
+  <tr>
+    <td>Displacement<br>Surface</td>
+    <td><b>Shader</b></td>
+    <td>Often, this is the same as object space.  However, in
+	Houdini, it is possible to define different spaces for
+	displacement/surface shading.  The functions <b>wt_space(),
+	wt_vspace(), wt_nspace()</b> will transform from world to
+	texture space.  Typically, this space should be used for
+	shading purposes.
+	</td>
+  </tr>
+  <tr>
+    <td>Displacement<br>Surface</td>
+    <td><b>Object</b></td>
+    <td>This is defined as the space which has the object at its
+	origin.  This is basically the inverse of the object's transform.
+	To get from world to object space, use <b>wo_space(),
+	wo_vspace(), wo_nspace()</b>.
+	</td>
+  </tr>
+  <tr>
+    <td>Displacement<br>Surface</td>
+    <td><b>NDC</b></td>
+    <td>This is a special "Normal Device Coordinate" space.  A
+	position in world space can be converted to NDC space by
+	calling the <b>toNDC()</b> function.  This will transform the
+	X & Y components of the position so that {0,0,z} will be the
+	bottom left hand corner of the image plane as viewed from the
+	camera.  The top right hand corner will be represented by
+	{1,1,z}.  The Z component of the position remains unchanged by
+	the NDC transformations.  Given a point in NDC space, it is
+	possible to find it's world space position by calling
+	<b>fromNDC()</b>.
+	</td>
+  </tr>
+
+  <tr>
+    <td>Light<br>Shadow</td>
+    <td><b>World</b></td>
+    <td>The space which has the camera at the origin, looking down the
+	positive Z axis.</td>
+  </tr>
+  <tr>
+    <td>Light<br>Shadow</td>
+    <td><b>Shader</b></td>
+    <td>For Light & Shadow contexts, this is the same as object space.
+	</td>
+  </tr>
+  <tr>
+    <td>Light<br>Shadow</td>
+    <td><b>Object</b></td>
+    <td>This is defined as the space which has the light at the
+	origin, pointing down the positive Z axis.
+	</td>
+  </tr>
+  <tr>
+    <td>Light<br>Shadow</td>
+    <td><b>NDC</b></td>
+    <td>Since light sources in Houdini have the same attributes as
+	cameras, NDC space is defined for light sources as well.  To
+	transform a position into the NDC space for the light source,
+	the <b>object</b> space position should be used in the
+	<b>toNDC</b> space call.  The Z component of the object space
+	position will remain unchanged.  Given a point in NDC space,
+	it is possible to find it's world space position by calling
+	<b>fromNDC()</b>.
+	</td>
+  </tr>
+
+  <tr>
+    <td>Fog</td>
+    <td><b>World</b></td>
+    <td>The space which has the camera at the origin, looking down the
+	positive Z axis.</td>
+  </tr>
+  <tr>
+    <td>Fog</td>
+    <td><b>Shader</b></td>
+    <td>For fog shaders, this is the same as object space.
+	</td>
+  </tr>
+  <tr>
+    <td>Fog</td>
+    <td><b>Object</b></td>
+    <td>This is defined as the space which has the fog object at the
+	origin, pointing down the positive Z axis.
+	</td>
+  </tr>
+  <tr>
+    <td>Fog</td>
+    <td><b>NDC</b></td>
+    <td>This is a special "Normal Device Coordinate" space.  A
+	position in world space can be converted to NDC space by
+	calling the <b>toNDC()</b> function.  This will transform the
+	X & Y components of the position so that {0,0,z} will be the
+	bottom left hand corner of the image plane as viewed from the
+	camera.  The top right hand corner will be represented by
+	{1,1,z}.  The Z component of the position remains unchanged by
+	the NDC transformations.  Given a point in NDC space, it is
+	possible to find it's world space position by calling
+	<b>fromNDC()</b>.
+	</td>
+  </tr>
+
+
+</table></center>
+
+<hr>
+<a name="ctx_opacity">
+<center><h1>Opacity vs. Alpha</h1></center>
+</a>
+
+In the surface shader context, there are two separate variables to
+control transparency.  <b>Of</b> and <b/>Af</b> are related, but
+represent different quantities.  The <b>Of</b> variable represents the
+opacity of the surface.  For example,
+<listing>
+    Of = {1, 0, 0};
+</listing>
+will make the surface opaque in red, but pass through green and blue
+light from behind.  This will give you a cyan colored filter.  The
+opacity is used when mantra is resolving surface colors.<p>
+The <b>Af</b> variable is used to decide what value gets put into the
+alpha channel of an RGBA image.  If the <b>Af</b> variable is not set
+by a shader, it is automatically assigned by using:
+<listing>
+    Af = <a href="functions.html#vector">avg</a>(Of)
+</listing>
+However, because this variable is available, it is possible for a
+shader to decide what value gets put in the alpha channel of the
+output image.  This makes it possible to write shaders like "matte" or
+"shadowmatte".<p>
+For example, the following shader simulates a blue screen:
+<listing>
+    surface bluescreen(vector clr=0)
+    {
+	Cf = clr;
+	Of = 1;
+	Af = 0;
+    }
+</listing>
+
+The color of the surface is set to black (by default).  The opacity is
+1, meaning that this surface will occlude other surfaces in the scene.
+However, the alpha output to the image will be 0.  This means that if
+this image is composited over an other image, the background image
+will blend appear where this surface was rendered.  An example use of
+this would be to create a window in a wall without having to modify
+the geometry.<p>
+
+It is also possible to set the <b>Af</b> variable to be something
+other than 1, meaning that the background image will appear "shadowed"
+where the matte surface is rendered.  This is the theory behind the
+"shadowmatte" shader.<p>
+
+<!-------------------------------------------------------------------!>
+<br>
+<hr>
+<center>
+<font size=-2>
+  Copyright &#169; 1999-2004 Side Effects Software Inc.<br>
+  477 Richmond Street West, Toronto, Ontario, Canada M5V 3E7
+</font>
+</center>
+
+</body>
+</html>

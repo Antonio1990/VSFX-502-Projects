@@ -1,0 +1,268 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+"http://www.w3.org/TR/REC-html40/loose.dtd">
+
+<!-- Author Malcolm Kesson -->
+<HTML>
+<HEAD>
+<TITLE>CUTTER - ABOUT</TITLE>
+<LINK rel=StyleSheet href="../help.css" TYPE="text/css" TITLE="Cutter Style">
+
+</HEAD>
+<BODY BGCOLOR="#acc1ad">
+
+<TABLE BORDER="0" CELLSPACING="0">
+ <TR>
+		<TD WIDTH="50" NOWRAP> </TD>	
+		<TD WIDTH="550" VALIGN="TOP" ALIGN="LEFT" NOWRAP>
+	    	<H3 class="darkgreen">About Cutter</H3>
+	    	<BR>
+		    <P>	
+	   		<A HREF="../../index.html" TARGET="_top">return to main index</A><BR>	
+			</P>
+		</TD>
+	</TR>
+ </TABLE>
+<BR>
+<BR>
+<TABLE BORDER="1" CELLSPACING="0">
+	<TR> 
+		<TD WIDTH="50" NOWRAP></TD>	
+		<TD WIDTH="500" VALIGN="TOP" ALIGN="LEFT" NOWRAP>
+			<P>
+			Cutter was originally intended to be a RenderMan text editor that
+			would enable users to conveniently create, edit, render and compile 
+			rib documents and shading language source code files. Since its
+			introduction in 2001 I have added many "RenderMan savvy" features 
+			to Cutter to ensure it is a self contained environment.
+			<BR>
+			<BR>
+			In addition to being tightly coupled to RenderMan it has also evolved
+			into a useful text editor for a number of other scripting and 
+			programing languages such as Tcl, Mel, Python, Vfl, Ifd, Html, Shake,
+			C, CPP and Java.<BR>
+			<BR>
+			<B>Integrated Browser</B><BR>
+			Cutter can automatically display an appropriate web page from the online 
+			documentation supplied by Pixar, Alias|Wavefront and ActiveState using 
+			either its own internal browser or Internet Exployer. For example when 
+			editing a (Pixar) shading language document, option + double clicking on the 
+			name of function, say, <B>xcomp</B>()
+			<BR> 
+			<BR>
+			<IMG SRC="xcomp.gif" ALT="">
+			<BR>
+			<BR>
+			<P>
+			will cause Cutter to open its internal browser at
+			</P>
+<PRE>RISpec-html/section15.html#Geometric.functions</PRE>
+			<IMG SRC="browser_xcomp.gif" ALT=""><BR><BR>
+			
+			<P>
+			Or option + double clicking on a datatype, such as <B>float</B>, will likewise cause the browser to open,
+			</P>
+<PRE>shading_language_extensions/slextensions.html#Variable_Types</PRE>
+			<P>
+			Some online documents will not display properly in Cutter's internal
+			browser - Shake documentation is particularly difficult to read. Holding 
+			down the shift key while option + double clicking will display
+			the appropriate document with <B>Internet Exployer</B> or (Mac OSX) <B>Safari</B>.<BR>
+			<BR>
+			<B>Popup Menu's</B><BR>
+			With the exception of HTML and MEL scripts, all other script documents 
+			have access to a popup menu that can be displayed in the normal way ie. right
+			mouse click for Windows and Linux or Control + mouse click on Mac OSX.
+			Two examples are shown below.
+			</P>
+		</TD>
+	</TR>
+ </TABLE>
+<BR>
+<BR>
+<TABLE BORDER="0" CELLSPACING="0">
+	<TR> 
+		<TD WIDTH="50" NOWRAP></TD>	
+		<TD VALIGN="TOP" ALIGN="LEFT" NOWRAP>
+			<IMG SRC="popup_execute.gif" ALT="popup_execute"> &nbsp;&nbsp;&nbsp; <IMG SRC="popup_edit.gif" ALT="popup_edit"> <BR><BR>
+		</TD>
+	</TR>
+ </TABLE>
+<TABLE BORDER="0" CELLSPACING="0">
+	<TR> 
+		<TD WIDTH="50" NOWRAP></TD>	
+		<TD WIDTH="500" VALIGN="TOP" ALIGN="LEFT" NOWRAP>	
+			<P>
+			In the case of Mel scripts, Cutter goes one very useful step further
+			by providing popups that display a summarized version of the information about a
+			specific Mel command. For example,
+			invoking the popup for "dynExpression" yields a list of its flags, sorted
+			alphabetically, along with the descriptions of each flag extracted from
+			the Alias|Wavefront online docs. 
+			</P>
+			<BR>
+			<P align=middle>
+			<img src="mel_popup.gif" ALT="mel_popup">
+			</P>
+			<BR>
+			<P>
+			Like MEL the popup for a HTML document is also customized. The popup
+			for a HTML document is shown below.
+			</P>
+			<BR>
+			<P align=middle>
+			<img src="popup_html.gif" ALT="popup_html">
+			</P>
+			<BR>
+			<P>
+			<B>Execute</B><BR>
+			When a supported script document is open in Cutter it can be
+			"executed" by using the menu bar command, Tool > Execute, or ctrl + E, 
+			or option + E or Apple + E (Max OS X) or, finally, via the last item in
+			the popup menu. The following example shows a 
+			"Process Info" window displaying the output from a simple Tcl script.
+			</P>
+			<BR>
+		</TD>
+	</TR> 	 
+</TABLE>
+<TABLE BORDER="0" CELLSPACING="0">
+	<TR> 
+		<TD WIDTH="50" NOWRAP></TD>	
+		<TD VALIGN="TOP" ALIGN="LEFT" NOWRAP>
+			<P align=middle>
+			<img src="tcl_demo.gif" ALT="tcl_demo">
+			</P>
+			<BR>
+		</TD>
+	</TR> 	 
+</TABLE>
+<TABLE BORDER="0" CELLSPACING="0">
+	<TR> 
+		<TD WIDTH="50" NOWRAP></TD>	
+		<TD WIDTH="500" VALIGN="TOP" ALIGN="LEFT" NOWRAP>
+			<P>
+			Notice in the lower righthand corner of the "demo.tcl" script window
+			the item "History 1 of 1". Each time a supported script document is 
+			"executed" a copy of the script is added to a history zip file. The
+			history file for demo.tcl would be automatically saved in the same 
+			directory as the source file as "cutter_history/demo.zip".
+			<BR>
+			<BR>
+			The history window for demo.tcl can be opened either from the main
+			menu bar History > Open History or by pressing ctrl + H, or option + H.
+			Navigation buttons at the top of the history window allow previous 
+			versions of a script to be viewed as well as executed. Below we see
+			version 2 of 3 has been re-executed.	
+			</P>
+			<BR>
+		</TD>
+	</TR> 	 
+</TABLE>
+<TABLE BORDER="0" CELLSPACING="0">
+	<TR> 
+		<TD WIDTH="50" NOWRAP></TD>	
+		<TD VALIGN="TOP" ALIGN="LEFT" NOWRAP>
+			<P align=middle>
+			<img src="history.gif" ALT="history">
+			</P>
+			<BR>
+		</TD>
+	</TR> 	 
+</TABLE>
+<TABLE BORDER="0" CELLSPACING="0">
+	<TR> 
+		<TD WIDTH="50" NOWRAP></TD>	
+		<TD WIDTH="500" VALIGN="TOP" ALIGN="LEFT" NOWRAP>
+			<P>
+			Selected text is also a "candidate" for execution. For example,
+			on Mac OSX, the man page for chmod can be displayed by executing 
+			the appropriate text.
+			</P>
+			<BR>
+			<IMG SRC="execute_selection.gif" ALT="execute_selection"><BR>
+			<BR>
+		</TD>
+	</TR> 	 
+</TABLE>
+<TABLE BORDER="0" CELLSPACING="0">
+	<TR> 
+		<TD WIDTH="50" NOWRAP></TD>	
+		<TD WIDTH="500" VALIGN="TOP" ALIGN="LEFT" NOWRAP>
+			<P>
+			The facility to execute a script is different for Mel. Cutter can
+			execute a Mel script by ftp'ing it to a Maya session that is either
+			running on the same computer or across a network to another computer.
+			Assume Maya has been launched on a computer with an IP address of
+			10.7.101.48 and that it has been told to "listen" for connections on
+			port 2222 (any unused port will work) as a result of entering the 
+			following Mel command in the Maya script window,
+			</P>
+<PRE>commandPort -n ":2222"</PRE>	
+			<P>
+			A trivial Mel script is shown below. The network icon on the righthand 
+			side of its window has been selected and the window "Mode" has been set to
+			"Maya". The "connect to IP:" and "port:" text fields have been chosen to
+			match the IP address of the destination computer on which Maya is
+			running.
+			</P>
+			<BR>
+		</TD>
+	</TR> 	 
+</TABLE>
+<TABLE BORDER="0" CELLSPACING="0">
+	<TR> 
+		<TD WIDTH="50" NOWRAP></TD>	
+		<TD VALIGN="TOP" ALIGN="LEFT" NOWRAP>
+			<P align=middle>
+			<img src="mel_script.gif" ALT="mel_script">
+			</P>
+			<BR>
+		</TD>
+	</TR> 	 
+</TABLE>
+<TABLE BORDER="0" CELLSPACING="0">
+	<TR> 
+		<TD WIDTH="50" NOWRAP></TD>	
+		<TD WIDTH="500" VALIGN="TOP" ALIGN="LEFT" NOWRAP>
+			<P>
+			Having made sure a connection has been established by selecting
+			the tick box, the script can be sent to Maya by either clicking the 
+			"Send" button or by pressing ctrl + E, or option + E.
+			</P>
+			<BR>
+		</TD>
+	</TR> 	 
+</TABLE>
+<TABLE BORDER="0" CELLSPACING="0">
+	<TR> 
+		<TD WIDTH="50" NOWRAP></TD>	
+		<TD VALIGN="TOP" ALIGN="LEFT" NOWRAP>
+			<P align=middle>
+			<img src="maya.gif" ALT="maya">
+			</P>
+			<BR>
+		</TD>
+	</TR> 	 
+</TABLE>
+<TABLE BORDER="0" CELLSPACING="0">
+	<TR> 
+		<TD WIDTH="50" NOWRAP></TD>	
+		<TD WIDTH="500" VALIGN="TOP" ALIGN="LEFT" NOWRAP>
+			<P>
+			Unfortunately, commandPort does not work on 
+			"Maya Complete", therefore, this facility is unavailable on
+			the Mac OS X version.
+			<BR>
+			<BR>
+			<BR>
+			Malcolm Kesson (revised November 2003)
+			</P>
+			<BR>
+		</TD>
+	</TR> 	 
+</TABLE>
+<hr size=1 noshade>
+<P class="p9" ALIGN="center">&copy; 2002-3 Malcolm Kesson. All rights reserved.</P>
+<BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR>
+</BODY>
+</HTML>

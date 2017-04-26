@@ -1,0 +1,40 @@
+	
+shader
+rotateST(
+    float s = 0 
+		[[
+		int lockgeom = 0,
+		string widget = "null",
+		]],
+    float t = 0
+		[[
+		int lockgeom = 0,
+		string widget = "null",
+		]],
+    float angle = 0,
+    float pivot_s = 0.5,
+    float pivot_t = 0.5,
+	float repeat_s = 1,
+	float repeat_t = 1,
+	int   invertT = 0,
+    output float resultS = 0,
+    output float resultT = 0)
+{
+float ss = mod(s * repeat_s, 1.0);
+float tt = mod(t * repeat_t, 1.0);
+tt = (invertT) ? 1 - tt : tt;
+
+/* Use 's' and 't' to define the 'xz' coordinates of a 3d point */
+point pntST = point(ss, 0, tt);
+  
+/* The rotate function requires 2 points to define an axis of 
+   rotation - here represented by the 'y' axis. 'pivot_s' and
+   'pivot_t' are the coordinates of the center of rotation.
+*/
+point p1 = point(pivot_s, 0, pivot_t);
+point p2 = point(pivot_s, 1, pivot_t);
+point rotatedST = rotate(pntST, radians(angle), p1, p2);
+  
+resultS = rotatedST[0];
+resultT = rotatedST[2];
+}

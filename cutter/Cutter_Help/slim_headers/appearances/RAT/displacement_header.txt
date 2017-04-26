@@ -1,0 +1,111 @@
+slim 1 appearance slim {
+    instance displacement "@SHADER_NAME" "@SHADER_PATH" {
+    description { @SHADER_DESCRIPTION }
+    subtype classic
+    previewinfo {
+		shadingrate 5
+		objectsize 1
+		objectshape Plane
+		frame 1
+		}
+    collection void Attributes {
+      drawmode all
+      state closed
+      attribute float ShadingRate {
+        default 1
+        range {0 1000 .05}
+        subtype vslider
+        label {Shading Rate}
+        description {Controls the quality of the shader evaluation on a per-ensemble basis. If 0, the global value will be used. Generally you'll only want to use this value in the rare case that you want to override the global behavior.}
+      }
+      attribute string CoordSysTransform {
+        label {Shader Space}
+        description {The coordinate system in which a shader is defined. Most shaders perform important calculations relative to this space and so transforming it affects their appearance. If empty, the shader space is the object space associated with the attached primitive. Place the name of a coordinate system object here to set the shader space for the shader. If you're using file referencing, use the "coordsys" function to translate the name of the coordinate system (eg: [coordsys mtorCoordSysShape10].}
+      }
+      attribute float Scale {
+        default 1
+        range {0 100 .01}
+        subtype vslider
+        description {An additional uniform scale factor applied on top of the optional coordinate system.}
+      }
+      attribute string CastsShadows {
+        default opaque
+        range {
+		    Transparent transparent
+		    Opaque opaque
+		    Os Os
+		    Shade shade
+		    }
+        subtype selector
+        label {Casts Shadows}
+        description {Controls how surfaces shadow other surfaces. Possible values for shadowval are shown below, in order of increasing computational cost. You can optimize rendering time by making surfaces known to be opaque "opaque". To take an object out of consideration during shadow generation, choose transparent or, better, disable the per-object attribute in your modeler. It is important, however, to use "shade" for any surfaces whose shaders modify the opacity of the surface in any patterned way. }
+      }
+      attribute float displacementbound {
+        default 0
+        range {0 1000 .005}
+        subtype vslider
+        label {Displacement Bound}
+        description {This number represents the maximum displacement in shaderspace that your surface will undergo. Be very careful with this parameter as it can dramatically influence rendering times. In particular, make SURE to set this to 0 (zero) if you aren't performing any displacement.}
+      }
+      collection void Expert {
+        drawmode all
+        state closed
+        attribute int sides:doubleshaded {
+          default 0
+          subtype switch
+          label {Double Shade}
+          description {Controls whether a primitive should be shaded twice. Usually you'll want this set to off. If you wish to introduce thickness on a primitive without explicitly modeling it, then this is the attribute for you! }
+        }
+        attribute string dice:strategy {
+          default (inherited)
+          range {
+			    Inherit "(inherited)"
+			    Planar planarprojection
+			    Spherical sphericalprojection
+			}
+          subtype selector
+          label {Dicing Strategy}
+          description {Controls the metric used to decide how to tesselate geometry into micropolygons. Spherical was intruduced in prman 12 and may has better properties when geometry crosses the eye plane. }
+        }
+        attribute string dice:referencecamera {
+          default (inherited)
+          range {
+			    Inherit "(inherited)"
+			    viewing worldcamera
+			    multiframe framecamera
+			}
+          subtype selector
+          label {Dicing Camera}
+          description {Selects the camera to use to make tesselation decisions. Unless you've gone to the trouble to define a multiframe camera, you should leave this at (inherited). }
+        }
+        attribute string shade:strategy {
+          default (inherited)
+          range {
+			    Inherit "(inherited)"
+			    Grids grids
+			    VPVolumes vpvolumes
+			}
+          subtype selector
+          label {Shading Strategy}
+          description {Selects a strategy for where in the rendering pipeline to shade geometry. The traditional strategy, grids, causes shading to occur on micropolygon vertices. The vpvolumes strategy causes volume shdaders of type Atmosphere and Interior to be computed after visibility is determined. Because of this certain volumetric affects are possible without ray tracing enabled. }
+        }
+        attribute string shade:volumeintersectionstrategy {
+          default (inherited)
+          range {
+			    Inherit "(inherited)"
+			    Additive additive
+			    Exclusive exclusive
+			}
+          subtype selector
+          label {Volume Intersection}
+          description {Allows regions with overlapping Interior shaders to combine their effects. In conjunction with the Intersection Priority the Strategy allows you to describe complicated interactions between Interior shaders. }
+        }
+        attribute float shade:volumeintersectionpriority {
+          default 0
+          range {0 100 1}
+          subtype slider
+          label {Volume Priority}
+          description {Sets the priority of an Interior volume when it overlaps other Interior regions. In conjunction with Intersction Strategy, the Priority allows you to describe complicated interactions between Interior shaders. }
+        }
+      }
+    }

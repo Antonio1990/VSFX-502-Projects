@@ -1,0 +1,30 @@
+# This rayrc is intended for use within SCAD.
+# This rayrc file is suitable for use on Linux computers with mental ray.
+# The file should be saved as ".rayrc" - note the leading dot - in the root
+# of your user account. A .rayrc file specifies the locations of mental images
+# shaders and the location of the users custom shaders (and their associated
+# mi files). It is recommended the following directories be used to store
+# the users files,
+#    ~/mi/shader_src
+#    ~/mi/shaders
+#    ~/mi/scenes
+#
+# Malcolm Kesson 5.31.07
+
+registry "{MI_DIR}" value "/usr/local/mi" end registry
+registry "{USER_DIR}" value "/home/your_account_name/SFDM-HOME/your_account_name" end registry
+
+$lookup "{MI_DIR}"
+$lookup "{USER_DIR}"
+
+registry "{_MI_REG_INCLUDE}" value "{MI_DIR}/include;{USER_DIR}/mi/shaders;{USER_DIR}/mi/shader_src" end registry
+registry "{_MI_REG_LIBRARY}" value "{MI_DIR}/shaders;{MI_DIR}/lib;{USER_DIR}/mi/shaders" end registry
+
+link "base.so"
+$include "base.mi"
+link "contour.so"
+$include "contour.mi"
+link "physics.so"
+$include "physics.mi"
+link "subsurface.so"
+$include "subsurface.mi"

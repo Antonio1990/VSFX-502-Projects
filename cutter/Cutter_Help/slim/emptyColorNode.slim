@@ -1,0 +1,33 @@
+slim 1 extensions AUTHOR {
+extensions STUDIO PREFIX {
+	template color UNTITLED_CLR {
+		description {
+			Description of the node goes here.
+			}
+		previewinfo {
+			shadingrate 1
+			objectsize 1
+			objectshape Sphere
+			frame 1
+			}
+		#__custom parameters Begin____________
+
+
+		#__custom parameters End______________
+
+		parameter color result {
+			access output
+			display hidden
+			}
+		RSLFunction {
+		void cutrUNTITLED_CLR (
+			// parameter vars goes here...
+			//
+			output color result;
+			)
+		{
+		result = color(1,1,1);
+		}
+	}
+}
+}}

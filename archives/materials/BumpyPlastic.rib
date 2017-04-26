@@ -1,0 +1,54 @@
+# BumpyPlastic----------------------------
+
+Pattern "PxrVoronoise" "PxrVoronoise1"
+		"int surfacePosition" [0]
+		"float frequency" [14.0]
+		"int octaves" [3]
+		"float gain" [0.5]
+		"float lacunarity" [2.0]
+		"float jitter" [.0]
+		"float smoothness" [1.0]
+		"int turbulent" [0]
+		# Examples manifold connection
+		#"reference struct manifold" ["PxrManifold2D1:result"]
+		#"reference struct manifold" ["PxrManifold3D1:result"]
+
+		# "PxrVoronoise1:resultF"    uses->|float| 
+		# "PxrVoronoise1:resultRGB"    uses->|color| 
+
+
+
+Pattern "PxrFractal" "PxrFractal1"
+		"int surfacePosition" [0]
+		"int layers" [6]
+		"float frequency" [7.0]
+		"float lacunarity" [1.0]
+		"float dimension" [1.0]
+		"float erosion" [0.4]
+		"float variation" [2.0]
+		"int turbulent" [2]
+		# Examples manifold connection
+		#"reference struct manifold" ["PxrManifold2D1:result"]
+		#"reference struct manifold" ["PxrManifold3D1:result"]
+
+		# "PxrFractal1:resultF"    uses->|float| 
+		# "PxrFractal1:resultRGB"    uses->|color| 
+
+
+Bxdf "PxrSurface" "PxrSurface1"
+		"float diffuseGain" [1.0]
+		"color diffuseColor" [0.0 0.2 1.0]
+		"int diffuseDoubleSided" [0]
+		"color specularFaceColor" [0.2 0.2 0.2]
+		"float specularRoughness" [0.7]
+		"int specularDoubleSided" [0]
+		"float presence" [1]
+		
+Attribute "displacementbound" "float sphere" [1.0]
+Displace "PxrDisplace" "PxrDisplace1"
+		"int enabled" [1]
+		"reference float dispAmount" ["PxrVoronoise1:resultF"]
+		"float dispScalar" [0.0]
+		"vector dispVector" [0.0 1.0 0.0]
+		"vector modelDispVector" [0.0 0.0 0.0]
+

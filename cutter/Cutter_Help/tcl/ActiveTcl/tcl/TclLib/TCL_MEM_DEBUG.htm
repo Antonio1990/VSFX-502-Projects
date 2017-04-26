@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Tcl Library Procedures - TCL_MEM_DEBUG manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<h3><a name="M2">NAME</a></h3>
+
+<p>TCL_MEM_DEBUG - Compile-time flag to enable Tcl memory
+debugging.</p>
+
+<h3><a name="M3">DESCRIPTION</a></h3>
+
+<p>When Tcl is compiled with <b>TCL_MEM_DEBUG</b> defined, a
+powerful set of memory debugging aids are included in the compiled
+binary. This includes C and Tcl functions which can aid with
+debugging memory leaks, memory allocation overruns, and other
+memory related errors.</p>
+
+<h3><a name="M4">ENABLING MEMORY DEBUGGING</a></h3>
+
+<p>To enable memory debugging, Tcl should be recompiled from
+scratch with <b>TCL_MEM_DEBUG</b> defined. This will also compile
+in a non-stub version of <b><a href=
+"../TclLib/DumpActiveMemory.htm">Tcl_InitMemory</a></b> to add the
+<b><a href="../TclCmd/memory.htm">memory</a></b> command to
+Tcl.</p>
+
+<p><b>TCL_MEM_DEBUG</b> must be either left defined for all modules
+or undefined for all modules that are going to be linked together.
+If they are not, link errors will occur, with either
+<b>TclDbCkfree</b> and <b>Tcl_DbCkalloc</b> or <b>Tcl_Ckalloc</b>
+and <b>Tcl_Ckfree</b> being undefined.</p>
+
+<p>Once memory debugging support has been compiled into Tcl, the C
+functions <b><a href=
+"../TclLib/DumpActiveMemory.htm">Tcl_ValidateAllMemory</a></b>, and
+<b><a href=
+"../TclLib/DumpActiveMemory.htm">Tcl_DumpActiveMemory</a></b>, and
+the Tcl <b><a href="../TclCmd/memory.htm">memory</a></b> command
+can be used to validate and examine memory usage.</p>
+
+<h3><a name="M5">GUARD ZONES</a></h3>
+
+<p>When memory debugging is enabled, whenever a call to <b><a href=
+"../TclLib/Alloc.htm">ckalloc</a></b> is made, slightly more memory
+than requested is allocated so the memory debugging code can keep
+track of the allocated memory, and eight-byte ``guard zones'' are
+placed in front of and behind the space that will be returned to
+the caller. (The sizes of the guard zones are defined by the C
+#define <b>LOW_GUARD_SIZE</b> and #define <b>HIGH_GUARD_SIZE</b> in
+the file <i>generic/tclCkalloc.c</i> -- it can be extended if you
+suspect large overwrite problems, at some cost in performance.) A
+known pattern is written into the guard zones and, on a call to
+<b><a href="../TclLib/Alloc.htm">ckfree</a></b>, the guard zones of
+the space being freed are checked to see if either zone has been
+modified in any way. If one has been, the guard bytes and their new
+contents are identified, and a ``low guard failed'' or ``high guard
+failed'' message is issued. The ``guard failed'' message includes
+the address of the memory packet and the file name and line number
+of the code that called <b><a href=
+"../TclLib/Alloc.htm">ckfree</a></b>. This allows you to detect the
+common sorts of one-off problems, where not enough space was
+allocated to contain the data written, for example.</p>
+
+<h3><a name="M6">DEBUGGING DIFFICULT MEMORY CORRUPTION
+PROBLEMS</a></h3>
+
+<p>Normally, Tcl compiled with memory debugging enabled will make
+it easy to isolate a corruption problem. Turning on memory
+validation with the memory command can help isolate difficult
+problems. If you suspect (or know) that corruption is occurring
+before the Tcl interpreter comes up far enough for you to issue
+commands, you can set <b>MEM_VALIDATE</b> define, recompile
+tclCkalloc.c and rebuild Tcl. This will enable memory validation
+from the first call to <b><a href=
+"../TclLib/Alloc.htm">ckalloc</a></b>, again, at a large
+performance impact.</p>
+
+<p>If you are desperate and validating memory on every call to
+<b><a href="../TclLib/Alloc.htm">ckalloc</a></b> and <b><a href=
+"../TclLib/Alloc.htm">ckfree</a></b> isn't enough, you can
+explicitly call <b><a href=
+"../TclLib/DumpActiveMemory.htm">Tcl_ValidateAllMemory</a></b>
+directly at any point. It takes a <i>char *</i> and an <i>int</i>
+which are normally the filename and line number of the caller, but
+they can actually be anything you want. Remember to remove the
+calls after you find the problem.</p>
+
+<h3><a name="M7">SEE ALSO</a></h3>
+
+<p><b><a href="../TclLib/Alloc.htm">ckalloc</a></b>, <b><a href=
+"../TclCmd/memory.htm">memory</a></b>, <b><a href=
+"../TclLib/DumpActiveMemory.htm">Tcl_ValidateAllMemory</a></b>,
+<b><a href=
+"../TclLib/DumpActiveMemory.htm">Tcl_DumpActiveMemory</a></b></p>
+
+<h3><a name="M8">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/M.htm#memory">memory</a>, <a href=
+"../Keywords/D.htm#debug">debug</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1992-1999 Karl Lehenbauer and Mark Diekhans.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 2000 by Scriptics Corporation.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

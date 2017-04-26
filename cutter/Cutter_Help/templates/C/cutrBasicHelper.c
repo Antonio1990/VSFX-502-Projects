@@ -1,0 +1,1 @@
+/* Basic code for a RenderMan helper application */#include <stdio.h>  void main(){float	detail, rad;char	buffer[256]; while(gets(buffer)) {	sscanf(buffer, "%f %f", &detail, &rad);	printf("Sphere %f %f %f 360\n", rad, -rad, rad);	printf("%c", '\377');	fflush(stdout);	}}

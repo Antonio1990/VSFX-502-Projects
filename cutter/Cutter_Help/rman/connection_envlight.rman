@@ -1,0 +1,1 @@
+Declare param {string PNAME_EnvLight} {	label "Environment Light"	subtype connection	range {RenderManEnvLightShape}	description "Create an environment light for global illumination or image based illumination effects"	}

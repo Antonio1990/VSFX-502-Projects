@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Built-In Commands - set manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<h3><a name="M2">NAME</a></h3>
+
+<p>set - Read and write variables</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>set</b> <i>varName</i> ?<i>value</i>?<br>
+</p>
+
+<h3><a name="M4">DESCRIPTION</a></h3>
+
+<p>Returns the value of variable <i>varName</i>. If <i>value</i> is
+specified, then set the value of <i>varName</i> to <i>value</i>,
+creating a new variable if one doesn't already exist, and return
+its value. If <i>varName</i> contains an open parenthesis and ends
+with a close parenthesis, then it refers to an array element: the
+characters before the first open parenthesis are the name of the
+array, and the characters between the parentheses are the index
+within the array. Otherwise <i>varName</i> refers to a scalar
+variable. Normally, <i>varName</i> is unqualified (does not include
+the names of any containing namespaces), and the variable of that
+name in the current namespace is read or written. If <i>varName</i>
+includes namespace qualifiers (in the array name if it refers to an
+array element), the variable in the specified namespace is read or
+written.</p>
+
+<p>If no procedure is active, then <i>varName</i> refers to a
+namespace variable (global variable if the current namespace is the
+global namespace). If a procedure is active, then <i>varName</i>
+refers to a parameter or local variable of the procedure unless the
+<b><a href="../TclCmd/global.htm">global</a></b> command was
+invoked to declare <i>varName</i> to be global, or unless a <b><a
+href="../TclCmd/variable.htm">variable</a></b> command was invoked
+to declare <i>varName</i> to be a namespace variable.</p>
+
+<h3><a name="M5">SEE ALSO</a></h3>
+
+<p><b><a href="../TclCmd/expr.htm">expr</a></b>, <b><a href=
+"../TclCmd/proc.htm">proc</a></b>, <b><a href=
+"../TclCmd/trace.htm">trace</a></b>, <b><a href=
+"../TclCmd/unset.htm">unset</a></b></p>
+
+<h3><a name="M6">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/R.htm#read">read</a>, <a href=
+"../Keywords/W.htm#write">write</a>, <a href=
+"../Keywords/V.htm#variable">variable</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1993 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1996 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

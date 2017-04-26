@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Tcl Built-In Commands - lreplace manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<h3><a name="M2">NAME</a></h3>
+
+<p>lreplace - Replace elements in a list with new elements</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>lreplace</b> <i>list first last</i> ?<i>element element
+...</i>?<br>
+</p>
+
+<h3><a name="M4">DESCRIPTION</a></h3>
+
+<p><b>lreplace</b> returns a new list formed by replacing one or
+more elements of <i>list</i> with the <i>element</i> arguments.
+<i>first</i> and <i>last</i> specify the first and last index of
+the range of elements to replace. 0 refers to the first element of
+the list, and <b>end</b> (or any abbreviation of it) may be used to
+refer to the last element of the list. If <i>list</i> is empty,
+then <i>first</i> and <i>last</i> are ignored. If <i>first</i> is
+less than zero, it is considered to refer to the first element of
+the list. For non-empty lists, the element indicated by
+<i>first</i> must exist. If <i>last</i> is less than zero but
+greater than <i>first</i>, then any specified elements will be
+prepended to the list. If <i>last</i> is less than <i>first</i>
+then no elements are deleted; the new elements are simply inserted
+before <i>first</i>. The <i>element</i> arguments specify zero or
+more new arguments to be added to the list in place of those that
+were deleted. Each <i>element</i> argument will become a separate
+element of the list. If no <i>element</i> arguments are specified,
+then the elements between <i>first</i> and <i>last</i> are simply
+deleted. If <i>list</i> is empty, any <i>element</i> arguments are
+added to the end of the list.</p>
+
+<h3><a name="M5">SEE ALSO</a></h3>
+
+<p><b><a href="../TclCmd/list.htm">list</a></b>, <b><a href=
+"../TclCmd/lappend.htm">lappend</a></b>, <b><a href=
+"../TclCmd/lindex.htm">lindex</a></b>, <b><a href=
+"../TclCmd/linsert.htm">linsert</a></b>, <b><a href=
+"../TclCmd/llength.htm">llength</a></b>, <b><a href=
+"../TclCmd/lsearch.htm">lsearch</a></b>, <b><a href=
+"../TclCmd/lset.htm">lset</a></b>, <b><a href=
+"../TclCmd/lrange.htm">lrange</a></b>, <b><a href=
+"../TclCmd/lsort.htm">lsort</a></b></p>
+
+<h3><a name="M6">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/E.htm#element">element</a>, <a href=
+"../Keywords/L.htm#list">list</a>, <a href=
+"../Keywords/R.htm#replace">replace</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1993 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1996 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 2001 Kevin B. Kenny. All rights reserved.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

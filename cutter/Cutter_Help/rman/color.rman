@@ -1,0 +1,1 @@
+Declare param {color PNAME_COLOR} {	label "YourColorLabel"	description "No description."	}

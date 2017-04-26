@@ -1,0 +1,9 @@
+	<param name="CPP_NAME"
+		label="UI_NAME"
+		type="vector"
+		default="0 0 0"
+		widget="default">
+		<tags>
+			<tag value="vector"/>
+		</tags>
+	</param>

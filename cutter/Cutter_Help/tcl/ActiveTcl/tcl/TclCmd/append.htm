@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Built-In Commands - append manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<h3><a name="M2">NAME</a></h3>
+
+<p>append - Append to variable</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>append</b> <i>varName</i> ?<i>value value value ...</i>?<br>
+</p>
+
+<h3><a name="M4">DESCRIPTION</a></h3>
+
+<p>Append all of the <i>value</i> arguments to the current value of
+variable <i>varName</i>. If <i>varName</i> doesn't exist, it is
+given a value equal to the concatenation of all the <i>value</i>
+arguments. The result of this command is the new value stored in
+variable <i>varName</i>. This command provides an efficient way to
+build up long variables incrementally. For example, ``<b>append a
+$b</b>'' is much more efficient than ``<b>set a $a$b</b>'' if
+<b>$a</b> is long.</p>
+
+<h3><a name="M5">SEE ALSO</a></h3>
+
+<p><b><a href="../TclCmd/concat.htm">concat</a></b>, <b><a href=
+"../TclCmd/lappend.htm">lappend</a></b></p>
+
+<h3><a name="M6">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/A.htm#append">append</a>, <a href=
+"../Keywords/V.htm#variable">variable</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1993 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1996 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

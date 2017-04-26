@@ -1,0 +1,8 @@
+Double-clickable script for launching Cutter on Windows.
+Save this script as a .bat file, for example, "run.bat" in your cutter directory.
+Double-clicking on the icon of this file will launch Cutter.
+
+#-----snip-----snip------snip-----snip------snip-----snip------snip-----snip------
+java -classpath .;cutter.jar Cutter
+#-----snip-----snip------snip-----snip------snip-----snip------snip-----snip------
+

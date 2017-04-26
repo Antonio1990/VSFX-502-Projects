@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Tcl Built-In Commands - array manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<dl>
+<dd><a href="array.htm#M2" name="L47">NAME</a> 
+
+<dl>
+<dd>array - Manipulate array variables</dd>
+</dl>
+</dd>
+
+<dd><a href="array.htm#M3" name="L48">SYNOPSIS</a> 
+
+<dl>
+<dd><b>array</b> <i>option arrayName</i> ?<i>arg arg ...</i>?</dd>
+</dl>
+</dd>
+
+<dd><a href="array.htm#M4" name="L49">DESCRIPTION</a> 
+
+<dl>
+<dd><a href="array.htm#M5" name="L50"><b>array anymore</b>
+<i>arrayName searchId</i></a></dd>
+
+<dd><a href="array.htm#M6" name="L51"><b>array donesearch</b>
+<i>arrayName searchId</i></a></dd>
+
+<dd><a href="array.htm#M7" name="L52"><b>array exists</b>
+<i>arrayName</i></a></dd>
+
+<dd><a href="array.htm#M8" name="L53"><b>array get</b>
+<i>arrayName</i> ?<i>pattern</i>?</a></dd>
+
+<dd><a href="array.htm#M9" name="L54"><b>array names</b>
+<i>arrayName</i> ?<i>mode</i>? ?<i>pattern</i>?</a></dd>
+
+<dd><a href="array.htm#M10" name="L55"><b>array nextelement</b>
+<i>arrayName searchId</i></a></dd>
+
+<dd><a href="array.htm#M11" name="L56"><b>array set</b>
+<i>arrayName list</i></a></dd>
+
+<dd><a href="array.htm#M12" name="L57"><b>array size</b>
+<i>arrayName</i></a></dd>
+
+<dd><a href="array.htm#M13" name="L58"><b>array startsearch</b>
+<i>arrayName</i></a></dd>
+
+<dd><a href="array.htm#M14" name="L59"><b>array statistics</b>
+<i>arrayName</i></a></dd>
+
+<dd><a href="array.htm#M15" name="L60"><b>array unset</b>
+<i>arrayName</i> ?<i>pattern</i>?</a></dd>
+</dl>
+</dd>
+
+<dd><a href="array.htm#M16" name="L61">SEE ALSO</a></dd>
+
+<dd><a href="array.htm#M17" name="L62">KEYWORDS</a></dd>
+</dl>
+
+<hr>
+<h3><a name="M2">NAME</a></h3>
+
+<p>array - Manipulate array variables</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>array</b> <i>option arrayName</i> ?<i>arg arg ...</i>?<br>
+</p>
+
+<h3><a name="M4">DESCRIPTION</a></h3>
+
+<p>This command performs one of several operations on the variable
+given by <i>arrayName</i>. Unless otherwise specified for
+individual commands below, <i>arrayName</i> must be the name of an
+existing array variable. The <i>option</i> argument determines what
+action is carried out by the command. The legal <i>options</i>
+(which may be abbreviated) are:</p>
+
+<dl>
+<dt><a name="M5"><b>array anymore</b> <i>arrayName
+searchId</i></a></dt>
+
+<dd>Returns 1 if there are any more elements left to be processed
+in an array search, 0 if all elements have already been returned.
+<i>SearchId</i> indicates which search on <i>arrayName</i> to
+check, and must have been the return value from a previous
+invocation of <b>array startsearch</b>. This option is particularly
+useful if an array has an element with an empty name, since the
+return value from <b>array nextelement</b> won't indicate whether
+the search has been completed.</dd>
+
+<dt><a name="M6"><b>array donesearch</b> <i>arrayName
+searchId</i></a></dt>
+
+<dd>This command terminates an array search and destroys all the
+state associated with that search. <i>SearchId</i> indicates which
+search on <i>arrayName</i> to destroy, and must have been the
+return value from a previous invocation of <b>array
+startsearch</b>. Returns an empty string.</dd>
+
+<dt><a name="M7"><b>array exists</b> <i>arrayName</i></a></dt>
+
+<dd>Returns 1 if <i>arrayName</i> is an array variable, 0 if there
+is no variable by that name or if it is a scalar variable.</dd>
+
+<dt><a name="M8"><b>array get</b> <i>arrayName</i>
+?<i>pattern</i>?</a></dt>
+
+<dd>Returns a list containing pairs of elements. The first element
+in each pair is the name of an element in <i>arrayName</i> and the
+second element of each pair is the value of the array element. The
+order of the pairs is undefined. If <i>pattern</i> is not
+specified, then all of the elements of the array are included in
+the result. If <i>pattern</i> is specified, then only those
+elements whose names match <i>pattern</i> (using the matching rules
+of <b><a href="../TclCmd/string.htm">string match</a></b>) are
+included. If <i>arrayName</i> isn't the name of an array variable,
+or if the array contains no elements, then an empty list is
+returned.</dd>
+
+<dt><a name="M9"><b>array names</b> <i>arrayName</i> ?<i>mode</i>?
+?<i>pattern</i>?</a></dt>
+
+<dd>Returns a list containing the names of all of the elements in
+the array that match <i>pattern</i>. <i>Mode</i> may be one of
+<b>-exact</b>, <b>-glob</b>, or <b>-regexp</b>. If specified,
+<i>mode</i> designates which matching rules to use to match
+<i>pattern</i> against the names of the elements in the array. If
+not specified, <i>mode</i> defaults to <b>-glob</b>. See the
+documentation for <b><a href="../TclCmd/string.htm">string
+match</a></b> for information on glob style matching, and the
+documentation for <b><a href="../TclCmd/regexp.htm">regexp</a></b>
+for information on regexp matching. If <i>pattern</i> is omitted
+then the command returns all of the element names in the array. If
+there are no (matching) elements in the array, or if
+<i>arrayName</i> isn't the name of an array variable, then an empty
+string is returned.</dd>
+
+<dt><a name="M10"><b>array nextelement</b> <i>arrayName
+searchId</i></a></dt>
+
+<dd>Returns the name of the next element in <i>arrayName</i>, or an
+empty string if all elements of <i>arrayName</i> have already been
+returned in this search. The <i>searchId</i> argument identifies
+the search, and must have been the return value of an <b>array
+startsearch</b> command. Warning: if elements are added to or
+deleted from the array, then all searches are automatically
+terminated just as if <b>array donesearch</b> had been invoked;
+this will cause <b>array nextelement</b> operations to fail for
+those searches.</dd>
+
+<dt><a name="M11"><b>array set</b> <i>arrayName list</i></a></dt>
+
+<dd>Sets the values of one or more elements in <i>arrayName</i>.
+<i>list</i> must have a form like that returned by <b>array
+get</b>, consisting of an even number of elements. Each
+odd-numbered element in <i>list</i> is treated as an element name
+within <i>arrayName</i>, and the following element in <i>list</i>
+is used as a new value for that array element. If the variable
+<i>arrayName</i> does not already exist and <i>list</i> is empty,
+<i>arrayName</i> is created with an empty array value.</dd>
+
+<dt><a name="M12"><b>array size</b> <i>arrayName</i></a></dt>
+
+<dd>Returns a decimal string giving the number of elements in the
+array. If <i>arrayName</i> isn't the name of an array then 0 is
+returned.</dd>
+
+<dt><a name="M13"><b>array startsearch</b>
+<i>arrayName</i></a></dt>
+
+<dd>This command initializes an element-by-element search through
+the array given by <i>arrayName</i>, such that invocations of the
+<b>array nextelement</b> command will return the names of the
+individual elements in the array. When the search has been
+completed, the <b>array donesearch</b> command should be invoked.
+The return value is a search identifier that must be used in
+<b>array nextelement</b> and <b>array donesearch</b> commands; it
+allows multiple searches to be underway simultaneously for the same
+array.</dd>
+
+<dt><a name="M14"><b>array statistics</b> <i>arrayName</i></a></dt>
+
+<dd>Returns statistics about the distribution of data within the
+hashtable that represents the array. This information includes the
+number of entries in the table, the number of buckets, and the
+utilization of the buckets.</dd>
+
+<dt><a name="M15"><b>array unset</b> <i>arrayName</i>
+?<i>pattern</i>?</a></dt>
+
+<dd>Unsets all of the elements in the array that match
+<i>pattern</i> (using the matching rules of <b><a href=
+"../TclCmd/string.htm">string match</a></b>). If <i>arrayName</i>
+isn't the name of an array variable or there are no matching
+elements in the array, no error will be raised. If <i>pattern</i>
+is omitted and <i>arrayName</i> is an array variable, then the
+command unsets the entire array. The command always returns an
+empty string.</dd>
+</dl>
+
+<h3><a name="M16">SEE ALSO</a></h3>
+
+<p><b><a href="../TclCmd/list.htm">list</a></b>, <b><a href=
+"../TclCmd/string.htm">string</a></b>, <b><a href=
+"../TclCmd/variable.htm">variable</a></b>, <b><a href=
+"../TclCmd/trace.htm">trace</a></b></p>
+
+<h3><a name="M17">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/A.htm#array">array</a>, <a href=
+"../Keywords/E.htm#element names">element names</a>, <a href=
+"../Keywords/S.htm#search">search</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1993-1994 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1996 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

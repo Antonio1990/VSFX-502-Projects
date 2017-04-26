@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Library Procedures - Tk_CreateGenericHandler manual
+page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<h3><a name="M2">NAME</a></h3>
+
+<p>Tk_CreateGenericHandler, Tk_DeleteGenericHandler - associate
+procedure callback with all X events</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>#include &lt;tk.h&gt;</b><br>
+<b>Tk_CreateGenericHandler</b>(<i>proc, clientData</i>)<br>
+<b>Tk_DeleteGenericHandler</b>(<i>proc, clientData</i>)<br>
+</p>
+
+<h3><a name="M4">ARGUMENTS</a></h3>
+
+<dl>
+<dt>Tk_GenericProc <b>*proc</b> (in)</dt>
+
+<dd>Procedure to invoke whenever any X event occurs on any
+display.</dd>
+
+<dt>ClientData <b>clientData</b> (in)</dt>
+
+<dd>Arbitrary one-word value to pass to <i>proc</i>.</dd>
+</dl>
+
+<h3><a name="M5">DESCRIPTION</a></h3>
+
+<p><b>Tk_CreateGenericHandler</b> arranges for <i>proc</i> to be
+invoked in the future whenever any X event occurs. This mechanism
+is <i>not</i> intended for dispatching X events on windows managed
+by Tk (you should use <b><a href=
+"../TkLib/EventHndlr.htm">Tk_CreateEventHandler</a></b> for this
+purpose). <b>Tk_CreateGenericHandler</b> is intended for other
+purposes, such as tracing X events, monitoring events on windows
+not owned by Tk, accessing X-related libraries that were not
+originally designed for use with Tk, and so on.</p>
+
+<p>The callback to <i>proc</i> will be made by <b><a href=
+"../TkLib/HandleEvent.htm">Tk_HandleEvent</a></b>; this mechanism
+only works in programs that dispatch events through <b><a href=
+"../TkLib/HandleEvent.htm">Tk_HandleEvent</a></b> (or through other
+Tk procedures that call <b><a href=
+"../TkLib/HandleEvent.htm">Tk_HandleEvent</a></b>, such as
+<b>Tk_DoOneEvent</b> or <b><a href=
+"../TkLib/MainLoop.htm">Tk_MainLoop</a></b>).</p>
+
+<p><i>Proc</i> should have arguments and result that match the type
+<b>Tk_GenericProc</b>:</p>
+
+<pre>
+typedef int Tk_GenericProc(
+    ClientData <i>clientData</i>,
+    XEvent *<i>eventPtr</i>);
+</pre>
+
+<p>The <i>clientData</i> parameter to <i>proc</i> is a copy of the
+<i>clientData</i> argument given to <b>Tk_CreateGenericHandler</b>
+when the callback was created. Typically, <i>clientData</i> points
+to a data structure containing application-specific information
+about how to handle events. <i>EventPtr</i> is a pointer to the X
+event.</p>
+
+<p>Whenever an X event is processed by <b><a href=
+"../TkLib/HandleEvent.htm">Tk_HandleEvent</a></b>, <i>proc</i> is
+called. The return value from <i>proc</i> is normally 0. A non-zero
+return value indicates that the event is not to be handled further;
+that is, <i>proc</i> has done all processing that is to be allowed
+for the event.</p>
+
+<p>If there are multiple generic event handlers, each one is called
+for each event, in the order in which they were established.</p>
+
+<p><b>Tk_DeleteGenericHandler</b> may be called to delete a
+previously-created generic event handler: it deletes each handler
+it finds that matches the <i>proc</i> and <i>clientData</i>
+arguments. If no such handler exists, then
+<b>Tk_DeleteGenericHandler</b> returns without doing anything.
+Although Tk supports it, it's probably a bad idea to have more than
+one callback with the same <i>proc</i> and <i>clientData</i>
+arguments.</p>
+
+<p>Establishing a generic event handler does nothing to ensure that
+the process will actually receive the X events that the handler
+wants to process. For example, it is the caller's responsibility to
+invoke <b>XSelectInput</b> to select the desired events, if that is
+necessary.</p>
+
+<h3><a name="M6">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/B.htm#bind">bind</a>, <a href=
+"../Keywords/C.htm#callback">callback</a>, <a href=
+"../Keywords/E.htm#event">event</a>, <a href=
+"../Keywords/H.htm#handler">handler</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1992-1994 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1996 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

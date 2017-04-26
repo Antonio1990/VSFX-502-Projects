@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Tcl Built-In Commands - gets manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<h3><a name="M2">NAME</a></h3>
+
+<p>gets - Read a line from a channel</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>gets</b> <i>channelId</i> ?<i>varName</i>?<br>
+</p>
+
+<h3><a name="M4">DESCRIPTION</a></h3>
+
+<p>This command reads the next line from <i>channelId</i>, returns
+everything in the line up to (but not including) the end-of-line
+character(s), and discards the end-of-line character(s).</p>
+
+<p><i>ChannelId</i> must be an identifier for an open channel such
+as the Tcl standard input channel (<b>stdin</b>), the return value
+from an invocation of <b><a href="../TclCmd/open.htm">open</a></b>
+or <b><a href="../TclCmd/socket.htm">socket</a></b>, or the result
+of a channel creation command provided by a Tcl extension. The
+channel must have been opened for input.</p>
+
+<p>If <i>varName</i> is omitted the line is returned as the result
+of the command. If <i>varName</i> is specified then the line is
+placed in the variable by that name and the return value is a count
+of the number of characters returned.</p>
+
+<p>If end of file occurs while scanning for an end of line, the
+command returns whatever input is available up to the end of file.
+If <i>channelId</i> is in nonblocking mode and there is not a full
+line of input available, the command returns an empty string and
+does not consume any input. If <i>varName</i> is specified and an
+empty string is returned in <i>varName</i> because of end-of-file
+or because of insufficient data in nonblocking mode, then the
+return count is -1. Note that if <i>varName</i> is not specified
+then the end-of-file and no-full-line-available cases can produce
+the same results as if there were an input line consisting only of
+the end-of-line character(s). The <b><a href=
+"../TclCmd/eof.htm">eof</a></b> and <b><a href=
+"../TclCmd/fblocked.htm">fblocked</a></b> commands can be used to
+distinguish these three cases.</p>
+
+<h3><a name="M5">SEE ALSO</a></h3>
+
+<p><b><a href="../TclCmd/file.htm">file</a></b>, <b><a href=
+"../TclCmd/eof.htm">eof</a></b>, <b><a href=
+"../TclCmd/fblocked.htm">fblocked</a></b>, <b><a href=
+"../TclLib/StdChannels.htm">Tcl_StandardChannels</a></b></p>
+
+<h3><a name="M6">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/B.htm#blocking">blocking</a>, <a href=
+"../Keywords/C.htm#channel">channel</a>, <a href=
+"../Keywords/E.htm#end of file">end of file</a>, <a href=
+"../Keywords/E.htm#end of line">end of line</a>, <a href=
+"../Keywords/L.htm#line">line</a>, <a href=
+"../Keywords/N.htm#nonblocking">nonblocking</a>, <a href=
+"../Keywords/R.htm#read">read</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1993 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1996 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

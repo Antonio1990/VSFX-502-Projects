@@ -1,0 +1,10 @@
+	<param name="CPP_NAME"
+		label="UI_NAME"
+		type="int"
+		default="0"
+		connectable="False"
+		widget="checkbox">
+		<tags>
+			<tag value="int"/>
+		</tags>
+	</param>

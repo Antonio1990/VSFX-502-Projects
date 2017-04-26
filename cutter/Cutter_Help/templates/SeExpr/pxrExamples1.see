@@ -1,0 +1,47 @@
+# Example PxrSeExpr node expressions adapted from,
+#	RPSROOT/lib/examples/RIS/scenes/pattern/seexpr/seexpr.rib
+# 
+# node: "PxrSeExpr1"
+lookup = fbm( [5, 5, 5] * P/1, 1);
+color  = ccurve(lookup,  0.000, [0.635, 0.243, 0.047], 4, 
+                      0.341, [0.953, 1.000, 0.000], 4, 
+                      0.405, [0.635, 0.243, 0.047], 4, 
+                      0.474, [0.635, 0.243, 0.047], 4, 
+                      0.532, [0.635, 0.502, 0.282], 4, 
+                      0.601, [0.635, 0.243, 0.047], 4);
+color
+#--------------------------------------------------------
+lookup = voronoi(5 * [u, v, 0.5], 4, 0.6, 0.2); 
+color = ccurve(lookup, 0.000, [0.141, 0.059, 0.051], 4,
+                       0.185, [0.302, 0.176, 0.122], 4,
+                       0.301, [0.651, 0.447, 0.165], 4,
+                       0.462, [0.976, 0.976, 0.976], 4);
+color
+#--------------------------------------------------------
+freq = 13.148;
+fbmscale = 0.255;
+lookup = voronoi(freq * P, 2, 1, fbmscale)^2;
+color = ccurve(lookup, 	0.0, 	[0.024,0.235,0.333], 4, 
+						0.799, 	[0.757,0.757,0.757], 4, 
+						0.994, 	[0.855,0.855,0.855], 4);
+color
+#--------------------------------------------------------
+# Connections. The texture maps can be found in,
+# RPSROOT/lib/examples/RIS/scenes/pattern/seexpr
+#
+# Color Input 1: color.1.red.tex
+# Color Input 2: color.1.blue.tex
+# Color Input 3: color.1.yellow.tex
+# Float Input 1: matte_star.tex
+# Float Input 2: matte_circle.tex
+# Float Input 3: matte_white.tex
+
+mask = floatInput1; 
+color = colorInput1 * floatInput1; 
+
+color = color + colorInput2 * floatInput2 * (1.0 - mask); 
+mask = mask + floatInput2 * (1.0 - mask); 
+
+color = color + colorInput3 * floatInput3 * (1.0 - mask); 
+mask = mask + floatInput3 * (1.0 - mask); 
+color

@@ -1,0 +1,43 @@
+<!-- 
+    A skeleton args file that can be used to define the UI of a custom RixPattern 
+    plugin. Use the right mouse to access a popup menu to add inputs and outputs. 
+    Workflow:
+    1  Save the args file in an Args directory that will be sourced by RfM. For
+	   example,
+			maya/projects/RMS_ris/Args
+    2  Add the inputs and rename their "CPP_NAME" and "UI_NAME". For example,
+			<param name="CPP_NAME" label="UI_NAME" type="color" default="1 1 1" __rest omitted__>
+	   might be renamed as,
+			<param name="input_outsideRGB" label="Outside Color" type="color" default="1 1 1" __rest omitted__>
+			
+    3  Add the outputs and edit their "resultXXX" name.
+    4  The nodeid must be a unique integer and be larger than 1053500 - otherwise,
+       the custom node will clash with a built-in Pixar nodes.
+    5  Use the right-mouse popup and choose "Export Plugin->RixPattern C++ Code" to create a
+       barebones .cpp file. Save the file where RenderMan_for_Maya.ini will expect to
+	   find it. For example,
+			maya/projects/RMS_ris
+
+	Refer to "www.fundza.com/cutter/devkit/rixpattern/index.html" for more details.
+-->
+<args format="1.0">
+	<shaderType>
+		<tag value="pattern"/>
+	</shaderType>
+	<help>
+		Brief documentation goes here...
+	</help>
+	
+	<!--page name="YOUR_PANEL_LABEL" open="True"-->
+		<!-- Inputs begin -->
+		
+		<!-- Inputs end -->
+		
+	<!--/page-->
+	
+		<!-- Outputs begin -->
+	
+		<!-- Outputs end -->
+
+	<rfmdata nodeid="1053500" classification="rendernode/RenderMan/pattern"/>
+</args>

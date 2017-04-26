@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Tcl Built-In Commands - lindex manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<h3><a name="M2">NAME</a></h3>
+
+<p>lindex - Retrieve an element from a list</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>lindex</b> <i>list ?index...?</i><br>
+</p>
+
+<h3><a name="M4">DESCRIPTION</a></h3>
+
+<p>The <b>lindex</b> command accepts a parameter, <i>list</i>,
+which it treats as a Tcl list. It also accepts zero or more
+<i>indices</i> into the list. The indices may be presented either
+consecutively on the command line, or grouped in a Tcl list and
+presented as a single argument.</p>
+
+<p>If no indices are presented, the command takes the form:</p>
+
+<pre>
+lindex list
+</pre>
+
+<p>or</p>
+
+<pre>
+lindex list {}
+</pre>
+
+<p>In this case, the return value of <b>lindex</b> is simply the
+value of the <i>list</i> parameter.</p>
+
+<p>When presented with a single index, the <b>lindex</b> command
+treats <i>list</i> as a Tcl list and returns the <i>index</i>'th
+element from it (0 refers to the first element of the list). In
+extracting the element, <b>lindex</b> observes the same rules
+concerning braces and quotes and backslashes as the Tcl command
+interpreter; however, variable substitution and command
+substitution do not occur. If <i>index</i> is negative or greater
+than or equal to the number of elements in <i>value</i>, then an
+empty string is returned. If <i>index</i> has the value <b>end</b>,
+it refers to the last element in the list, and
+<b>end-</b><i>integer</i> refers to the last element in the list
+minus the specified integer offset.</p>
+
+<p>If additional <i>index</i> arguments are supplied, then each
+argument is used in turn to select an element from the previous
+indexing operation, allowing the script to select elements from
+sublists. The command,</p>
+
+<pre>
+lindex $a 1 2 3
+</pre>
+
+<p>or</p>
+
+<pre>
+lindex $a {1 2 3}
+</pre>
+
+<p>is synonymous with</p>
+
+<pre>
+lindex [lindex [lindex $a 1] 2] 3
+</pre>
+
+<h3><a name="M5">EXAMPLES</a></h3>
+
+<pre>
+lindex {a b c}  =&gt; a b c
+lindex {a b c} {} =&gt; a b c
+lindex {a b c} 0 =&gt; a
+lindex {a b c} 2 =&gt; c
+lindex {a b c} end =&gt; c
+lindex {a b c} end-1 =&gt; b
+lindex {{a b c} {d e f} {g h i}} 2 1 =&gt; h
+lindex {{a b c} {d e f} {g h i}} {2 1} =&gt; h
+lindex {{{a b} {c d}} {{e f} {g h}}} 1 1 0 =&gt; g
+lindex {{{a b} {c d}} {{e f} {g h}}} {1 1 0} =&gt; g
+</pre>
+
+<h3><a name="M6">SEE ALSO</a></h3>
+
+<p><b><a href="../TclCmd/list.htm">list</a></b>, <b><a href=
+"../TclCmd/lappend.htm">lappend</a></b>, <b><a href=
+"../TclCmd/linsert.htm">linsert</a></b>, <b><a href=
+"../TclCmd/llength.htm">llength</a></b>, <b><a href=
+"../TclCmd/lsearch.htm">lsearch</a></b>, <b><a href=
+"../TclCmd/lset.htm">lset</a></b>, <b><a href=
+"../TclCmd/lsort.htm">lsort</a></b>, <b><a href=
+"../TclCmd/lrange.htm">lrange</a></b>, <b><a href=
+"../TclCmd/lreplace.htm">lreplace</a></b></p>
+
+<h3><a name="M7">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/E.htm#element">element</a>, <a href=
+"../Keywords/I.htm#index">index</a>, <a href=
+"../Keywords/L.htm#list">list</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1993 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1996 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 2001 by Kevin B. Kenny. All rights reserved.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

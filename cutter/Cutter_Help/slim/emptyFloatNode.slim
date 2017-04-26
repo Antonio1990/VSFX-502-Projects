@@ -1,0 +1,33 @@
+slim 1 extensions AUTHOR {
+extensions STUDIO PREFIX {
+	template float UNTITLED_FLT {
+		description {
+			Description of the node goes here.
+			}
+		previewinfo {
+			shadingrate 1
+			objectsize 1
+			objectshape Sphere
+			frame 1
+			}
+		#__custom parameters Begin____________
+
+
+		#__custom parameters End______________
+
+		parameter float result {
+			access output
+			display hidden
+			}
+		RSLFunction {
+		void cutrUNTITLED_FLT (
+			//parameter vars goes here...
+			//
+			output float result;
+			)
+		{
+		result = 1;
+		}
+	}
+}
+}}

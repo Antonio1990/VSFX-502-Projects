@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Library Procedures - Tk_GetOption manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<h3><a name="M2">NAME</a></h3>
+
+<p>Tk_GetOption - retrieve an option from the option database</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>#include &lt;tk.h&gt;</b><br>
+<a href="../TkLib/GetUid.htm">Tk_Uid</a><br>
+<b>Tk_GetOption</b>(<i>tkwin, name, class</i>)<br>
+</p>
+
+<h3><a name="M4">ARGUMENTS</a></h3>
+
+<dl>
+<dt>Tk_Window <b>tkwin</b> (in)</dt>
+
+<dd>Token for window.</dd>
+
+<dt>CONST char <b>*name</b> (in)</dt>
+
+<dd>Name of desired option.</dd>
+
+<dt>CONST char <b>*class</b> (in)</dt>
+
+<dd>Class of desired option. Null means there is no class for this
+option; do lookup based on name only.</dd>
+</dl>
+
+<h3><a name="M5">DESCRIPTION</a></h3>
+
+<p>This procedure is invoked to retrieve an option from the
+database associated with <i>tkwin</i>'s main window. If there is an
+option for <i>tkwin</i> that matches the given <i>name</i> or
+<i>class</i>, then it is returned in the form of a <a href=
+"../TkLib/GetUid.htm">Tk_Uid</a>. If multiple options match
+<i>name</i> and <i>class</i>, then the highest-priority one is
+returned. If no option matches, then NULL is returned.</p>
+
+<p><b>Tk_GetOption</b> caches options related to <i>tkwin</i> so
+that successive calls for the same <i>tkwin</i> will execute much
+more quickly than successive calls for different windows.</p>
+
+<h3><a name="M6">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/C.htm#class">class</a>, <a href=
+"../Keywords/N.htm#name">name</a>, <a href=
+"../Keywords/O.htm#option">option</a>, <a href=
+"../Keywords/R.htm#retrieve">retrieve</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1990 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1996 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

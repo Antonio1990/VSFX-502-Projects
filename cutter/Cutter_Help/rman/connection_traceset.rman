@@ -1,0 +1,1 @@
+Declare param {string PNAME_EnvGISubset} {	label "Subset"	subtype connection	range {traceSet}	description "Set of objects to include in Global Illum calcs.  Right-click for a list of choices."	}

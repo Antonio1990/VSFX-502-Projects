@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Tcl Library Procedures - Tcl_AddErrorInfo manual
+page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<h3><a name="M2">NAME</a></h3>
+
+<p>Tcl_AddObjErrorInfo, Tcl_AddErrorInfo, Tcl_SetObjErrorCode,
+Tcl_SetErrorCode, Tcl_SetErrorCodeVA, Tcl_PosixError,
+Tcl_LogCommandInfo - record information about errors</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>#include &lt;tcl.h&gt;</b><br>
+<b>Tcl_AddObjErrorInfo</b>(<i>interp, message, length</i>)<br>
+<b>Tcl_AddErrorInfo</b>(<i>interp, message</i>)<br>
+<b>Tcl_SetObjErrorCode</b>(<i>interp, errorObjPtr</i>)<br>
+<b>Tcl_SetErrorCode</b>(<i>interp, element, element, ...</i>
+<b>(char *) NULL</b>)<br>
+<b>Tcl_SetErrorCodeVA</b>(<i>interp, argList</i>)<br>
+CONST char *<br>
+<b>Tcl_PosixError</b>(<i>interp</i>)<br>
+void<br>
+<b>Tcl_LogCommandInfo</b>(<i>interp, script, command,
+commandLength</i>)<br>
+</p>
+
+<h3><a name="M4">ARGUMENTS</a></h3>
+
+<dl>
+<dt><a href="../TclLib/Interp.htm">Tcl_Interp</a> <b>*interp</b>
+(in)</dt>
+
+<dd>Interpreter in which to record information.</dd>
+
+<dt>char <b>*message</b> (in)</dt>
+
+<dd>For <b>Tcl_AddObjErrorInfo</b>, this points to the first byte
+of an array of bytes containing a string to record in the
+<b>errorInfo</b> variable. This byte array may contain embedded
+null bytes unless <i>length</i> is negative. For
+<b>Tcl_AddErrorInfo</b>, this is a conventional C string to record
+in the <b>errorInfo</b> variable.</dd>
+
+<dt>int <b>length</b> (in)</dt>
+
+<dd>The number of bytes to copy from <i>message</i> when setting
+the <b>errorInfo</b> variable. If negative, all bytes up to the
+first null byte are used.</dd>
+
+<dt>Tcl_Obj <b>*errorObjPtr</b> (in)</dt>
+
+<dd>This variable <b>errorCode</b> will be set to this value.</dd>
+
+<dt>char <b>*element</b> (in)</dt>
+
+<dd>String to record as one element of <b>errorCode</b> variable.
+Last <i>element</i> argument must be NULL.</dd>
+
+<dt>va_list <b>argList</b> (in)</dt>
+
+<dd>An argument list which must have been initialized using
+<b>TCL_VARARGS_START</b>, and cleared using <b>va_end</b>.</dd>
+
+<dt>CONST char <b>*script</b> (in)</dt>
+
+<dd>Pointer to first character in script containing command (must
+be &lt;= command)</dd>
+
+<dt>CONST char <b>*command</b> (in)</dt>
+
+<dd>Pointer to first character in command that generated the
+error</dd>
+
+<dt>int <b>commandLength</b> (in)</dt>
+
+<dd>Number of bytes in command; -1 means use all bytes up to first
+NULL byte</dd>
+</dl>
+
+<h3><a name="M5">DESCRIPTION</a></h3>
+
+<p>These procedures are used to manipulate two Tcl global variables
+that hold information about errors. The variable <b>errorInfo</b>
+holds a stack trace of the operations that were in progress when an
+error occurred, and is intended to be human-readable. The variable
+<b>errorCode</b> holds a list of items that are intended to be
+machine-readable. The first item in <b>errorCode</b> identifies the
+class of error that occurred (e.g. POSIX means an error occurred in
+a POSIX system call) and additional elements in <b>errorCode</b>
+hold additional pieces of information that depend on the class. See
+the <a href="../TclCmd/Tcl.htm">Tcl</a> overview manual entry for
+details on the various formats for <b>errorCode</b>.</p>
+
+<p>The <b>errorInfo</b> variable is gradually built up as an error
+unwinds through the nested operations. Each time an error code is
+returned to <b><a href="../TclLib/Eval.htm">Tcl_EvalObjEx</a></b>
+(or <b><a href="../TclLib/Eval.htm">Tcl_Eval</a></b>, which calls
+<b><a href="../TclLib/Eval.htm">Tcl_EvalObjEx</a></b>) it calls the
+procedure <b>Tcl_AddObjErrorInfo</b> to add additional text to
+<b>errorInfo</b> describing the command that was being executed
+when the error occurred. By the time the error has been passed all
+the way back to the application, it will contain a complete trace
+of the activity in progress when the error occurred.</p>
+
+<p>It is sometimes useful to add additional information to
+<b>errorInfo</b> beyond what can be supplied automatically by <b><a
+href="../TclLib/Eval.htm">Tcl_EvalObjEx</a></b>.
+<b>Tcl_AddObjErrorInfo</b> may be used for this purpose: its
+<i>message</i> and <i>length</i> arguments describe an additional
+string to be appended to <b>errorInfo</b>. For example, the <b><a
+href="../TclCmd/source.htm">source</a></b> command calls
+<b>Tcl_AddObjErrorInfo</b> to record the name of the file being
+processed and the line number on which the error occurred; for Tcl
+procedures, the procedure name and line number within the procedure
+are recorded, and so on. The best time to call
+<b>Tcl_AddObjErrorInfo</b> is just after <b><a href=
+"../TclLib/Eval.htm">Tcl_EvalObjEx</a></b> has returned
+<b>TCL_ERROR</b>. In calling <b>Tcl_AddObjErrorInfo</b>, you may
+find it useful to use the <b>errorLine</b> field of the interpreter
+(see the <b><a href="../TclLib/Interp.htm">Tcl_Interp</a></b>
+manual entry for details).</p>
+
+<p><b>Tcl_AddErrorInfo</b> resembles <b>Tcl_AddObjErrorInfo</b> but
+differs in initializing <b>errorInfo</b> from the string value of
+the interpreter's result if the error is just starting to be
+logged. It does not use the result as a Tcl object so any embedded
+null characters in the result will cause information to be lost. It
+also takes a conventional C string in <i>message</i> instead of
+<b>Tcl_AddObjErrorInfo</b>'s counted string.</p>
+
+<p>The procedure <b>Tcl_SetObjErrorCode</b> is used to set the
+<b>errorCode</b> variable. <i>errorObjPtr</i> contains a list
+object built up by the caller. <b>errorCode</b> is set to this
+value. <b>Tcl_SetObjErrorCode</b> is typically invoked just before
+returning an error in an object command. If an error is returned
+without calling <b>Tcl_SetObjErrorCode</b> or
+<b>Tcl_SetErrorCode</b> the Tcl interpreter automatically sets
+<b>errorCode</b> to <b>NONE</b>.</p>
+
+<p>The procedure <b>Tcl_SetErrorCode</b> is also used to set the
+<b>errorCode</b> variable. However, it takes one or more strings to
+record instead of an object. Otherwise, it is similar to
+<b>Tcl_SetObjErrorCode</b> in behavior.</p>
+
+<p><b>Tcl_SetErrorCodeVA</b> is the same as <b>Tcl_SetErrorCode</b>
+except that instead of taking a variable number of arguments it
+takes an argument list.</p>
+
+<p><b>Tcl_PosixError</b> sets the <b>errorCode</b> variable after
+an error in a POSIX kernel call. It reads the value of the
+<b>errno</b> C variable and calls <b>Tcl_SetErrorCode</b> to set
+<b>errorCode</b> in the <b>POSIX</b> format. The caller must
+previously have called <b><a href=
+"../TclLib/SetErrno.htm">Tcl_SetErrno</a></b> to set <b>errno</b>;
+this is necessary on some platforms (e.g. Windows) where Tcl is
+linked into an application as a shared library, or when the error
+occurs in a dynamically loaded extension. See the manual entry for
+<b><a href="../TclLib/SetErrno.htm">Tcl_SetErrno</a></b> for more
+information.</p>
+
+<p><b>Tcl_PosixError</b> returns a human-readable diagnostic
+message for the error (this is the same value that will appear as
+the third element in <b>errorCode</b>). It may be convenient to
+include this string as part of the error message returned to the
+application in the interpreter's result.</p>
+
+<p><b>Tcl_LogCommandInfo</b> is invoked after an error occurs in an
+interpreter. It adds information about the command that was being
+executed when the error occurred to the <b>errorInfo</b> variable,
+and the line number stored internally in the interpreter is set. On
+the first call to <b>Tcl_LogCommandInfo</b> or
+<b>Tcl_AddObjErrorInfo</b> since an error occurred, the old
+information in <b>errorInfo</b> is deleted.</p>
+
+<p>It is important to call the procedures described here rather
+than setting <b>errorInfo</b> or <b>errorCode</b> directly with
+<b><a href="../TclLib/SetVar.htm">Tcl_ObjSetVar2</a></b>. The
+reason for this is that the Tcl interpreter keeps information about
+whether these procedures have been called. For example, the first
+time <b>Tcl_AddObjErrorInfo</b> is called for an error, it clears
+the existing value of <b>errorInfo</b> and adds the error message
+in the interpreter's result to the variable before appending
+<i>message</i>; in subsequent calls, it just appends the new
+<i>message</i>. When <b>Tcl_SetErrorCode</b> is called, it sets a
+flag indicating that <b>errorCode</b> has been set; this allows the
+Tcl interpreter to set <b>errorCode</b> to <b>NONE</b> if it
+receives an error return when <b>Tcl_SetErrorCode</b> hasn't been
+called.</p>
+
+<p>If the procedure <b><a href=
+"../TclLib/SetResult.htm">Tcl_ResetResult</a></b> is called, it
+clears all of the state associated with <b>errorInfo</b> and
+<b>errorCode</b> (but it doesn't actually modify the variables). If
+an error had occurred, this will clear the error state to make it
+appear as if no error had occurred after all.</p>
+
+<h3><a name="M6">SEE ALSO</a></h3>
+
+<p><b><a href="../TclLib/Object.htm">Tcl_DecrRefCount</a></b>,
+<b><a href="../TclLib/Object.htm">Tcl_IncrRefCount</a></b>, <b><a
+href="../TclLib/Interp.htm">Tcl_Interp</a></b>, <b><a href=
+"../TclLib/SetResult.htm">Tcl_ResetResult</a></b>, <b><a href=
+"../TclLib/SetErrno.htm">Tcl_SetErrno</a></b></p>
+
+<h3><a name="M7">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/E.htm#error">error</a>, <a href=
+"../Keywords/O.htm#object">object</a>, <a href=
+"../Keywords/O.htm#object result">object result</a>, <a href=
+"../Keywords/S.htm#stack">stack</a>, <a href=
+"../Keywords/T.htm#trace">trace</a>, <a href=
+"../Keywords/V.htm#variable">variable</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1989-1993 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1997 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

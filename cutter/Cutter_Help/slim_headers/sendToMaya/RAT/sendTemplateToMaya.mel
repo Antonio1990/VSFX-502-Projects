@@ -1,0 +1,44 @@
+string $paletteLabel = "TemplateTest";
+string $p = `slimcmd slim FindPalette $paletteLabel`;
+if($p != "")
+	{
+	slimcmd $p SetLabel $paletteLabel;
+	slimcmd $p UpdateEditor;
+	slimcmd slim WindowCmd Show $p;
+	}
+else
+	{
+	// Cannot be found, therefore, go ahead and create it
+	$p = `slimcmd slim CreatePalette -edit -new`;
+	slimcmd $p SetLabel $paletteLabel;
+	slimcmd $p UpdateEditor;
+	slimcmd slim WindowCmd Show $p;
+	}
+
+string $entries = `slimcmd $p GetAppearances -name "_TEMPLATE_NAME_*"`;
+string $appearance = "", $appName = "";
+if($entries != "")
+	{
+	//print("entries = " + $entries + "\n");
+	string $i[];// = SlmUtils_tokenize($entries);
+	tokenize($entries, $i);
+	
+	$appearance = $i[0];
+	$appName = `slimcmd $appearance GetName`;
+	//print("Cutter message: reloading " + $appName + "\n");
+	//slimcmd $appearance Reload;
+	print("Cutter message: removing " + $appName + "\n");
+	slimcmd $p DeleteEntries $entries -remove;
+	}
+//else
+	{
+	string $path = "_TEMPLATE_PATH_";
+	slimcmd slim ReadSlimFile $path;
+	$appearance = `slimcmd $p CreateInstance -template "_STUDIO_NAME_,_TEMPLATE_NAME_"`;
+	$appName = `slimcmd $appearance GetName`;
+	print("Cutter message: loading " + $appName + "\n");
+	} 
+slimcmd $p UpdateEditor;
+slimcmd slim WindowCmd Show $p;
+slimcmd $appearance Edit;
+

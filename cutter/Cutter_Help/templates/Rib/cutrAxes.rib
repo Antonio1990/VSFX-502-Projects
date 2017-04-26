@@ -1,0 +1,27 @@
+AttributeBegin
+	Attribute "visibility" "int indirect" [0] "int transmission" [0]
+	AttributeBegin # X axis			
+		Color 1 0 0
+		Bxdf "PxrConstant" "xAxis" "color emitColor" [1 0 0]
+		Curves "linear" [2] "nonperiodic" "P" [0 0 0   1 0 0] "constantwidth" [0.015]
+		Translate 1 0 0
+		Attribute "user" "string arrow" ["X"]
+		ReadArchive "cutrArrows.rib"
+	AttributeEnd
+	AttributeBegin # Y axis
+		Color 0 0.5 0
+		Bxdf "PxrConstant" "yAxis" "color emitColor" [0 0.5 0]
+		Curves "linear" [2] "nonperiodic" "P" [0 0 0   0 1 0] "constantwidth" [0.015]
+		Translate 0 1 0
+		Attribute "user" "string arrow" ["Y"]
+		ReadArchive "cutrArrows.rib"
+	AttributeEnd
+	AttributeBegin # Z axis
+		Color 0 0 1
+		Bxdf "PxrConstant" "zAxis" "color emitColor" [0 0 1]
+		Curves "linear" [2] "nonperiodic" "P" [0 0 0   0 0 1] "constantwidth" [0.015]
+		Translate 0 0 1
+		Attribute "user" "string arrow" ["Z"]
+		ReadArchive "cutrArrows.rib"
+	AttributeEnd
+AttributeEnd

@@ -1,0 +1,49 @@
+// 
+// Pre Shape Mel Script
+//
+global proc _PROC_NAME_RI_() {
+// Get the name of the shape node
+string $shapeNode = `rman ctxGetObject`;
+string $parents[] = `listRelatives -parent $shapeNode`;
+string $tformNode = $parents[0];
+
+// The node may hava a number in its name that we can use 
+// to set the random number generator
+int	$nodeNumber = `match "[0-9]+" $shapeNode`;	
+if($nodeNumber != "") {
+	seed(int($nodeNumber));
+	}
+// Bounding box...
+float $bb_width =  `getAttr ($shapeNode + ".boundingBoxSizeX")`;
+float $bb_height = `getAttr ($shapeNode + ".boundingBoxSizeY")`;
+float $bb_depth =  `getAttr ($shapeNode + ".boundingBoxSizeZ")`;
+
+string $attr;
+_GET_RMAN_ATTR_
+// Use of Pixar's custom RenderMan Studio procedures begins here.
+// For example, here are a few of Pixar's RiMel commands.
+RiTransformBegin();
+	RiSphere(1, -1, 1, 360); // an example
+RiTransformEnd();
+// Make the proxy object inactive
+RiAttribute "visibility" "int camera" 0;
+RiAttribute "visibility" "int indirect" 0;
+RiAttribute "visibility" "int transmission" 0;
+}
+
+//__________________________________________________________
+// A utility to create a rib path for an archive to be saved
+// in the project directories "data" folder.
+global proc string getArchivePath(string $nodename) {
+	string $projpath = `workspace -q -rootDirectory`;
+	string $datapath = $projpath + "data/";
+	string $scenename = `file -q -sceneName -shortName`;
+	int $frame = `currentTime -q`;
+	string $fstr = "0" + $frame;
+	if($frame < 10)
+		$fstr = "000" + $frame;
+	else if($frame < 100)
+		$fstr = "00" + $frame;
+	$ribpath = $datapath + $nodename + "." + $fstr + ".rib";
+	return $ribpath;
+	}

@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Tcl Library Procedures - Tcl_Exit manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<h3><a name="M2">NAME</a></h3>
+
+<p>Tcl_Exit, Tcl_Finalize, Tcl_CreateExitHandler,
+Tcl_DeleteExitHandler, Tcl_ExitThread, Tcl_FinalizeThread,
+Tcl_CreateThreadExitHandler, Tcl_DeleteThreadExitHandler - end the
+application or thread (and invoke exit handlers)</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>#include &lt;tcl.h&gt;</b><br>
+<b>Tcl_Exit</b>(<i>status</i>)<br>
+<b>Tcl_Finalize</b>()<br>
+<b>Tcl_CreateExitHandler</b>(<i>proc, clientData</i>)<br>
+<b>Tcl_DeleteExitHandler</b>(<i>proc, clientData</i>)<br>
+<b>Tcl_ExitThread</b>(<i>status</i>)<br>
+<b>Tcl_FinalizeThread</b>()<br>
+<b>Tcl_CreateThreadExitHandler</b>(<i>proc, clientData</i>)<br>
+<b>Tcl_DeleteThreadExitHandler</b>(<i>proc, clientData</i>)<br>
+</p>
+
+<h3><a name="M4">ARGUMENTS</a></h3>
+
+<dl>
+<dt>int <b>status</b> (in)</dt>
+
+<dd>Provides information about why the application or thread
+exited. Exact meaning may be platform-specific. 0 usually means a
+normal exit, any nonzero value usually means that an error
+occurred.</dd>
+
+<dt>Tcl_ExitProc <b>*proc</b> (in)</dt>
+
+<dd>Procedure to invoke before exiting application.</dd>
+
+<dt>ClientData <b>clientData</b> (in)</dt>
+
+<dd>Arbitrary one-word value to pass to <i>proc</i>.</dd>
+</dl>
+
+<h3><a name="M5">DESCRIPTION</a></h3>
+
+<p>The procedures described here provide a graceful mechanism to
+end the execution of a <b><a href="../TclCmd/Tcl.htm">Tcl</a></b>
+application. Exit handlers are invoked to cleanup the application's
+state before ending the execution of <b><a href=
+"../TclCmd/Tcl.htm">Tcl</a></b> code.</p>
+
+<p>Invoke <b>Tcl_Exit</b> to end a <b><a href=
+"../TclCmd/Tcl.htm">Tcl</a></b> application and to exit from this
+process. This procedure is invoked by the <b><a href=
+"../TclCmd/exit.htm">exit</a></b> command, and can be invoked
+anyplace else to terminate the application. No-one should ever
+invoke the <b><a href="../TclCmd/exit.htm">exit</a></b> system
+procedure directly; always invoke <b>Tcl_Exit</b> instead, so that
+it can invoke exit handlers. Note that if other code invokes <b><a
+href="../TclCmd/exit.htm">exit</a></b> system procedure directly,
+or otherwise causes the application to terminate without calling
+<b>Tcl_Exit</b>, the exit handlers will not be run. <b>Tcl_Exit</b>
+internally invokes the <b><a href="../TclCmd/exit.htm">exit</a></b>
+system call, thus it never returns control to its caller.</p>
+
+<p><b>Tcl_Finalize</b> is similar to <b>Tcl_Exit</b> except that it
+does not exit from the current process. It is useful for cleaning
+up when a process is finished using <b><a href=
+"../TclCmd/Tcl.htm">Tcl</a></b> but wishes to continue executing,
+and when <b><a href="../TclCmd/Tcl.htm">Tcl</a></b> is used in a
+dynamically loaded extension that is about to be unloaded. On some
+systems <b><a href="../TclCmd/Tcl.htm">Tcl</a></b> is automatically
+notified when it is being unloaded, and it calls
+<b>Tcl_Finalize</b> internally; on these systems it not necessary
+for the caller to explicitly call <b>Tcl_Finalize</b>. However, to
+ensure portability, your code should always invoke
+<b>Tcl_Finalize</b> when <b><a href="../TclCmd/Tcl.htm">Tcl</a></b>
+is being unloaded, to ensure that the code will work on all
+platforms. <b>Tcl_Finalize</b> can be safely called more than
+once.</p>
+
+<p><b>Tcl_ExitThread</b> is used to terminate the current thread
+and invoke per-thread exit handlers. This finalization is done by
+<b>Tcl_FinalizeThread</b>, which you can call if you just want to
+clean up per-thread state and invoke the thread exit handlers.
+<b>Tcl_Finalize</b> calls <b>Tcl_FinalizeThread</b> for the current
+thread automatically.</p>
+
+<p><b>Tcl_CreateExitHandler</b> arranges for <i>proc</i> to be
+invoked by <b>Tcl_Finalize</b> and <b>Tcl_Exit</b>.
+<b>Tcl_CreateThreadExitHandler</b> arranges for <i>proc</i> to be
+invoked by <b>Tcl_FinalizeThread</b> and <b>Tcl_ExitThread</b>.
+This provides a hook for cleanup operations such as flushing
+buffers and freeing global memory. <i>Proc</i> should match the
+type <b>Tcl_ExitProc</b>:</p>
+
+<pre>
+typedef void Tcl_ExitProc(ClientData <i>clientData</i>);
+</pre>
+
+<p>The <i>clientData</i> parameter to <i>proc</i> is a copy of the
+<i>clientData</i> argument given to <b>Tcl_CreateExitHandler</b> or
+<b>Tcl_CreateThreadExitHandler</b> when the callback was created.
+Typically, <i>clientData</i> points to a data structure containing
+application-specific information about what to do in
+<i>proc</i>.</p>
+
+<p><b>Tcl_DeleteExitHandler</b> and
+<b>Tcl_DeleteThreadExitHandler</b> may be called to delete a
+previously-created exit handler. It removes the handler indicated
+by <i>proc</i> and <i>clientData</i> so that no call to <i>proc</i>
+will be made. If no such handler exists then
+<b>Tcl_DeleteExitHandler</b> or <b>Tcl_DeleteThreadExitHandler</b>
+does nothing.</p>
+
+<p><b>Tcl_Finalize</b> and <b>Tcl_Exit</b> execute all registered
+exit handlers, in reverse order from the order in which they were
+registered. This matches the natural order in which extensions are
+loaded and unloaded; if extension <b>A</b> loads extension
+<b>B</b>, it usually unloads <b>B</b> before it itself is unloaded.
+If extension <b>A</b> registers its exit handlers before loading
+extension <b>B</b>, this ensures that any exit handlers for
+<b>B</b> will be executed before the exit handlers for
+<b>A</b>.</p>
+
+<p><b>Tcl_Finalize</b> and <b>Tcl_Exit</b> call
+<b>Tcl_FinalizeThread</b> and the thread exit handlers <i>after</i>
+the process-wide exit handlers. This is because thread finalization
+shuts down the I/O channel system, so any attempt at I/O by the
+global exit handlers will vanish into the bitbucket.</p>
+
+<h3><a name="M6">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/C.htm#callback">callback</a>, <a href=
+"../Keywords/C.htm#cleanup">cleanup</a>, <a href=
+"../Keywords/D.htm#dynamic loading">dynamic loading</a>, <a href=
+"../Keywords/E.htm#end application">end application</a>, <a href=
+"../Keywords/E.htm#exit">exit</a>, <a href=
+"../Keywords/U.htm#unloading">unloading</a>, <a href=
+"../Keywords/T.htm#thread">thread</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1996 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

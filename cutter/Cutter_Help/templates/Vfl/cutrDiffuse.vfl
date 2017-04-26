@@ -1,0 +1,19 @@
+/* 	Surface shader that using only the diffuse lighting
+	component. Source code by Renee Tam.
+*/
+// #pragma optable vop
+#pragma hint	Kd float
+#pragma label	Kd "Diffuse Intensity"
+
+surface
+cutrDiffuse(float	Kd = 1)
+{
+vector n = normalize(N),        /* the xyz vectors for the unit and */
+       nf = frontface(n, I);    /* front facing normals             */
+vector diffusecolor,            /* the rgb vectors for the lighting */
+       surfcolor = set(1,1,1);  /* and the surface color            */
+
+diffusecolor = Kd * diffuse(nf);
+
+Cf = Of * surfcolor * diffusecolor;
+}

@@ -1,0 +1,11 @@
+	<param name="manifold"
+		label="Manifold" 
+		type="struct"
+		default=""
+		widget="default">
+		<tags>
+			<tag value="struct"/>
+			<tag value="manifold"/>
+		</tags>
+	</param>
+

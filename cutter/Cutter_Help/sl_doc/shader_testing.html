@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+"http://www.w3.org/TR/REC-html40/loose.dtd">
+
+
+<!-- Author Malcolm Kesson -->
+<HTML>
+<HEAD>
+<TITLE>Cutter Help - Shader Testing</TITLE>
+<LINK rel=StyleSheet href="../help.css" TYPE="text/css" TITLE="Cutter Style">
+
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" LINK="#000066" VLINK="#006633">
+
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">
+    <TR>
+    	<TD WIDTH="5" NOWRAP><!-- Gutter --></TD>
+		<TD VALIGN="TOP" ALIGN="LEFT" WIDTH="455">
+			<H3><FONT FACE="sans-serif" COLOR="black"><B>Cutter Help</B><BR>
+			<FONT COLOR="red"><B>Shader Testing</B></FONT></H3>
+			<P>
+			<A HREF="../rman_index.html">[return to index]</A>
+			<BR>
+			<DL>
+			<DT><B>Contents</B>
+				<DD><A HREF="#overview">Overview</A>
+				<DD><A HREF="#single">Single Frame Test</A>
+				<DD><A HREF="#keyframe">Keyframe Animation Test</A>
+			</DL>
+			<P>
+			<BR>
+	<A NAME="overview"></A>
+			<FONT FACE="sans-serif"><B>Overview</B></FONT><BR>
+			After the source code for a shader has been successfully compiled it can be
+			tested by using the shader to render a single frame or an animation. In general
+			its best to use Cutters facility of generating a single frame RIB file before
+			proceeding to its other option of making a keyframe animation file. This help
+			document shows you how to do both.
+			<BR>
+			<BR>
+	<A NAME="single"></A>
+			<FONT FACE="HELVETICA"><B>Single Frame Test</B></FONT><BR>
+			From the Rman Tools <B>Documents</B> menu choose Single Frame Rib.<BR> 
+			<BR>
+			<IMG SRC="single_frame.gif"><BR>
+			<BR>
+			Cutter will open a new document window containing a template RIB document.
+			The name and default parameters of the shader to be tested will appear in
+			the RIB file. 
+			<BR>
+			<BR>
+			Save the document and click the render button at the bottom
+			of the Rman Tools palette. If you are using prman the button will be labelled
+			"prman". When using BMRT the button will be titled "rendrib".
+			<BR>
+			<BR>
+			The default geometry on which the shader will be tested is a simple four
+			sided polygon. If you wish to test the shader on other geometry insert the
+			cursor before or after the Polygon RIB statement and choose either a Quadric or another
+			Polygon from Rman Tools popups, ie.<BR>
+			<BR>
+			<IMG SRC="quadric.gif">&nbsp;&nbsp;&nbsp;<IMG SRC="polygon.gif"><BR>
+			<BR>
+			Cutter will insert the appropriate RIB statement into your document.
+			<BR>
+			<BR>
+	<A NAME="keyframe"></A>
+			<FONT FACE="HELVETICA"><B>Keyframe Animation Test</B></FONT><BR>
+			When you are satified with the effect of the shader Cutter can be used to
+			generate a <B>keyframe animation document</B>. 
+			<BR>
+			<BR>
+			Cutters keyframe document structure affords you a relatively convenient
+			way of specifying the parameter values of your shader for the starting
+			and ending frames of an animation sequence ie. "keyframe 1" and a "keyframe 2". 
+			<BR>
+			<BR>
+			From the Rman Tools <B>Documents</B> menu choose Key Frame Rib.<BR> 
+			<BR>
+			<IMG SRC="keyframe.gif"><BR>
+			<BR>
+			Cutter will open a new document in which the previously defined single 
+			frame scene is duplicated twice - once for keyframe 1 and again for 
+			keyframe 2. Edit the parameter values you wish to animate. 
+			After saving the keyframe document with a ".key" file extension,
+			click the render button at the bottom of the Rman Tools palette. The
+			renderer will produced a sequence of numbered TIFF files that will be saved
+			to the "frames" directory specified in the prefs.ini file, for example,
+			<BR>
+			<BR>
+<CODE>
+path.user.frames  "G:/ca301/frames"
+</CODE>
+			<BR>
+			<P>
+			At the top of the document notice the following lines of code,<BR>
+			<BR>
+<CODE>
+Tween "from" 1 "to" 2 "frames" 30<BR>
+<FONT COLOR="#CC0000">#Tween "output" 1</FONT><BR>
+Tween "output" "all"
+</CODE>
+			<P>
+			Cutter outputs the information contained within the pairs of keyframes into 
+			a sequence of FrameBegin/FrameEnd blocks contained in a properly structured 
+			RIB file. It is not the keyframe document that is rendered but rather the 
+			output RIB file that is produced as a result of Cutter <B>pre-processing</B> the
+			keyframe document.
+			<BR>
+			<BR>
+			More than two keyframes are allowed, for example, suppose three KeyFrameBegin/KeyFrameEnd
+			blocks were specified then the Tween statement might look like this,<BR>
+			<BR>
+<CODE>
+Tween "from" 1 "to" 2 "frames" 30<BR>
+Tween "from" 2 "to" 3 "frames" 30<BR>
+<FONT COLOR="#CC0000">#Tween "output" 1</FONT><BR>
+Tween "output" "all"
+</CODE>
+			<P>
+			<BR>
+			Either a specific frame number or all the frames can be rendered. The default
+			frame count is 30 but this can be changed to any value. Viewing the image
+			sequence is probably most conveniently done using Apples QuickTime Player Pro.
+			I anticipate having a sequence viewer built into Cutter by version 2.0. In
+			which case there will be no need to use "external" software. 
+		</TD>
+	</TR>
+</TABLE>	
+	
+<BR>
+<BR>
+</BODY>
+</HTML>

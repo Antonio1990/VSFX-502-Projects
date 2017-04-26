@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Tcl Library Procedures - Tcl_SourceRCFile manual
+page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<h3><a name="M2">NAME</a></h3>
+
+<p>Tcl_SourceRCFile - source the Tcl rc file</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>#include &lt;tcl.h&gt;</b><br>
+void<br>
+<b>Tcl_SourceRCFile</b>(<i>interp</i>)<br>
+</p>
+
+<h3><a name="M4">ARGUMENTS</a></h3>
+
+<dl>
+<dt><a href="../TclLib/Interp.htm">Tcl_Interp</a> <b>*interp</b>
+(in)</dt>
+
+<dd>Tcl interpreter to source rc file into.</dd>
+</dl>
+
+<h3><a name="M5">DESCRIPTION</a></h3>
+
+<p><b>Tcl_SourceRCFile</b> is used to source the Tcl rc file at
+startup. It is typically invoked by <a href=
+"../TclLib/Tcl_Main.htm">Tcl_Main</a> or <a href=
+"../TkLib/Tk_Main.htm">Tk_Main</a>. The name of the file sourced is
+obtained from the global variable <b>tcl_rcFileName</b> in the
+interpreter given by <i>interp</i>. If this variable is not
+defined, or if the file it indicates cannot be found, no action is
+taken.</p>
+
+<p>On the Macintosh, after sourcing the rc file, this function will
+additionally source the TEXT resource indicated by the global
+variable <b>tcl_rcRsrcName</b> in <i>interp</i>.</p>
+
+<h3><a name="M6">KEYWORDS</a></h3>
+
+<p><a href=
+"../Keywords/A.htm#application-specific initialization">application-specific
+initialization</a>, <a href="../Keywords/M.htm#main program">main
+program</a>, <a href="../Keywords/R.htm#rc file">rc file</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1998-2000 by Scriptics Corporation.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

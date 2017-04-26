@@ -1,0 +1,10 @@
+
+#Matte Floor Material
+Bxdf "PxrSurface" "PxrSurface1"
+		"float diffuseGain" [1.0]
+		"color diffuseColor" [0.5 0.5 0.5]
+		"int diffuseDoubleSided" [1]
+		"color specularFaceColor" [0.5 0.5 0.5]
+		"float specularRoughness" [0.5]
+		"int specularDoubleSided" [0]
+		"float presence" [1]

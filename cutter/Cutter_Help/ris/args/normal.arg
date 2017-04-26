@@ -1,0 +1,9 @@
+	<param name="CPP_NAME"
+		label="UI_NAME"
+		type="normal"
+		default="0 0 0"
+		widget="default">
+		<tags>
+			<tag value="normal"/>
+		</tags>
+	</param>

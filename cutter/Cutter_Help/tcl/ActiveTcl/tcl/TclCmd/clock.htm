@@ -1,0 +1,489 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Tcl Built-In Commands - clock manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<dl>
+<dd><a href="clock.htm#M2" name="L128">NAME</a> 
+
+<dl>
+<dd>clock - Obtain and manipulate time</dd>
+</dl>
+</dd>
+
+<dd><a href="clock.htm#M3" name="L129">SYNOPSIS</a> 
+
+<dl>
+<dd><b>clock</b> <i>option</i> ?<i>arg arg ...</i>?</dd>
+</dl>
+</dd>
+
+<dd><a href="clock.htm#M4" name="L130">DESCRIPTION</a> 
+
+<dl>
+<dd><a href="clock.htm#M5" name="L131">.VS 8.3</a></dd>
+
+<dd><a href="clock.htm#M6" name="L132"><b>clock format</b>
+<i>clockValue</i> ?<b>-format</b> <i>string</i>? ?<b>-gmt</b>
+<i>boolean</i>?</a> 
+
+<dl>
+<dd><a href="clock.htm#M7" name="L133"><b>%%</b></a></dd>
+
+<dd><a href="clock.htm#M8" name="L134"><b>%a</b></a></dd>
+
+<dd><a href="clock.htm#M9" name="L135"><b>%A</b></a></dd>
+
+<dd><a href="clock.htm#M10" name="L136"><b>%b</b></a></dd>
+
+<dd><a href="clock.htm#M11" name="L137"><b>%B</b></a></dd>
+
+<dd><a href="clock.htm#M12" name="L138"><b>%c</b></a></dd>
+
+<dd><a href="clock.htm#M13" name="L139"><b>%C</b></a></dd>
+
+<dd><a href="clock.htm#M14" name="L140"><b>%d</b></a></dd>
+
+<dd><a href="clock.htm#M15" name="L141"><b>%D</b></a></dd>
+
+<dd><a href="clock.htm#M16" name="L142"><b>%e</b></a></dd>
+
+<dd><a href="clock.htm#M17" name="L143"><b>%h</b></a></dd>
+
+<dd><a href="clock.htm#M18" name="L144"><b>%H</b></a></dd>
+
+<dd><a href="clock.htm#M19" name="L145"><b>%I</b></a></dd>
+
+<dd><a href="clock.htm#M20" name="L146"><b>%j</b></a></dd>
+
+<dd><a href="clock.htm#M21" name="L147"><b>%k</b></a></dd>
+
+<dd><a href="clock.htm#M22" name="L148"><b>%l</b></a></dd>
+
+<dd><a href="clock.htm#M23" name="L149"><b>%m</b></a></dd>
+
+<dd><a href="clock.htm#M24" name="L150"><b>%M</b></a></dd>
+
+<dd><a href="clock.htm#M25" name="L151"><b>%n</b></a></dd>
+
+<dd><a href="clock.htm#M26" name="L152"><b>%p</b></a></dd>
+
+<dd><a href="clock.htm#M27" name="L153"><b>%r</b></a></dd>
+
+<dd><a href="clock.htm#M28" name="L154"><b>%R</b></a></dd>
+
+<dd><a href="clock.htm#M29" name="L155"><b>%s</b></a></dd>
+
+<dd><a href="clock.htm#M30" name="L156"><b>%S</b></a></dd>
+
+<dd><a href="clock.htm#M31" name="L157"><b>%t</b></a></dd>
+
+<dd><a href="clock.htm#M32" name="L158"><b>%T</b></a></dd>
+
+<dd><a href="clock.htm#M33" name="L159"><b>%u</b></a></dd>
+
+<dd><a href="clock.htm#M34" name="L160"><b>%U</b></a></dd>
+
+<dd><a href="clock.htm#M35" name="L161"><b>%V</b></a></dd>
+
+<dd><a href="clock.htm#M36" name="L162"><b>%w</b></a></dd>
+
+<dd><a href="clock.htm#M37" name="L163"><b>%W</b></a></dd>
+
+<dd><a href="clock.htm#M38" name="L164"><b>%x</b></a></dd>
+
+<dd><a href="clock.htm#M39" name="L165"><b>%X</b></a></dd>
+
+<dd><a href="clock.htm#M40" name="L166"><b>%y</b></a></dd>
+
+<dd><a href="clock.htm#M41" name="L167"><b>%Y</b></a></dd>
+
+<dd><a href="clock.htm#M42" name="L168"><b>%Z</b></a></dd>
+</dl>
+</dd>
+
+<dd><a href="clock.htm#M43" name="L169"><b>clock scan</b>
+<i>dateString</i> ?<b>-base</b> <i>clockVal</i>? ?<b>-gmt</b>
+<i>boolean</i>?</a> 
+
+<dl>
+<dd><a href="clock.htm#M44" name="L170"><i>time</i></a></dd>
+
+<dd><a href="clock.htm#M45" name="L171"><i>date</i></a></dd>
+
+<dd><a href="clock.htm#M46" name="L172"><i>ISO 8601
+point-in-time</i></a></dd>
+
+<dd><a href="clock.htm#M47" name="L173"><i>relative
+time</i></a></dd>
+</dl>
+</dd>
+
+<dd><a href="clock.htm#M48" name="L174"><b>clock
+seconds</b></a></dd>
+</dl>
+</dd>
+
+<dd><a href="clock.htm#M49" name="L175">SEE ALSO</a></dd>
+
+<dd><a href="clock.htm#M50" name="L176">KEYWORDS</a></dd>
+</dl>
+
+<hr>
+<h3><a name="M2">NAME</a></h3>
+
+<p>clock - Obtain and manipulate time</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>clock</b> <i>option</i> ?<i>arg arg ...</i>?<br>
+</p>
+
+<h3><a name="M4">DESCRIPTION</a></h3>
+
+<p>This command performs one of several operations that may obtain
+or manipulate strings or values that represent some notion of time.
+The <i>option</i> argument determines what action is carried out by
+the command. The legal <i>options</i> (which may be abbreviated)
+are:</p>
+
+<dl>
+<dt><a name="M5">.VS 8.3</a></dt>
+
+<dd><b>clock clicks</b> ?<b>-milliseconds</b>? Return a
+high-resolution time value as a system-dependent integer value. The
+unit of the value is system-dependent but should be the highest
+resolution clock available on the system such as a CPU cycle
+counter. If <b>-milliseconds</b> is specified, then the value is
+guaranteed to be of millisecond granularity. This value should only
+be used for the relative measurement of elapsed time.</dd>
+
+<dt><a name="M6"><b>clock format</b> <i>clockValue</i>
+?<b>-format</b> <i>string</i>? ?<b>-gmt</b>
+<i>boolean</i>?</a></dt>
+
+<dd>Converts an integer time value, typically returned by <b>clock
+seconds</b>, <b>clock scan</b>, or the <b>atime</b>, <b>mtime</b>,
+or <b>ctime</b> options of the <b><a href=
+"../TclCmd/file.htm">file</a></b> command, to human-readable form.
+If the <b>-format</b> argument is present the next argument is a
+string that describes how the date and time are to be formatted.
+Field descriptors consist of a <b>%</b> followed by a field
+descriptor character. All other characters are copied into the
+result. Valid field descriptors are: 
+
+<dl>
+<dt><a name="M7"><b>%%</b></a></dt>
+
+<dd>Insert a %.</dd>
+
+<dt><a name="M8"><b>%a</b></a></dt>
+
+<dd>Abbreviated weekday name (Mon, Tue, etc.).</dd>
+
+<dt><a name="M9"><b>%A</b></a></dt>
+
+<dd>Full weekday name (Monday, Tuesday, etc.).</dd>
+
+<dt><a name="M10"><b>%b</b></a></dt>
+
+<dd>Abbreviated month name (Jan, Feb, etc.).</dd>
+
+<dt><a name="M11"><b>%B</b></a></dt>
+
+<dd>Full month name.</dd>
+
+<dt><a name="M12"><b>%c</b></a></dt>
+
+<dd>Locale specific date and time. The format for date and time in
+the default "C" locale on Unix/Mac is "%a %b %d %H:%M:%S %Y". On
+Windows, this value is the locale specific long date and time, as
+specified in the Regional Options control panel settings.</dd>
+
+<dt><a name="M13"><b>%C</b></a></dt>
+
+<dd>First two digits of the four-digit year (19 or 20).</dd>
+
+<dt><a name="M14"><b>%d</b></a></dt>
+
+<dd>Day of month (01 - 31).</dd>
+
+<dt><a name="M15"><b>%D</b></a></dt>
+
+<dd>Date as %m/%d/%y.</dd>
+
+<dt><a name="M16"><b>%e</b></a></dt>
+
+<dd>Day of month (1 - 31), no leading zeros.</dd>
+
+<dt><a name="M17"><b>%h</b></a></dt>
+
+<dd>Abbreviated month name.</dd>
+
+<dt><a name="M18"><b>%H</b></a></dt>
+
+<dd>Hour in 24-hour format (00 - 23).</dd>
+
+<dt><a name="M19"><b>%I</b></a></dt>
+
+<dd>Hour in 12-hour format (01 - 12).</dd>
+
+<dt><a name="M20"><b>%j</b></a></dt>
+
+<dd>Day of year (001 - 366).</dd>
+
+<dt><a name="M21"><b>%k</b></a></dt>
+
+<dd>Hour in 24-hour format, without leading zeros (0 - 23).</dd>
+
+<dt><a name="M22"><b>%l</b></a></dt>
+
+<dd>Hour in 12-hour format, without leading zeros (1 - 12).</dd>
+
+<dt><a name="M23"><b>%m</b></a></dt>
+
+<dd>Month number (01 - 12).</dd>
+
+<dt><a name="M24"><b>%M</b></a></dt>
+
+<dd>Minute (00 - 59).</dd>
+
+<dt><a name="M25"><b>%n</b></a></dt>
+
+<dd>Insert a newline.</dd>
+
+<dt><a name="M26"><b>%p</b></a></dt>
+
+<dd>AM/PM indicator.</dd>
+
+<dt><a name="M27"><b>%r</b></a></dt>
+
+<dd>Time in a locale-specific "meridian" format. The "meridian"
+format in the default "C" locale is "%I:%M:%S %p".</dd>
+
+<dt><a name="M28"><b>%R</b></a></dt>
+
+<dd>Time as %H:%M.</dd>
+
+<dt><a name="M29"><b>%s</b></a></dt>
+
+<dd>Count of seconds since the epoch, expressed as a decimal
+integer.</dd>
+
+<dt><a name="M30"><b>%S</b></a></dt>
+
+<dd>Seconds (00 - 59).</dd>
+
+<dt><a name="M31"><b>%t</b></a></dt>
+
+<dd>Insert a tab.</dd>
+
+<dt><a name="M32"><b>%T</b></a></dt>
+
+<dd>Time as %H:%M:%S.</dd>
+
+<dt><a name="M33"><b>%u</b></a></dt>
+
+<dd>Weekday number (Monday = 1, Sunday = 7).</dd>
+
+<dt><a name="M34"><b>%U</b></a></dt>
+
+<dd>Week of year (00 - 52), Sunday is the first day of the
+week.</dd>
+
+<dt><a name="M35"><b>%V</b></a></dt>
+
+<dd>Week of year according to ISO-8601 rules. Week 1 of a given
+year is the week containing 4 January.</dd>
+
+<dt><a name="M36"><b>%w</b></a></dt>
+
+<dd>Weekday number (Sunday = 0, Saturday = 6).</dd>
+
+<dt><a name="M37"><b>%W</b></a></dt>
+
+<dd>Week of year (00 - 52), Monday is the first day of the
+week.</dd>
+
+<dt><a name="M38"><b>%x</b></a></dt>
+
+<dd>Locale specific date format. The format for a date in the
+default "C" locale for Unix/Mac is "%m/%d/%y". On Windows, this
+value is the locale specific short date format, as specified in the
+Regional Options control panel settings.</dd>
+
+<dt><a name="M39"><b>%X</b></a></dt>
+
+<dd>Locale specific 24-hour time format. The format for a 24-hour
+time in the default "C" locale for Unix/Mac is "%H:%M:%S". On
+Windows, this value is the locale specific time format, as
+specified in the Regional Options control panel settings.</dd>
+
+<dt><a name="M40"><b>%y</b></a></dt>
+
+<dd>Year without century (00 - 99).</dd>
+
+<dt><a name="M41"><b>%Y</b></a></dt>
+
+<dd>Year with century (e.g. 1990)</dd>
+
+<dt><a name="M42"><b>%Z</b></a></dt>
+
+<dd>Time zone name.</dd>
+</dl>
+
+<p>If the <b>-format</b> argument is not specified, the format
+string <b>"%a %b %d %H:%M:%S %Z %Y"</b> is used. If the <b>-gmt</b>
+argument is present the next argument must be a boolean which if
+true specifies that the time will be formatted as Greenwich Mean
+Time. If false then the local timezone will be used as defined by
+the operating environment.</p>
+</dd>
+
+<dt><a name="M43"><b>clock scan</b> <i>dateString</i> ?<b>-base</b>
+<i>clockVal</i>? ?<b>-gmt</b> <i>boolean</i>?</a></dt>
+
+<dd>Convert <i>dateString</i> to an integer clock value (see
+<b>clock seconds</b>). This command can parse and convert virtually
+any standard date and/or time string, which can include standard
+time zone mnemonics. If only a time is specified, the current date
+is assumed. If the string does not contain a time zone mnemonic,
+the local time zone is assumed, unless the <b>-gmt</b> argument is
+true, in which case the clock value is calculated assuming that the
+specified time is relative to Greenwich Mean Time. <b>-gmt</b>, if
+specified, affects only the computed time value; it does not impact
+the interpretation of <b>-base</b>. 
+
+<p>If the <b>-base</b> flag is specified, the next argument should
+contain an integer clock value. Only the date in this value is
+used, not the time. This is useful for determining the time on a
+specific day or doing other date-relative conversions.</p>
+
+<p>The <i>dateString</i> consists of zero or more specifications of
+the following form:</p>
+
+<dl>
+<dt><a name="M44"><i>time</i></a></dt>
+
+<dd>A time of day, which is of the form:
+<i>hh</i>?<i>:mm</i>?<i>:ss</i>?? ?<i>meridian</i>? ?<i>zone</i>?
+or <i>hhmm</i> ?<i>meridian</i>? ?<i>zone</i>?. If no meridian is
+specified, <i>hh</i> is interpreted on a 24-hour clock.</dd>
+
+<dt><a name="M45"><i>date</i></a></dt>
+
+<dd>A specific month and day with optional year. The acceptable
+formats are <i>mm/dd</i>?<i>/yy</i>?, <i>monthname dd</i> ?,
+<i>yy</i>?, <i>dd monthname</i> ?<i>yy</i>?, <i>day, dd monthname
+yy</i>, <i>?CC?yymmdd</i>, <i>?CC?yy-mm-dd</i>,
+<i>dd-monthname-?CC?yy</i>. The default year is the current year.
+If the year is less than 100, we treat the years 00-68 as 2000-2068
+and the years 69-99 as 1969-1999. Not all platforms can represent
+the years 38-70, so an error may result if these years are
+used.</dd>
+
+<dt><a name="M46"><i>ISO 8601 point-in-time</i></a></dt>
+
+<dd>An ISO 8601 point-in-time specification, such as
+<i>CCyymmddThhmmss</i>, where T is the literal T, <i>CCyymmdd
+hhmmss</i>, or <i>CCyymmddThh:mm:ss</i>.</dd>
+
+<dt><a name="M47"><i>relative time</i></a></dt>
+
+<dd>A specification relative to the current time. The format is
+<i>number unit</i> acceptable units are <b>year</b>,
+<b>fortnight</b>, <b>month</b>, <b>week</b>, <b>day</b>,
+<b>hour</b>, <b>minute</b> (or <b>min</b>), and <b>second</b> (or
+<b>sec</b>). The unit can be specified as a singular or plural, as
+in <b>3 weeks</b>. These modifiers may also be specified:
+<b>tomorrow</b>, <b>yesterday</b>, <b>today</b>, <b>now</b>,
+<b>last</b>, <b>this</b>, <b>next</b>, <b>ago</b>.</dd>
+</dl>
+
+<dl>
+<dd>The actual date is calculated according to the following steps.
+First, any absolute date and/or time is processed and converted.
+Using that time as the base, day-of-week specifications are added.
+Next, relative specifications are used. If a date or day is
+specified, and no absolute or relative time is given, midnight is
+used. Finally, a correction is applied so that the correct hour of
+the day is produced after allowing for daylight savings time
+differences and the correct date is given when going from the end
+of a long month to a short month. 
+
+<p>Daylight savings time correction is applied only when the
+relative time is specified in units of days or more, ie, days,
+weeks, fortnights, months or years. This means that when crossing
+the daylight savings time boundary, different results will be given
+for <b>clock scan "1 day"</b> and <b>clock scan "24 hours"</b>:</p>
+
+<pre>
+<b>% clock scan "1 day" -base [clock scan 1999-10-31]
+941443200
+% clock scan "24 hours" -base [clock scan 1999-10-31]
+941439600</b>
+</pre>
+</dd>
+</dl>
+</dd>
+
+<dt><a name="M48"><b>clock seconds</b></a></dt>
+
+<dd>Return the current date and time as a system-dependent integer
+value. The unit of the value is seconds, allowing it to be used for
+relative time calculations. The value is usually defined as total
+elapsed time from an ``epoch''. You shouldn't assume the value of
+the epoch.</dd>
+</dl>
+
+<h3><a name="M49">SEE ALSO</a></h3>
+
+<p><b>date</b>, <b><a href="../TclCmd/time.htm">time</a></b></p>
+
+<h3><a name="M50">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/C.htm#clock">clock</a>, <a href=
+"../Keywords/D.htm#date">date</a>, <a href=
+"../Keywords/T.htm#time">time</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1992-1995 Karl Lehenbauer and Mark Diekhans.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1998-1999 Scriptics Corporation
+<a href=
+"../copyright.htm">Copyright</a> &copy; 2002 ActiveState Corporation
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

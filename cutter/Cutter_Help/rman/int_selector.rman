@@ -1,0 +1,1 @@
+Declare param {int PNAME_INT} {	label "YourSelectorLabel"	subtype selector	range {		"LabelA"  0		"LabelB"  1		}	}

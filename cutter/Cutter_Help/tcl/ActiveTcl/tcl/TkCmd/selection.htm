@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Tk Built-In Commands - selection manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<dl>
+<dd><a href="selection.htm#M2" name="L1124">NAME</a> 
+
+<dl>
+<dd>selection - Manipulate the X selection</dd>
+</dl>
+</dd>
+
+<dd><a href="selection.htm#M3" name="L1125">SYNOPSIS</a> 
+
+<dl>
+<dd><b>selection</b> <i>option</i> ?<i>arg arg ...</i>?</dd>
+</dl>
+</dd>
+
+<dd><a href="selection.htm#M4" name="L1126">DESCRIPTION</a> 
+
+<dl>
+<dd><a href="selection.htm#M5" name="L1127"><b>selection clear</b>
+?<b>-displayof</b> <i>window</i>? ?<b>-selection</b>
+<i>selection</i>?</a></dd>
+
+<dd><a href="selection.htm#M6" name="L1128"><b>selection get</b>
+?<b>-displayof</b> <i>window</i>? ?<b>-selection</b>
+<i>selection</i>? ?<b>-type</b> <i>type</i>?</a></dd>
+
+<dd><a href="selection.htm#M7" name="L1129"><b>selection handle</b>
+?<b>-selection</b> <i>selection</i>? ?<b>-type</b> <i>type</i>?
+?<b>-format</b> <i>format</i>? <i>window command</i></a></dd>
+
+<dd><a href="selection.htm#M8" name="L1130"><b>selection own</b>
+?<b>-displayof</b> <i>window</i>? ?<b>-selection</b>
+<i>selection</i>?</a></dd>
+
+<dd><a href="selection.htm#M9" name="L1131"><b>selection own</b>
+?<b>-command</b> <i>command</i>? ?<b>-selection</b>
+<i>selection</i>? <i>window</i></a></dd>
+</dl>
+</dd>
+
+<dd><a href="selection.htm#M10" name="L1132">SEE ALSO</a></dd>
+
+<dd><a href="selection.htm#M11" name="L1133">KEYWORDS</a></dd>
+</dl>
+
+<hr>
+<h3><a name="M2">NAME</a></h3>
+
+<p>selection - Manipulate the X selection</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>selection</b> <i>option</i> ?<i>arg arg ...</i>?<br>
+</p>
+
+<h3><a name="M4">DESCRIPTION</a></h3>
+
+<p>This command provides a Tcl interface to the X selection
+mechanism and implements the full selection functionality described
+in the X Inter-Client Communication Conventions Manual (ICCCM).</p>
+
+<p>Note that for management of the CLIPBOARD selection (see below),
+the <b><a href="../TkCmd/clipboard.htm">clipboard</a></b> command
+may also be used.</p>
+
+<p>The first argument to <b>selection</b> determines the format of
+the rest of the arguments and the behavior of the command. The
+following forms are currently supported:</p>
+
+<dl>
+<dt><a name="M5"><b>selection clear</b> ?<b>-displayof</b>
+<i>window</i>? ?<b>-selection</b> <i>selection</i>?</a></dt>
+
+<dd>If <i>selection</i> exists anywhere on <i>window</i>'s display,
+clear it so that no window owns the selection anymore.
+<i>Selection</i> specifies the X selection that should be cleared,
+and should be an atom name such as PRIMARY or CLIPBOARD; see the
+Inter-Client Communication Conventions Manual for complete details.
+<i>Selection</i> defaults to PRIMARY and <i>window</i> defaults to
+``.''. Returns an empty string.</dd>
+
+<dt><a name="M6"><b>selection get</b> ?<b>-displayof</b>
+<i>window</i>? ?<b>-selection</b> <i>selection</i>? ?<b>-type</b>
+<i>type</i>?</a></dt>
+
+<dd>Retrieves the value of <i>selection</i> from <i>window</i>'s
+display and returns it as a result. <i>Selection</i> defaults to
+PRIMARY and <i>window</i> defaults to ``.''. <i>Type</i> specifies
+the form in which the selection is to be returned (the desired
+``target'' for conversion, in ICCCM terminology), and should be an
+atom name such as STRING or FILE_NAME; see the Inter-Client
+Communication Conventions Manual for complete details. <i>Type</i>
+defaults to STRING. The selection owner may choose to return the
+selection in any of several different representation formats, such
+as STRING, ATOM, INTEGER, etc. (this format is different than the
+selection type; see the ICCCM for all the confusing details). If
+the selection is returned in a non-string format, such as INTEGER
+or ATOM, the <b>selection</b> command converts it to string format
+as a collection of fields separated by spaces: atoms are converted
+to their textual names, and anything else is converted to
+hexadecimal integers.</dd>
+
+<dt><a name="M7"><b>selection handle</b> ?<b>-selection</b>
+<i>selection</i>? ?<b>-type</b> <i>type</i>? ?<b>-format</b>
+<i>format</i>? <i>window command</i></a></dt>
+
+<dd>Creates a handler for selection requests, such that
+<i>command</i> will be executed whenever <i>selection</i> is owned
+by <i>window</i> and someone attempts to retrieve it in the form
+given by <i>type</i> (e.g. <i>type</i> is specified in the
+<b>selection get</b> command). <i>Selection</i> defaults to
+PRIMARY, <i>type</i> defaults to STRING, and <i>format</i> defaults
+to STRING. If <i>command</i> is an empty string then any existing
+handler for <i>window</i>, <i>type</i>, and <i>selection</i> is
+removed. 
+
+<p>When <i>selection</i> is requested, <i>window</i> is the
+selection owner, and <i>type</i> is the requested type,
+<i>command</i> will be executed as a Tcl command with two
+additional numbers appended to it (with space separators). The two
+additional numbers are <i>offset</i> and <i>maxChars</i>:
+<i>offset</i> specifies a starting character position in the
+selection and <i>maxChars</i> gives the maximum number of
+characters to retrieve. The command should return a value
+consisting of at most <i>maxChars</i> of the selection, starting at
+position <i>offset</i>. For very large selections (larger than
+<i>maxChars</i>) the selection will be retrieved using several
+invocations of <i>command</i> with increasing <i>offset</i> values.
+If <i>command</i> returns a string whose length is less than
+<i>maxChars</i>, the return value is assumed to include all of the
+remainder of the selection; if the length of <i>command</i>'s
+result is equal to <i>maxChars</i> then <i>command</i> will be
+invoked again, until it eventually returns a result shorter than
+<i>maxChars</i>. The value of <i>maxChars</i> will always be
+relatively large (thousands of characters).</p>
+
+<p>If <i>command</i> returns an error then the selection retrieval
+is rejected just as if the selection didn't exist at all.</p>
+
+<p>The <i>format</i> argument specifies the representation that
+should be used to transmit the selection to the requester (the
+second column of Table 2 of the ICCCM), and defaults to STRING. If
+<i>format</i> is STRING, the selection is transmitted as 8-bit
+ASCII characters (i.e. just in the form returned by
+<i>command</i>). If <i>format</i> is ATOM, then the return value
+from <i>command</i> is divided into fields separated by white
+space; each field is converted to its atom value, and the 32-bit
+atom value is transmitted instead of the atom name. For any other
+<i>format</i>, the return value from <i>command</i> is divided into
+fields separated by white space and each field is converted to a
+32-bit integer; an array of integers is transmitted to the
+selection requester.</p>
+
+<p>The <i>format</i> argument is needed only for compatibility with
+selection requesters that don't use Tk. If Tk is being used to
+retrieve the selection then the value is converted back to a string
+at the requesting end, so <i>format</i> is irrelevant.</p>
+</dd>
+
+<dt><a name="M8"><b>selection own</b> ?<b>-displayof</b>
+<i>window</i>? ?<b>-selection</b> <i>selection</i>?</a></dt>
+
+<dt><a name="M9"><b>selection own</b> ?<b>-command</b>
+<i>command</i>? ?<b>-selection</b> <i>selection</i>?
+<i>window</i></a></dt>
+
+<dd>The first form of <b>selection own</b> returns the path name of
+the window in this application that owns <i>selection</i> on the
+display containing <i>window</i>, or an empty string if no window
+in this application owns the selection. <i>Selection</i> defaults
+to PRIMARY and <i>window</i> defaults to ``.''.</dd>
+</dl>
+
+<p>The second form of <b>selection own</b> causes <i>window</i> to
+become the new owner of <i>selection</i> on <i>window</i>'s
+display, returning an empty string as result. The existing owner,
+if any, is notified that it has lost the selection. If
+<i>command</i> is specified, it is a Tcl script to execute when
+some other window claims ownership of the selection away from
+<i>window</i>. <i>Selection</i> defaults to PRIMARY.</p>
+
+<h3><a name="M10">SEE ALSO</a></h3>
+
+<p><b><a href="../TkCmd/clipboard.htm">clipboard</a></b></p>
+
+<h3><a name="M11">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/C.htm#clear">clear</a>, <a href=
+"../Keywords/F.htm#format">format</a>, <a href=
+"../Keywords/H.htm#handler">handler</a>, <a href=
+"../Keywords/I.htm#ICCCM">ICCCM</a>, <a href=
+"../Keywords/O.htm#own">own</a>, <a href=
+"../Keywords/S.htm#selection">selection</a>, <a href=
+"../Keywords/T.htm#target">target</a>, <a href=
+"../Keywords/T.htm#type">type</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1990-1994 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1996 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

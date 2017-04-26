@@ -1,0 +1,27 @@
+# Sphere Material-------------------
+
+Pattern "PxrFractal" "PxrFractal1"
+		"int surfacePosition" [0]
+		"int layers" [6]
+		"float frequency" [2.0]
+		"float lacunarity" [1.0]
+		"float dimension" [1.0]
+		"float erosion" [0.4]
+		"float variation" [2.0]
+		"int turbulent" [2]
+		# Examples manifold connection
+		#"reference struct manifold" ["PxrManifold2D1:result"]
+		#"reference struct manifold" ["PxrManifold3D1:result"]
+
+		# "PxrFractal1:resultF"    uses->|float| 
+		# "PxrFractal1:resultRGB"    uses->|color| 
+
+
+Bxdf "PxrSurface" "PxrSurface1"
+		"reference float diffuseGain" ["PxrFractal1:resultF"]
+		"color diffuseColor" [1.0 0.2 0.0]
+		"int diffuseDoubleSided" [0]
+		"color specularFaceColor" [0.2 0.2 0.2]
+		"reference float specularRoughness" ["PxrFractal1:resultF"]
+		"int specularDoubleSided" [0]
+		"float presence" [1]

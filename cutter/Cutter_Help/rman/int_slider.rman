@@ -1,0 +1,1 @@
+Declare param {int PNAME_INT} {	label "YourIntLabel"	subtype slider	range {0 10 1}	description "No description."	}

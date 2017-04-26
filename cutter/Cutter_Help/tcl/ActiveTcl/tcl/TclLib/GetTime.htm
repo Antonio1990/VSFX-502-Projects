@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Tcl Library Procedures - Tcl_GetTime manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<h3><a name="M2">NAME</a></h3>
+
+<p>Tcl_GetTime - get date and time</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>#include &lt;tcl.h&gt;</b><br>
+<b>Tcl_GetTime</b>( <i>timePtr</i> )<br>
+</p>
+
+<h3><a name="M4">ARGUMENTS</a></h3>
+
+<dl>
+<dt>Tcl_Time * <b>timePtr</b> (out)</dt>
+
+<dd>Points to memory in which to store the date and time
+information.</dd>
+</dl>
+
+<h3><a name="M5">DESCRIPTION</a></h3>
+
+<p>The <b>Tcl_GetTime</b> function retrieves the current time as a
+<i>Tcl_Time</i> structure in memory the caller provides. This
+structure has the following definition:</p>
+
+<pre>
+typedef struct Tcl_Time {
+    long sec;
+    long usec;
+} Tcl_Time;
+</pre>
+
+<p>On return, the <i>sec</i> member of the structure is filled in
+with the number of seconds that have elapsed since the
+<i>epoch:</i> the epoch is the point in time of 00:00 UTC, 1
+January 1970. This number does <i>not</i> count leap seconds - an
+interval of one day advances it by 86400 seconds regardless of
+whether a leap second has been inserted.</p>
+
+<p>The <i>usec</i> member of the structure is filled in with the
+number of microseconds that have elapsed since the start of the
+second designated by <i>sec</i>. The Tcl library makes every effort
+to keep this number as precise as possible, subject to the
+limitations of the computer system. On multiprocessor variants of
+Windows, this number may be limited to the 10- or 20-ms granularity
+of the system clock. (On single-processor Windows systems, the
+<i>usec</i> field is derived from a performance counter and is
+highly precise.)</p>
+
+<h3><a name="M6">SEE ALSO</a></h3>
+
+<p><b><a href="../TclCmd/clock.htm">clock</a></b></p>
+
+<h3><a name="M7">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/D.htm#date">date</a>, <a href=
+"../Keywords/T.htm#time">time</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 2001 by Kevin B. Kenny.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

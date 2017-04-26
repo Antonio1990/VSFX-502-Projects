@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Tcl Built-In Commands - encoding manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<dl>
+<dd><a href="encoding.htm#M2" name="L205">NAME</a> 
+
+<dl>
+<dd>encoding - Manipulate encodings</dd>
+</dl>
+</dd>
+
+<dd><a href="encoding.htm#M3" name="L206">SYNOPSIS</a> 
+
+<dl>
+<dd><b>encoding</b> <i>option</i> ?<i>arg arg ...</i>?</dd>
+</dl>
+</dd>
+
+<dd><a href="encoding.htm#M4" name="L207">INTRODUCTION</a></dd>
+
+<dd><a href="encoding.htm#M5" name="L208">DESCRIPTION</a> 
+
+<dl>
+<dd><a href="encoding.htm#M6" name="L209"><b>encoding convertfrom
+?</b><i>encoding</i>? <i>data</i></a></dd>
+
+<dd><a href="encoding.htm#M7" name="L210"><b>encoding convertto
+?</b><i>encoding</i>? <i>string</i></a></dd>
+
+<dd><a href="encoding.htm#M8" name="L211"><b>encoding
+names</b></a></dd>
+
+<dd><a href="encoding.htm#M9" name="L212"><b>encoding system</b>
+?<i>encoding</i>?</a></dd>
+</dl>
+</dd>
+
+<dd><a href="encoding.htm#M10" name="L213">EXAMPLE</a></dd>
+
+<dd><a href="encoding.htm#M11" name="L214">SEE ALSO</a></dd>
+
+<dd><a href="encoding.htm#M12" name="L215">KEYWORDS</a></dd>
+</dl>
+
+<hr>
+<h3><a name="M2">NAME</a></h3>
+
+<p>encoding - Manipulate encodings</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>encoding</b> <i>option</i> ?<i>arg arg ...</i>?<br>
+</p>
+
+<h3><a name="M4">INTRODUCTION</a></h3>
+
+<p>Strings in Tcl are encoded using 16-bit Unicode characters.
+Different operating system interfaces or applications may generate
+strings in other encodings such as Shift-JIS. The <b>encoding</b>
+command helps to bridge the gap between Unicode and these other
+formats.</p>
+
+<h3><a name="M5">DESCRIPTION</a></h3>
+
+<p>Performs one of several encoding related operations, depending
+on <i>option</i>. The legal <i>option</i>s are:</p>
+
+<dl>
+<dt><a name="M6"><b>encoding convertfrom ?</b><i>encoding</i>?
+<i>data</i></a></dt>
+
+<dd>Convert <i>data</i> to Unicode from the specified
+<i>encoding</i>. The characters in <i>data</i> are treated as
+binary data where the lower 8-bits of each character is taken as a
+single byte. The resulting sequence of bytes is treated as a string
+in the specified <i>encoding</i>. If <i>encoding</i> is not
+specified, the current system encoding is used.</dd>
+
+<dt><a name="M7"><b>encoding convertto ?</b><i>encoding</i>?
+<i>string</i></a></dt>
+
+<dd>Convert <i>string</i> from Unicode to the specified
+<i>encoding</i>. The result is a sequence of bytes that represents
+the converted string. Each byte is stored in the lower 8-bits of a
+Unicode character. If <i>encoding</i> is not specified, the current
+system encoding is used.</dd>
+
+<dt><a name="M8"><b>encoding names</b></a></dt>
+
+<dd>Returns a list containing the names of all of the encodings
+that are currently available.</dd>
+
+<dt><a name="M9"><b>encoding system</b> ?<i>encoding</i>?</a></dt>
+
+<dd>Set the system encoding to <i>encoding</i>. If <i>encoding</i>
+is omitted then the command returns the current system encoding.
+The system encoding is used whenever Tcl passes strings to system
+calls.</dd>
+</dl>
+
+<h3><a name="M10">EXAMPLE</a></h3>
+
+<p>It is common practice to write script files using a text editor
+that produces output in the euc-jp encoding, which represents the
+ASCII characters as singe bytes and Japanese characters as two
+bytes. This makes it easy to embed literal strings that correspond
+to non-ASCII characters by simply typing the strings in place in
+the script. However, because the <b><a href=
+"../TclCmd/source.htm">source</a></b> command always reads files
+using the ISO8859-1 encoding, Tcl will treat each byte in the file
+as a separate character that maps to the 00 page in Unicode. The
+resulting Tcl strings will not contain the expected Japanese
+characters. Instead, they will contain a sequence of Latin-1
+characters that correspond to the bytes of the original string. The
+<b>encoding</b> command can be used to convert this string to the
+expected Japanese Unicode characters. For example,</p>
+
+<pre>
+set s [encoding convertfrom euc-jp "\xA4\xCF"]
+</pre>
+
+<p>would return the Unicode string "\u306F", which is the Hiragana
+letter HA.</p>
+
+<h3><a name="M11">SEE ALSO</a></h3>
+
+<p><b><a href="../TclLib/Encoding.htm">Tcl_GetEncoding</a></b></p>
+
+<h3><a name="M12">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/E.htm#encoding">encoding</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1998 by Scriptics Corporation.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

@@ -1,0 +1,39 @@
+# The manifold can control the repetitions of displacement.
+Pattern "PxrManifold2D" "PxrManifold2D1"
+		"float angle" [0]
+		"float scaleS" [1]
+		"float scaleT" [1]
+		"float offsetS" [0]
+		"float offsetT" [0]
+		"int invertT" [1]
+		# "PxrManifold2D2:result"    uses->|struct|manifold| 
+
+# txmake -mode periodic ../tiffs/swazi.tif ../textures/swazi.tex
+Pattern "PxrTexture" "PxrTexture1"
+		"string filename" ["swazi.tex"]
+		"reference struct manifold" ["PxrManifold2D1:result"]
+		# "PxrTexture1:resultRGB"    uses->|color|vector|normal|point| 
+
+# Remapping the output to -0.5 to 0.5 ensures the displacement 
+# remains "centered" around the original surface position.
+Pattern "PxrRemap" "PxrRemap1"
+		"reference color inputRGB" ["PxrTexture1:resultRGB"]
+		"float inputMin" [0.0]
+		"float inputMax" [1.0]
+		"float outputMin" [-0.5]
+		"float outputMax" [ 0.5]
+		"int clampOutput" [0]
+		# "PxrRemap1:resultRGB"    uses->|color|vector|normal|point| 
+		
+# Generally we use "mode" 3 or 4
+Pattern "PxrToFloat" "PxrToFloat1"
+		"reference color input" ["PxrRemap1:resultRGB"]
+		"int mode" [4] # r, g, b, luminance or average
+		# "PxrToFloat1:resultF"    uses->|float| 
+		
+Attribute "trace" "int displacements" [1]
+Attribute "displacementbound" "string coordinatesystem" ["shader"] "float sphere" [0.2]
+Displace "PxrDisplace" "PxrDisplace1"
+		"int enabled" [1]
+		"float dispAmount" [0.5]
+		"reference float dispScalar" ["PxrToFloat1:resultF"]

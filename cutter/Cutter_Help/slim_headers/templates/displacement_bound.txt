@@ -1,0 +1,12 @@
+	    # Copied from Pixar's "displacement.slim" document. 
+		ribattribute float displacementbound {
+		    label "Displacement Bound"
+		    description "This number represents the maximum displacement
+			    in shaderspace that your surface will undergo. Be very
+			    careful with this parameter as it can dramatically influence
+			    rendering times. In particular, make SURE to set this to
+			    0 (zero) if you aren't performing any displacement."	
+		    default 0
+		    range {0 100 .001}
+		    subtype vslider
+			}

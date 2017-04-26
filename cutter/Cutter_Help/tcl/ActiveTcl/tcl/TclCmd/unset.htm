@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Tcl Built-In Commands - unset manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<h3><a name="M2">NAME</a></h3>
+
+<p>unset - Delete variables</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>unset</b> ?<i>-nocomplain</i>? ?<i>--</i>? ?<i>name name name
+...</i>?<br>
+</p>
+
+<h3><a name="M4">DESCRIPTION</a></h3>
+
+<p>This command removes one or more variables. Each <i>name</i> is
+a variable name, specified in any of the ways acceptable to the
+<b><a href="../TclCmd/set.htm">set</a></b> command. If a
+<i>name</i> refers to an element of an array then that element is
+removed without affecting the rest of the array. If a <i>name</i>
+consists of an array name with no parenthesized index, then the
+entire array is deleted. The <b>unset</b> command returns an empty
+string as result. If <i>-nocomplain</i> is specified as the first
+argument, any possible errors are suppressed. The option may not be
+abbreviated, in order to disambiguate it from possible variable
+names. The option <i>--</i> indicates the end of the options, and
+should be used if you wish to remove a variable with the same name
+as any of the options. If an error occurs, any variables after the
+named one causing the error not deleted. An error can occur when
+the named variable doesn't exist, or the name refers to an array
+element but the variable is a scalar, or the name refers to a
+variable in a non-existent namespace.</p>
+
+<h3><a name="M5">SEE ALSO</a></h3>
+
+<p><b><a href="../TclCmd/set.htm">set</a></b>, <b><a href=
+"../TclCmd/trace.htm">trace</a></b></p>
+
+<h3><a name="M6">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/R.htm#remove">remove</a>, <a href=
+"../Keywords/V.htm#variable">variable</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1993 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1996 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 2000 Ajuba Solutions.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

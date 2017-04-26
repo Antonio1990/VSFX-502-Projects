@@ -1,0 +1,37 @@
+# The manifold will parent the displacement to the object.
+# Note this node feeds values to the PxrFractal and 
+# PxrWorley nodes.
+Pattern "PxrManifold3D" "PxrManifold3D1"
+		"float scale" [1]
+		"string coordsys" ["object"] # or "world", "shader", "camera"
+		# "PxrManifold3D1:result"
+
+Pattern "PxrFractal" "PxrFractal1"
+		"float frequency" [10.0]
+		"float variation" [0.0]
+		# Example manifold connection
+		"reference struct manifold" ["PxrManifold3D1:result"]
+		# "PxrFractal1:resultF"
+
+Pattern "PxrWorley" "PxrWorley1"
+		"float frequency" [8.0]
+		# Example manifold connection
+		"reference struct manifold" ["PxrManifold3D1:result"]
+		# "PxrWorley1:resultF"    uses->|float| 
+
+# An example of a one line Disney SeExp expression. Change,
+# floatInput1 + floatInput2
+# to
+# floatInput1 * floatInput2
+Pattern "PxrSeExpr" "PxrSeExpr1"
+		"reference float floatInput1" ["PxrFractal1:resultF"]
+		"reference float floatInput2" ["PxrWorley1:resultF"]
+		"string expression" ["floatInput1 + floatInput2\n"]
+		# "PxrSeExpr1:resultF"    uses->|float| 
+		
+Attribute "trace" "int displacements" [1]
+Attribute "displacementbound" "string coordinatesystem" ["shader"] "float sphere" [0.6]
+Displace "PxrDisplace" "PxrDisplace1"
+		"int enabled" [1]
+		"float dispAmount" [0.5]
+		"reference float dispScalar" ["PxrSeExpr1:resultF"]

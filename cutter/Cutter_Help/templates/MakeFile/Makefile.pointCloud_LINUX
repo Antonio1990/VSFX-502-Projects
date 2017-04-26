@@ -1,0 +1,23 @@
+## Maintained by Cutter.
+# For information about customizing the compilation and linking of devkit
+# DSOs and executables go to,
+#	http://www.fundza.com/cutter/devkit/index.html
+# Malcolm Kesson Sept 27 2016
+#
+STRICT	= -Wall
+CFLAGS	= ${STRICT} -g -I/usr/include -I./ -I"_DEVKIT_PATH_/include" _OTHER_INCLUDE_DIRS_
+LIBPATH	= -L"_DEVKIT_PATH_/lib" _OTHER_LIB_DIRS_
+LIBS	= -lprman _OTHER_LIBS_
+OBJS	= _POINTCLOUD_EXE_NAME_.o _OTHER_OBJS_
+
+.cpp.o :
+	gcc $(CFLAGS) -c $<	
+.c.o :
+	gcc $(CFLAGS) -c $<
+
+all: _OUT_PATH_
+
+_OUT_PATH_ : ${OBJS}
+	gcc ${CFLAGS} ${LIBPATH} ${LIBS} ${OBJS} -o $@
+	rm ./_POINTCLOUD_EXE_NAME_.o
+

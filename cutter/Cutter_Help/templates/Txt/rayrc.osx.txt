@@ -1,0 +1,29 @@
+# This rayrc file is suitable for use on MacOSX computers with mental ray.
+# The file should be saved as ".rayrc" - note the leading dot - in the root
+# of your user account. A .rayrc file specifies the locations of mental images
+# shaders and the location of the users custom shaders (and their associated
+# mi files). It is recommended the following directories be used to store
+# the users files,
+#���� ~/Documents/mi/shader_src
+#���� ~/Documents/mi/shaders
+#      ~/Documents/mi/scenes
+#
+# Malcolm Kesson 4.8.07
+
+registry "{MI_DIR}" value "/usr/local/mi" end registry
+registry "{USER_DIR}" value "~/Documents" end registry
+
+$lookup "{MI_DIR}"
+$lookup "{USER_DIR}"
+
+registry "{_MI_REG_INCLUDE}" value "{MI_DIR}/rayinc;{USER_DIR}/mi/shaders" end registry
+registry "{_MI_REG_LIBRARY}" value "{MI_DIR}/shaders;{MI_DIR}/lib;{USER_DIR}/mi/shaders" end registry
+
+link "base.so"
+$include "base.mi"
+link "contour.so"
+$include "contour.mi"
+link "physics.so"
+$include "physics.mi"
+link "subsurface.so"
+$include "subsurface.mi"

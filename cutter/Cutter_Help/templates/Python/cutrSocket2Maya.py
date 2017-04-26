@@ -1,0 +1,1 @@
+# Code to send Mel to Maya via a socket# Many thanks to Hosuk Chang. See #      http://s204357084.onlinehome.us/import socketmySocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)mySocket.connect(("localhost", 5000))mySocket.send("sphere;")# Before running this script go to Maya and# enter the following Mel command# commandPort -n ":5000";

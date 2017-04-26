@@ -1,0 +1,323 @@
+===================================
+DATE: Wednesday 30 December 2015 at 11:9 AM
+VERSION: 7.2.0
+---
+openedPath: /home/mkesson/mount/fachome/STUDENT_STARTER_FILES/CUSTOMIZATIONS/cutter/run
+closedPath: /home/mkesson/mount/fachome/STUDENT_STARTER_FILES/CUSTOMIZATIONS/cutter/run
+openedAt: Wednesday 30 December 2015 at 11:9 AM
+closedAt: Wednesday 30 December 2015 at 11:9 AM
+openedBytes: 164
+closedBytes: 164
+saved: 0
+---
+openedPath: /home/mkesson/mount/fachome/STUDENT_STARTER_FILES/CUSTOMIZATIONS/cutter/BasicRis_0.rib
+closedPath: /home/mkesson/mount/fachome/STUDENT_STARTER_FILES/CUSTOMIZATIONS/cutter/BasicRis_0.rib
+openedAt: Wednesday 30 December 2015 at 11:9 AM
+closedAt: Wednesday 30 December 2015 at 11:9 AM
+openedBytes: 1745
+closedBytes: 1745
+saved: 1
+===================================
+DATE: Wednesday 30 December 2015 at 11:13 AM
+VERSION: 7.2.0
+---
+openedPath: /home/mkesson/mount/fachome/STUDENT_STARTER_FILES/CUSTOMIZATIONS/cutter/run
+closedPath: /home/mkesson/mount/fachome/STUDENT_STARTER_FILES/CUSTOMIZATIONS/cutter/run
+openedAt: Wednesday 30 December 2015 at 11:12 AM
+closedAt: Wednesday 30 December 2015 at 11:13 AM
+openedBytes: 164
+closedBytes: 164
+saved: 0
+---
+openedPath: /home/mkesson/mount/fachome/STUDENT_STARTER_FILES/CUSTOMIZATIONS/cutter/BasicRis_0.rib
+closedPath: /home/mkesson/mount/fachome/STUDENT_STARTER_FILES/CUSTOMIZATIONS/cutter/BasicRis_0.rib
+openedAt: Wednesday 30 December 2015 at 11:12 AM
+closedAt: Wednesday 30 December 2015 at 11:13 AM
+openedBytes: 1745
+closedBytes: 1745
+saved: 0
+===================================
+DATE: Wednesday 30 December 2015 at 11:16 AM
+VERSION: 7.2.0
+---
+openedPath: /home/mkesson/mount/fachome/STUDENT_STARTER_FILES/CUSTOMIZATIONS/cutter/run
+closedPath: /home/mkesson/mount/fachome/STUDENT_STARTER_FILES/CUSTOMIZATIONS/cutter/run
+openedAt: Wednesday 30 December 2015 at 11:15 AM
+closedAt: Wednesday 30 December 2015 at 11:16 AM
+openedBytes: 164
+closedBytes: 199
+saved: 1
+---
+openedPath: /home/mkesson/mount/fachome/STUDENT_STARTER_FILES/CUSTOMIZATIONS/cutter/BasicRis_0.rib
+closedPath: /home/mkesson/mount/fachome/STUDENT_STARTER_FILES/CUSTOMIZATIONS/cutter/BasicRis_0.rib
+openedAt: Wednesday 30 December 2015 at 11:15 AM
+closedAt: Wednesday 30 December 2015 at 11:16 AM
+openedBytes: 1745
+closedBytes: 1745
+saved: 0
+===================================
+DATE: Wednesday 30 December 2015 at 11:17 AM
+VERSION: 7.2.0
+---
+openedPath: /home/mkesson/mount/fachome/maya/2016/Maya.env
+closedPath: /home/mkesson/mount/fachome/maya/2016/Maya.env
+openedAt: Wednesday 30 December 2015 at 11:17 AM
+closedAt: Wednesday 30 December 2015 at 11:17 AM
+openedBytes: 299
+closedBytes: 299
+saved: 0
+---
+openedPath: /home/mkesson/mount/fachome/maya/projects/RfM_ini/it.ini
+closedPath: /home/mkesson/mount/fachome/maya/projects/RfM_ini/it.ini
+openedAt: Wednesday 30 December 2015 at 11:17 AM
+closedAt: Wednesday 30 December 2015 at 11:17 AM
+openedBytes: 422
+closedBytes: 422
+saved: 0
+---
+openedPath: /home/mkesson/mount/fachome/STUDENT_STARTER_FILES/CUSTOMIZATIONS/cutter/BasicRis_0.rib
+closedPath: /home/mkesson/mount/fachome/STUDENT_STARTER_FILES/CUSTOMIZATIONS/cutter/BasicRis_0.rib
+openedAt: Wednesday 30 December 2015 at 11:16 AM
+closedAt: Wednesday 30 December 2015 at 11:17 AM
+openedBytes: 1745
+closedBytes: 1745
+saved: 0
+===================================
+DATE: Wednesday 30 December 2015 at 0:4 PM
+VERSION: 7.2.0
+---
+openedPath: /home/mkesson/mount/fachome/vsfx755/cutter/BasicRis_0.rib
+closedPath: /home/mkesson/mount/fachome/vsfx755/cutter/BasicRis_0.rib
+openedAt: Wednesday 30 December 2015 at 11:23 AM
+closedAt: Wednesday 30 December 2015 at 0:4 PM
+openedBytes: 1745
+closedBytes: 1745
+saved: 0
+---
+openedPath: /home/mkesson/mount/fachome/maya/projects/RfM_ini/it.ini
+closedPath: /home/mkesson/mount/fachome/maya/projects/RfM_ini/it.ini
+openedAt: Wednesday 30 December 2015 at 11:23 AM
+closedAt: Wednesday 30 December 2015 at 0:4 PM
+openedBytes: 422
+closedBytes: 551
+saved: 0
+===================================
+DATE: Wednesday 6 January 2016 at 7:44 AM
+VERSION: 7.1.5
+---
+openedPath: /home/mkesson/mount/fachome/maya/projects/RfM_ini/it.ini
+closedPath: /home/mkesson/mount/fachome/maya/projects/RfM_ini/it.ini
+openedAt: Wednesday 6 January 2016 at 7:44 AM
+closedAt: Wednesday 6 January 2016 at 7:44 AM
+openedBytes: 561
+closedBytes: 561
+saved: 0
+===================================
+DATE: Sunday 11 September 2016 at 3:8 PM
+VERSION: 7.5.5
+---
+openedPath: /home/mkesson/maya/projects/RfM_osl/src/AttributeTexname.osl
+closedPath: /home/mkesson/maya/projects/RfM_osl/src/AttributeTexname.osl
+openedAt: Sunday 11 September 2016 at 3:4 PM
+closedAt: Sunday 11 September 2016 at 3:7 PM
+openedBytes: 1572
+closedBytes: 1572
+saved: 0
+===================================
+DATE: Tuesday 3 January 2017 at 2:23 PM
+VERSION: 7.7.2
+---
+openedPath: /home/mkesson/mount/fachome/BasicRis_0.rib
+closedPath: /home/mkesson/mount/fachome/BasicRis_0.rib
+openedAt: Tuesday 3 January 2017 at 2:22 PM
+closedAt: Tuesday 3 January 2017 at 2:23 PM
+openedBytes: 1867
+closedBytes: 1867
+saved: 1
+===================================
+DATE: Tuesday 3 January 2017 at 2:26 PM
+VERSION: 7.7.2
+---
+openedPath: /home/mkesson/mount/fachome/trial.lpe
+closedPath: /home/mkesson/mount/fachome/trial.lpe
+openedAt: Tuesday 3 January 2017 at 2:25 PM
+closedAt: Tuesday 3 January 2017 at 2:26 PM
+openedBytes: 0
+closedBytes: 6
+saved: 2
+---
+openedPath: /home/mkesson/mount/fachome/BasicRis_0.rib
+closedPath: /home/mkesson/mount/fachome/BasicRis_0.rib
+openedAt: Tuesday 3 January 2017 at 2:23 PM
+closedAt: Tuesday 3 January 2017 at 2:25 PM
+openedBytes: 1843
+closedBytes: 1843
+saved: 1
+===================================
+DATE: Wednesday 4 January 2017 at 8:49 AM
+VERSION: 7.7.2
+---
+openedPath: /home/mkesson/mount/fachome/trial.lpe
+closedPath: /home/mkesson/mount/fachome/trial.lpe
+openedAt: Wednesday 4 January 2017 at 8:48 AM
+closedAt: Wednesday 4 January 2017 at 8:48 AM
+openedBytes: 6
+closedBytes: 6
+saved: 0
+===================================
+DATE: Wednesday 4 January 2017 at 8:50 AM
+VERSION: 7.7.2
+---
+openedPath: /home/mkesson/mount/fachome/trial.lpe
+closedPath: /home/mkesson/mount/fachome/trial.lpe
+openedAt: Wednesday 4 January 2017 at 8:50 AM
+closedAt: Wednesday 4 January 2017 at 8:50 AM
+openedBytes: 6
+closedBytes: 6
+saved: 0
+===================================
+DATE: Wednesday 4 January 2017 at 8:51 AM
+VERSION: 7.7.2
+---
+openedPath: /home/mkesson/mount/fachome/trial.lpe
+closedPath: /home/mkesson/mount/fachome/trial.lpe
+openedAt: Wednesday 4 January 2017 at 8:50 AM
+closedAt: Wednesday 4 January 2017 at 8:51 AM
+openedBytes: 6
+closedBytes: 6
+saved: 0
+===================================
+DATE: Monday 27 March 2017 at 7:14 AM
+VERSION: 7.7.7
+---
+openedPath: /home/mkesson/mount/fachome/trial.lpe
+closedPath: /home/mkesson/mount/fachome/trial.lpe
+openedAt: Monday 27 March 2017 at 7:12 AM
+closedAt: Monday 27 March 2017 at 7:14 AM
+openedBytes: 28
+closedBytes: 28
+saved: 0
+===================================
+DATE: Monday 10 April 2017 at 9:30 AM
+VERSION: 7.7.7
+---
+openedPath: /home/tkoram20/pxrExpression_01.sce
+closedPath: /home/tkoram20/pxrExpression_01.sce
+openedAt: Monday 10 April 2017 at 9:30 AM
+closedAt: Monday 10 April 2017 at 9:30 AM
+openedBytes: 164
+closedBytes: 164
+saved: 1
+===================================
+DATE: Monday 17 April 2017 at 10:38 AM
+VERSION: 7.7.7
+---
+openedPath: /home/tkoram20/mount/stuhome/vsfx502/ribs/BasicRis_1.rib
+closedPath: /home/tkoram20/mount/stuhome/vsfx502/ribs/BasicRis_1.rib
+openedAt: Monday 17 April 2017 at 9:54 AM
+closedAt: Monday 17 April 2017 at 10:37 AM
+openedBytes: 1809
+closedBytes: 1809
+saved: 1
+===================================
+DATE: Wednesday 19 April 2017 at 10:25 AM
+VERSION: 7.7.7
+---
+openedPath: /home/tkoram20/mount/stuhome/vsfx502/ribs/BasicRis_1.rib
+closedPath: /home/tkoram20/mount/stuhome/vsfx502/ribs/BasicRis_1.rib
+openedAt: Wednesday 19 April 2017 at 7:59 AM
+closedAt: Wednesday 19 April 2017 at 10:24 AM
+openedBytes: 1809
+closedBytes: 2118
+saved: 9
+---
+openedPath: /home/tkoram20/mount/stuhome/vsfx502/archives/materials/BasicSurfaceShader.rib
+closedPath: /home/tkoram20/mount/stuhome/vsfx502/archives/materials/BasicSurfaceShader.rib
+openedAt: Wednesday 19 April 2017 at 9:39 AM
+closedAt: Wednesday 19 April 2017 at 10:25 AM
+openedBytes: 0
+closedBytes: 826
+saved: 13
+---
+openedPath: /home/tkoram20/mount/stuhome/vsfx502/archives/lights/3PointLight.rib
+closedPath: /home/tkoram20/mount/stuhome/vsfx502/archives/lights/3PointLight.rib
+openedAt: Wednesday 19 April 2017 at 8:46 AM
+closedAt: Wednesday 19 April 2017 at 10:25 AM
+openedBytes: 451
+closedBytes: 1557
+saved: 30
+---
+openedPath: /home/tkoram20/mount/stuhome/vsfx502/archives/materials/BumpyPlastic.rib
+closedPath: /home/tkoram20/mount/stuhome/vsfx502/archives/materials/BumpyPlastic.rib
+openedAt: Wednesday 19 April 2017 at 9:55 AM
+closedAt: Wednesday 19 April 2017 at 10:25 AM
+openedBytes: 0
+closedBytes: 1528
+saved: 14
+===================================
+DATE: Sunday 23 April 2017 at 4:22 PM
+VERSION: 7.7.7
+---
+openedPath: /home/tkoram20/mount/stuhome/vsfx502/archives/materials/TeapotShader_02.rib
+closedPath: /home/tkoram20/mount/stuhome/vsfx502/archives/materials/TeapotShader_02.rib
+openedAt: Sunday 23 April 2017 at 3:36 PM
+closedAt: Sunday 23 April 2017 at 4:22 PM
+openedBytes: 319
+closedBytes: 319
+saved: 4
+---
+openedPath: /home/tkoram20/mount/stuhome/vsfx502/archives/materials/TeapotGround.rib
+closedPath: /home/tkoram20/mount/stuhome/vsfx502/archives/materials/TeapotGround.rib
+openedAt: Sunday 23 April 2017 at 3:19 PM
+closedAt: Sunday 23 April 2017 at 4:22 PM
+openedBytes: 253
+closedBytes: 282
+saved: 3
+---
+openedPath: /home/tkoram20/mount/stuhome/vsfx502/ribs/BasicRis_1.rib
+closedPath: /home/tkoram20/mount/stuhome/vsfx502/ribs/BasicRis_1.rib
+openedAt: Sunday 23 April 2017 at 2:50 PM
+closedAt: Sunday 23 April 2017 at 2:53 PM
+openedBytes: 2118
+closedBytes: 0
+saved: 1
+---
+openedPath: /home/tkoram20/mount/stuhome/vsfx502/archives/materials/TeapotShader.rib
+closedPath: /home/tkoram20/mount/stuhome/vsfx502/archives/materials/TeapotShader.rib
+openedAt: Sunday 23 April 2017 at 3:23 PM
+closedAt: Sunday 23 April 2017 at 4:22 PM
+openedBytes: 253
+closedBytes: 319
+saved: 6
+---
+openedPath: /home/tkoram20/mount/stuhome/vsfx502/archives/geo/teapot.rib
+closedPath: /home/tkoram20/mount/stuhome/vsfx502/archives/geo/teapot.rib
+openedAt: Sunday 23 April 2017 at 2:50 PM
+closedAt: Sunday 23 April 2017 at 4:22 PM
+openedBytes: 729
+closedBytes: 1036
+saved: 45
+---
+openedPath: /home/tkoram20/mount/stuhome/vsfx502/archives/lights/Env_HDR.rib
+closedPath: /home/tkoram20/mount/stuhome/vsfx502/archives/lights/Env_HDR.rib
+openedAt: Sunday 23 April 2017 at 4:4 PM
+closedAt: Sunday 23 April 2017 at 4:22 PM
+openedBytes: 831
+closedBytes: 870
+saved: 5
+---
+openedPath: /home/tkoram20/mount/stuhome/vsfx502/archives/lights/3PointLight.rib
+closedPath: /home/tkoram20/mount/stuhome/vsfx502/archives/lights/3PointLight.rib
+openedAt: Sunday 23 April 2017 at 2:58 PM
+closedAt: Sunday 23 April 2017 at 4:22 PM
+openedBytes: 1557
+closedBytes: 1557
+saved: 1
+---
+openedPath: /home/tkoram20/mount/stuhome/vsfx502/ribs/BasicRis_1.rib
+closedPath: /home/tkoram20/mount/stuhome/vsfx502/ribs/Teapot_Scene.rib
+openedAt: Sunday 23 April 2017 at 2:53 PM
+closedAt: Sunday 23 April 2017 at 4:22 PM
+openedBytes: 1764
+closedBytes: 1861
+saved: 17

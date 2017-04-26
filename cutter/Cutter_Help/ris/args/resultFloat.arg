@@ -1,0 +1,5 @@
+	<output name="resultF">
+		<tags>
+			<tag value="float"/>
+		</tags>
+	</output>

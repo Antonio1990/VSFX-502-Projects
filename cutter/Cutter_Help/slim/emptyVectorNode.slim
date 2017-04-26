@@ -1,0 +1,33 @@
+slim 1 extensions AUTHOR {
+extensions STUDIO PREFIX {
+	template vector UNTITLED_VEC {
+		description {
+			Description of the node goes here.
+			}
+		previewinfo {
+			shadingrate 1
+			objectsize 1
+			objectshape Sphere
+			frame 1
+			}
+		#__custom parameters Begin____________
+
+
+		#__custom parameters End______________
+
+		parameter vector result {
+			access output
+			display hidden
+			}
+		RSLFunction {
+		void cutrUNTITLED_VEC (
+			// parameter vars goes here...
+			//
+			output vector result;
+			)
+		{
+		result = vector(1,1,1);
+		}
+	}
+}
+}}

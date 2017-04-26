@@ -1,0 +1,244 @@
+slim 1 appearance slim {
+    instance surface "@SHADER_NAME" "@SHADER_PATH" {
+    description { @SHADER_DESCRIPTION }
+    previewinfo {
+		shadingrate 5
+		objectsize 1
+		objectshape Plane
+		frame 1
+		}
+    collection void Attributes {
+      drawmode all
+      state closed
+      collection void Rays {
+        drawmode all
+        state closed
+        label {Ray Tracing}
+        description {Controls related to the ray tracing and indirect illumination features.}
+        attribute int trace:samplemotion {
+          default 0
+          subtype switch
+          label {Sample Motion}
+          description {Controls whether motion blurred objects appear in ray traced results. If your reflective object is moving or deforming you should disable this parameter to avoid self-intersection artifacts. If your mirror isn't moving, set this to 1 to see the reflected objects properly blurred. }
+        }
+        attribute int trace:displacements {
+          default 0
+          subtype switch
+          label {Trace Displacements}
+          description {Controls whether to run displacement shaders to determine ray intersection points. Disabling this option will result in a bump-mapped appearance and make your renders faster. Only enable this if you need to run displacements on the associated primitives. }
+        }
+        attribute float trace:bias {
+          default 0
+          range {0 100 .00005}
+          subtype vslider
+          label {Trace Bias}
+          description {Specifies a "fudge factor" for ray intersections. This bias value is added to the ray origin (and endpoint for shadows) to reduce artifacts pertaining to numerial precision limitations and self-intersection. Set this value to 0 to inherit the scene-wide default trace bias. }
+        }
+        attribute int trace:maxspeculardepth {
+          default -1
+          range {-1 9 1}
+          subtype slider
+          label {Max Specular Depth}
+          description {Limits the number of reflection and refraction ray bounces relative to the associated primitive. The behavior of this setting can be confusing when you consider that it might have different settings along a particular ray path. Lower numbers result in fewer bounces and faster renders. Usually you'll want to set this value to 1 or 2 but you should set this value to the lowest number that gives you the inter-reflection effects you need. Setting this value to -1 results in the default specular ray depth limit }
+        }
+        attribute int trace:maxdiffusedepth {
+          default -1
+          range {-1 9 1}
+          subtype slider
+          label {Max Diffuse Depth}
+          description {Limits the number of soft indirect ray bounces relative to the associated primitive. The soft indirect rays are used to estimate color bleeding and similar effects. The default limit of 1 implies that we should only look a single bounce away to determine color bleeding. The behavior of this setting can be confusing when you consider that there might be different settings along a particular ray path. Lower numbers result in fewer bounces and faster renders. Usually you'll want to set this value to 1 but you should set this value to the lowest number that gives you the inter-reflection effects you need. When used with global photon maps you should never need to set this to a value greater than 1. Setting this value to -1 results in the default diffuse ray depth limit. }
+        }
+        collection void irradiance {
+          drawmode all
+          state closed
+          label {Irradiance Cache}
+          description {These parameters govern the caching of irradiance which is required to obtain indirect diffuse lighting effects. The phrase, indirect diffuse, refers to global illumination that follows diffuse ray paths. This indirect, diffuse lighting is responsible for color bleeding and other subtle effects. }
+          attribute float irradiance:maxerror {
+            default -1
+            range {-1 100 .0001}
+            subtype slider
+            label {Max Error}
+            description {An error metric to control quality / speed tradeoff for irradiance cache accesses.. Larger values result in a courser approximation but render faster. Set this value to 0 to disable the irradiance cache. Set this value to a negative number to inherit Max Error. }
+          }
+          attribute float irradiance:maxpixeldist {
+            default -1
+            range {-1 200 1}
+            subtype slider
+            label {Max Pixel Distance}
+            description {A backup error metric governing the use of the irradiance cache. Large values result in course approximations but render faster. Max Pixel Distance is measured in pixels and is usually useful to ensure that the Max Error metric doesn't result in too much work in areas which are large in world space but small on screen. Set this value to 0 to disable the irradiance cache. Set this value to a negative number to inherit the Max Pixel Distance. }
+          }
+          attribute string irradiance:handle {
+            default (inherited)
+            subtype file.IndirectMap
+            label {Cache File}
+            description {Usually, it's sufficient to use a single scene-wide irradiance cache and this is specified in the RenderMan Controls dialog. In the case where you wish to "bake" irradiance, it may be desireable to control the irradiance cache settings on a per-primitive or per-object-set basis. In these cases, this attribute can be used to specify the per-object irradiance cache file whose use depends on the File Mode. The easiest way to specify a filename relative to the current project is with an expression of the form: [irradiancecache name] Refer to the description of the Cache File Mode for other usage details. Set this value to (inherited) to inherit the scene-wide default. }
+          }
+          attribute string irradiance:filemode {
+            default ignore
+            range { 
+			    {Ignore} ignore 
+			    {Read Only} R 
+			    {Write} w 
+			}
+            subtype selector
+            label {Cache File Mode}
+            description {This setting applies only when the Irradiance Cache File is NOT set to (inhereted). See description in the RenderMan Globals Rays/Irradiance tabs. }
+          }
+        }
+        collection void photonmap {
+          drawmode all
+          state closed
+          label {Photon Maps}
+          description {These parameters control the creation and access to photon maps. Photons maps come in two flavors - global and caustic. Caustic maps are used on the surfaces where the caustics appear while global photon maps are usually referenced for the sole purpose of estimate light "over there". }
+          attribute string photon:shadingmodel {
+            default (inherited)
+            range { 
+			    Glass glass 
+			    Water water 
+			    Chrome chrome 
+			    Matte matte 
+			    Transparent transparent 
+			    (inherited) (inherited) 
+			}
+            subtype selector
+            label {Shading Model}
+            description {Specifies a simplified shading model to employ when tracing photons. }
+          }
+          attribute int photon:estimator {
+            default -1
+            range {0 10000 1}
+            subtype slider
+            label Estimator
+            description {Controls the number of photons considered when estimating global illumination with photon maps. Also used when precomputing radiance estimates for global photon maps. When used with caustic photon maps, you should set this value to the smallest number you can. This will result in crisp caustics. Higher numbers will make the caustics blurrier. For soft indirect illuminance (color bleeding, etc.) you'll need larger values to get acceptable results. Set this value to -1 to accept the default. }
+          }
+          attribute string photon:causticmap {
+            default (inherited)
+            subtype file.PhotonMap
+            label {Caustic Map}
+            description {Specifies the caustic photonmap to use if a shader with the caustic shade-op is provided. Set this value to (inherited) to inherit the value from the global RIB state. Set the value to the empty string to cause no caustic lookups on associated primitives. }
+          }
+          attribute string photon:globalmap {
+            default (inherited)
+            subtype file.PhotonMap
+            label {Global Map}
+            description {Specifies the global photonmap to use if a shader which needs to esimate soft indirect illumination at points on the associated primitive. Set this value to (inherited) to inherit the value from the global RIB state. Set the value to the empty string to cause no global lookups on associated primitives. }
+          }
+        }
+      }
+      attribute float ShadingRate {
+        default 1
+        range {0 1000 .05}
+        subtype vslider
+        label {Shading Rate}
+        description {Controls the quality of the shader evaluation on a per-ensemble basis. If 0, the global value will be used. Generally you'll only want to use this value in the rare case that you want to override the global behavior.}
+      }
+      attribute string CoordSysTransform {
+        label {Shader Space}
+        description {The coordinate system in which a shader is defined. Most shaders perform important calculations relative to this space and so transforming it affects their appearance. If empty, the shader space is the object space associated with the attached primitive. Place the name of a coordinate system object here to set the shader space for the shader. If you're using file referencing, use the "coordsys" function to translate the name of the coordinate system (eg: [coordsys mtorCoordSysShape10].}
+      }
+      attribute float Scale {
+        default 1
+        range {0 100 .01}
+        subtype vslider
+        description {An additional uniform scale factor applied on top of the optional coordinate system.}
+      }
+      attribute string CastsShadows {
+        default opaque
+        range {
+		    Transparent transparent
+		    Opaque opaque
+		    Os Os
+		    Shade shade
+		    }
+        subtype selector
+        label {Casts Shadows}
+        description {Controls how surfaces shadow other surfaces. Possible values for shadowval are shown below, in order of increasing computational cost. You can optimize rendering time by making surfaces known to be opaque "opaque". To take an object out of consideration during shadow generation, choose transparent or, better, disable the per-object attribute in your modeler. It is important, however, to use "shade" for any surfaces whose shaders modify the opacity of the surface in any patterned way. }
+      }
+      attribute color Cs {
+        default {1 1 1}
+        description {The RenderMan Surface Color Attribute. Note that some shaders don't automatically use this value. You may need to explicitly choose Surface Color as the parameter value.}
+      }
+      attribute color Os {
+        default {1 1 1}
+        description {The RenderMan Surface Opacity Attribute. Note that some shaders don't automatically use this value. You may need to explicitly choose Surface Opacity as the parameter value.}
+      }
+      attribute float displacementbound {
+        default 0
+        range {0 1000 .005}
+        subtype vslider
+        label {Displacement Bound}
+        description {This number represents the maximum displacement in shaderspace that your surface will undergo. Be very careful with this parameter as it can dramatically influence rendering times. In particular, make SURE to set this to 0 (zero) if you aren't performing any displacement.}
+      }
+      collection void Expert {
+        drawmode all
+        state closed
+        
+        attribute float dice:hair {
+        	description { setting to ON generally improves performance }
+        	label { Hair/Fur dicing }
+        	detail varying
+        	default 1
+        	subtype switch
+        	}
+        	
+        @PTC_BAKING
+        
+        attribute int sides:doubleshaded {
+          default 0
+          subtype switch
+          label {Double Shade}
+          description {Controls whether a primitive should be shaded twice. Usually you'll want this set to off. If you wish to introduce thickness on a primitive without explicitly modeling it, then this is the attribute for you! }
+        }
+        attribute string dice:strategy {
+          default (inherited)
+          range {
+			    Inherit "(inherited)"
+			    Planar planarprojection
+			    Spherical sphericalprojection
+			}
+          subtype selector
+          label {Dicing Strategy}
+          description {Controls the metric used to decide how to tesselate geometry into micropolygons. Spherical was intruduced in prman 12 and may has better properties when geometry crosses the eye plane. }
+        }
+        attribute string dice:referencecamera {
+          default (inherited)
+          range {
+			    Inherit "(inherited)"
+			    viewing worldcamera
+			    multiframe framecamera
+			}
+          subtype selector
+          label {Dicing Camera}
+          description {Selects the camera to use to make tesselation decisions. Unless you've gone to the trouble to define a multiframe camera, you should leave this at (inherited). }
+        }
+        attribute string shade:strategy {
+          default (inherited)
+          range {
+			    Inherit "(inherited)"
+			    Grids grids
+			    VPVolumes vpvolumes
+			}
+          subtype selector
+          label {Shading Strategy}
+          description {Selects a strategy for where in the rendering pipeline to shade geometry. The traditional strategy, grids, causes shading to occur on micropolygon vertices. The vpvolumes strategy causes volume shdaders of type Atmosphere and Interior to be computed after visibility is determined. Because of this certain volumetric affects are possible without ray tracing enabled. }
+        }
+        attribute string shade:volumeintersectionstrategy {
+          default (inherited)
+          range {
+			    Inherit "(inherited)"
+			    Additive additive
+			    Exclusive exclusive
+			}
+          subtype selector
+          label {Volume Intersection}
+          description {Allows regions with overlapping Interior shaders to combine their effects. In conjunction with the Intersection Priority the Strategy allows you to describe complicated interactions between Interior shaders. }
+        }
+        attribute float shade:volumeintersectionpriority {
+          default 0
+          range {0 100 1}
+          subtype slider
+          label {Volume Priority}
+          description {Sets the priority of an Interior volume when it overlaps other Interior regions. In conjunction with Intersction Strategy, the Priority allows you to describe complicated interactions between Interior shaders. }
+        }
+     } 
+    }

@@ -1,0 +1,30 @@
+slim 1 appearance slim {
+    instance light "@SHADER_NAME" "@SHADER_PATH" {
+    description { @SHADER_DESCRIPTION }
+    previewinfo {
+		shadingrate 5
+		objectsize 1
+		objectshape Plane
+		frame 1
+		}
+    collection void Attributes {
+      drawmode all
+      state closed
+      attribute float ShadingRate {
+        default 1
+        range {0 1000 .05}
+        subtype vslider
+        label {Shading Rate}
+        description {Controls the quality of the shader evaluation on a per-ensemble basis. If 0, the global value will be used. Generally you'll only want to use this value in the rare case that you want to override the global behavior.}
+      }
+      attribute string CoordSysTransform {
+        label {Shader Space}
+        description {The coordinate system in which a shader is defined. Most shaders perform important calculations relative to this space and so transforming it affects their appearance. If empty, the shader space is the object space associated with the attached primitive. Place the name of a coordinate system object here to set the shader space for the shader. If you're using file referencing, use the "coordsys" function to translate the name of the coordinate system (eg: [coordsys mtorCoordSysShape10].}
+      }
+      attribute float Scale {
+        default 1
+        range {0 100 .01}
+        subtype vslider
+        description {An additional uniform scale factor applied on top of the optional coordinate system.}
+      }
+    }

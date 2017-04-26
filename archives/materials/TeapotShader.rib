@@ -1,0 +1,10 @@
+# Teapot Shader_01-------------------------------------------
+
+Bxdf "PxrSurface" "PxrSurface2"
+		"float diffuseGain" [1.0]
+		"color diffuseColor" [0.49 0.02 0.19]
+		"int diffuseDoubleSided" [1]
+		"color specularFaceColor" [1 1 1]
+		"float specularRoughness" [0.2]
+		"int specularDoubleSided" [0]
+		"float presence" [1]

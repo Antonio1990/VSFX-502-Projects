@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Tcl Library Procedures - Tcl_RecordAndEval manual
+page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<h3><a name="M2">NAME</a></h3>
+
+<p>Tcl_RecordAndEval - save command on history list before
+evaluating</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>#include &lt;tcl.h&gt;</b><br>
+int<br>
+<b>Tcl_RecordAndEval</b>(<i>interp, cmd, flags</i>)<br>
+</p>
+
+<h3><a name="M4">ARGUMENTS</a></h3>
+
+<dl>
+<dt><a href="../TclLib/Interp.htm">Tcl_Interp</a> <b>*interp</b>
+(in)</dt>
+
+<dd>Tcl interpreter in which to evaluate command.</dd>
+
+<dt>CONST char <b>*cmd</b> (in)</dt>
+
+<dd>Command (or sequence of commands) to execute.</dd>
+
+<dt>int <b>flags</b> (in)</dt>
+
+<dd>An OR'ed combination of flag bits. TCL_NO_EVAL means record the
+command but don't evaluate it. TCL_EVAL_GLOBAL means evaluate the
+command at global level instead of the current stack level.</dd>
+</dl>
+
+<h3><a name="M5">DESCRIPTION</a></h3>
+
+<p><b>Tcl_RecordAndEval</b> is invoked to record a command as an
+event on the history list and then execute it using <b><a href=
+"../TclLib/Eval.htm">Tcl_Eval</a></b> (or <b><a href=
+"../TclLib/Eval.htm">Tcl_GlobalEval</a></b> if the TCL_EVAL_GLOBAL
+bit is set in <i>flags</i>). It returns a completion code such as
+TCL_OK just like <b><a href="../TclLib/Eval.htm">Tcl_Eval</a></b>
+and it leaves information in the interpreter's result. If you don't
+want the command recorded on the history list then you should
+invoke <b><a href="../TclLib/Eval.htm">Tcl_Eval</a></b> instead of
+<b>Tcl_RecordAndEval</b>. Normally <b>Tcl_RecordAndEval</b> is only
+called with top-level commands typed by the user, since the purpose
+of history is to allow the user to re-issue recently-invoked
+commands. If the <i>flags</i> argument contains the TCL_NO_EVAL bit
+then the command is recorded without being evaluated.</p>
+
+<p>Note that <b>Tcl_RecordAndEval</b> has been largely replaced by
+the object-based procedure <b><a href=
+"../TclLib/RecEvalObj.htm">Tcl_RecordAndEvalObj</a></b>. That
+object-based procedure records and optionally executes a command
+held in a Tcl object instead of a string.</p>
+
+<h3><a name="M6">SEE ALSO</a></h3>
+
+<p><b><a href=
+"../TclLib/RecEvalObj.htm">Tcl_RecordAndEvalObj</a></b></p>
+
+<h3><a name="M7">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/C.htm#command">command</a>, <a href=
+"../Keywords/E.htm#event">event</a>, <a href=
+"../Keywords/E.htm#execute">execute</a>, <a href=
+"../Keywords/H.htm#history">history</a>, <a href=
+"../Keywords/I.htm#interpreter">interpreter</a>, <a href=
+"../Keywords/R.htm#record">record</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1989-1993 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1997 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

@@ -1,0 +1,146 @@
+<!--
+ - PROPRIETARY INFORMATION.  This software is proprietary to
+ - Side Effects Software Inc., and is not to be reproduced,
+ - transmitted, or disclosed in any way without written permission.
+ -
+ -	Side Effects
+ -	477 Richmond Street West
+ -	Toronto, Ontario
+ -	Canada   M5V 3E7
+ -	416-504-9876
+ -->
+
+<html>
+
+<head>
+   <title> VEX Compiler Reference</title>
+</head>
+
+<body bgcolor="#ffffff" text="#000000">
+
+<table width=100%>
+<tr>
+   <td><img hspace=15 vspace=5 ALT="[SESI logo]" SRC="logo.jpg"</td>
+   <td>
+      <center>
+         <h1>VEX Language Reference - Version 7.0</h1>
+	 Side Effects Software Inc.  2004
+      </center>
+   </td>
+</tr>
+</table>
+
+<hr>
+<center><h1>Changes since Houdini 4.0</h1></center>
+
+<menu>
+    <li> <a href="#ch_general">General Changes</a>
+    <li> <a href="#ch_shading">Shading Context Changes</a>
+    <li> <a href="#ch_op">OP Context Changes</a>
+</menu>
+
+<a name="ch_general"></a>
+<hr>
+<center><h1> General Changes</h1></center>
+<menu>
+    <li> It is now possible to write "plug-in" VEX functions.  Please
+	see $HFS/houdini/vex/dso for more information.<p>
+
+    <li> It is now possible to assign strings in VEX code.  There are
+	new operators and functions to deal with strings.<br>
+	<menu>
+	    <li> <b>int strlen(string)</b><br>
+		 Computes the length of a string.
+	    <li> <b>int match(pattern, subject)</b><br>
+		 Returns 1 if the subject matches the pattern
+		 specified.  The standard Houdini pattern matching is
+		 used.
+	    <li> <b>string sprintf(string format, ...)</b><br>
+		 Formatted string generation similar to printf.
+	    <li> <b>string concat(string s1, string s2, ...)</b><br>
+		 Concatenate the string arguments to form a new
+		 string.
+	    <li> Strings may be added together to form a new string.
+	</menu><p>
+
+    <li> There are new spline evaluation functions which allow
+	non-uniform spacing of keys: <a href="functions.html#interp">
+	    <b>lkspline()</b> and <b>ckspline()</b></a><p>
+
+    <li> Texture/Color Map evaluation now takes variadic arguments.
+	<a href="functions.html#image_filter">Additional arguments</a>
+	can be specified to control wrapping of textures, filtering
+	etc.  Many options are also valid for the
+	<b>cinput()/finput()</b> functions in COPs.<p>
+
+    <li> There are now <b>set()/assign()</b> functions for
+	matrices.<p>
+
+    <li> The <b>printf()</b> function has been improved and includes
+	width specification.<p>
+
+    <li> There is an additional form of the <b>atan()</b> function
+	 which takes two arguments.  This is identical to the
+	 <b>atan2()</b> function.<p>
+</menu>
+
+<a name="ch_shading"></a>
+<hr>
+<center><h1> Shading Context Changes</h1></center>
+<menu>
+    <li> There is a new function <b>filterstep()</b> in the shading
+	contexts.<p>
+
+    <li> In the shading contexts, there are new functions to query the
+	ray-tree.  Please see documentation for <b>getraylevel()</b>
+	and <b>getrayweight()</b>.<p>
+
+    <li> There is a new function available for surface shaders to
+	determine whether the shader is being evaluated for shadow
+	opacity (vs. being evaluated for surface color).  Please see
+	documentation for <b>isshadowray()</b>.<p>
+
+    <li> The angles specified in <b>illuminance()</b> constructs are
+	now interpreted correctly.<p>
+</menu>
+
+<a name="ch_op"></a>
+<hr>
+<center><h1> OP Context Changes</h1></center>
+<menu>
+    <li> The <b>npoints()</b> function is new for the SOP context.<p>
+
+    <li> The <b>getbbox()</b> function is new for the SOP/POP context.<p>
+
+    <li> The <b>import()</b> function in SOPs has been extended to
+	take an optional point number.  If the point number is not
+	specified, then the function behaves as before (i.e. the value
+	for the current point number is retrieved).<p>
+
+    <li> A new function (<b>optransform()</b>) can be used to
+	evaluate the transform associated with an object in the OP
+	contexts.<p>
+
+    <li> In the CHOP context, there are new functions to query units,
+    and channel start and end times:
+	<menu>
+	    <li><b>float chstartf(int)</b> - Get channel start frame
+	    <li><b>float chendf(int)</b> - Get channel end frame
+	    <li><b>int isframes()</b>
+	    <li><b>int isseconds()</b>
+	    <li><b>int issamples()</b>
+	</menu>
+</menu>
+
+<!-------------------------------------------------------------------!>
+<br>
+<hr>
+<center>
+<font size=-2>
+  Copyright &#169; 1999-2004 Side Effects Software Inc.<br>
+  477 Richmond Street West, Toronto, Ontario, Canada M5V 3E7
+</font>
+</center>
+
+</body>
+</html>

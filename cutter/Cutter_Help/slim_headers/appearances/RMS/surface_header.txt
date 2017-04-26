@@ -1,0 +1,11 @@
+slim 1 appearance slim {
+    instance surface "@SHADER_NAME" "@SHADER_PATH" {
+    description { @SHADER_DESCRIPTION }
+    #attribute float ShadingRate {
+    #    default 1
+    #    range {0 1000 .05}
+    #    subtype vslider
+    #    label {Shading Rate}
+    #    description {If 0, the global value will be used. Set a value to override the global value.}
+    #}
+

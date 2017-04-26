@@ -1,0 +1,111 @@
+// The information about shader metadata has been copied from the,
+//	"Open Shading Language 1.6 Language Specification"
+// Below is an example shader declaration showing the use of 
+// shader and parameter metadata:
+surface wood [[ string help = "Realistic wood shader" ]] (
+	float Kd = 0.5 [[ string help = "Diffuse reflectivity",
+					  float min = 0, float max = 1 ]] ,
+	color woodcolor = color (.7, .5, .3) [[ string help = "Base color of the wood" ]],
+	color ringcolor = 0.25 * woodcolor   [[ string help = "Color of the dark rings" ]],
+	string texturename = "wood.tx"       [[ string help = "Texture map for the grain",
+											string widget = "filename" ]],
+	int pattern = 0 [[ string widget = "mapper",
+					   string options = "oak:0|elm:1|walnut:2" ]] )
+{
+...
+}
+
+string label
+	// A short label to be displayed in the UI for this parameter. 
+	// If not present, the parameter name itself should be used as 
+	// the widget label.
+
+string help
+	// Help text that describes the purpose and use of the shader 
+	// or parameter.
+
+string page
+	// Helps to group related widgets by “page.”
+
+string widget
+	// The type of widget that should be used to adjust this 
+	// parameter. Suggested widget types:
+		"number"
+	// Provide a slider and/or numeric input. This is the default 
+	// widget type for float or Numeric inputs also may be 
+	// influenced by the following metadata:
+		"min", "max", "sensitivity", "digits", "slider", 
+		"slidermin", "slidermax", "slidercenter", "sliderexponent".
+		
+"string"
+	// Provide a text entry widget. This is the default widget 
+	// type for string parameters.
+
+"boolean"
+	// Provide a pop-up menu with “Yes” and “No” options. Works on 
+	// strings or numbers. With strings, “Yes” and “No” values are 
+	// used, with numbers, 0 and 1 are used.
+
+"checkBox"
+	// A boolean widget displayed as a checkbox. Works on strings 
+	// or numbers. With strings, ”Yes” and ”No” values are used, 
+	// with numbers, 0 and 1 are used.
+
+"popup"
+	// A pop-up menu of literal choices. This widget further 
+	// requires parameter metadata
+
+"options"
+	// A string listing the supported menu items, delimited by 
+	// the ‘|’ character, and optionally "editable" (an integer, 
+	// which if nonzero means the widget should allow the text 
+	// field should be directly editable). For example:
+	string wrap = "default"  
+			[[ string widget = "popup",
+			   string options = "default|black|clamp|periodic|mirror" ]]
+"mapper"
+	// A pop-up with associative choices (an enumerated type, if 
+	// the values are integers). This widget further requires 
+	// parameter metadata "options", a ‘|’-delimited string with 
+	// “key:value” pairs. For example:
+	int pattern = 0  [[ string widget = "mapper",
+						string options = "oak:0|elm:1|walnut:2" ]]
+"filename"
+	// A file selection dialog.
+	
+"null"
+	//A hidden widget.
+	
+float min
+float max
+int min
+int max
+	// The minimum and/or maximum value that the parameter may 
+	// take on.
+
+float sensitivity
+int sensitivity
+	// The precision or step size for incrementing or decrementing 
+	// the value (within the appropriate min/max range).
+
+int digits
+	// The number of digits to show (-1 for full precision).
+
+int slider
+	// If nonzero, enables display of a slider sub-widget. This 
+	// also respects the following additional metadata that 
+	// control the slider specifically: "slidermin" (minimum value 
+	// for the slider, "slidermax" (maximum value for the slider), 
+	// "slidercenter" (origin value for the slider), 
+	// "sliderexponent" (nonlinear slider options).
+
+string URL
+	// Provides a URL for full documentation of the shader or 
+	// parameter.
+
+string units
+	// Gives the assumed units, if any, for the parameter (e.g., 
+	// "cm", "sec", "degrees"). The compiler or renderer may issue 
+	// a warning if it detects that this assumption is being 
+	// violated (for example, the compiler can warn if a "degrees" 
+	// variable is passed as the argument to cos).

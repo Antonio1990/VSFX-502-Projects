@@ -1,0 +1,13 @@
+rman slim "set p [slim FindPalette \"TemplateTest\"]";
+rman slim "if { $p == \"\" } { set p [slim CreatePalette -new -edit] }";
+rman slim "[$p SetLabel \"TemplateTest\"]";
+rman slim "[$p UpdateEditor]";
+rman slim "[slim WindowCmd Show $p]";
+rman slim "set entries [$p GetAppearances -name \"*\"]";
+rman slim "if { [llength $entries] > 0 } { [$p DeleteEntries $entries -remove] }";
+
+rman slim "set shader [$p CreateInstance -file \"_SHADER_PATH_.slo\"]";
+rman slim "[$shader PreviewRender]";
+rman slim "[$p UpdateEditor]";
+rman slim "[slim WindowCmd Show $p]";
+rman slim "[$shader Edit]";

@@ -1,0 +1,99 @@
+<!--
+ - PROPRIETARY INFORMATION.  This software is proprietary to
+ - Side Effects Software Inc., and is not to be reproduced,
+ - transmitted, or disclosed in any way without written permission.
+ -
+ -	Side Effects
+ -	477 Richmond Street West
+ -	Toronto, Ontario
+ -	Canada   M5V 3E7
+ -	416-504-9876
+ -->
+
+<html>
+
+<head>
+   <title> VEX Compiler Reference</title>
+</head>
+
+<body bgcolor="#ffffff" text="#000000">
+
+<table width=100%>
+<tr>
+   <td><img hspace=15 vspace=5 ALT="[SESI logo]" SRC="logo.jpg"</td>
+   <td>
+      <center>
+         <h1>VEX Language Reference - Version 7.0</h1>
+	 Side Effects Software Inc.  2004
+      </center>
+   </td>
+</tr>
+</table>
+
+<hr>
+<center><h1>Changes since Houdini 6.0</h1></center>
+
+These are highlights of major changes since the <a href="changes5.5.html">
+6.0 release</a> of houdini.<p>
+
+<menu>
+    <li> <a href="#ch_func">Function Additions/Modifications</a>
+    <li> <a href="#ch_comp">Compiler Additions/Modifications</a>
+</menu>
+
+<!-------------------------------------------------------------------!>
+<a name="ch_func"></a>
+<hr>
+<center><h1> Function Additions/Modifications </h1></center>
+<menu>
+    <li> In the SOP/POP contexts, there is a new function
+	 <b>computenormal</b> which can be used to control the generation
+	 of the normal attribute from within the VEX function.
+	 <p>
+
+    <li> There are new functions for querying metaball geometry from
+	 disk files.  The <a
+	 href="functions.html#fn_metastart">metastart</a>, <a
+	 href="functions.html#fn_metastart">metanext</a> and <a
+	 href="functions.html#fn_metastart">metaimport</a> functions
+	 can be used to evaluate metaball attributes per-metaball.
+	 This provides a more general interface to evaluating metaball
+	 fields.  These functions are available in all VEX
+	 contexts.<p>
+
+    <li> There is a new function, <a href="functions.html#fn_getbounds">
+	 getbounds</a> which returns the bounding box of a geometry
+	 file on disk.<p>
+</menu>
+
+<!-------------------------------------------------------------------!>
+<a name="ch_comp"></a>
+<hr>
+<center><h1> Compiler Additions/Modifications </h1></center>
+<menu>
+    <li> The <b>hint</b> pragma accepts a number of new options for
+	configuring the UI for individual parameters.  It accepts the
+	additional values <b>vector</b>, <b>vector4</b>, <b>uv</b>,
+	and <b>uvw</b>.  See the
+	<a href="compiler.html#pr_hint">#pragma hint</a> documentation
+	for more information.
+	<p>
+    <li> The <b>choice</b> pragma has two new variants,
+	<b>choicereplace</b> and <b>choicetoggle</b>.  These new
+	pragmas create different styles of menus. See the
+	<a href="compiler.html#pr_choice">#pragma choice</a>
+	documentation for more information.
+	<p>
+</menu>
+
+<!-------------------------------------------------------------------!>
+<hr>
+<center>
+<font size=-2>
+  Copyright &#169; 1999-2004 Side Effects Software Inc.<br>
+  477 Richmond Street West, Toronto, Ontario, Canada M5V 3E7
+</font>
+</center>
+
+</body>
+</html>

@@ -1,0 +1,1 @@
+	<param name="CPP_NAME" label="UI_NAME" type="color" default="1 1 1" input="True" widget="color" tag="color and pattern"/>

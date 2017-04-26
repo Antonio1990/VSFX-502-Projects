@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Built-In Commands - while manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<h3><a name="M2">NAME</a></h3>
+
+<p>while - Execute script repeatedly as long as a condition is
+met</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>while</b> <i>test body</i><br>
+</p>
+
+<h3><a name="M4">DESCRIPTION</a></h3>
+
+<p>The <b>while</b> command evaluates <i>test</i> as an expression
+(in the same way that <b><a href="../TclCmd/expr.htm">expr</a></b>
+evaluates its argument). The value of the expression must a proper
+boolean value; if it is a true value then <i>body</i> is executed
+by passing it to the Tcl interpreter. Once <i>body</i> has been
+executed then <i>test</i> is evaluated again, and the process
+repeats until eventually <i>test</i> evaluates to a false boolean
+value. <b><a href="../TclCmd/continue.htm">Continue</a></b>
+commands may be executed inside <i>body</i> to terminate the
+current iteration of the loop, and <b><a href=
+"../TclCmd/break.htm">break</a></b> commands may be executed inside
+<i>body</i> to cause immediate termination of the <b>while</b>
+command. The <b>while</b> command always returns an empty
+string.</p>
+
+<p>Note: <i>test</i> should almost always be enclosed in braces. If
+not, variable substitutions will be made before the <b>while</b>
+command starts executing, which means that variable changes made by
+the loop body will not be considered in the expression. This is
+likely to result in an infinite loop. If <i>test</i> is enclosed in
+braces, variable substitutions are delayed until the expression is
+evaluated (before each loop iteration), so changes in the variables
+will be visible. For an example, try the following script with and
+without the braces around <b>$x&lt;10</b>:</p>
+
+<pre>
+set x 0
+while {$x&lt;10} {
+    puts "x is $x"
+    incr x
+}
+</pre>
+
+<h3><a name="M5">SEE ALSO</a></h3>
+
+<p><b><a href="../TclCmd/break.htm">break</a></b>, <b><a href=
+"../TclCmd/continue.htm">continue</a></b>, <b><a href=
+"../TclCmd/for.htm">for</a></b>, <b><a href=
+"../TclCmd/foreach.htm">foreach</a></b></p>
+
+<h3><a name="M6">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/B.htm#boolean value">boolean value</a>, <a
+href="../Keywords/L.htm#loop">loop</a>, <a href=
+"../Keywords/T.htm#test">test</a>, <a href=
+"../Keywords/W.htm#while">while</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1993 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1997 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

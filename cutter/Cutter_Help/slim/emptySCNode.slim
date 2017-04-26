@@ -1,0 +1,49 @@
+slim 1 extensions AUTHOR {
+extensions STUDIO PREFIX {
+	template shadingcomponent UNTITLED_SC {
+		description {
+			Description of the node goes here.
+			}
+		previewinfo {
+			shadingrate 1
+			objectsize 1
+			objectshape Sphere
+			frame 1
+			}
+		#__custom parameters Begin____________
+
+
+		#__custom parameters End______________
+
+		parameter normal norm {
+			detail mustvary "pixar,ShadingNormal"
+			}
+
+		collection shadingcomponent result {
+			access output
+			display hidden
+			parameter color col {
+				access output
+				}
+			# This expands to a sequence of parameter
+			# blocks specifying Pixars pre-defined AOVs
+			eval [::aovOutputParameterMacro]
+			}
+		RSLInclude "pxslAOV.h"
+		RSLSource StaticFunction {
+		void cutrUNTITLED_SC (
+			//parameter vars goes here...
+			//
+			normal norm;
+			output color col;
+			DECLARE_AOV_OUTPUT_PARAMS
+			)
+		{
+		INIT_AOV_OUTPUT_PARAMS
+
+		// NOTE: This node does not update the standard AOVs.
+		// For examples of how AOVs are passed through a node
+		// refer to components.slim
+		col = diffuse(norm);
+		}
+} } } }

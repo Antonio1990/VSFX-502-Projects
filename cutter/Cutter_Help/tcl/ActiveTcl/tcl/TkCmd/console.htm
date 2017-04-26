@@ -1,0 +1,285 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Tk Built-In Commands - console manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<dl>
+<dd><a href="console.htm#M2" name="L354">NAME</a> 
+
+<dl>
+<dd>console - Control the console on systems without a real
+console</dd>
+</dl>
+</dd>
+
+<dd><a href="console.htm#M3" name="L355">SYNOPSIS</a> 
+
+<dl>
+<dd><b>console title</b> ?<i>string</i>?</dd>
+
+<dd><b>console hide</b></dd>
+
+<dd><b>console show</b></dd>
+
+<dd><b>console eval</b> <i>script</i></dd>
+</dl>
+</dd>
+
+<dd><a href="console.htm#M4" name="L356">DESCRIPTION</a> 
+
+<dl>
+<dd><a href="console.htm#M5" name="L357"><b>console eval</b>
+<i>script</i></a></dd>
+
+<dd><a href="console.htm#M6" name="L358"><b>console
+hide</b></a></dd>
+
+<dd><a href="console.htm#M7" name="L359"><b>console
+show</b></a></dd>
+
+<dd><a href="console.htm#M8" name="L360"><b>console title</b>
+?<i>string</i>?</a></dd>
+</dl>
+</dd>
+
+<dd><a href="console.htm#M9" name="L361">ACCESS TO THE MAIN
+INTERPRETER</a> 
+
+<dl>
+<dd><a href="console.htm#M10" name="L362"><b>consoleinterp eval</b>
+<i>script</i></a></dd>
+
+<dd><a href="console.htm#M11" name="L363"><b>consoleinterp
+record</b> <i>script</i></a></dd>
+</dl>
+</dd>
+
+<dd><a href="console.htm#M12" name="L364">ADDITIONAL TRAP
+CALLS</a></dd>
+
+<dd><a href="console.htm#M13" name="L365">DEFAULT BINDINGS</a></dd>
+
+<dd><a href="console.htm#M14" name="L366">KEYWORDS</a></dd>
+
+<dd><a href="console.htm#M15" name="L367">SEE ALSO</a></dd>
+</dl>
+
+<hr>
+<h3><a name="M2">NAME</a></h3>
+
+<p>console - Control the console on systems without a real
+console</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>console title</b> ?<i>string</i>?<br>
+<b>console hide</b><br>
+<b>console show</b><br>
+<b>console eval</b> <i>script</i><br>
+</p>
+
+<h3><a name="M4">DESCRIPTION</a></h3>
+
+<p>The console window is a replacement for a real console to allow
+input and output on the standard I/O channels on platforms that do
+not have a real console. It is implemented as a separate
+interpreter with the Tk toolkit loaded, and control over this
+interpreter is given through the <b>console</b> command. The
+behaviour of the console window is defined mainly through the
+contents of the <i>console.tcl</i> file in the Tk library (or the
+<i>Console</i> resource on Macintosh systems.)</p>
+
+<dl>
+<dt><a name="M5"><b>console eval</b> <i>script</i></a></dt>
+
+<dd>Evaluate the <i>script</i> argument as a Tcl script in the
+console interpreter. The normal interpreter is accessed through the
+<b>consoleinterp</b> command in the console interpreter.</dd>
+
+<dt><a name="M6"><b>console hide</b></a></dt>
+
+<dd>Hide the console window from view. Precisely equivalent to
+withdrawing the <b>.</b> window in the console interpreter.</dd>
+
+<dt><a name="M7"><b>console show</b></a></dt>
+
+<dd>Display the console window. Precisely equivalent to
+deiconifying the <b>.</b> window in the console interpreter.</dd>
+
+<dt><a name="M8"><b>console title</b> ?<i>string</i>?</a></dt>
+
+<dd>Query or modify the title of the console window. If
+<i>string</i> is not specified, queries the title of the console
+window, and sets the title of the console window to <i>string</i>
+otherwise. Precisely equivalent to using the <b><a href=
+"../TkCmd/wm.htm">wm title</a></b> command in the console
+interpreter.</dd>
+</dl>
+
+<h3><a name="M9">ACCESS TO THE MAIN INTERPRETER</a></h3>
+
+<p>The <b>consoleinterp</b> command in the console interpreter
+allows scripts to be evaluated in the main interpreter. It supports
+two subcommands: <b><a href="../TclCmd/eval.htm">eval</a></b> and
+<b>record</b>.</p>
+
+<dl>
+<dt><a name="M10"><b>consoleinterp eval</b> <i>script</i></a></dt>
+
+<dd>Evaluates <i>script</i> as a Tcl script at the global level in
+the main interpreter.</dd>
+
+<dt><a name="M11"><b>consoleinterp record</b>
+<i>script</i></a></dt>
+
+<dd>Records and evaluates <i>script</i> as a Tcl script at the
+global level in the main interpreter as if <i>script</i> had been
+typed in at the console.</dd>
+</dl>
+
+<h3><a name="M12">ADDITIONAL TRAP CALLS</a></h3>
+
+<p>There are several additional commands in the console interpreter
+that are called in response to activity in the main interpreter.
+<i>These are documented here for completeness only; they form part
+of the internal implementation of the console and are likely to
+change or be modified without warning.</i></p>
+
+<p>Output to the console from the main interpreter via the stdout
+and stderr channels is handled by invoking the
+<b>tk::ConsoleOutput</b> command in the console interpreter with
+two arguments. The first argument is the name of the channel being
+written to, and the second argument is the string being written to
+the channel (after encoding and end-of-line translation processing
+has been performed.)</p>
+
+<p>When the <b>.</b> window of the main interpreter is destroyed,
+the <b>tk::ConsoleExit</b> command in the console interpreter is
+called (assuming the console interpreter has not already been
+deleted itself, that is.)</p>
+
+<h3><a name="M13">DEFAULT BINDINGS</a></h3>
+
+<p>The default script creates a console window (implemented using a
+text widget) that has the following behaviour:</p>
+
+<dl>
+<dt>[1]</dt>
+
+<dd>Pressing the tab key inserts a TAB character (as defined by the
+Tcl \t escape.)</dd>
+
+<dt>[2]</dt>
+
+<dd>Pressing the return key causes the current line (if complete by
+the rules of <b><a href="../TclCmd/info.htm">info complete</a></b>)
+to be passed to the main interpreter for evaluation.</dd>
+
+<dt>[3]</dt>
+
+<dd>Pressing the delete key deletes the selected text (if any text
+is selected) or the character to the right of the cursor (if not at
+the end of the line.)</dd>
+
+<dt>[4]</dt>
+
+<dd>Pressing the backspace key deletes the selected text (if any
+text is selected) or the character to the left of the cursor (of
+not at the start of the line.)</dd>
+
+<dt>[5]</dt>
+
+<dd>Pressing either Control+A or the home key causes the cursor to
+go to the start of the line (but after the prompt, if a prompt is
+present on the line.)</dd>
+
+<dt>[6]</dt>
+
+<dd>Pressing either Control+E or the end key causes the cursor to
+go to the end of the line.</dd>
+
+<dt>[7]</dt>
+
+<dd>Pressing either Control+P or the up key causes the previous
+entry in the command history to be selected.</dd>
+
+<dt>[8]</dt>
+
+<dd>Pressing either Control+N or the down key causes the next entry
+in the command history to be selected.</dd>
+
+<dt>[9]</dt>
+
+<dd>Pressing either Control+B or the left key causes the cursor to
+move one character backward as long as the cursor is not at the
+prompt.</dd>
+
+<dt>[10]</dt>
+
+<dd>Pressing either Control+F or the right key causes the cursor to
+move one character forward.</dd>
+
+<dt>[11]</dt>
+
+<dd>Pressing F9 rebuilds the console window by destroying all its
+children and reloading the Tcl script that defined the console's
+behaviour.</dd>
+</dl>
+
+<p>Most other behaviour is the same as a conventional text widget
+except for the way that the <i>&lt;&lt;Cut&gt;&gt;</i> event is
+handled identically to the <i>&lt;&lt;Copy&gt;&gt;</i> event.</p>
+
+<h3><a name="M14">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/C.htm#console">console</a>, <a href=
+"../Keywords/I.htm#interpreter">interpreter</a>, <a href=
+"../Keywords/W.htm#window">window</a>, <a href=
+"../Keywords/I.htm#interactive">interactive</a>, <a href=
+"../Keywords/O.htm#output channels">output channels</a></p>
+
+<h3><a name="M15">SEE ALSO</a></h3>
+
+<p><b><a href="../TkCmd/destroy.htm">destroy</a></b>, <b><a href=
+"../TclCmd/fconfigure.htm">fconfigure</a></b>, <b><a href=
+"../TclCmd/history.htm">history</a></b>, <b><a href=
+"../TclCmd/interp.htm">interp</a></b>, <b><a href=
+"../TclCmd/puts.htm">puts</a></b>, <b><a href=
+"../TkCmd/text.htm">text</a></b>, <b><a href=
+"../TkCmd/wm.htm">wm</a></b></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 2001 Donal K. Fellows
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

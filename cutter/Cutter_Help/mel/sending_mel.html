@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+"http://www.w3.org/TR/REC-html40/loose.dtd">
+
+
+<!-- Author Malcolm Kesson -->
+<HTML>
+<HEAD>
+<TITLE>Cutter Help - Preparing Maya</TITLE>
+
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+
+<FONT SIZE="3" FACE="HELVETICA" COLOR="black"><B>Cutter Help</B></FONT><BR>
+<FONT SIZE="3" FACE="HELVETICA" COLOR="red"><B>PREPARING MAYA</B></FONT><BR>
+<BR>
+<P>
+To enable Maya to receive Mel scripts from Cutter open the script window<BR>
+and enter this mel command.<BR>
+</P>
+<PRE>    commandPort -n ":2222";</PRE>
+<P>
+Press the enter key on the numerica keypad. This command tells Maya to<BR>
+"listen" for connections on port "2222". There is no special significance<BR>
+to using 2222 - it could be any number so long as it does not clash with<BR>
+a reserved port number. Stay with 2222 and you will have no problems!<BR>
+Make a note of the IP addess of the computer on which Maya is running<BR>
+On the Windows operating system, open a command window and type,<BR>
+</P>
+<PRE>    ipconfig</PRE>
+<P>
+The IP address will be four numbers separated by periods, for example,<BR>
+</P>
+<PRE>    10.7.101.30</PRE>
+<P>
+You are now ready to begin a Cutter/Maya session. Either open an existing<BR>
+mel script or open a new window. Press the button in the top right hand<BR>
+corner of the window. Some network options will appear below the regular<BR>
+text controls.
+<BR>
+<BR>
+Select "Peer" from the popup menu. Enter the IP address that you previusly<BR>
+made a note of into the IP text field. The "port" text field should already<BR>
+dispay number "2222". Click on the selection box that appears immediately<BR>
+to the right of the port text field. After a very brief pause a small "client<BR>
+log" window will open. Maya will return messages to this window, though it<BR>
+has to be said the messages are fairly uninformative!<BR>
+<BR>
+Cutter will warn you if a network connection cannot be established. To test<BR>
+the connection type this command and either click the "send" button or press<BR>
+control+e or alt+e ("e" for execute").
+</P>
+<PRE>    sphere</PRE>
+<P>
+A nurbs sphere should appear in Maya's main window.
+</P>
+</BODY>
+</HTML>

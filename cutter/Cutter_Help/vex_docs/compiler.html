@@ -1,0 +1,1721 @@
+<!--
+ - PROPRIETARY INFORMATION.  This software is proprietary to
+ - Side Effects Software Inc., and is not to be reproduced,
+ - transmitted, or disclosed in any way without written permission.
+ -
+ -	Side Effects
+ -	477 Richmond Street West
+ -	Toronto, Ontario
+ -	Canada   M5V 3E7
+ -	416-504-9876
+ -->
+
+<html>
+
+<head>
+   <title> VEX Compiler Reference</title>
+</head>
+
+<body bgcolor="#ffffff" text="#000000">
+
+<table width=100%>
+<tr>
+   <td><img hspace=15 vspace=5 ALT="[SESI logo]" SRC="logo.jpg"</td>
+   <td>
+      <center>
+         <h1>VEX Language Reference - Version 7.0</h1>
+	 Side Effects Software Inc.  2004
+      </center>
+   </td>
+</tr>
+</table>
+
+<hr>
+<center><h1>VEX Compiler Reference</h1></center>
+
+<menu>
+    <li> <a href="#cg_basic">Basic Language Information</a>
+    <li> <a href="#cg_structure">Language Structure</a>
+    <li> <a href="#cg_cpp">The Pre-Processor</a>
+    <li> <a href="#cg_vcc">VCC Options</a>
+    <li> <a href="#cg_crypt">Encryption of source</a>
+    <li> <a href="#cg_types">Data Types</a>
+    <li> <a href="#cg_casting">Type Casting</a>
+    <li> <a href="#cg_pragma">Pragma Definitions</a>
+</menu>
+
+<hr>
+<a name="cg_basic">
+<center><h1>Basic Language Information</h1></center>
+</a>
+
+The compiler (<b>vcc</b>) compiles VEX code into an "executable" form.
+VEX is loosely based on the C language but takes pieces from C++ as
+well as the RenderMan(tm) shading language.<p>
+
+Unlike C or C++ VEX has different "contexts" for compiling.  These
+contexts define how the function is to be used.  For example, one
+context is the "COP" context.  Functions written in this context can
+only be used to do image compositing.  The "POP" context is a
+different context where functions are used to define the motion or
+attributes of particle systems.  While a COP function processes pixel
+color information, a POP function deals with particle velocities
+and positions.  Therefore, the information and functions required for
+each "context" have to be slightly different.<p>
+
+Each VEX context has different global variables as well as a special
+set of runtime functions suited to the context.<p>
+
+It is also possible to define user functions which return one of the
+standard VEX types (or void).  These functions must be declared before
+they are referenced.  The functions are in-lined automatically by the
+compiler, meaning that recursion is not possible.<p>
+
+Like with the RenderMan(tm) shading language, parameters to user
+functions are always passed by reference.  This means that
+modifications in a user function affect the variable the function was
+called with.<p>
+
+The RenderMan(tm) shading language has certain restrictions on user
+functions which do not exist in VEX.  It is possible to have multiple
+return points from within user functions.  It is also possible to
+reference global variables from within user functions without
+requiring "extern" declarations.  Although it is possible to reference
+global variables, this practice is discouraged since this limits the
+function to be used solely within the context containing the global
+variables referenced.  Since parameters are passed by reference, it is
+probably better coding practice to pass references for global
+variables to be modified within a user function.<p>
+
+The compiler expects that each source file contains one (and only one)
+context function definition.  Any number of user functions can be
+defined.<p>
+
+Parameters to context functions are dealt with in a special way with
+VEX.  It is possible to override a parameter's value using a geometry
+attribute with the same name as the variable.  Aside from this special
+case, parameters should be considered "const" within the scope of the
+shader.  This means that it is illegal to modify a parameter value.
+The compiler will generate errors if this occurs.<p>
+
+The RenderMan(tm) style of parameter declaration is used by VEX.  This
+is similar to the ANSI C/C++ style of parameter declarations with
+some minor differences for context functions.<p>
+
+<ol>
+    <li> Parameters to a context function must be declared with
+	 default values.  This does not apply to user functions.
+    <li> Parameters of the same are declared in a comma
+	 separated list without needing to re-declare the type.
+    <li> Different type declarations must be separated by a
+	 semi-colon.
+</ol>
+
+Some examples of function declarations are:<p>
+<listing>
+    void
+    user_function1(float a, b; vector c) {...}
+
+    cop
+    cop_function(float a=0, b=0; vector c=1) {...}
+
+    pop
+    pop_function(string a="string1", b="string2";
+		 float c = 1, d = 1.3;
+		 vector e={1,2,3}, f={-1,0,.1}) {...}
+</listing>
+
+<hr>
+<a name="cg_structure">
+<center><h1>Language Structure</h1></center>
+</a>
+
+The structure of VEX is similar to the structure of a C program.  A
+function is declared and consists of statements which operate on
+variables.  Expressions are defined using the standard C operators
+which have the precedence as follows:<br><br>
+<center>
+  <table border=1 cellpadding=5>
+    <tr bgcolor=black>
+	 <td><font color=white><b>Operator</b></font></td>
+	 <td><font color=white><b>Associativity</b></font></td>
+	 <td><font color=white><b>Function</b></font></td>
+    </tr>
+
+    <tr>
+	<td><b> ( ) &nbsp;&nbsp;&nbsp. </b></td>
+	<td> left to right </td>
+	<td> Function call or expression grouping, Structure member</td>
+    </tr>
+
+    <tr>
+	<td><b> ! ~ + - ++ -- (type)</b></td>
+	<td> right to left </td>
+	<td> Logical negation, ones complement, unary plus, unary
+	     minus, increment, decrement, explicit type cast</td>
+    </tr>
+
+    <tr>
+	<td><b> * / % </b></td>
+	<td> left to right </td>
+	<td> Multiplication, Division, Modulus </td>
+    </tr>
+
+    <tr>
+	<td><b> + - </b></td>
+	<td> left to right </td>
+	<td> Addition, Subtraction </td>
+    </tr>
+
+    <tr>
+	<td><b> &lt &gt &lt= &gt= </b></td>
+	<td> left to right </td>
+	<td> Less than, Greater than, Less or equal, Greater or equal</td>
+    </tr>
+
+    <tr>
+	<td><b> == != </b></td>
+	<td> left to right </td>
+	<td> Equal, Not equal </td>
+    </tr>
+
+    <tr>
+	<td><b> & </b></td>
+	<td> left to right </td>
+	<td> Bitwise and </td>
+    </tr>
+
+    <tr>
+	<td><b> ^ </b></td>
+	<td> left to right </td>
+	<td> Bitwise exclusive or </td>
+    </tr>
+
+    <tr>
+	<td><b> | </b></td>
+	<td> left to right </td>
+	<td> Bitwise or </td>
+    </tr>
+
+    <tr>
+	<td><b> && </b></td>
+	<td> left to right </td>
+	<td> Logical and </td>
+    </tr>
+
+    <tr>
+	<td><b> || </b></td>
+	<td> left to right </td>
+	<td> Logical or </td>
+    </tr>
+
+    <tr>
+	<td><b> ? : </b></td>
+	<td> left to right </td>
+	<td> Conditional </td>
+    </tr>
+
+    <tr>
+	<td><b> = += -= *= /= %= &= ^= |= </b></td>
+	<td> right to left </td>
+	<td> Assignment (or short-hand assignment)</td>
+    </tr>
+
+    <tr>
+	<td><b> , </b></td>
+	<td> left to right </td>
+	<td> Comma </td>
+    </tr>
+
+  </table>
+</center>
+
+<h3> Statements </h3>
+
+The basic control statements in VEX are:<br>
+
+<menu>
+    <li><b> { } </b><br><br>
+
+    Multiple statements may be grouped together to form one statement
+    by enclosing the statements in-side of curly braces.<p>
+
+    <li><b>if-else</b><br><br>
+
+    One of two statements will be executed.<br>
+    <listing>
+	<b>if</b> (boolean expression) statement [ <b>else</b> statement ]
+    </listing>
+    where statement is either a single statement or a series of
+    statements enclosed by curly braces ({ }).  The <b>else</b> clause
+    is optional.<p>
+
+    <li><b>while</b><br><br>
+
+    A statement can be executed repeatedly with the while construct.
+    The statement is repeated as long as the boolean expression is true.
+    <listing>
+	<b>while</b> (boolean expression) statement
+    </listing><p>
+
+    <li><b>for</b><br><br>
+
+    Like the <b>while</b> statement, the for statement can execute a
+    statement repeatedly.
+    <listing>
+	<b>for</b> (expr; boolean_expression; expr) statement
+    </listing>
+    The first expression is executed once before the loop is entered.
+    The boolean expression is evaluated before the execution of the
+    statement.  The statement is evaluated only if the boolean
+    expression is true.  The second expression is evaluated after the
+    statement.<p>
+
+    <li><b>break</b><br><br>
+
+    A <b>for</b> or <b>while</b> loop can be terminated by using the
+    break statement.  Unlike the C language, there is currently no
+    <b>continue</b> statement.<p>
+
+    <li><b>return</b><br><br>
+
+    A user function (not a context function) can terminate execution
+    at any time by using the return statement.  If the function is
+    non-void (i.e. returns a value), then the value must be specified.
+    <listing>
+	<b>return</b> expr
+    </listing>
+</menu>
+
+Some contexts have additional statements (i.e. the <a
+href="shading.html#illuminance">surface</a> context adds an
+<b>illuminance</b> statement to the language).  Please see the context
+specific information for further details.<p>
+
+<hr>
+<a name="cg_cpp">
+<center><h1>Compiler Pre-Processor</h1></center>
+</a>
+The compiler has a pre-processor which is responsible for macro
+expansion as well as stripping out comments.  Comments can be in
+either the C form (/* */) or the C++ form (//).  The pre-processor is
+also responsible for handling <a href="#cg_crypt">encryption</a> of
+source code.  The pre-processor supports many of the standard C
+Pre-Processor directives:
+<menu>
+    <li><b>#define</b> name token-string<br>
+	Replace subsequent instances of name with token-string.
+    <li><b>#define</b> name(arg,...,arg) token-string<br>
+	Replace subsequent instances of name with token-string.  Each
+	argument to name() is replaced in the token-string during
+	expansion.
+    <li><b>#undef</b> name
+	Un-define the name macro
+    <li><b>#include</b> "filename"<br>
+	<b>#include</b> &lt;filename&gt;<br>
+	Include the contents of the filename specified at this point
+	in the compilation.  When the quoted notation is used, the
+	"current" directory is searched before the standard locations
+	(include path).  The "current" directory is the location of
+	the current file being processed.
+    <li><b>#ifdef</b> name<br>
+	The lines following will be compiled if and only if name is a
+	defined macro.
+    <li><b>#ifndef</b> name<br>
+	The lines following will be compiled if and only if name is
+	not a defined macro.
+    <li><b>#if</b> constant-expr<br>
+	The lines following will be compiled if and only if the
+	constant-expr evaluates to non-zero.  The expression may
+	contain the operators:<br>
+	<menu>
+	    <li> Logical And/Or/Not (&&, ||, !)
+	    <li> Equality Operators (==, !=, &lt=, &gt=, &lt, &gt)
+	    <li> Bitwise And/Or/Exclusive Or/Not (&, |, ^, ~)
+	    <li> Arithmetic Operators (+, -, *, /, %)
+	    <li> Parentheses.
+	</menu>
+	Expressions are evaluated from left to right (unlike the ANSI
+	C standard of right to left).  As with the ANSI pre-procssor,
+	all numbers must be integers.<p>
+	As well, there are four special functions <b>defined(name)</b>,
+	<b>environment(name)</b>, <b>access(name)</b> and
+	<b>strcmp(str1, str2)</b>.
+	<b>defined</b> will return 1 if
+	the name is a defined macro or 0 if it is not.
+	<b>environment</b> will return 1 if there is an environment
+	variable or 0 if not.  For example, to test whether symbols
+	<b>foo</b> and <b>fum</b> are defined and the system variable
+	HFS is also defined:<br>
+	<listing>
+	    #if defined(foo) && defined(fum) && environment(HFS)
+	</listing>
+	The <b>strcmp</b> function works in the same fashion as the
+	C/C++ function of the same name.  If the two strings are
+	lexigraphically equal, the result of the strcmp() function is
+	zero.  Each argument to strcmp() should be either a quoted
+	string or a macro which expands to a quoted string.  For
+	example:<br>
+	<listing>
+	    #define VALUE "foo"
+	    #if strcmp(VALUE, "bar") != 0
+		This statement is false since "foo" != "bar"
+	    #endif
+	    #if !strcmp(VALUE, "foo")
+		This statement is TRUE since strcmp("foo", "bar") == 0
+	    #endif
+	</listing>
+	The <b>access</b> function works in a similar fashion as the
+	UNIX system call of the same name.  It will return 1 if the
+	filename specified can be read by the running application.  If
+	the file cannot be read, it will return 0.  For example:<br>
+	<listing>
+	    #if access("/etc/passwd")
+		#include &lt;/etc/passwd&gt;
+	    #endif
+	</listing>
+
+    <li><b>#else</b><br>
+	The lines following will be compiled if and only if the
+	preceding test directive evaluated to zero.
+    <li><b>#endif</b><br>
+	Ends a conditional secion of code begun by a test directive
+	(<b>#if, #ifdef, #ifndef</b>).  Every test directive must have
+	a matching <b>#endif</b>
+    <li><b>#pragma crypt</b><br>
+	The following lines should be <a href="#cg_crypt">encrypted</a>
+    <li><b>#pragma endcrypt</b><br>
+	End of an encryption block.
+</menu>
+
+Symbols can be defined using the -D option of <b>vcc</b>.<p>
+
+The compiler (<b>vcc</b>) has several pre-defined macros which can be
+used for compiling.
+<menu>
+    <li> <b>__vex</b><br>
+	This symbol is always defined so that you know the source is
+	being compiled by vcc.
+    <li> <b>__vex_major</b><br>
+	The major version number of the compiler being used to compile.
+    <li> <b>__vex_minor</b><br>
+	The minor version number of the compiler being used to compile.
+    <li> <b>__LINE__</b>
+	The current line of the source code being compiled.
+    <li> <b>__FILE__</b>
+	The current file being compiled.
+    <li> <b>__DATE__</b>
+	The current date (as a quoted string).  Example: "Dec 31 1999"
+    <li> <b>__TIME__</b>
+	The current time (as a quoted string).  Example: "23:59:59"
+</menu>
+
+<hr>
+<a name="cg_vcc">
+<center><h1>Compiler Options</h1></center>
+</a>
+
+The VEX compiler (vcc) is capable of compiling VEX code, generating
+dialog scripts for VEX functions and also giving quick help by listing
+the global variables and functions available in any given context.<p>
+
+<menu>
+    <li><b> -?, -H, -h</b><br>
+	Show help message for the compiler<p>
+
+    <li><b> -X context_name</b><br>
+	Rather than compiling code, this option will display the list
+	of global variables, VEX constructs and all functions
+	available for the context specified.<p>
+
+    <li><b> -D name=def, -D name</b><br>
+	Define a name for the pre-processor.  If no value is given
+	with the name, the name is defined with a value of 1.<p>
+
+    <li><b> -I path</b><br>
+	Add the path specified to the include path for the
+	pre-processor.  By default, the standard Houdini path is
+	searched for include files (under vex/include).<p>
+
+    <li><b> -o file</b><br>
+	By default, the compiler will generate the compiled .vex code
+	in the current directory.  This option allows you to specify
+	an alternate location and name for the output.<p>
+	It is possible to specify "stdout" as a filename.  In this
+	case, output will be generated to the stdout file descriptor
+	rather than a disk file.<p>
+
+<a name="cg_dashcopt">
+    <li><b> -c</b><br>
+</a>
+	Generate a binary/crypted version of the function.  This means
+	that the generated .vex file will not be readable by a human.
+	However, it can still be used by Houdini.  See also <a
+	href="#pr_crypt"> #pragma crypt</a>.<p>
+	
+    <li><b> -e file</b><br>
+	Send error messages to this file rather than stderr.<p>
+
+    <li><b> -w wlist</b><br>
+	The -w will supress the printing of the specified warnings.
+	The wlist should be a comma separated list of warning numbers
+	to suppress.<p>
+
+    <li><b> -q, -Q</b><br>
+	The -q will cause the compiler to omit printing of messages.  The
+	-Q option will supress both messages and warnings.  Errors
+	will still be printed out with either option.<p>
+
+    <li><b> -i</b><br>
+	Make the generated .vex code more readable by indenting the
+	output based on nesting.<p>
+
+    <li><b> -u, -U</b><br>
+	Generate a corresponding dialog script for the VEX function.
+	This dialog script will be usable by Houdini to let the user
+	modify parameters interactively (rather than editing a
+	string).  If the -U option is specified, only the dialog
+	script file will be generated, compilation of the code will be
+	bypassed.<p>
+
+    <li><b> -g nparms</b><br>
+	When generating dialog scripts (with the -u or -U option), it
+	is possible to "auto-group" parameters in to groups of N
+	parameters.  If no groups are specified using the <a
+	href="#pr_group">#pragma group</a> directive, then this option
+	will force groups to be created with a maximum of
+	<b>nparms</b> per folder tab.<p>
+
+    <li><b> -v</b><br>
+	If you only have compiled VEX code, this option can be used to
+	extract the parameter information and build a dialog script
+	for the compiled code.  Warning:  All <a href="#cg_pragma">
+	pragma</a> information is lost in the compiled code so it is
+	much better to generate dialog scripts from the source code
+	where possible.<p>
+</menu>
+
+<hr>
+<a name="cg_crypt">
+<center><h1>Encryption</h1></center>
+
+In some cases, VEX code may contain proprietary algorithms which the
+author doesn't wish to become public knowledge.  The compiler has a
+special set of directives to turn on/off crypting (<b>#pragma
+crypt</b>, and <b>#pragma endcrypt</b>).  For example:
+
+<listing>
+    float
+    wavenoise(float height, float distance)
+    {
+    #pragma crypt
+	return sin(distance)*height;
+    #pragma endcrypt
+    }
+</listing>
+
+<br>
+When this code is compiled, the output of the compiler will be
+encrypted so that the code is reasonably secure.  However, since VEX
+does not support dynamic linking (i.e. linking of pre-compiled code),
+there is a utility <b>vcrypt</b> which will encrypt the specific
+portions of the source files.  The compiler can still read these
+encrypted files, however, the code contained will be secure.<p>
+
+If the compiler detects encrypted source in its input stream, then the
+final output will be encrypted.  This guarantees the integrity of the
+encryption (meaning it's not possible to reverse engineer an encrypted
+function by compiling it and decoding the assembler output).
+
+To generate encrypted object code, use the -c option on vcc.<p>
+The usage of the vcrypt program is:<p>
+<listing>
+    Usage:  vcrypt [source [destination]]
+</listing>
+
+If no source and destination files are specified, then input is read
+from stdin and output to stdout.  If no destination file is specified,
+the crypted code is output to stdout.<p>
+
+The <b>#pragma crypt</b> does not require a closing <b>#pragma
+endcrypt</b>.  The two directives can be thought of as turning
+encryption on and off.<p>
+
+It is also possible to generate encrypted compiled code by using the
+<a href="#cg_dashcopt"><b>-c</b> option</a> on the vcc command
+line.<p>
+
+<hr>
+<a name="cg_types">
+<center><h1>Data Types</h1></center>
+</a>
+
+VEX supports a fixed set of data types and does not allow user data
+types to be defined.  As well, arrays are not currently supported
+within VEX.  The data types supported by VEX are:<p>
+<center><table border=1 cellpadding=5>
+      <tr bgcolor=black>
+	 <td><font color=white><b>Type Name</b></font></td>
+	 <td><font color=white><b>Definition</b></font></td>
+	 <td><font color=white><b>Example</b></font></td>
+      </tr>
+
+      <tr>
+	<td><b>int</b></td>
+	<td>Integer values</td>
+	<td>21, -3, 0x31</td>
+      </tr>
+
+      <tr>
+	<td><b>float</b></td>
+	<td>Floating point scalar values</td>
+	<td>21.3, -3.2, 1.0</td>
+      </tr>
+
+      <tr>
+	<td><b>vector</b></td>
+	<td>Three floating point values.  These values can be used to
+	represent positions, directions, normals or colors (RGB or HSV)</td>
+	<td>{0,0,0}, {0.3,0.5,-0.5}</td>
+      </tr>
+
+      <tr>
+	<td><b>vector4</b></td>
+	<td>Four floating point values.  These values can be used to
+	represent positions in homogeneous coordinates, colors (RGBA)</td>
+	<td>{0,0,0,1}, {0.3,0.5,-0.5,0.2}</td>
+      </tr>
+
+      <tr>
+	<td><b>matrix3</b></td>
+	<td>Nine floating point values representing a 3D rotation
+	    matrix or a 2D transformation matrix.</td>
+	<td></td>
+      </tr>
+
+      <tr>
+	<td><b>matrix</b></td>
+	<td>Sixteen floating point values representing a 3D
+	    transformation matrix.</td>
+	<td></td>
+      </tr>
+
+      <tr>
+	<td><b>string</b></td>
+	<td>A string of characters.</td>
+	<td> "hello world", "Mandril.pic"</td>
+      </tr>
+</table></center>
+<p>
+The standard C operations are defined (with the standard precedence
+order).  There are several special exceptions to the C standard.
+<menu>
+    <li> Multiplication is defined between two <b>vectors</b> or
+	 <b>points</b>.  The multiplication performs an element by
+	 element multiplication (rather than a dot or cross
+	 product).<p>
+    <li> The dot operator (.) is defined only for <b>vector</b> and
+	 <b>vector4</b>.  The structure names have been arbitrarily
+	 chosen to be:<p>
+	 <menu>
+	    <li> <b>.x</b> or <b>.r</b> to reference the first data
+		 element.
+	    <li> <b>.y</b> or <b>.g</b> to reference the second data
+		 element.
+	    <li> <b>.z</b> or <b>.b</b> to reference the third data
+		 element.
+	    <li> <b>.w</b> or <b>.a</b> to reference the fouth data
+		 element (for <b>vector4</b> types only).
+	 </menu><p>
+    <li> Many operators are defined for non-scalar data types (i.e. a
+	 vector multiplied by a matrix will transform the vector by
+	 the matrix).<p>
+    <li> Constants are declared in a similar fashion to C.<p>
+	<dd>
+	<table border=1>
+	<tr>
+	    <td> 1, 392, -43</td>
+	    <td> <b>integer</b> constants</td></tr>
+	<tr>
+	    <td> 1.0, 3.14, -1e3</td>
+	    <td> <b>float</b> constants</td></tr>
+	<tr>
+	    <td> {1,2,3}, {0,1,0}</td>
+	    <td> <b>vector</b> constants</td>
+	</tr>
+	<tr>
+	    <td> {1,2,3,4}, {0,1,0,1}</td>
+	    <td> <b>vector4</b> constants</td>
+	</tr>
+	<tr>
+	    <td> { {1,0,0}, {0,1,0}, {0,0,1} }</td>
+	    <td> <b>matrix3</b> constant</td>
+	</tr>
+	<tr>
+	    <td> { {1,0,0,0}, {0,1,0,0}, {0,0,1,0}, {0,0,0,1} }</td>
+	    <td> <b>matrix</b> constant</td>
+	</tr>
+	</table>
+</menu>
+
+Please see the <a href="functions.html"> Quick Reference</a> guide for
+a more complete guide to operators and functions.<p>
+
+<hr>
+<a name="cg_casting">
+<center><h1>Type Casting</h1></center>
+</a>
+
+There are two separate ways to cast a variable or return type in VEX.
+VEX is a polymorphic language, meaning that the same function can have
+different signatures to specify different calling syntaxes.  For
+example, the noise() function can take different arguments to generate
+1D, 2D, 3D, or 4D noise (noise(float), noise(float, float),
+noise(vector), noise(vector4)).  However, unlike similar languages
+(i.e. C++), the return code is also considered in constructing the
+signature of the function.  This is an open ended problem, so in many
+cases, it is possible to give the compiler a "hint" as to which
+version of the function should be used.<p>
+This is done by <b>function casting</b> which simply gives the
+compiler a hint as to which version of the function to use.  For
+example:
+<listing>
+    float	n;
+
+    n = noise(noise(P));
+</listing>
+
+As stated above, the noise function can take different sets of
+parameters.  However, there are also versions of the noise() function
+which return different types.  In particular, the noise() function can
+return either a <b>float</b> or a <b>vector</b>.<p>
+When generating code for the above fragment, the compiler has a choice
+for the nested noise function.  It can choose from:
+<ol>
+    <li> float noise(vector)
+    <li> vector noise(vector)
+</ol>
+Both of these forms of the noise() function are valid, so the compiler
+has to guess which version to use.  When it makes a guess, it will
+print out a warning:
+<listing>
+    WARNING (2005) Implicit casting failed for noise - guessing
+		   noise@VF - please try to use an explicit cast
+</listing>
+<p>
+
+To eliminate this warning, we can use an explicit function cast which
+takes the form:
+<listing>
+    n = noise( <b>vector(</b>noise(P)<b>)</b>);
+</listing>
+
+This form of cast generates no additional code, it just tells the
+compiler which version of the function to use.<p>
+
+The other form of casting involves additional code generation and
+therefore is less desirable than the previous function casting.  The
+second form is the form which is used in C and C++.<p>
+<listing>
+    n = noise( <b>(vector)</b> noise(P));
+</listing>
+
+This form will cause the compiler to guess the return code and then
+take the returned value and cast it to the type specified.  The
+compiler has some heuristics to attempt to minimize the cost of
+functions, so in the above case, the nested noise() function will
+return a float, which is then cast to a vector.  This is most likely
+not the desired behaviour, and is also more expensive.<p>
+
+However, the second form of casting is occasionally necessary.
+Consider the following example:
+
+<listing>
+    int		a, b;
+    float	c;
+
+    c = a / b;
+</listing>
+
+In this case, the compiler will generate the instruction for integer
+division.  If the floating point result is desired, then, it is
+important to cast the integers to floats.  This is done using the
+second form.<p>
+
+<listing>
+    c = (float)a / (float)b;
+</listing>
+
+This, however, will generate additional instructions to perform the
+cast of the variables.<p>
+
+The general rule of thumb is to try to perform function type casting
+as much as you want.  There is no run-time cost to this casting and it
+ensures correct code generation.  However, it is also a good rule of
+thumb to avoid variable casting since this can incur a run-time
+cost.<p>
+
+<a name="cg_pragma">
+<hr>
+<center><h1>VEX Compiler Pragmas</h1></center>
+
+The VEX compiler (vcc) supports pragmas for automatically building UI
+dialog scripts.  These pragmas are typically ignored unless the -u
+option is specified on the vcc command line.  The pragma's allow
+specification of help, hints for how to represent the parameter,
+improving readability etc.<p>
+
+The pragmas supported are:
+<menu>
+    <li> <a href="#pr_callback">	#pragma callback</a>
+    <li> <a href="#pr_crypt">		#pragma crypt</a>
+    <li> <a href="#pr_help">		#pragma help</a>
+    <li> <a href="#pr_info">		#pragma info</a>
+    <li> <a href="#pr_name">		#pragma name</a>
+    <li> <a href="#pr_label">		#pragma label</a>
+    <li> <a href="#pr_parmhelp">	#pragma parmhelp</a>
+    <li> <a href="#pr_hint">		#pragma hint</a>
+    <li> <a href="#pr_range">		#pragma range</a>
+    <li> <a href="#pr_choice">		#pragma choice</a>
+    <li> <a href="#pr_disable">		#pragma disable</a>
+    <li> <a href="#pr_group">		#pragma group</a>
+    <li> <a href="#pr_rendermask">	#pragma rendermask</a>
+    <li> <a href="#pr_export">		#pragma export</a>
+    <li> <a href="#pr_handle">		#pragma bindhandle</a>
+    <li> <a href="#pr_handlereserved">	#pragma bindhandlereserved</a>
+    <li> <a href="#pr_selector">	#pragma bindselector</a>
+    <li> <a href="#pr_selectorreserved">#pragma bindselectorreserved</a>
+    <li> <a href="#pr_opname">		#pragma opname</a>
+    <li> <a href="#pr_oplabel">		#pragma oplabel</a>
+    <li> <a href="#pr_opshader">	#pragma opshader</a>
+    <li> <a href="#pr_opicon">		#pragma opicon</a>
+    <li> <a href="#pr_opmininputs">	#pragma opmininputs</a>
+    <li> <a href="#pr_opmaxinputs">	#pragma opmaxinputs</a>
+    <li> <a href="#pr_inputlabel">	#pragma inputlabel</a>
+    <li> <a href="#pr_parmtag">		#pragma parmtag</a>
+</menu>
+
+<hr> <!--------------------------------------------------------!>
+<a name="pr_callback">
+<h3>#pragma callback <i>name script</i></h3>
+
+If this pragma is a little on the esoteric side.  It allows an hscript
+command file to be bound to the parameter specified by name.  If the
+UI dialog script is bound to a Houdini operator (i.e. a SHOP, SOP,
+POP, etc.), when the parameter is changed, the script specified will
+be executed.<p>
+
+Because of architectural limitations in Houdini, certain criteria need
+to be met for this #pragma to work:
+<ol>
+    <li> The dialog script needs to be bound to a Houdini Operator
+	 (i.e. SHOP, POP, SOP, etc.)
+    <li> The parameter needs to be either a toggle button, or have a
+	 menu bound to it (see <a href="#pr_hint">#pragma hint</a> and
+	 <a href="#pr_choice">#pragma choice</a>).
+</ol>
+
+<b>Example:</b>
+<listing>
+    #pragma callback initialize_menu "sop/initialize_sop.cmd"
+</listing>
+
+The standard $HOUDINI_PATH/scripts path is searched for the script to
+run.  If the script is found, then a local variable
+<b>$script_parm</b> will be set to the name of the parameter being
+changed, and the script will be executed.  For example, with the above
+specification, the following hscript commands would be run:
+<listing>
+    set -l script_parm initialize_menu
+    source -q sop/initialize_sop.cmd
+</listing>
+<p>
+
+<hr> <!--------------------------------------------------------!>
+<a name="pr_crypt">
+<h3>#pragma crypt</h3>
+
+If this pragma is found in the source, the generated VEX bytecode will
+be encrypted.  This prevents users of the source from reverse
+engineering the object code.<p>
+
+<hr> <!--------------------------------------------------------!>
+<a name="pr_help">
+<h3>#pragma help <i>"text"</i></h3>
+
+The help pragma will add the text argument to the help in the dialog
+script.  This can be used to give hints to users of the VEX code as to
+what parameters mean, what the code is useful for, etc.<p>
+
+<b>Example:</b>
+<listing>
+    #pragma help "This is help for the VEX function."
+    #pragma help "It gets added automatically to the help text"
+</listing>
+
+<hr> <!--------------------------------------------------------!>
+<a name="pr_info">
+<h3>#pragma info <i>"text"</i></h3>
+
+Like the help pragma, this information is displayed in the help
+for the dialog script.  However, the info text shows up in a separate
+section of the help at the very beginning of the help display.  This
+is intended to be used to specify any copyrights, version information,
+etc.<p>
+
+<b>Example:</b>
+<listing>
+    #pragma info "Created by Bob Loblaws - (c)1999"
+</listing>
+
+<b>Caveats:</b>
+At the current time, only SHOPs display the info text.
+
+<hr> <!--------------------------------------------------------!>
+<a name="pr_name">
+<h3>#pragma name <i>"text"</i></h3>
+
+This defines the label which appears in the UI.  This pragma is
+typically not required since the label is now usually defined in the
+operator table definition.<p>
+
+<b>Example:</b>
+<listing>
+    #pragma name "Shiny Marble"
+</listing>
+
+<hr> <!--------------------------------------------------------!>
+<a name="pr_label">
+<h3>#pragma label <i>parameter_name "text"</i></h3>
+
+This allows the definition of a more descriptive label for a
+parameter.<p>
+
+<b>Example:</b>
+<listing>
+    // The "amp" parameter represents noise amplitude
+    #pragma label amp	"Noise Amplitude"
+
+    displacement bumpy(float amp=0) {...}
+</listing>
+
+<hr> <!--------------------------------------------------------!>
+<a name="pr_parmhelp">
+<h3>#pragma parmhelp <i>parameter_name "parameter help text"</i></h3>
+
+This allows the definition of a help string that appears when the user
+hovers the mouse over the specified parameter label.<p>
+
+<b>Example:</b>
+<listing>
+    // The "amp" parameter represents noise amplitude
+    #pragma parmhelp amp	"Increase this value to add more noise."
+
+    displacement bumpy(float amp=0) {...}
+</listing>
+
+<hr> <!--------------------------------------------------------!>
+<a name="pr_hint">
+<h3>#pragma hint <i>parameter_name hint_type</i></h3>
+
+This pragma gives more information about what a parameter is meant to
+represent.  For example, in VEX, a vector may represent a point in
+space, a color or a direction.  This hint allows precise definition of
+what a parameter is intended to be used for.  The UI generated for
+the parameter will then reflect this hint.<p>
+
+<center><table border=1 width=80%>
+    <tr bgcolor=black>
+	<td><font color=white><b>Hint Type</b></td>
+	<td><font color=white><b>Meaning</b></td>
+    </tr>
+    <tr>
+	<td> <b>none</b> </td>
+	<td> No hint is available.</td>
+    </tr>
+    <tr>
+	<td> <b>toggle</b> </td>
+	<td> The integer (or float) parameter represents a toggle
+	     button.  The UI will generate a toggle button for this
+	     parameter and generate values 0 for off and 1 for on.
+	</td>
+    </tr>
+    <tr>
+	<td> <b>color</b> </td>
+	<td> The parameter represents a color.  The UI will generate
+	     color sliders for this parameter.
+	</td>
+    </tr>
+    <tr>
+	<td> <b>direction</b> </td>
+	<td> The parameter represents a direction vector.  The UI will
+	     generate a direction gadget for this parameter.
+	</td>
+    </tr>
+    <tr>
+	<td> <b>vector</b> </td>
+	<td> The parameter represents a 3 dimensional vector in space.
+	     The UI for this is the same as the default UI for a
+	     parameter with 3 floats.  The difference is that the
+	     channel names for this parameter will end with x, y, z
+	     instead of 1, 2, 3.
+	</td>
+    </tr>
+    <tr>
+	<td> <b>vector4</b> </td>
+	<td> The parameter represents a 4 dimensional vector in space.
+	     The UI for this is the same as the default UI for a
+	     parameter with 4 floats.  The difference is that the
+	     channel names for this parameter will end with x, y, z, w
+	     instead of 1, 2, 3, 4.
+	</td>
+    </tr>
+    <tr>
+	<td> <b>uv</b> </td>
+	<td> The parameter represents a pair of uv coordinates. The UI
+	     for this type of parameter will be two entry fields
+	     instead of three.  The third value passed to the VEX
+	     function will always be 0.  Also, the channel names for
+	     the parameter will end with u, v instead of 1, 2.
+	</td>
+    </tr>
+    <tr>
+	<td> <b>uvw</b> </td>
+	<td> The parameter represents a set of uvw coordinates.
+	     The UI for this is the same as the default UI for a
+	     parameter with 3 floats.  The difference is that the
+	     channel names for this parameter will end with u, v, w
+	     instead of 1, 2, 3.
+	</td>
+    </tr>
+    <tr>
+	<td> <b>angle</b> </td>
+	<td> The parameter represents a direction vector.  The UI will
+	     generate an angle gadget for this parameter.
+	</td>
+    </tr>
+    <tr>
+	<td> <b>file</b> </td>
+	<td> The parameter represents a disk file.  A file
+	     prompter will be available for this parameter.
+	</td>
+    </tr>
+    <tr>
+	<td> <b>image</b> </td>
+	<td> The parameter represents an image on disk.  A file
+	     prompter will be available for this parameter.  Only
+	     recognized image files will be displayed in the file
+	     prompter.
+	</td>
+    </tr>
+    <tr>
+	<td> <b>geometry</b> </td>
+	<td> The parameter represents an image on disk.  A file
+	     prompter will be available for this parameter.  Only
+	     recognized geometry files will be displayed in the file
+	     prompter.
+	</td>
+    </tr>
+    <tr>
+	<td> <b>hidden</b> </td>
+	<td> There will be no UI generated for this parameter.  This
+	     is quite useful when a parameter is intended to be overridden
+	     by a geometry attribute.
+	</td>
+    </tr>
+    <tr>
+	<td> <b>oplist&nbsp;[opfilter]</b> </td>
+	<td> The parameter represents a list of objects.
+	     Optionally, an <b>opfilter</b> can be specified to limit
+	     the types of operators which can be selected.  Please see
+	     <b>oppath</b> or the <a href="#pr_parmtag">parmtag</a>
+	     pragma for the list of opfilters.<p>
+	     There are also <a href="#pr_parmtag">parmtag</a>'s which
+	     allow the evaluation of the parameter to resolve any
+	     bundles or groups specified in the list of objects.
+	</td>
+    </tr>
+    <tr>
+	<td> <b>invisible</b> </td>
+	<td> The created parameter will exist in the operator but hidden from
+	     the user interface.
+	</td>
+    </tr>
+    <tr>
+	<td> <b>oppath&nbsp;[opfilter]</b> </td>
+	<td> The parameter represents a path to an object.
+	     Optionally, an <b>opfilter</b> can be specified to limit
+	     the types of operators which can be selected.  The
+	     current list of strings handled for opfilters are:
+	     <center>
+	     <table width=80% border=1>
+		<tr><td width=30%><b> obj </b></td><td> Any Object </td></tr>
+		<tr><td width=30%><b> sop </b></td><td> Any SOP </td></tr>
+		<tr><td width=30%><b> pop </b></td><td> Any POP </td></tr>
+		<tr><td width=30%><b> chop </b></td><td> Any CHOP </td></tr>
+		<tr><td width=30%><b> cop </b></td><td> Any COP </td></tr>
+		<tr><td width=30%><b> vop </b></td><td> Any VOP </td></tr>
+		<tr><td width=30%><b> rop </b></td><td> Any Output Driver </td></tr>
+	     </table></center>
+	     <p>Furthermore, it is possible to choose a specific type
+	     of object using an <b>opfilter</b> of:
+	     <center><table width=80% border=1>
+		<tr><td width=30%><b> obj/geo </b></td><td> Any Geometry Object </td></tr>
+		<tr><td width=30%><b> obj/null </b></td><td> Any Null Object </td></tr>
+		<tr><td width=30%><b> obj/light </b></td><td> Any Light Object </td></tr>
+		<tr><td width=30%><b> obj/camera </b></td><td> Any Camera Object </td></tr>
+		<tr><td width=30%><b> obj/fog </b></td><td> Any Fog Object </td></tr>
+		<tr><td width=30%><b> obj/bone </b></td><td> Any Bone Object </td></tr>
+	     </table></center>
+	     <p>Or a specific type of SHOP, by using one of:
+	     <center><table width=80% border=1>
+		<tr><td width=30%><b> shop/surface </b></td><td> Any Surface SHOP </td></tr>
+		<tr><td width=30%><b> shop/displace </b></td><td> Any Displacement SHOP </td></tr>
+		<tr><td width=30%><b> shop/interior </b></td><td> Any Interior SHOP </td></tr>
+		<tr><td width=30%><b> shop/light </b></td><td> Any Light SHOP </td></tr>
+		<tr><td width=30%><b> shop/shadow </b></td><td> Any Shadow SHOP </td></tr>
+		<tr><td width=30%><b> shop/fog </b></td><td> Any Atmosphere SHOP </td></tr>
+		<tr><td width=30%><b> shop/photon </b></td><td> Any Photon SHOP </td></tr>
+		<tr><td width=30%><b> shop/image3d </b></td><td> Any Image3D SHOP </td></tr>
+	    </table></center>
+	</td>
+    </tr>
+</table></center><p>
+
+<b>Example:</b>
+<listing>
+    #pragma hint __nondiffuse	toggle			// Define as a toggle button
+    #pragma hint specularcolor	color			// This represents a color
+    #pragma hint rest		hidden			// Don't show rest parameter in UI
+    #pragma hint mapname	image			// This represents an image file
+    #pragma hint nullobject	oppath "obj/null"	// Only null objects
+</listing>
+
+<hr> <!--------------------------------------------------------!>
+<a name="pr_range">
+<h3>#pragma range <i>parameter_name min_value max_value</i></h3>
+
+This pragma defines an ideal range for a parameter.  The slider
+generated for the float value will have the range specified by the
+minimum and maximum values specified.  This works for both integers
+and floating point parameters.<p>
+
+<b>Example:</b>
+<listing>
+    #pragma range seed	0 10
+    #pragma range roughness 0.001 1
+</listing>
+
+<hr> <!--------------------------------------------------------!>
+<a name="pr_choice">
+<h3>#pragma choice <i>parameter_name "value" "label"</i></h3>
+<h3>#pragma choicescript <i>parameter_name "scriptline"</i></h3>
+<h3>#pragma choicereplace <i>parameter_name "value" "label"</i></h3>
+<h3>#pragma choicereplacescript <i>parameter_name "scriptline"</i></h3>
+<h3>#pragma choicetoggle <i>parameter_name "value" "label"</i></h3>
+<h3>#pragma choicetogglescript <i>parameter_name "scriptline"</i></h3>
+
+When a choice pragma is defined for a parameter, the parameter is then
+represented as a menu of all the choice pragmas defined for that
+parameter.  This is an exclusive list and there is no easy way for a
+user to set the parameter to something other than a choice in the
+list.<p>
+
+If the choicereplace pragma is used, the menu is non-exclusive, and
+the user can choose to either use the menu or enter a different text
+value.  The choicetoggle also creates a non-exclusive menu, but unlike
+the choicereplace menu selecting an item from a toggle menu will add
+it to the string if it is not already present, or remove it from the
+string if it is there.  If not all menu items are specified with the
+same pragma, the menu style specified in the first menu item is used.<p>
+
+This can also be used to define integer values.  However, the integer
+values ignore the labels and instead number the choices in order from
+0 to N (where N is the number of entries in the menu).  The
+choicereplace and choicetoggle pragmas can only be used for parameters
+with string values.<p>
+
+The script variants of the choice pragmas allow a script to be
+specified instead of a fixed list of entries.  This script is run
+whenever Houdini needs to generate the menu entries (i.e. the
+generated values are not cached) so this script should be as efficient
+as possible.  A multi-line script can be created by using a series of
+choicescript pragmas with the same parameter name.  The output of the
+script must be a series of value/label pairs, which have the same
+meaning as the value and label fields in the choice pragma.<p>
+
+<b>Example:</b>
+<listing>
+    #pragma choice operation "over"	"Composite A Over B"
+    #pragma choice operation "under"	"Composite A Under B"
+    #pragma choice operation "add"	"Add A and B"
+    #pragma choice operation "sub"	"Subtract A from B"
+
+    cop texture(string operation="over")
+    {
+	if (operation == "over") ...	// texture coordinates
+	if (operation == "under") ...	// parametric coordinates
+	if (operation == "add")	 ...	// orthographic
+	if (operation == "sub")	 ...	// polar
+    }
+</listing>
+This would define a menu for the parameter "operation".  The menu
+would consist of 4 entries.  The values for the string parameter would
+be one of "over", "under", "add" or "sub".  However, the user would be
+presented with more meaningful labels for the operation types.
+
+<listing>
+    #pragma choice operation "0"	"Use texture coordinates"
+    #pragma choice operation "1"	"Use parametric coordinates"
+    #pragma choice operation "2"	"Orthographic Projection"
+    #pragma choice operation "3"	"Polar Projection"
+
+    sop texture(int operation=0)
+    {
+	if (operation == 0) ...	// texture coordinates
+	if (operation == 1) ...	// parametric coordinates
+	if (operation == 2) ...	// orthographic
+	if (operation == 3) ...	// polar
+    }
+</listing>
+
+<hr> <!--------------------------------------------------------!>
+<a name="pr_disable">
+<h3>#pragma disable <i>ParmToDisableName ControlParmName ControlValue
+[ControlParmName2 ControlValue2...]</i></h3>
+
+This pragma allows you to define simple rules for disabling a parameter
+based on the values of other parameters in the VEX function. It takes the name
+of the parm to potentially be disabled, followed by at least one pair of a
+control parm name and a value. If more than 1 pair is in the pragma, all of
+the conditions must be met (like an AND function). This pragma may be called
+several times on the same parameter - if any of the conditions are met, the
+parameter will be disabled (like an OR).<p>
+Disabling parameters is a good way to let the user know what context a given
+parameters is valid in (ie, "Number of Subdivisions" is only valid when 
+"Subdivide" is on).<p>
+
+Examples:<p>
+<listing>
+   // Disable parm B when A is 0 or A is 1:
+      <b>#pragma disable B  A 0
+      #pragma disable B  A 1</b>
+
+   // Disable parm C when A is 0 and B is 0, or just when A is 1.
+      <b>#pragma disable C  A 0  B 0
+      #pragma disable C  A 1</b>
+
+   // Disable parm D when C is "none".
+      <b>#pragma disable D  C "none"</b>
+
+   cop2 function(int     A = 0;
+                 int     B = 0;
+                 string  C = "gaussian";
+                 vector  D = { 0,0,0 })
+     { ... }
+</listing>
+<hr> <!--------------------------------------------------------!>
+<a name="pr_group">
+<h3>#pragma group <i>group_name parameter_name1 parameter_name2 ...</i></h3>
+
+This pragma allows you to group like parameters into a single folder
+in the dialog box.  There can be multiple pragmas for each group.
+
+
+<b>Example:</b>
+<listing>
+    // Group Ka, Kd, Ks, roughness into a folder called BRDF
+    #pragma group BRDF Ka Kd Ks
+    #pragma group BRDF roughness
+</listing>
+
+<hr> <!--------------------------------------------------------!>
+<a name="pr_rendermask">
+<h3>#pragma rendermask (VMantra | RIB | MI)</h3>
+
+This pragma is only useful for SHOP dialog generation.  Each SHOP has
+a mask defining which renderers can use the SHOP.  It is possible to
+have a similar shader written in the RenderMan shading language and
+also in VEX (or another shading language).  In this case, the
+rendermask can be specified to include more than just VMantra.<p>
+
+The rendermask parameter is closely bound to the code which generates
+scene descriptions for a renderer.  Thus, the renderer names are quite
+specific.  At the time that this document was written, the different
+renderers which support SHOPs are:
+<menu>
+    <li> <b>MI</b> - Output generation for MentalRay compliant
+	    renderers.
+    <li> <b>RIB</b> - RIB generation for RenderMan compliant
+	    renderers.
+    <li> <b>VMantra</b> - The version of mantra which uses VEX for
+	    shading.
+    <li> <b>OGL</b> - OpenGL(tm) rendering.  This is a special
+	    renderer which automatically adds itself to most render
+	    masks.  There is currently no way to prevent this.
+</menu>
+
+<hr> <!--------------------------------------------------------!>
+<a name="pr_export">
+<h3>#pragma export <i>parmName</i> (none | dialog | all)</h3>
+
+When generating dialog scripts for OPs, it is possible to "export"
+parameters to the operation parameters dialog, or the operation controls
+bar above the viewport.  There are three levels of export for parameters:
+<ol>
+    <li> <b>0</b> or <b>none</b> - the parameter will appear only in
+	the standard dialog box for the OP.
+    <li> <b>1</b> or <b>dialog</b> - the parameter will appear in the
+	operation parameters dialog for the OP.
+    <li> <b>2</b> or <b>all</b> - the parameter will appear in both
+	the operation parameters dialog and the operation controls bar
+	for the OP.
+</ol>
+See also the hidden hint.
+
+<hr> <!--------------------------------------------------------!>
+<a name="pr_handle">
+<h3>#pragma bindhandle <i>channel_name h_name h_label h_index h_settings</i></h3>
+
+When generating dialog scripts for OPs, it is possible to
+bind handles to specific parameters by default.  This can, of course,
+be overridden by users, but defaults can be specified without
+modifying the OPbindings file.  The <b>bindhandle</b> pragma expects
+five arguments:
+<ol>
+    <li> The name of the channel in the VEX operator that should be
+	bound to the handle.
+    <li> Handle name.  This is one of the pre-defined Houdini handles
+	(i.e. ladder).  Please see run omls in Houdini for a full list
+	of available handles.
+    <li> Label.  A brief description of the handle.
+    <li> Handle index.  Many handles (for example xform) have multiple
+	parameters associated with them.  This allows you to choose
+	which handle parameter gets bound to the VEX parameter.
+    <li> Default Settings.  An optional handle-specific string that can be
+	used to set some default behavior for the handle.
+</ol>
+
+Examples:
+<listing>
+    #pragma bindhandle offset1 xform "Translate" tx "invisible(1)"
+    #pragma bindhandle offset2 xform "Translate" ty
+    #pragma bindhandle offset3 xform "Translate" tz
+
+    sop translate(vector offset=0) { P += offset; }
+</listing>
+
+<hr> <!--------------------------------------------------------!>
+<a name="pr_handlereserved">
+<h3>#pragma bindhandlereserved <i>reserved_channel_name h_name h_label h_index h_settings</i></h3>
+
+Each scripted operator type has a number of parameters that are added
+to every operator of that type (regardless of the contents of the
+dialog script file). To bind a handle to one of these parameters, you
+must use the <b>bindhandlereserved</b> pragma. This pragma takes
+exactly the same arguments as the <b>bindhandle</b> pragma. The only
+exception is that the channel name argument must specify the name of
+a reserved parameter.
+
+<hr> <!--------------------------------------------------------!>
+<a name="pr_selector">
+<h3>#pragma bindselector <i>[parm_name] sel_type sel_name sel_prompt
+sel_mask allow_dragging group_type_parm asterisk_sel_all [input_index
+input_required]</i></h3>
+
+When an operator is created interactively in Houdini, the user can be
+prompted for the data to work on.  These prompts are handled by
+selectors.  Selectors can be defined on a per-OP basis, or a
+per-parameter basis.<p>
+For per-OP selectors, the <b>bindselector</b> pragma expects 7
+arguments:
+<ol>
+    <li> The entity to select.  Please run the <b>omsls</b> command
+	from within Houdini for a complete list of possibilities.
+    <li> A label.  This is a brief description of the selector.
+    <li> A user prompt.  This is the description which is presented to
+	the user when they are required to select geometry.
+    <li> A primitive mask.  This is a pattern which allows selection
+	of specific primitive types.  The list of possible primitive
+	types are:
+	    <menu>
+		<li> <b>all</b> - Select all primitive types
+		<li> <b>face</b> - Select polygons, NURBs or Bezier curves.
+		<li> <b>surface</b> - Select mesh, NURBs or Bezier surfaces
+		<li> <b>quadric</b> - Select primitive circles, spheres or tubes.
+		<li> <b>poly</b> - Select polygons
+		<li> <b>nurbscurve</b> - Select NURBS curves
+		<li> <b>bezcurve</b> - Select Bezier curves
+
+		<li> <b>mesh</b> - Select meshes
+		<li> <b>nurbs</b> - Select NURBS surfaces
+		<li> <b>bezier</b> - Select Bezier surfaces
+
+		<li> <b>circle</b> - Select primitive circles
+		<li> <b>sphere</b> - Select primitive spheres
+		<li> <b>tube</b> - Select primitive tubes
+
+		<li> <b>meta</b> - Select metaballs
+		<li> <b>particle</b> - Select particle systems
+	    </menu>
+	The primitive types can be combined in standard Houdini
+	grouping mechanisms.  For example:
+	    <menu>
+		<li><b>all,^p*</b> - Select all primitive types except
+		    polygons and particles.
+		<li><b>face,surface</b> - Select face and surface
+		    primitives.
+		<li><b>*,^quad*,^meta</b> - Select any primitive but
+		    quadrics or metaballs.
+	    </menu>
+    <li> Dragging.  This can be either 0 or 1 to allow the selection
+	to be modified without forcing the user to hit the right mouse
+	button to complete the selection. For example, if this
+	parameter is set to 1, the user would be able to click on a
+	primitive and start moving the mouse. The selection would be
+	completed and the mouse movement would be passed to the
+	operator handles.
+    <li> Group menu parameter.  This parameter is used to indicate what
+	geometry type the selection group will have.  Typically this
+	will point to a menu for choosing "Points", "Primitives", or
+	"Guess from group".  Please see the OMbindings file for the
+	Blast SOP.
+    <li> Asterisk selects all.  This can be either 0 or 1, and
+	indicates whether the selector needs to set the selection
+	string to "*" to indicate that all geometry was selected. If
+	this parameter is 0, the selector assumes that an empty group
+	parameter indicates that all geometry was selected.
+</ol>
+
+For per-parameter selectors, the <b>bindselector</b> pragma expects 10
+arguments:
+<ol>
+    <li> The VEX parameter to bind the selector to.
+    <li> The entity to select.
+    <li> A label. 
+    <li> A description.
+    <li> A primitive mask.
+    <li> Dragging.
+    <li> Group menu parameter.
+    <li> Asterisk selects all.
+    <li> Input Index.  When the user selects geometry,
+	the selector must connect the output from the selected
+	operator to the input of this operator. This parameter
+	specifies the index of the input number where the operator
+	should be connected. This parameter can be -1 if the selector
+	needs to connect multiple input operators into this operator.
+    <li> Input Required.  Whether the user is required to select
+	geometry for this input.
+</ol>
+
+Examples:
+<listing>
+    <b>#pragma bindselector prims "Switch Geometry" \
+		"Choose the geometry to switch between" \
+		all 0 "" 0</b>
+    #pragma bindhandle input_number 0 ladder Input parm0
+
+    sop switcher(int input_number=0) { import("P", P, input_number) }
+</listing>
+
+<hr> <!--------------------------------------------------------!>
+<a name="pr_selectorreserved">
+<h3>#pragma bindselectorreserved  <i>reserved_parm_name  sel_type  sel_name 
+ sel_prompt  sel_mask  allow_dragging  group_type_parm  asterisk_sel_all
+ input_index  input_required</i></h3>
+
+Similar to the <b>bindhandlereserved</b> pragma, this pragma allows
+you to bind selectors to reserved parameters in your scriped
+operators. The arguments to this pragma are the same as those passed
+to the <b>bindselector</b> pragma used to bind a selector to a
+parameter defined in the dialog script. The only difference is that
+the parameter name argument must specify a reserved parameter.
+
+<hr> <!--------------------------------------------------------!>
+<a name="pr_opname">
+<h3>#pragma opname <i>"text"</i></h3>
+
+This pragma lets you specify the internal operator name that should be
+assigned to this operator type. By default the name of the source file
+is used. Using the -n command line option to vcc overrides this
+pragma.<p>
+
+<b>Example:</b>
+<listing>
+    #pragma opname "myshop"
+</listing>
+
+<hr> <!--------------------------------------------------------!>
+<a name="pr_oplabel">
+<h3>#pragma oplabel <i>"text"</i></h3>
+
+This pragma lets you specify the descriptive name that should be
+assigned to this operator type. This is the name that appears in the
+operator toolbars. By default the operator name is used.  Using the -N
+command line option to vcc overrides this pragma.<p>
+
+<b>Example:</b>
+<listing>
+    #pragma oplabel "My New Shop"
+</listing>
+
+<hr> <!--------------------------------------------------------!>
+<a name="pr_opshader">
+<h3>#pragma opshader <i>"text"</i></h3>
+
+If this operator type represents a shader that can be used from
+renderers other than mantra, this pragma lets you set the name of the
+shader file that these other renderers should look for. By using this
+pragma, the operator type name does not need to match the shader file
+name. The -S option on the vcc command line overrides this pragma.<p>
+
+<b>Example:</b>
+<listing>
+    #pragma opshader "rman_myshader"
+</listing>
+
+<hr> <!--------------------------------------------------------!>
+<a name="pr_opicon">
+<h3>#pragma opicon <i>"text"</i></h3>
+
+Use this pragma to set the icon to use for this operator type. It can
+be a path to an external .icon or .bicon file, or the name of one of
+the standard icons. The -C option on the vcc command line overrides
+this pragma.<p>
+
+<b>Example:</b>
+<listing>
+    #pragma opicon "SHOP_plastic"
+</listing>
+
+<hr> <!--------------------------------------------------------!>
+<a name="pr_opmininputs">
+<h3>#pragma opmininputs <i>num</i></h3>
+
+For VEX operator types, this pragma sets the minimum number of inputs
+that must be connected to the operator. This value is ignored for
+SHOPs, which take no inputs. The operator will generate an error if
+fewer than this many nodes are connected as inputs. The -t command
+line option to vcc overrides this pragma.<p>
+
+<b>Example:</b>
+<listing>
+    #pragma opmininputs 1
+</listing>
+
+<hr> <!--------------------------------------------------------!>
+<a name="pr_opmaxinputs">
+<h3>#pragma opmaxinputs <i>num</i></h3>
+
+For VEX operator types, this pragma sets the maximum number of inputs
+that can be connected to the operator. This value is ignored for
+SHOPs, which take no inputs.  The -T command line option to vcc
+overrides this pragma.<p>
+
+<b>Example:</b>
+<listing>
+    #pragma opmaxinputs 4
+</listing>
+
+<hr> <!--------------------------------------------------------!>
+<a name="pr_inputlabel">
+<h3>#pragma inputlabel <i>inputnum</i> <i>"Input Label"</i></h3>
+
+For VEX operator types, this pragma sets the label for one of the
+operator inputs. This label appears when the user presses the middle
+mouse button on one of the operator inputs. The <i>inputnum</i> is the
+index of the input for which you want to set the label. The first
+input is specified with <i>inputnum = 1</i>.<p>
+
+<b>Example:</b>
+<listing>
+    #pragma inputlabel 1 "Geometry to Modify"
+</listing>
+
+<hr> <!--------------------------------------------------------!>
+<a name="pr_parmtag">
+<h3>#pragma parmtag <i>parmName</i> <i>Token</i> <i>Value</i></h3>
+
+Each parameter defined in an operator has a set of token/value tags
+associated with it.  This pragma allows a set of tag token/value
+pairs to be added to the parameter.<p>
+
+The full set of well known token value pairs is currently defined as:
+<center><table border=1 cellpadding=5>
+      <tr bgcolor=black>
+	 <td><font color=white><b>Token</b></font></td>
+	 <td><font color=white><b>Description</b></font></td>
+      </tr>
+
+      <tr>
+	<td><b>autoscope</b></td>
+	<td>This is a string of one's or zero's (i.e. "1011") with one
+	    value for each component of the parameter.  If there
+	    aren't enough characters in the string for the number of
+	    components, the last character will be extended for the
+	    remaining components.<br>
+	    With a value of 1, the parameter will be auto-scoped when
+	    the node is selected.  With a value of 0, no auto-scoping
+	    will be done.  If the tag is absent, Houdini will
+	    attempt to guess at whether the parameter should be
+	    auto-scoped or not.</td>
+      </tr>
+
+      <tr>
+	<td><b>opfilter</b></td>
+	<td>For parameters referring to object paths, this provides a
+	filter as to which types of OP's will be presented in the OP
+	chooser.  If this tag is specified, the <b>oprelative</b> tag
+	should also be specified.<br><br>
+	<b>NOTE: this tag is also handled by the <a
+	href="#pr_hint">hint oppath</a> pragma, but in a slightly
+	different form.</b><br><br>
+	Values are:
+	<center><table border=1 cellpadding=5>
+	    <tr><td><b>!!OBJ!!</b></td>
+		<td> Only show objects </td></tr>
+	    <tr><td><b>!!OBJ/GEOMETRY!!</b></td>
+		<td> Only show geometry objects </td></tr>
+	    <tr><td><b>!!OBJ/LIGHT!!</b></td>
+		<td> Only show light objects </td></tr>
+	    <tr><td><b>!!OBJ/CAMERA!!</b></td>
+		<td> Only show camera objects (lights are considered cameras)</td></tr>
+	    <tr><td><b>!!OBJ/BONE!!</b></td>
+		<td> Only show bone objects </td></tr>
+	    <tr><td><b>!!OBJ/FORCE!!</b></td>
+		<td> Only show force objects </td></tr>
+
+	    <tr><td><b>!!SOP!!</b></td>
+		<td> Only show SOPs</td></tr>
+	    <tr><td><b>!!POP!!</b></td>
+		<td> Only show POPs</td></tr>
+	    <tr><td><b>!!CHOP!!</b></td>
+		<td> Only show CHOPs</td></tr>
+	    <tr><td><b>!!COP2!!</b></td>
+		<td> Only show COPs</td></tr>
+	    <tr><td><b>!!VOP!!</b></td>
+		<td> Only show VOPs</td></tr>
+	    <tr><td><b>!!ROP!!</b></td>
+		<td> Only show output drivers (ROPs)</td></tr>
+	    <tr><td><b>!!DOP!!</b></td>
+		<td> Only show DOPs</td></tr>
+	    <tr><td><b>!!SHOP!!</b></td>
+		<td> Only show SHOPs</td></tr>
+
+	    <tr><td><b>!!SHOP/ATMOSPHERE!!</b></td>
+		<td> Only show atmosphere shader SHOPs</td></tr>
+	    <tr><td><b>!!SHOP/BACKGROUND!!</b></td>
+		<td> Only show background shader SHOPs</td></tr>
+	    <tr><td><b>!!SHOP/CONTOUR!!</b></td>
+		<td> Only show contour shader SHOPs</td></tr>
+	    <tr><td><b>!!SHOP/CONTOUR_CONTRAST!!</b></td>
+		<td> Only show contour-contrast shader SHOPs</td></tr>
+	    <tr><td><b>!!SHOP/CONTOUR_STORE!!</b></td>
+		<td> Only show contour-store shader SHOPs</td></tr>
+	    <tr><td><b>!!SHOP/DISPLACEMENT!!</b></td>
+		<td> Only show displacement shader SHOPs</td></tr>
+	    <tr><td><b>!!SHOP/EMITTER!!</b></td>
+		<td> Only show emitter shader SHOPs</td></tr>
+	    <tr><td><b>!!SHOP/GEOMETRY!!</b></td>
+		<td> Only show geometry shader SHOPs</td></tr>
+	    <tr><td><b>!!SHOP/IMAGE3D!!</b></td>
+		<td> Only show image3d shader SHOPs</td></tr>
+	    <tr><td><b>!!SHOP/LENS!!</b></td>
+		<td> Only show lens shader SHOPs</td></tr>
+	    <tr><td><b>!!SHOP/LIGHT!!</b></td>
+		<td> Only show light shader SHOPs</td></tr>
+	    <tr><td><b>!!SHOP/LIGHT_SHADOW!!</b></td>
+		<td> Only show light-shadow shader SHOPs</td></tr>
+	    <tr><td><b>!!SHOP/OUTPUT!!</b></td>
+		<td> Only show output shader SHOPs</td></tr>
+	    <tr><td><b>!!SHOP/PHOTON!!</b></td>
+		<td> Only show photon shader SHOPs</td></tr>
+	    <tr><td><b>!!SHOP/PHOTON_VOLUME!!</b></td>
+		<td> Only show photon volume shader SHOPs</td></tr>
+	    <tr><td><b>!!SHOP/SURFACE!!</b></td>
+		<td> Only show surface shader SHOPs</td></tr>
+	    <tr><td><b>!!SHOP/SURFACE_SHADOW!!</b></td>
+		<td> Only show surface-shadow shader SHOPs</td></tr>
+	</table></center></td>
+      </tr>
+
+      <tr>
+	<td><b>oprelative</b></td>
+	<td>This token determines how paths should be resolved.
+	    Typically, the value of this token is "." so that paths
+	    are resolved relative to the current operator.  However,
+	    in many cases when referencing objects, the value is
+	    "/obj".
+	</td>
+      </tr>
+
+      <tr>
+	<td><b>opexpand</b></td>
+	<td>In SHOPs, this token will cause <b>oplist</b> parameters
+	    to be expanded to the full path names.  Thus, if a bundle
+	    or pattern is chosen, the pattern will be expanded before
+	    it's sent to the renderer.
+	</td>
+      </tr>
+
+      <tr>
+	<td><b>opfullpath</b></td>
+	<td>When used in conjunction with the <b>opexpand</b> tag,
+	    this will cause the path names of the objects to be fully
+	    qualified rather than being expanded relative to the value
+	    of the <b>oprelative</b> tag.
+	</td>
+      </tr>
+
+      <tr>
+	<td><b>script_callback</b></td>
+	<td>The value associated with this is the callback script associated
+	    with the parameter.<br>
+	    <b>NOTE: this tag is also handled by the <a
+		href="#pr_callback">callback</a> pragma.
+	    </td>
+      </tr>
+
+      <tr>
+	<td><b>script_ritype</b></td>
+	<td>The value associated with this is used when
+	    generating RIB streams and mapping the parameter to an
+	    appropriate renderman type specification.  The value
+	    should be a valid renderman type (i.e. "uniform color").
+      </tr>
+
+      <tr>
+	<td><b>script_unquoted</b></td>
+	<td>This tag is used in VOP definitions to indicate that
+	    the string parameter should be used in an unquoted form.
+	    It's primarily used to allow strings from menus to be
+	    placed verbatim in the code block (see the trig VOP).
+      </tr>
+
+      <tr>
+	<td><b>sop_input</b></td>
+	<td>This is used internally by SOPs to determine the place to
+	    search for groups when building a group menu of
+	    points/primitives.
+	</td>
+      </tr>
+</table></center>
+
+<b>Example:</b>
+<listing>
+    #pragma parmtag lightmask opfilter "!!OBJ/LIGHT!!"
+    #pragma parmtag lightmask oprelative "/obj"
+</listing>
+
+<!-------------------------------------------------------------------!>
+<br>
+<hr>
+<center>
+<font size=-2>
+  Copyright &#169; 1999-2004 Side Effects Software Inc.<br>
+  477 Richmond Street West, Toronto, Ontario, Canada M5V 3E7
+</font>
+</center>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Library Procedures - Tk_HandleEvent manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<h3><a name="M2">NAME</a></h3>
+
+<p>Tk_HandleEvent - invoke event handlers for window system
+events</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>#include &lt;tk.h&gt;</b><br>
+<b>Tk_HandleEvent</b>(<i>eventPtr</i>)<br>
+</p>
+
+<h3><a name="M4">ARGUMENTS</a></h3>
+
+<dl>
+<dt>XEvent <b>*eventPtr</b> (in)</dt>
+
+<dd>Pointer to X event to dispatch to relevant handler(s).</dd>
+</dl>
+
+<h3><a name="M5">DESCRIPTION</a></h3>
+
+<p><b>Tk_HandleEvent</b> is a lower-level procedure that deals with
+window events. It is called by <b><a href=
+"../TclLib/Notifier.htm">Tcl_ServiceEvent</a></b> (and indirectly
+by <b>Tk_DoOneEvent</b>), and in a few other cases within Tk. It
+makes callbacks to any window event handlers (created by calls to
+<b><a href="../TkLib/EventHndlr.htm">Tk_CreateEventHandler</a></b>)
+that match <i>eventPtr</i> and then returns. In some cases it may
+be useful for an application to bypass the Tk event queue and call
+<b>Tk_HandleEvent</b> directly instead of calling <b><a href=
+"../TclLib/Notifier.htm">Tcl_QueueEvent</a></b> followed by <b><a
+href="../TclLib/Notifier.htm">Tcl_ServiceEvent</a></b>.</p>
+
+<p>This procedure may be invoked recursively. For example, it is
+possible to invoke <b>Tk_HandleEvent</b> recursively from a handler
+called by <b>Tk_HandleEvent</b>. This sort of operation is useful
+in some modal situations, such as when a notifier has been popped
+up and an application wishes to wait for the user to click a button
+in the notifier before doing anything else.</p>
+
+<h3><a name="M6">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/C.htm#callback">callback</a>, <a href=
+"../Keywords/E.htm#event">event</a>, <a href=
+"../Keywords/H.htm#handler">handler</a>, <a href=
+"../Keywords/W.htm#window">window</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1990-1992 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1996 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

@@ -1,0 +1,10 @@
+	<param name="CPP_NAME"
+		label="UI_NAME"
+		type="string"
+		default=""
+		connectable="False"
+		widget="fileInput">
+		<tags>
+			<tag value="string"/>
+		</tags>
+	</param>

@@ -1,0 +1,12 @@
+// Uses the coordinates of the shading points P to colorize a surface.
+// 1  Calculate the xyz values of P relative to another coordinate system (transform),
+// 2  Constrain the xyz values to the range 0-1 (normalize),
+// 3  Ensure the values are positive (fabs).
+shader
+pnt2color(string spacename = "object",
+          output color resultRGB = 0)
+{
+point p = transform(spacename, P);
+vector norm_p = normalize(p);
+resultRGB = fabs(norm_p);
+}

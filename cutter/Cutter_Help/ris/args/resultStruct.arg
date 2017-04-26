@@ -1,0 +1,6 @@
+	<output name="resultStruct">
+		<tags>
+			<tag value="struct"/>
+			<tag value="manifold"/>
+		</tags>
+	</output>

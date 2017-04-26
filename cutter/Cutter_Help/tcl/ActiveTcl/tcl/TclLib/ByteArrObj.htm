@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Tcl Library Procedures - Tcl_ByteArrayObj manual
+page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<h3><a name="M2">NAME</a></h3>
+
+<p>Tcl_NewByteArrayObj, Tcl_SetByteArrayObj,
+Tcl_GetByteArrayFromObj, Tcl_SetByteArrayLength - manipulate Tcl
+objects as a arrays of bytes</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>#include &lt;tcl.h&gt;</b><br>
+Tcl_Obj *<br>
+<b>Tcl_NewByteArrayObj</b>(<i>bytes, length</i>)<br>
+void<br>
+<b>Tcl_SetByteArrayObj</b>(<i>objPtr, bytes, length</i>)<br>
+unsigned char *<br>
+<b>Tcl_GetByteArrayFromObj</b>(<i>objPtr, lengthPtr</i>)<br>
+unsigned char *<br>
+<b>Tcl_SetByteArrayLength</b>(<i>objPtr, length</i>)<br>
+</p>
+
+<h3><a name="M4">ARGUMENTS</a></h3>
+
+<dl>
+<dt>CONST unsigned char <b>*bytes</b> (in)</dt>
+
+<dd>The array of bytes used to initialize or set a byte-array
+object.</dd>
+
+<dt>int <b>length</b> (in)</dt>
+
+<dd>The length of the array of bytes. It must be &gt;= 0.</dd>
+
+<dt>Tcl_Obj <b>*objPtr</b> (in/out)</dt>
+
+<dd>For <b>Tcl_SetByteArrayObj</b>, this points to the object to be
+converted to byte-array type. For <b>Tcl_GetByteArrayFromObj</b>
+and <b>Tcl_SetByteArrayLength</b>, this points to the object from
+which to get the byte-array value; if <i>objPtr</i> does not
+already point to a byte-array object, it will be converted to
+one.</dd>
+
+<dt>int <b>*lengthPtr</b> (out)</dt>
+
+<dd>If non-NULL, filled with the length of the array of bytes in
+the object.</dd>
+</dl>
+
+<h3><a name="M5">DESCRIPTION</a></h3>
+
+<p>These procedures are used to create, modify, and read Tcl
+byte-array objects from C code. Byte-array objects are typically
+used to hold the results of binary IO operations or data structures
+created with the <b><a href="../TclCmd/binary.htm">binary</a></b>
+command. In Tcl, an array of bytes is not equivalent to a string.
+Conceptually, a string is an array of Unicode characters, while a
+byte-array is an array of 8-bit quantities with no implicit
+meaning. Accesser functions are provided to get the string
+representation of a byte-array or to convert an arbitrary object to
+a byte-array. Obtaining the string representation of a byte-array
+object (by calling <b><a href=
+"../TclLib/StringObj.htm">Tcl_GetStringFromObj</a></b>) produces a
+properly formed UTF-8 sequence with a one-to-one mapping between
+the bytes in the internal representation and the UTF-8 characters
+in the string representation.</p>
+
+<p><b>Tcl_NewByteArrayObj</b> and <b>Tcl_SetByteArrayObj</b> will
+create a new object of byte-array type or modify an existing object
+to have a byte-array type. Both of these procedures set the
+object's type to be byte-array and set the object's internal
+representation to a copy of the array of bytes given by
+<i>bytes</i>. <b>Tcl_NewByteArrayObj</b> returns a pointer to a
+newly allocated object with a reference count of zero.
+<b>Tcl_SetByteArrayObj</b> invalidates any old string
+representation and, if the object is not already a byte-array
+object, frees any old internal representation.</p>
+
+<p><b>Tcl_GetByteArrayFromObj</b> converts a Tcl object to
+byte-array type and returns a pointer to the object's new internal
+representation as an array of bytes. The length of this array is
+stored in <i>lengthPtr</i> if <i>lengthPtr</i> is non-NULL. The
+storage for the array of bytes is owned by the object and should
+not be freed. The contents of the array may be modified by the
+caller only if the object is not shared and the caller invalidates
+the string representation.</p>
+
+<p><b>Tcl_SetByteArrayLength</b> converts the Tcl object to
+byte-array type and changes the length of the object's internal
+representation as an array of bytes. If <i>length</i> is greater
+than the space currently allocated for the array, the array is
+reallocated to the new length; the newly allocated bytes at the end
+of the array have arbitrary values. If <i>length</i> is less than
+the space currently allocated for the array, the length of array is
+reduced to the new length. The return value is a pointer to the
+object's new array of bytes.</p>
+
+<h3><a name="M6">SEE ALSO</a></h3>
+
+<p><b><a href=
+"../TclLib/StringObj.htm">Tcl_GetStringFromObj</a></b>, <b><a href=
+"../TclLib/Object.htm">Tcl_NewObj</a></b>, <b><a href=
+"../TclLib/Object.htm">Tcl_IncrRefCount</a></b>, <b><a href=
+"../TclLib/Object.htm">Tcl_DecrRefCount</a></b></p>
+
+<h3><a name="M7">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/O.htm#object">object</a>, <a href=
+"../Keywords/B.htm#byte array">byte array</a>, <a href=
+"../Keywords/U.htm#utf">utf</a>, <a href=
+"../Keywords/U.htm#unicode">unicode</a>, <a href=
+"../Keywords/I.htm#internationalization">internationalization</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1997 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

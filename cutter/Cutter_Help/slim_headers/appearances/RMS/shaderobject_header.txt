@@ -1,0 +1,5 @@
+slim 1 appearance slim {
+    instance shaderobject "@SHADER_NAME" "@SHADER_PATH" {
+    description { @SHADER_DESCRIPTION }
+
+

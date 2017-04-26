@@ -1,0 +1,51 @@
+Option "ribparse" "string varsubst" ["$"]
+IfBegin "!defined(RMSTREE)"
+	Option "user" "string RMSTREE" ["/opt/pixar/RenderManForMaya-21.2-maya2017"]
+IfEnd
+Option "searchpath" "shader"    ["../../maya/projects/RfM_osl:@"]
+Option "searchpath" "rixplugin" ["${RMSTREE}/lib/shaders:../../maya/projects/RfM_ris:@"]
+Option "searchpath" "texture"   ["../textures:@"]
+Option "searchpath" "archive"   ["../archives:Cutter_Help/templates/Rib:custom_templates/Rib"]
+#Option "statistics" "endofframe" [1]
+
+Hider "raytrace" "int incremental" [1] "int minsamples" [0] "int maxsamples" [128] "float darkfalloff" [0.025]
+Integrator "PxrPathTracer" "PxrPathTracer" "int maxPathLength" [10] "int allowCaustics" [0]
+PixelVariance 0.05
+
+Format 640 360 1
+Display "untitled" "it" "rgba"
+Projection "perspective" "fov" [20]
+
+Translate  0 0 30
+Rotate -30 1 0 0
+#Rotate  45 0 1 0
+Scale 1 1 -1
+#DisplayFilter "PxrBackgroundDisplayFilter" "background" "color backgroundColor" [1 1 1]
+WorldBegin
+	Bxdf "PxrSurface" "default"
+		"color diffuseColor" [0.6 0.6 0.6]
+		"float diffuseGain" [1.0]
+		"float presence" [1.0]
+	TransformBegin
+		Scale 4 4 4
+		ReadArchive "cutrAxes.rib"
+	TransformEnd
+# Lighting Rig -----------------------------------------------------
+ReadArchive "Lights/3PointLight.rib"
+
+# Lighting Rig -----------------------------------------------------
+
+# TeapotGeometry -----------------------------------------------------
+
+ReadArchive "geo/teapot.rib"
+
+# TeapotGeometry -----------------------------------------------------
+	
+	# Floor Plane-----------------------------------------------
+	AttributeBegin
+		Scale 10 1 10
+		ReadArchive "Materials/BumpyPlastic.rib"
+		Polygon "P" [-0.5 0 -0.5  -0.5 0 0.5  0.5 0 0.5  0.5 0 -0.5]
+				"st" [0 0  0 1  1 1  1 0]
+	AttributeEnd
+WorldEnd

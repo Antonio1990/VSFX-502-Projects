@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Tk Built-In Commands - send manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<dl>
+<dd><a href="send.htm#M2" name="L1134">NAME</a> 
+
+<dl>
+<dd>send - Execute a command in a different application</dd>
+</dl>
+</dd>
+
+<dd><a href="send.htm#M3" name="L1135">SYNOPSIS</a> 
+
+<dl>
+<dd><b>send ?</b><i>options</i>? <i>app cmd</i> ?<i>arg arg
+...</i>?</dd>
+</dl>
+</dd>
+
+<dd><a href="send.htm#M4" name="L1136">DESCRIPTION</a> 
+
+<dl>
+<dd><a href="send.htm#M5" name="L1137"><b>-async</b></a></dd>
+
+<dd><a href="send.htm#M6" name="L1138"><b>-displayof</b>
+<i>pathName</i></a></dd>
+
+<dd><a href="send.htm#M7" name="L1139"><b>-&nbsp;-</b></a></dd>
+</dl>
+</dd>
+
+<dd><a href="send.htm#M8" name="L1140">APPLICATION NAMES</a></dd>
+
+<dd><a href="send.htm#M9" name="L1141">DISABLING SENDS</a></dd>
+
+<dd><a href="send.htm#M10" name="L1142">SECURITY</a></dd>
+
+<dd><a href="send.htm#M11" name="L1143">KEYWORDS</a></dd>
+</dl>
+
+<hr>
+<h3><a name="M2">NAME</a></h3>
+
+<p>send - Execute a command in a different application</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>send ?</b><i>options</i>? <i>app cmd</i> ?<i>arg arg
+...</i>?<br>
+</p>
+
+<h3><a name="M4">DESCRIPTION</a></h3>
+
+<p>This command arranges for <i>cmd</i> (and <i>arg</i>s) to be
+executed in the application named by <i>app</i>. It returns the
+result or error from that command execution. <i>App</i> may be the
+name of any application whose main window is on the display
+containing the sender's main window; it need not be within the same
+process. If no <i>arg</i> arguments are present, then the command
+to be executed is contained entirely within the <i>cmd</i>
+argument. If one or more <i>arg</i>s are present, they are
+concatenated to form the command to be executed, just as for the
+<b><a href="../TclCmd/eval.htm">eval</a></b> command.</p>
+
+<p>If the initial arguments of the command begin with ``-'' they
+are treated as options. The following options are currently
+defined:</p>
+
+<dl>
+<dt><a name="M5"><b>-async</b></a></dt>
+
+<dd>Requests asynchronous invocation. In this case the <b>send</b>
+command will complete immediately without waiting for <i>cmd</i> to
+complete in the target application; no result will be available and
+errors in the sent command will be ignored. If the target
+application is in the same process as the sending application then
+the <b>-async</b> option is ignored.</dd>
+
+<dt><a name="M6"><b>-displayof</b> <i>pathName</i></a></dt>
+
+<dd>Specifies that the target application's main window is on the
+display of the window given by <i>pathName</i>, instead of the
+display containing the application's main window.</dd>
+
+<dt><a name="M7"><b>-&nbsp;-</b></a></dt>
+
+<dd>Serves no purpose except to terminate the list of options. This
+option is needed only if <i>app</i> could contain a leading ``-''
+character.</dd>
+</dl>
+
+<h3><a name="M8">APPLICATION NAMES</a></h3>
+
+<p>The name of an application is set initially from the name of the
+program or script that created the application. You can query and
+change the name of an application with the <b><a href=
+"../TkCmd/tk.htm">tk appname</a></b> command.</p>
+
+<h3><a name="M9">DISABLING SENDS</a></h3>
+
+<p>If the <b>send</b> command is removed from an application (e.g.
+with the command <b>rename send {}</b>) then the application will
+not respond to incoming send requests anymore, nor will it be able
+to issue outgoing requests. Communication can be reenabled by
+invoking the <b><a href="../TkCmd/tk.htm">tk appname</a></b>
+command.</p>
+
+<h3><a name="M10">SECURITY</a></h3>
+
+<p>The <b>send</b> command is potentially a serious security
+loophole. On Unix, any application that can connect to your X
+server can send scripts to your applications. These incoming
+scripts can use Tcl to read and write your files and invoke
+subprocesses under your name. Host-based access control such as
+that provided by <b>xhost</b> is particularly insecure, since it
+allows anyone with an account on particular hosts to connect to
+your server, and if disabled it allows anyone anywhere to connect
+to your server. In order to provide at least a small amount of
+security, Tk checks the access control being used by the server and
+rejects incoming sends unless (a) <b>xhost</b>-style access control
+is enabled (i.e. only certain hosts can establish connections) and
+(b) the list of enabled hosts is empty. This means that
+applications cannot connect to your server unless they use some
+other form of authorization such as that provide by <b>xauth</b>.
+Under Windows, <b>send</b> is currently disabled. Most of the
+functionality is provided by the <b><a href=
+"../TclCmd/dde.htm">dde</a></b> command instead.</p>
+
+<h3><a name="M11">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/A.htm#application">application</a>, <a
+href="../Keywords/D.htm#dde">dde</a>, <a href=
+"../Keywords/N.htm#name">name</a>, <a href=
+"../Keywords/R.htm#remote execution">remote execution</a>, <a href=
+"../Keywords/S.htm#security">security</a>, <a href=
+"../Keywords/S.htm#send">send</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1990-1994 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1996 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

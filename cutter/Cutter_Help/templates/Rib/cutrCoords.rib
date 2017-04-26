@@ -1,0 +1,1 @@
+# A sample coordinate systemAttributeBegin	Attribute "identifier" "name" ["coords"]	Color 0 0 1	Cylinder 0.05 0 140 360 # z axis	Color 1 0 0	Rotate 90 0 1 0	Cylinder 0.05 0 60 360  # x axis	Color 0 1 0	Rotate -90 1 0 0	Cylinder 0.05 0 20 360  # y axisAttributeEnd

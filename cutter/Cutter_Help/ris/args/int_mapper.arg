@@ -1,0 +1,1 @@
+	<param name="CPP_NAME"		label="UI_NAME"		type="int"		default="0"		connectable="False"		widget="mapper">		<hintdict name="options">			<string name="ITEM_NAME_1" value="0"/>			<string name="ITEM_NAME_2" value="1"/>			<string name="ITEM_NAME_3" value="2"/>		</hintdict>	</param>

@@ -1,0 +1,1 @@
+Declare param {float PNAME_FLOAT} {	label "YourSelectorLabel"	subtype selector	range {		"LabelA"  0.0		"LabelB"  1.0		}	}

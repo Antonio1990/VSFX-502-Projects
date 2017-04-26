@@ -1,0 +1,27 @@
+/* 	Displacemnt shader that using noise to generate a bumpy
+	surface. Source code by Renee Tam.
+*/
+// #pragma optable vop
+#pragma help  	"a template displacement shader"
+#pragma hint 	Km 	float
+#pragma label 	Km 	"Bump Height"
+#pragma range	Km 	-1 1
+
+displacement
+cutrDisplace (float Km = 0.1)
+{
+float hump = 0;
+
+/* STEP 1 - make a copy of the surface normal one unit in length */
+vector n = normalize(N);
+
+/* STEP 2 - calculate an appropriate value for the displacement */
+hump = noise(P * 8);
+
+/* STEP 3 - calculate the new position of the surface point */
+/*			P based on the value of hump */
+P = P - n * hump * Km;
+
+/* STEP 4 - calculate the new orientation of the surface normal */
+N = computenormal(P);
+}

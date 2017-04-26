@@ -1,0 +1,10 @@
+	<param name="CPP_NAME"
+		label="UI_NAME"
+		type="color"
+		default="1 1 1"
+		connectable="True"
+		widget="color">
+		<tags>
+			<tag value="color"/>
+		</tags>
+	</param>

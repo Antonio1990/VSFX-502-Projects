@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Tcl Built-In Commands - lsearch manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<dl>
+<dd><a href="lsearch.htm#M2" name="L754">NAME</a> 
+
+<dl>
+<dd>lsearch - See if a list contains a particular element</dd>
+</dl>
+</dd>
+
+<dd><a href="lsearch.htm#M3" name="L755">SYNOPSIS</a> 
+
+<dl>
+<dd><b>lsearch</b> ?<i>options</i>? <i>list pattern</i></dd>
+</dl>
+</dd>
+
+<dd><a href="lsearch.htm#M4" name="L756">DESCRIPTION</a> 
+
+<dl>
+<dd><a href="lsearch.htm#M5" name="L757"><b>-all</b></a></dd>
+
+<dd><a href="lsearch.htm#M6" name="L758"><b>-ascii</b></a></dd>
+
+<dd><a href="lsearch.htm#M7" name=
+"L759"><b>-decreasing</b></a></dd>
+
+<dd><a href="lsearch.htm#M8" name=
+"L760"><b>-dictionary</b></a></dd>
+
+<dd><a href="lsearch.htm#M9" name="L761"><b>-exact</b></a></dd>
+
+<dd><a href="lsearch.htm#M10" name="L762"><b>-glob</b></a></dd>
+
+<dd><a href="lsearch.htm#M11" name=
+"L763"><b>-increasing</b></a></dd>
+
+<dd><a href="lsearch.htm#M12" name="L764"><b>-inline</b></a></dd>
+
+<dd><a href="lsearch.htm#M13" name="L765"><b>-integer</b></a></dd>
+
+<dd><a href="lsearch.htm#M14" name="L766"><b>-not</b></a></dd>
+
+<dd><a href="lsearch.htm#M15" name="L767"><b>-real</b></a></dd>
+
+<dd><a href="lsearch.htm#M16" name="L768"><b>-regexp</b></a></dd>
+
+<dd><a href="lsearch.htm#M17" name="L769"><b>-sorted</b></a></dd>
+
+<dd><a href="lsearch.htm#M18" name="L770"><b>-start</b>
+<i>index</i></a></dd>
+</dl>
+</dd>
+
+<dd><a href="lsearch.htm#M19" name="L771">EXAMPLES</a></dd>
+
+<dd><a href="lsearch.htm#M20" name="L772">SEE ALSO</a></dd>
+
+<dd><a href="lsearch.htm#M21" name="L773">KEYWORDS</a></dd>
+</dl>
+
+<hr>
+<h3><a name="M2">NAME</a></h3>
+
+<p>lsearch - See if a list contains a particular element</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>lsearch</b> ?<i>options</i>? <i>list pattern</i><br>
+</p>
+
+<h3><a name="M4">DESCRIPTION</a></h3>
+
+<p>This command searches the elements of <i>list</i> to see if one
+of them matches <i>pattern</i>. If so, the command returns the
+index of the first matching element (unless the options <b>-all</b>
+or <b>-inline</b> are specified.) If not, the command returns
+<b>-1</b>. The <i>option</i> arguments indicates how the elements
+of the list are to be matched against <i>pattern</i> and it must
+have one of the following values:</p>
+
+<dl>
+<dt><a name="M5"><b>-all</b></a></dt>
+
+<dd>Changes the result to be the list of all matching indices (or
+all matching values if <b>-inline</b> is specified as well.)</dd>
+
+<dt><a name="M6"><b>-ascii</b></a></dt>
+
+<dd>The list elements are to be examined as ASCII strings. This
+option is only meaningful when used with <b>-exact</b> or
+<b>-sorted</b>.</dd>
+
+<dt><a name="M7"><b>-decreasing</b></a></dt>
+
+<dd>The list elements are sorted in decreasing order. This option
+is only meaningful when used with <b>-sorted</b>.</dd>
+
+<dt><a name="M8"><b>-dictionary</b></a></dt>
+
+<dd>The list elements are to be compared using dictionary-style
+comparisons. This option is only meaningful when used with
+<b>-exact</b> or <b>-sorted</b>.</dd>
+
+<dt><a name="M9"><b>-exact</b></a></dt>
+
+<dd>The list element must contain exactly the same string as
+<i>pattern</i>.</dd>
+
+<dt><a name="M10"><b>-glob</b></a></dt>
+
+<dd><i>Pattern</i> is a glob-style pattern which is matched against
+each list element using the same rules as the <b><a href=
+"../TclCmd/string.htm">string match</a></b> command.</dd>
+
+<dt><a name="M11"><b>-increasing</b></a></dt>
+
+<dd>The list elements are sorted in increasing order. This option
+is only meaningful when used with <b>-sorted</b>.</dd>
+
+<dt><a name="M12"><b>-inline</b></a></dt>
+
+<dd>The matching value is returned instead of its index (or an
+empty string if no value matches.) If <b>-all</b> is also
+specified, then the result of the command is the list of all values
+that matched.</dd>
+
+<dt><a name="M13"><b>-integer</b></a></dt>
+
+<dd>The list elements are to be compared as integers. This option
+is only meaningful when used with <b>-exact</b> or
+<b>-sorted</b>.</dd>
+
+<dt><a name="M14"><b>-not</b></a></dt>
+
+<dd>This negates the sense of the match, returning the index of the
+first non-matching value in the list.</dd>
+
+<dt><a name="M15"><b>-real</b></a></dt>
+
+<dd>The list elements are to be compared as floating-point values.
+This option is only meaningful when used with <b>-exact</b> or
+<b>-sorted</b>.</dd>
+
+<dt><a name="M16"><b>-regexp</b></a></dt>
+
+<dd><i>Pattern</i> is treated as a regular expression and matched
+against each list element using the rules described in the <b><a
+href="../TclCmd/re_syntax.htm">re_syntax</a></b> reference
+page.</dd>
+
+<dt><a name="M17"><b>-sorted</b></a></dt>
+
+<dd>The list elements are in sorted order. If this option is
+specified, <b>lsearch</b> will use a more efficient searching
+algorithm to search <i>list</i>. If no other options are specified,
+<i>list</i> is assumed to be sorted in increasing order, and to
+contain ASCII strings. This option is mutually exclusive with
+<b>-glob</b> and <b>-regexp</b>, and is treated exactly like
+<b>-exact</b> when either <b>-all</b>, or <b>-not</b> is
+specified.</dd>
+
+<dt><a name="M18"><b>-start</b> <i>index</i></a></dt>
+
+<dd>The list is searched starting at position <i>index</i>. If
+<i>index</i> has the value <b>end</b>, it refers to the last
+element in the list, and <b>end-</b><i>integer</i> refers to the
+last element in the list minus the specified integer offset.</dd>
+</dl>
+
+<p>If <i>option</i> is omitted then it defaults to <b>-glob</b>. If
+more than one of <b>-exact</b>, <b>-glob</b>, <b>-regexp</b>, and
+<b>-sorted</b> is specified, whichever option is specified last
+takes precedence. If more than one of <b>-ascii</b>,
+<b>-dictionary</b>, <b>-integer</b> and <b>-real</b> is specified,
+the option specified last takes precedence. If more than one of
+<b>-increasing</b> and <b>-decreasing</b> is specified, the option
+specified last takes precedence.</p>
+
+<h3><a name="M19">EXAMPLES</a></h3>
+
+<pre>
+lsearch {a b c d e} c =&gt; 2
+lsearch -all {a b c a b c} c =&gt; 2 5
+lsearch -inline {a20 b35 c47} b* =&gt; b35
+lsearch -inline -not {a20 b35 c47} b* =&gt; a20
+lsearch -all -inline -not {a20 b35 c47} b* =&gt; a20 c47
+lsearch -all -not {a20 b35 c47} b* =&gt; 0 2
+lsearch -start 3 {a b c a b c} c =&gt; 5
+</pre>
+
+<h3><a name="M20">SEE ALSO</a></h3>
+
+<p><b><a href="../TclCmd/foreach.htm">foreach</a></b>, <b><a href=
+"../TclCmd/list.htm">list</a></b>, <b><a href=
+"../TclCmd/lappend.htm">lappend</a></b>, <b><a href=
+"../TclCmd/lindex.htm">lindex</a></b>, <b><a href=
+"../TclCmd/linsert.htm">linsert</a></b>, <b><a href=
+"../TclCmd/llength.htm">llength</a></b>, <b><a href=
+"../TclCmd/lset.htm">lset</a></b>, <b><a href=
+"../TclCmd/lsort.htm">lsort</a></b>, <b><a href=
+"../TclCmd/lrange.htm">lrange</a></b>, <b><a href=
+"../TclCmd/lreplace.htm">lreplace</a></b></p>
+
+<h3><a name="M21">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/L.htm#list">list</a>, <a href=
+"../Keywords/M.htm#match">match</a>, <a href=
+"../Keywords/P.htm#pattern">pattern</a>, <a href=
+"../Keywords/R.htm#regular expression">regular expression</a>, <a
+href="../Keywords/S.htm#search">search</a>, <a href=
+"../Keywords/S.htm#string">string</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1993 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1996 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 2001 Kevin B. Kenny. All rights reserved.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

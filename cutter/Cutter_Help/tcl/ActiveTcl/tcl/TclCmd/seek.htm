@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Tcl Built-In Commands - seek manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<h3><a name="M2">NAME</a></h3>
+
+<p>seek - Change the access position for an open channel</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>seek</b> <i>channelId offset</i> ?<i>origin</i>?<br>
+</p>
+
+<h3><a name="M4">DESCRIPTION</a></h3>
+
+<p>Changes the current access position for <i>channelId</i>.</p>
+
+<p><i>ChannelId</i> must be an identifier for an open channel such
+as a Tcl standard channel (<b>stdin</b>, <b>stdout</b>, or
+<b>stderr</b>), the return value from an invocation of <b><a href=
+"../TclCmd/open.htm">open</a></b> or <b><a href=
+"../TclCmd/socket.htm">socket</a></b>, or the result of a channel
+creation command provided by a Tcl extension.</p>
+
+<p>The <i>offset</i> and <i>origin</i> arguments specify the
+position at which the next read or write will occur for
+<i>channelId</i>. <i>Offset</i> must be an integer (which may be
+negative) and <i>origin</i> must be one of the following:</p>
+
+<dl>
+<dt><a name="M5"><b>start</b></a></dt>
+
+<dd>The new access position will be <i>offset</i> bytes from the
+start of the underlying file or device.</dd>
+
+<dt><a name="M6"><b>current</b></a></dt>
+
+<dd>The new access position will be <i>offset</i> bytes from the
+current access position; a negative <i>offset</i> moves the access
+position backwards in the underlying file or device.</dd>
+
+<dt><a name="M7"><b>end</b></a></dt>
+
+<dd>The new access position will be <i>offset</i> bytes from the
+end of the file or device. A negative <i>offset</i> places the
+access position before the end of file, and a positive
+<i>offset</i> places the access position after the end of
+file.</dd>
+</dl>
+
+<p>The <i>origin</i> argument defaults to <b>start</b>.</p>
+
+<p>The command flushes all buffered output for the channel before
+the command returns, even if the channel is in nonblocking mode. It
+also discards any buffered and unread input. This command returns
+an empty string. An error occurs if this command is applied to
+channels whose underlying file or device does not support
+seeking.</p>
+
+<p>Note that <i>offset</i> values are byte offsets, not character
+offsets. Both <b>seek</b> and <b><a href=
+"../TclCmd/tell.htm">tell</a></b> operate in terms of bytes, not
+characters, unlike <b><a href=
+"../TclCmd/read.htm">read</a></b>.</p>
+
+<h3><a name="M8">SEE ALSO</a></h3>
+
+<p><b><a href="../TclCmd/file.htm">file</a></b>, <b><a href=
+"../TclCmd/open.htm">open</a></b>, <b><a href=
+"../TclCmd/close.htm">close</a></b>, <b><a href=
+"../TclCmd/gets.htm">gets</a></b>, <b><a href=
+"../TclCmd/tell.htm">tell</a></b>, <b><a href=
+"../TclLib/StdChannels.htm">Tcl_StandardChannels</a></b></p>
+
+<h3><a name="M9">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/A.htm#access position">access position</a>,
+<a href="../Keywords/F.htm#file">file</a>, <a href=
+"../Keywords/S.htm#seek">seek</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1993 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1996 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

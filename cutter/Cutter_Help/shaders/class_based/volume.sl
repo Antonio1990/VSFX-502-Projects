@@ -1,0 +1,1 @@
+/* Shader description goes here */class volume_test(float mindistance = 0, 				 maxdistance = 1;	  	   color background = 0){// This is a duplicate of Pixar's depthcue volume shader.public void volume(output color Ci, Oi)	{    float d = clamp( (depth(P) - mindistance) / (maxdistance - mindistance), 0.0, 1.0);    Ci = mix( Ci, background * Oi, d );	}}

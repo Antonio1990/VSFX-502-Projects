@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Built-In Commands - unknown manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<h3><a name="M2">NAME</a></h3>
+
+<p>unknown - Handle attempts to use non-existent commands</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>unknown</b> <i>cmdName</i> ?<i>arg arg ...</i>?<br>
+</p>
+
+<h3><a name="M4">DESCRIPTION</a></h3>
+
+<p>This command is invoked by the Tcl interpreter whenever a script
+tries to invoke a command that doesn't exist. The default
+implementation of <b>unknown</b> is a library procedure defined
+when Tcl initializes an interpreter. You can override the default
+<b>unknown</b> to change its functionality. Note that there is no
+default implementation of <b>unknown</b> in a safe interpreter.</p>
+
+<p>If the Tcl interpreter encounters a command name for which there
+is not a defined command, then Tcl checks for the existence of a
+command named <b>unknown</b>. If there is no such command, then the
+interpreter returns an error. If the <b>unknown</b> command exists,
+then it is invoked with arguments consisting of the
+fully-substituted name and arguments for the original non-existent
+command. The <b>unknown</b> command typically does things like
+searching through library directories for a command procedure with
+the name <i>cmdName</i>, or expanding abbreviated command names to
+full-length, or automatically executing unknown commands as
+sub-processes. In some cases (such as expanding abbreviations)
+<b>unknown</b> will change the original command slightly and then
+(re-)execute it. The result of the <b>unknown</b> command is used
+as the result for the original non-existent command.</p>
+
+<p>The default implementation of <b>unknown</b> behaves as follows.
+It first calls the <b><a href=
+"../TclCmd/library.htm">auto_load</a></b> library procedure to load
+the command. If this succeeds, then it executes the original
+command with its original arguments. If the auto-load fails then
+<b>unknown</b> calls <b><a href=
+"../TclCmd/library.htm">auto_execok</a></b> to see if there is an
+executable file by the name <i>cmd</i>. If so, it invokes the Tcl
+<b><a href="../TclCmd/exec.htm">exec</a></b> command with
+<i>cmd</i> and all the <i>args</i> as arguments. If <i>cmd</i>
+can't be auto-executed, <b>unknown</b> checks to see if the command
+was invoked at top-level and outside of any script. If so, then
+<b>unknown</b> takes two additional steps. First, it sees if
+<i>cmd</i> has one of the following three forms: <b>!!</b>,
+<b>!</b><i>event</i>, or
+<b>^</b><i>old</i><b>^</b><i>new</i>?<b>^</b>?. If so, then
+<b>unknown</b> carries out history substitution in the same way
+that <b>csh</b> would for these constructs. Finally, <b>unknown</b>
+checks to see if <i>cmd</i> is a unique abbreviation for an
+existing Tcl command. If so, it expands the command name and
+executes the command with the original arguments. If none of the
+above efforts has been able to execute the command, <b>unknown</b>
+generates an error return. If the global variable
+<b>auto_noload</b> is defined, then the auto-load step is skipped.
+If the global variable <b>auto_noexec</b> is defined then the
+auto-exec step is skipped. Under normal circumstances the return
+value from <b>unknown</b> is the return value from the command that
+was eventually executed.</p>
+
+<h3><a name="M5">SEE ALSO</a></h3>
+
+<p><b><a href="../TclCmd/info.htm">info</a></b>, <b><a href=
+"../TclCmd/proc.htm">proc</a></b>, <b><a href=
+"../TclCmd/interp.htm">interp</a></b>, <b>library</b></p>
+
+<h3><a name="M6">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/E.htm#error">error</a>, <a href=
+"../Keywords/N.htm#non-existent command">non-existent
+command</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1993 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1996 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

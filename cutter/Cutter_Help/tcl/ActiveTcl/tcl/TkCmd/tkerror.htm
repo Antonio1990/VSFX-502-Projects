@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Tk Built-In Commands - tkerror manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<h3><a name="M2">NAME</a></h3>
+
+<p>tkerror - Command invoked to process background errors</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>tkerror</b> <i>message</i><br>
+</p>
+
+<h3><a name="M4">DESCRIPTION</a></h3>
+
+<p>Note: as of Tk 4.1 the <b>tkerror</b> command has been renamed
+to <b><a href="../TclCmd/bgerror.htm">bgerror</a></b> because the
+event loop (which is what usually invokes it) is now part of Tcl.
+For backward compatibility the <b><a href=
+"../TclCmd/bgerror.htm">bgerror</a></b> provided by the current Tk
+version still tries to call <b>tkerror</b> if there is one (or an
+auto loadable one), so old script defining that error handler
+should still work, but you should anyhow modify your scripts to use
+<b><a href="../TclCmd/bgerror.htm">bgerror</a></b> instead of
+<b>tkerror</b> because that support for the old name might vanish
+in the near future. If that call fails, <b><a href=
+"../TclCmd/bgerror.htm">bgerror</a></b> posts a dialog showing the
+error and offering to see the stack trace to the user. If you want
+your own error management you should directly override <b><a href=
+"../TclCmd/bgerror.htm">bgerror</a></b> instead of <b>tkerror</b>.
+Documentation for <b><a href=
+"../TclCmd/bgerror.htm">bgerror</a></b> is available as part of
+Tcl's documentation.</p>
+
+<h3><a name="M5">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/B.htm#background error">background
+error</a>, <a href="../Keywords/R.htm#reporting">reporting</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1990-1994 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1996 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

@@ -1,0 +1,37 @@
+/* 	Surface shader that using the ambient, diffuse and 
+	specular lighting components. Based on Pixars classic
+	"plastic" shader. Source code by Renee Tam.
+*/
+// #pragma optable vop
+#pragma hint	Ka float
+#pragma label	Ka "Ambient Intensity"
+
+#pragma hint	Kd float
+#pragma label	Kd "Diffuse Intensity"
+
+#pragma hint	Ks float
+#pragma label	Ks "Specular Intensity"
+
+#pragma hint	roughness float
+#pragma label	roughness "Roughness"
+
+#pragma hint	hilitecolor float
+#pragma label	hilitecolor "Hilite Color"
+
+surface
+cutrPlastic(float Ka = 1,
+                  Kd = 0.5,
+                  Ks = 1,
+                  roughness = 0.1;
+          vector  hilitecolor = 1)
+{
+vector n = normalize(N),     /* the xyz vectors for the unit and */
+       nf = frontface(n, I), /* front facing normals and the     */
+       i = normalize(-I);    /* viewing vector                   */
+vector ambientcolor = Ka * ambient(),
+       diffusecolor = Kd * diffuse(nf),
+       speccolor = Ks * specular(nf, i, roughness) * hilitecolor,
+       surfcolor = set(1,1,1);
+
+Cf = Of * surfcolor * (ambientcolor + diffusecolor + speccolor);
+}

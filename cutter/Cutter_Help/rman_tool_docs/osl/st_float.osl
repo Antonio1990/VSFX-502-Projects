@@ -1,0 +1,9 @@
+// A barebones example showing how to access 'st' texture
+// coordinates and how to output a float. 
+shader
+st2float(float s = 0 [[int lockgeom = 0]],
+         float t = 0 [[int lockgeom = 0]],
+         output float resultF = 0)
+{
+resultF = s * t;
+}

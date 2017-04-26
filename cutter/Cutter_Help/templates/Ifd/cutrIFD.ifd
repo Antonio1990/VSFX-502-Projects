@@ -1,0 +1,64 @@
+# For testing vex shaders without using Houdini - by Renee Tam.
+# Be sure to replace these with the appropriate values:
+#     /stuhome/vsfx319/cutter
+#    PATH_TO_OTL_DIRECTORY
+#     NAME_OF_OTL_FILE
+#    NAME_OF_VFL_SHADER
+# Feb 2004: Source code by Renee Tam. 
+# Feb 2005: Modified to handle OTL for Houdini 7.
+# Jan 2009: Thanks to Martin Sawtell for modifying the script.
+
+  
+# Set the path to Cutter's library of IFD shapes
+set pathToGeometry = "./Cutter_Help/ifd_geometry"
+  
+### SET THE PATH TO THE OTL CONTAINING THE SHADER(S)
+set pathToOTL = "PATH.otl"
+  
+# For Houdini 7 we must load the OTL file in which our VEX shader is defined
+ray_loadotl $pathToOTL
+    
+# global transform
+ray_globaltransform 1 0 0 0  0 1 0 0  1 0 0 0  0 0 0 1
+
+# use the ip renderer
+ray_picture ip
+  
+# setting the resolution
+ray_resolution 256 256
+
+# the zooming angle
+ray_zoom 1.0
+  
+    ray_start light    # {
+    ray_transform 1 0 0 0 0 1 0 0 0 0 1 0 0 1 0 1
+    ray_property light name "/obj/pointlight1"
+    ray_property light shader opdef:/Shop/v_asadlight lightcolor 1 1 1 doatten 1 atten 1e+06
+    ray_property light projection "perspective"
+    ray_property light zoom 1.20710676487 1.20710676487
+    ray_end    # }
+  
+#  lights are next
+ray_light -n light1 -Z 1 1
+ray_shader attenlight intensity 2
+ray_transform 1 0 0 0 0 0 1 0 0 1 0 0 0 0 0 0
+  
+#  define the path to the object file
+ray_detail -s geo      $pathToGeometry/sphere.geo
+ray_object object1 geo $pathToGeometry/sphere.geo
+  
+#  obj transform
+ray_transform 1 0 0 0  0 1 0 0  0 0 1 0  0 0 2.5 1
+  
+### SET THE NAME OF THE SURFACE SHADER AND ITS PARAMETERS
+ray_shader opdef:/Shop/SHADER_NAME
+  
+### SET THE NAME OF THE DISPLACEMENT SHADER AND ITS PARAMETERS
+#ray_displace opdef:/Shop/SHADER_NAME
+  
+#  ray_1mask and ray_rmask are relevent when lights
+#  other than ambient lights are used
+ray_lmask  0
+ray_rmask *
+ray_render
+ray_quit

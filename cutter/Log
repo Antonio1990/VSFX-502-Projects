@@ -1,0 +1,24 @@
+    Launched at: 2017_4_25_9.38:58
+    Warning: DirPresetsPanel.addDefaultDirectories() - cannot find users maya directory at,
+        "C:/Documents and Settings/My Documents/maya".
+    Warning: DirPresetsPanel.addDefaultDirectories() - cannot find users maya directory at,
+        "C:/Users/Documents/maya".
+    Info:DirPresetsPanel.addDefaultDirectories() cannot find maya at "C:\Users\Documents\maya"
+Cutter version: 7.7.7
+[CutterLF is a minor extension of MetalLF - UI_Delegates.CutterLF]
+Compiled: Sunday 5 March 2017
+Host OS is Windows 8.1
+Users account name is "taizyd"
+The environment variable "CUTTER_USERS_DIR" has not been found.
+The environment variable "CUTTER_APP_DIR" has not been found.
+Users $HOME directory is "C:\Users\taizyd"
+Users PWD is "F:\502\vsfx502\cutter"
+
+    Exception:DocOpenAction - java.lang.Exception: OpenSelectionHandler - no selection
+    Info:RibScriptHandler.checkSearchPaths() - front document is a pre-bake rib
+    Info:KAbstractWindow.removeMayaClient table size is 0
+    Info:KAbstractWindow.removeMayaClient table size is 0
+    Info:KAbstractWindow.removeMayaClient table size is 0
+    Warning: Preferences.updateBackup() regenerating "prefs.ini"
+    Error 2: Preferences.updateBackup() unable to read "prefs.ini"
+Cutter exited at 2017_4_26_2.4:28960

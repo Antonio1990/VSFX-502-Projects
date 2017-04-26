@@ -1,0 +1,1 @@
+/* Shader description goes here */class displace_test(float	Km = 0.1){varying float  hump = 0;varying normal n = 0;  public void displacement(output point P; output normal N) {	n = normalize(N);	hump = 0;	P = P - n * hump * Km;	N = calculatenormal(P);	}    }

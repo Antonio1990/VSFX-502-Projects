@@ -1,0 +1,333 @@
+===================================
+DATE: Monday 28 December 2015 at 0:47 PM
+VERSION: 7.1.0
+---
+openedPath: H:\STUDENT_STARTER_FILES\vsfx419\cutter\Cutter_Prefs\win.ini
+closedPath: H:\STUDENT_STARTER_FILES\vsfx419\cutter\Cutter_Prefs\win.ini
+openedAt: Monday 28 December 2015 at 0:32 PM
+closedAt: Monday 28 December 2015 at 0:44 PM
+openedBytes: 16270
+closedBytes: 16268
+saved: 0
+---
+openedPath: H:\STUDENT_STARTER_FILES\vsfx419\cutter\run.bat
+closedPath: H:\STUDENT_STARTER_FILES\vsfx419\cutter\run.bat
+openedAt: Monday 28 December 2015 at 0:47 PM
+closedAt: Monday 28 December 2015 at 0:47 PM
+openedBytes: 176
+closedBytes: 176
+saved: 0
+---
+openedPath: H:\STUDENT_STARTER_FILES\vsfx419\cutter\BasicRis_0.rib
+closedPath: H:\STUDENT_STARTER_FILES\vsfx419\cutter\BasicRis_0.rib
+openedAt: Monday 28 December 2015 at 0:43 PM
+closedAt: Monday 28 December 2015 at 0:47 PM
+openedBytes: 1664
+closedBytes: 1664
+saved: 1
+===================================
+DATE: Monday 28 December 2015 at 0:48 PM
+VERSION: 7.1.0
+---
+openedPath: H:\STUDENT_STARTER_FILES\vsfx419\cutter\run.bat
+closedPath: H:\STUDENT_STARTER_FILES\vsfx419\cutter\run.bat
+openedAt: Monday 28 December 2015 at 0:48 PM
+closedAt: Monday 28 December 2015 at 0:48 PM
+openedBytes: 179
+closedBytes: 179
+saved: 1
+---
+openedPath: H:\STUDENT_STARTER_FILES\vsfx419\cutter\BasicRis_0.rib
+closedPath: H:\STUDENT_STARTER_FILES\vsfx419\cutter\BasicRis_0.rib
+openedAt: Monday 28 December 2015 at 0:47 PM
+closedAt: Monday 28 December 2015 at 0:48 PM
+openedBytes: 1664
+closedBytes: 1664
+saved: 0
+===================================
+DATE: Wednesday 30 December 2015 at 11:25 AM
+VERSION: 7.2.0
+---
+openedPath: H:\vsfx755\cutter\run.bat
+closedPath: H:\vsfx755\cutter\run.bat
+openedAt: Wednesday 30 December 2015 at 11:24 AM
+closedAt: Wednesday 30 December 2015 at 11:25 AM
+openedBytes: 211
+closedBytes: 213
+saved: 1
+---
+openedPath: H:\maya\projects\RfM_ris\Code_Source\Build_CutrBBones.bat
+closedPath: H:\maya\projects\RfM_ris\Code_Source\Build_CutrBBones.bat
+openedAt: Wednesday 30 December 2015 at 11:23 AM
+closedAt: Wednesday 30 December 2015 at 11:23 AM
+openedBytes: 7522
+closedBytes: 7522
+saved: 0
+---
+openedPath: H:\vsfx755\cutter\BasicRis_0.rib
+closedPath: H:\vsfx755\cutter\BasicRis_0.rib
+openedAt: Wednesday 30 December 2015 at 11:25 AM
+closedAt: Wednesday 30 December 2015 at 11:25 AM
+openedBytes: 1745
+closedBytes: 1745
+saved: 0
+===================================
+DATE: Wednesday 30 December 2015 at 11:30 AM
+VERSION: 7.2.0
+---
+openedPath: H:\vsfx755\cutter\run.bat
+closedPath: H:\vsfx755\cutter\run.bat
+openedAt: Wednesday 30 December 2015 at 11:27 AM
+closedAt: Wednesday 30 December 2015 at 11:30 AM
+openedBytes: 213
+closedBytes: 213
+saved: 0
+---
+openedPath: H:\maya\projects\RfM_ini\it.ini
+closedPath: H:\maya\projects\RfM_ini\it.ini
+openedAt: Wednesday 30 December 2015 at 11:26 AM
+closedAt: Wednesday 30 December 2015 at 11:30 AM
+openedBytes: 422
+closedBytes: 510
+saved: 1
+---
+openedPath: H:\vsfx755\cutter\BasicRis_0.rib
+closedPath: H:\vsfx755\cutter\BasicRis_0.rib
+openedAt: Wednesday 30 December 2015 at 11:25 AM
+closedAt: Wednesday 30 December 2015 at 11:30 AM
+openedBytes: 1745
+closedBytes: 1745
+saved: 0
+===================================
+DATE: Wednesday 30 December 2015 at 11:32 AM
+VERSION: 7.2.0
+---
+openedPath: H:\maya\projects\RfM_ini\it.ini
+closedPath: H:\maya\projects\RfM_ini\it.ini
+openedAt: Wednesday 30 December 2015 at 11:31 AM
+closedAt: Wednesday 30 December 2015 at 11:32 AM
+openedBytes: 510
+closedBytes: 524
+saved: 1
+---
+openedPath: H:\vsfx755\cutter\BasicRis_0.rib
+closedPath: H:\vsfx755\cutter\BasicRis_0.rib
+openedAt: Wednesday 30 December 2015 at 11:30 AM
+closedAt: Wednesday 30 December 2015 at 11:32 AM
+openedBytes: 1745
+closedBytes: 1745
+saved: 0
+===================================
+DATE: Wednesday 30 December 2015 at 11:46 AM
+VERSION: 7.2.0
+---
+openedPath: H:\vsfx755\cutter\run.bat
+closedPath: H:\vsfx755\cutter\run.bat
+openedAt: Wednesday 30 December 2015 at 11:36 AM
+closedAt: Wednesday 30 December 2015 at 11:36 AM
+openedBytes: 213
+closedBytes: 213
+saved: 0
+---
+openedPath: H:\maya\projects\RfM_ini\it.ini
+closedPath: H:\maya\projects\RfM_ini\it.ini
+openedAt: Wednesday 30 December 2015 at 11:32 AM
+closedAt: Wednesday 30 December 2015 at 11:46 AM
+openedBytes: 524
+closedBytes: 653
+saved: 1
+---
+openedPath: H:\vsfx755\cutter\BasicRis_0.rib
+closedPath: H:\vsfx755\cutter\BasicRis_0.rib
+openedAt: Wednesday 30 December 2015 at 11:32 AM
+closedAt: Wednesday 30 December 2015 at 11:46 AM
+openedBytes: 1745
+closedBytes: 1745
+saved: 0
+---
+openedPath: H:\vsfx755\cutter\untitled2.tcl
+closedPath: H:\vsfx755\cutter\untitled2.tcl
+openedAt: Wednesday 30 December 2015 at 11:37 AM
+closedAt: Wednesday 30 December 2015 at 11:39 AM
+openedBytes: 895
+closedBytes: 895
+saved: 1
+---
+openedPath: H:\vsfx755\cutter\untitled_0.tcl
+closedPath: H:\vsfx755\cutter\untitled_0.tcl
+openedAt: Wednesday 30 December 2015 at 11:35 AM
+closedAt: Wednesday 30 December 2015 at 11:46 AM
+openedBytes: 0
+closedBytes: 36
+saved: 3
+===================================
+DATE: Wednesday 30 December 2015 at 11:47 AM
+VERSION: 7.2.0
+---
+openedPath: H:\maya\projects\RfM_ini\it.ini
+closedPath: H:\maya\projects\RfM_ini\it.ini
+openedAt: Wednesday 30 December 2015 at 11:46 AM
+closedAt: Wednesday 30 December 2015 at 11:46 AM
+openedBytes: 653
+closedBytes: 599
+saved: 1
+===================================
+DATE: Wednesday 30 December 2015 at 11:53 AM
+VERSION: 7.2.0
+---
+openedPath: H:\maya\projects\RfM_ini\RenderMan_for_Maya.ini
+closedPath: H:\maya\projects\RfM_ini\RenderMan_for_Maya.ini
+openedAt: Wednesday 30 December 2015 at 11:53 AM
+closedAt: Wednesday 30 December 2015 at 11:53 AM
+openedBytes: 1880
+closedBytes: 1880
+saved: 0
+---
+openedPath: H:\maya\projects\RfM_ini\it.ini
+closedPath: H:\maya\projects\RfM_ini\it.ini
+openedAt: Wednesday 30 December 2015 at 11:47 AM
+closedAt: Wednesday 30 December 2015 at 11:53 AM
+openedBytes: 599
+closedBytes: 606
+saved: 1
+---
+openedPath: H:\vsfx755\cutter\BasicRis_0.rib
+closedPath: H:\vsfx755\cutter\BasicRis_0.rib
+openedAt: Wednesday 30 December 2015 at 11:47 AM
+closedAt: Wednesday 30 December 2015 at 11:53 AM
+openedBytes: 1745
+closedBytes: 0
+saved: 0
+---
+openedPath: H:\maya\projects\RfM_ini\RMSWorkspace.ini
+closedPath: H:\maya\projects\RfM_ini\RMSWorkspace.ini
+openedAt: Wednesday 30 December 2015 at 11:48 AM
+closedAt: Wednesday 30 December 2015 at 11:49 AM
+openedBytes: 397
+closedBytes: 397
+saved: 0
+===================================
+DATE: Wednesday 30 December 2015 at 11:55 AM
+VERSION: 7.2.0
+---
+openedPath: H:\vsfx755\cutter\BasicRis_0.rib
+closedPath: H:\vsfx755\cutter\BasicRis_1.rib
+openedAt: Wednesday 30 December 2015 at 11:53 AM
+closedAt: Wednesday 30 December 2015 at 11:55 AM
+openedBytes: 2083
+closedBytes: 2083
+saved: 0
+---
+openedPath: H:\maya\projects\RfM_ini\it.ini
+closedPath: H:\maya\projects\RfM_ini\it.ini
+openedAt: Wednesday 30 December 2015 at 11:54 AM
+closedAt: Wednesday 30 December 2015 at 11:55 AM
+openedBytes: 606
+closedBytes: 607
+saved: 1
+---
+openedPath: H:\maya\projects\RfM_ini\RenderMan_for_Maya.ini
+closedPath: H:\maya\projects\RfM_ini\RenderMan_for_Maya.ini
+openedAt: Wednesday 30 December 2015 at 11:53 AM
+closedAt: Wednesday 30 December 2015 at 11:55 AM
+openedBytes: 1880
+closedBytes: 2009
+saved: 1
+===================================
+DATE: Wednesday 30 December 2015 at 0:2 PM
+VERSION: 7.2.0
+---
+openedPath: H:\vsfx755\cutter\BasicRis_1.rib
+closedPath: H:\vsfx755\cutter\BasicRis_1.rib
+openedAt: Wednesday 30 December 2015 at 0:1 PM
+closedAt: Wednesday 30 December 2015 at 0:2 PM
+openedBytes: 2083
+closedBytes: 2083
+saved: 0
+---
+openedPath: H:\maya\projects\RfM_ini\RenderMan_for_Maya.ini
+closedPath: H:\maya\projects\RfM_ini\RenderMan_for_Maya.ini
+openedAt: Wednesday 30 December 2015 at 0:1 PM
+closedAt: Wednesday 30 December 2015 at 0:2 PM
+openedBytes: 2009
+closedBytes: 2027
+saved: 1
+===================================
+DATE: Wednesday 4 January 2017 at 8:55 AM
+VERSION: 7.7.2
+---
+openedPath: H:\maya\projects\RfM_rif\LPE_Rif.cpp
+closedPath: H:\maya\projects\RfM_rif\LPE_Rif.cpp
+openedAt: Wednesday 4 January 2017 at 8:54 AM
+closedAt: Wednesday 4 January 2017 at 8:54 AM
+openedBytes: 13987
+closedBytes: 13987
+saved: 0
+===================================
+DATE: Wednesday 4 January 2017 at 8:56 AM
+VERSION: 7.7.2
+---
+openedPath: H:\BasicRis_0.rib
+closedPath: H:\BasicRis_0.rib
+openedAt: Wednesday 4 January 2017 at 8:56 AM
+closedAt: Wednesday 4 January 2017 at 8:56 AM
+openedBytes: 1908
+closedBytes: 1908
+saved: 1
+===================================
+DATE: Monday 24 April 2017 at 7:2 PM
+VERSION: 7.7.7
+---
+openedPath: F:\502\vsfx502\archives\geo\TeapotShape_01.rib
+closedPath: F:\502\vsfx502\archives\geo\TeapotShape_01.rib
+openedAt: Monday 24 April 2017 at 4:49 PM
+closedAt: Monday 24 April 2017 at 7:2 PM
+openedBytes: 633
+closedBytes: 1536
+saved: 59
+---
+openedPath: F:\502\vsfx502\ribs\Teapot_Scene.rib
+closedPath: F:\502\vsfx502\ribs\Teapot_Scene.rib
+openedAt: Monday 24 April 2017 at 4:48 PM
+closedAt: Monday 24 April 2017 at 7:2 PM
+openedBytes: 1861
+closedBytes: 1923
+saved: 1
+===================================
+DATE: Tuesday 25 April 2017 at 1:24 PM
+VERSION: 7.7.7
+---
+openedPath: F:\502\vsfx502\archives\geo\TeapotShape_01.rib
+closedPath: F:\502\vsfx502\archives\geo\TeapotShape_01.rib
+openedAt: Tuesday 25 April 2017 at 0:53 PM
+closedAt: Tuesday 25 April 2017 at 1:24 PM
+openedBytes: 1536
+closedBytes: 1678
+saved: 21
+---
+openedPath: F:\502\vsfx502\ribs\Teapot_Scene.rib
+closedPath: F:\502\vsfx502\ribs\Teapot_Scene.rib
+openedAt: Tuesday 25 April 2017 at 0:39 PM
+closedAt: Tuesday 25 April 2017 at 1:24 PM
+openedBytes: 1923
+closedBytes: 2432
+saved: 2
+===================================
+DATE: Wednesday 26 April 2017 at 2:4 AM
+VERSION: 7.7.7
+---
+openedPath: F:\502\vsfx502\archives\geo\TeapotShape_01.rib
+closedPath: F:\502\vsfx502\archives\geo\TeapotShape_01.rib
+openedAt: Tuesday 25 April 2017 at 9:42 PM
+closedAt: Wednesday 26 April 2017 at 2:4 AM
+openedBytes: 1678
+closedBytes: 3163
+saved: 253
+---
+openedPath: F:\502\vsfx502\ribs\Teapot_Scene.rib
+closedPath: F:\502\vsfx502\ribs\Teapot_Scene.rib
+openedAt: Tuesday 25 April 2017 at 9:38 PM
+closedAt: Wednesday 26 April 2017 at 2:4 AM
+openedBytes: 2432
+closedBytes: 2380
+saved: 22

@@ -1,0 +1,10 @@
+// A barebones example showing how to access 'st' texture
+// coordinates and how to output a color. The shader assumes
+// the values of 's' and 't' are in the range 0 to 1.
+shader
+st2color(float s = 0 [[int lockgeom = 0]],
+         float t = 0 [[int lockgeom = 0]],
+        output color resultRGB = 0)
+{
+resultRGB = color(s, t, 1);
+}

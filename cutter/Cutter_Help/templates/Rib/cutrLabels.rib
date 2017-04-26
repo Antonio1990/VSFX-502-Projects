@@ -1,0 +1,18 @@
+
+# Labels
+AttributeBegin
+	Scale 0.8 0.8 0.8
+	IfBegin "$user:label == 'X'"
+		Curves "linear" [2] "nonperiodic" "P" [0  0.16 0    0.13 0    0 ] "constantwidth" [0.015]
+		Curves "linear" [2] "nonperiodic" "P" [0  0    0    0.13 0.16 0  ] "constantwidth" [0.015]
+	ElseIf "$user:label == 'Y'"
+		Curves "linear" [2] "nonperiodic" "P" [0  0.08 0    -0.08  0.16 0] "constantwidth" [0.015]
+		Curves "linear" [2] "nonperiodic" "P" [0  0.08 0     0     0    0] "constantwidth" [0.015] 
+		Curves "linear" [2] "nonperiodic" "P" [0  0.08 0     0.08  0.16 0] "constantwidth" [0.015]
+		
+	ElseIf "$user:label == 'Z'"
+		Curves "linear" [2] "nonperiodic" "P" [-0.08 0    0    0.08 0    0] "constantwidth" [0.015]
+		Curves "linear" [2] "nonperiodic" "P" [-0.08 0  -0.16  0.08 0  -0.16] "constantwidth" [0.015]
+		Curves "linear" [2] "nonperiodic" "P" [ 0.08 0  -0.16  -0.08 0  0] "constantwidth" [0.015]
+	IfEnd
+AttributeEnd

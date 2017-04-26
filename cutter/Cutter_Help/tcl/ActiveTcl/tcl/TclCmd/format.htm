@@ -1,0 +1,351 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Tcl Built-In Commands - format manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<dl>
+<dd><a href="format.htm#M2" name="L470">NAME</a> 
+
+<dl>
+<dd>format - Format a string in the style of sprintf</dd>
+</dl>
+</dd>
+
+<dd><a href="format.htm#M3" name="L471">SYNOPSIS</a> 
+
+<dl>
+<dd><b>format</b> <i>formatString</i> ?<i>arg arg ...</i>?</dd>
+</dl>
+</dd>
+
+<dd><a href="format.htm#M4" name="L472">INTRODUCTION</a></dd>
+
+<dd><a href="format.htm#M5" name="L473">DETAILS ON FORMATTING</a> 
+
+<dl>
+<dd><a href="format.htm#M6" name="L474"><b>-</b></a></dd>
+
+<dd><a href="format.htm#M7" name="L475"><b>+</b></a></dd>
+
+<dd><a href="format.htm#M8" name="L476"><i>space</i></a></dd>
+
+<dd><a href="format.htm#M9" name="L477"><b>0</b></a></dd>
+
+<dd><a href="format.htm#M10" name="L478"><b>#</b></a></dd>
+</dl>
+
+<dl>
+<dd><a href="format.htm#M11" name="L479"><b>d</b></a></dd>
+
+<dd><a href="format.htm#M12" name="L480"><b>u</b></a></dd>
+
+<dd><a href="format.htm#M13" name="L481"><b>i</b></a></dd>
+
+<dd><a href="format.htm#M14" name="L482"><b>o</b></a></dd>
+
+<dd><a href="format.htm#M15" name="L483"><b>x</b> or
+<b>X</b></a></dd>
+
+<dd><a href="format.htm#M16" name="L484"><b>c</b></a></dd>
+
+<dd><a href="format.htm#M17" name="L485"><b>s</b></a></dd>
+
+<dd><a href="format.htm#M18" name="L486"><b>f</b></a></dd>
+
+<dd><a href="format.htm#M19" name="L487"><b>e</b> or
+<b>e</b></a></dd>
+
+<dd><a href="format.htm#M20" name="L488"><b>g</b> or
+<b>G</b></a></dd>
+
+<dd><a href="format.htm#M21" name="L489"><b>%</b></a></dd>
+</dl>
+</dd>
+
+<dd><a href="format.htm#M22" name="L490">DIFFERENCES FROM ANSI
+SPRINTF</a></dd>
+
+<dd><a href="format.htm#M23" name="L491">SEE ALSO</a></dd>
+
+<dd><a href="format.htm#M24" name="L492">KEYWORDS</a></dd>
+</dl>
+
+<hr>
+<h3><a name="M2">NAME</a></h3>
+
+<p>format - Format a string in the style of sprintf</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>format</b> <i>formatString</i> ?<i>arg arg ...</i>?<br>
+</p>
+
+<h3><a name="M4">INTRODUCTION</a></h3>
+
+<p>This command generates a formatted string in the same way as the
+ANSI C <b>sprintf</b> procedure (it uses <b>sprintf</b> in its
+implementation). <i>FormatString</i> indicates how to format the
+result, using <b>%</b> conversion specifiers as in <b>sprintf</b>,
+and the additional arguments, if any, provide values to be
+substituted into the result. The return value from <b>format</b> is
+the formatted string.</p>
+
+<h3><a name="M5">DETAILS ON FORMATTING</a></h3>
+
+<p>The command operates by scanning <i>formatString</i> from left
+to right. Each character from the format string is appended to the
+result string unless it is a percent sign. If the character is a
+<b>%</b> then it is not copied to the result string. Instead, the
+characters following the <b>%</b> character are treated as a
+conversion specifier. The conversion specifier controls the
+conversion of the next successive <i>arg</i> to a particular format
+and the result is appended to the result string in place of the
+conversion specifier. If there are multiple conversion specifiers
+in the format string, then each one controls the conversion of one
+additional <i>arg</i>. The <b>format</b> command must be given
+enough <i>arg</i>s to meet the needs of all of the conversion
+specifiers in <i>formatString</i>.</p>
+
+<p>Each conversion specifier may contain up to six different parts:
+an XPG3 position specifier, a set of flags, a minimum field width,
+a precision, a length modifier, and a conversion character. Any of
+these fields may be omitted except for the conversion character.
+The fields that are present must appear in the order given above.
+The paragraphs below discuss each of these fields in turn.</p>
+
+<p>If the <b>%</b> is followed by a decimal number and a <b>$</b>,
+as in ``<b>%2$d</b>'', then the value to convert is not taken from
+the next sequential argument. Instead, it is taken from the
+argument indicated by the number, where 1 corresponds to the first
+<i>arg</i>. If the conversion specifier requires multiple arguments
+because of <b>*</b> characters in the specifier then successive
+arguments are used, starting with the argument given by the number.
+This follows the XPG3 conventions for positional specifiers. If
+there are any positional specifiers in <i>formatString</i> then all
+of the specifiers must be positional.</p>
+
+<p>The second portion of a conversion specifier may contain any of
+the following flag characters, in any order:</p>
+
+<dl>
+<dt><a name="M6"><b>-</b></a></dt>
+
+<dd>Specifies that the converted argument should be left-justified
+in its field (numbers are normally right-justified with leading
+spaces if needed).</dd>
+
+<dt><a name="M7"><b>+</b></a></dt>
+
+<dd>Specifies that a number should always be printed with a sign,
+even if positive.</dd>
+
+<dt><a name="M8"><i>space</i></a></dt>
+
+<dd>Specifies that a space should be added to the beginning of the
+number if the first character isn't a sign.</dd>
+
+<dt><a name="M9"><b>0</b></a></dt>
+
+<dd>Specifies that the number should be padded on the left with
+zeroes instead of spaces.</dd>
+
+<dt><a name="M10"><b>#</b></a></dt>
+
+<dd>Requests an alternate output form. For <b>o</b> and <b>O</b>
+conversions it guarantees that the first digit is always <b>0</b>.
+For <b>x</b> or <b>X</b> conversions, <b>0x</b> or <b>0X</b>
+(respectively) will be added to the beginning of the result unless
+it is zero. For all floating-point conversions (<b>e</b>, <b>E</b>,
+<b>f</b>, <b>g</b>, and <b>G</b>) it guarantees that the result
+always has a decimal point. For <b>g</b> and <b>G</b> conversions
+it specifies that trailing zeroes should not be removed.</dd>
+</dl>
+
+<p>The third portion of a conversion specifier is a number giving a
+minimum field width for this conversion. It is typically used to
+make columns line up in tabular printouts. If the converted
+argument contains fewer characters than the minimum field width
+then it will be padded so that it is as wide as the minimum field
+width. Padding normally occurs by adding extra spaces on the left
+of the converted argument, but the <b>0</b> and <b>-</b> flags may
+be used to specify padding with zeroes on the left or with spaces
+on the right, respectively. If the minimum field width is specified
+as <b>*</b> rather than a number, then the next argument to the
+<b>format</b> command determines the minimum field width; it must
+be a numeric string.</p>
+
+<p>The fourth portion of a conversion specifier is a precision,
+which consists of a period followed by a number. The number is used
+in different ways for different conversions. For <b>e</b>,
+<b>E</b>, and <b>f</b> conversions it specifies the number of
+digits to appear to the right of the decimal point. For <b>g</b>
+and <b>G</b> conversions it specifies the total number of digits to
+appear, including those on both sides of the decimal point
+(however, trailing zeroes after the decimal point will still be
+omitted unless the <b>#</b> flag has been specified). For integer
+conversions, it specifies a minimum number of digits to print
+(leading zeroes will be added if necessary). For <b>s</b>
+conversions it specifies the maximum number of characters to be
+printed; if the string is longer than this then the trailing
+characters will be dropped. If the precision is specified with
+<b>*</b> rather than a number then the next argument to the
+<b>format</b> command determines the precision; it must be a
+numeric string.</p>
+
+<p>The fifth part of a conversion specifier is a length modifier,
+which must be <b>h</b> or <b>l</b>. If it is <b>h</b> it specifies
+that the numeric value should be truncated to a 16-bit value before
+converting. This option is rarely useful. If it is <b>l</b> it
+specifies that the numeric value should be (at least) a 64-bit
+value. If neither <b>h</b> or <b>l</b> are present, numeric values
+are interpreted as being values of the width of the native machine
+word, as described by <b>tcl_platform(wordSize)</b>.</p>
+
+<p>The last thing in a conversion specifier is an alphabetic
+character that determines what kind of conversion to perform. The
+following conversion characters are currently supported:</p>
+
+<dl>
+<dt><a name="M11"><b>d</b></a></dt>
+
+<dd>Convert integer to signed decimal string.</dd>
+
+<dt><a name="M12"><b>u</b></a></dt>
+
+<dd>Convert integer to unsigned decimal string.</dd>
+
+<dt><a name="M13"><b>i</b></a></dt>
+
+<dd>Convert integer to signed decimal string; the integer may
+either be in decimal, in octal (with a leading <b>0</b>) or in
+hexadecimal (with a leading <b>0x</b>).</dd>
+
+<dt><a name="M14"><b>o</b></a></dt>
+
+<dd>Convert integer to unsigned octal string.</dd>
+
+<dt><a name="M15"><b>x</b> or <b>X</b></a></dt>
+
+<dd>Convert integer to unsigned hexadecimal string, using digits
+``0123456789abcdef'' for <b>x</b> and ``0123456789ABCDEF'' for
+<b>X</b>).</dd>
+
+<dt><a name="M16"><b>c</b></a></dt>
+
+<dd>Convert integer to the Unicode character it represents.</dd>
+
+<dt><a name="M17"><b>s</b></a></dt>
+
+<dd>No conversion; just insert string.</dd>
+
+<dt><a name="M18"><b>f</b></a></dt>
+
+<dd>Convert floating-point number to signed decimal string of the
+form <i>xx.yyy</i>, where the number of <i>y</i>'s is determined by
+the precision (default: 6). If the precision is 0 then no decimal
+point is output.</dd>
+
+<dt><a name="M19"><b>e</b> or <b>e</b></a></dt>
+
+<dd>Convert floating-point number to scientific notation in the
+form <i>x.yyy</i><b>e&plusmn;</b><i>zz</i>, where the number of
+<i>y</i>'s is determined by the precision (default: 6). If the
+precision is 0 then no decimal point is output. If the <b>E</b>
+form is used then <b>E</b> is printed instead of <b>e</b>.</dd>
+
+<dt><a name="M20"><b>g</b> or <b>G</b></a></dt>
+
+<dd>If the exponent is less than -4 or greater than or equal to the
+precision, then convert floating-point number as for <b>%e</b> or
+<b>%E</b>. Otherwise convert as for <b>%f</b>. Trailing zeroes and
+a trailing decimal point are omitted.</dd>
+
+<dt><a name="M21"><b>%</b></a></dt>
+
+<dd>No conversion: just insert <b>%</b>.</dd>
+</dl>
+
+<p>For the numerical conversions the argument being converted must
+be an integer or floating-point string; format converts the
+argument to binary and then converts it back to a string according
+to the conversion specifier.</p>
+
+<h3><a name="M22">DIFFERENCES FROM ANSI SPRINTF</a></h3>
+
+<p>The behavior of the format command is the same as the ANSI C
+<b>sprintf</b> procedure except for the following differences:</p>
+
+<dl>
+<dt>[1]</dt>
+
+<dd><b>%p</b> and <b>%n</b> specifiers are not currently
+supported.</dd>
+
+<dt>[2]</dt>
+
+<dd>For <b>%c</b> conversions the argument must be a decimal
+string, which will then be converted to the corresponding character
+value.</dd>
+
+<dt>[3]</dt>
+
+<dd>The <b>l</b> modifier is ignored for real values and on 64-bit
+platforms, which are always converted as if the <b>l</b> modifier
+were present (i.e. the types <b>double</b> and <b>long</b> are used
+for the internal representation of real and integer values,
+respectively). If the <b>h</b> modifier is specified then integer
+values are truncated to <b>short</b> before conversion. Both
+<b>h</b> and <b>l</b> modifiers are ignored on all other
+conversions.</dd>
+</dl>
+
+<h3><a name="M23">SEE ALSO</a></h3>
+
+<p><b>sprintf</b>, <b><a href=
+"../TclCmd/string.htm">string</a></b></p>
+
+<h3><a name="M24">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/C.htm#conversion specifier">conversion
+specifier</a>, <a href="../Keywords/F.htm#format">format</a>, <a
+href="../Keywords/S.htm#sprintf">sprintf</a>, <a href=
+"../Keywords/S.htm#string">string</a>, <a href=
+"../Keywords/S.htm#substitution">substitution</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1993 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1996 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

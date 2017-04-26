@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Tcl Built-In Commands - lrange manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<h3><a name="M2">NAME</a></h3>
+
+<p>lrange - Return one or more adjacent elements from a list</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>lrange</b> <i>list first last</i><br>
+</p>
+
+<h3><a name="M4">DESCRIPTION</a></h3>
+
+<p><i>List</i> must be a valid Tcl list. This command will return a
+new list consisting of elements <i>first</i> through <i>last</i>,
+inclusive. <i>First</i> or <i>last</i> may be <b>end</b> (or any
+abbreviation of it) to refer to the last element of the list. If
+<i>first</i> is less than zero, it is treated as if it were zero.
+If <i>last</i> is greater than or equal to the number of elements
+in the list, then it is treated as if it were <b>end</b>. If
+<i>first</i> is greater than <i>last</i> then an empty string is
+returned. Note: ``<b>lrange</b> <i>list first first</i>'' does not
+always produce the same result as ``<b>lindex</b> <i>list
+first</i>'' (although it often does for simple fields that aren't
+enclosed in braces); it does, however, produce exactly the same
+results as ``<b>list [lindex</b> <i>list first</i><b>]</b>''</p>
+
+<h3><a name="M5">SEE ALSO</a></h3>
+
+<p><b><a href="../TclCmd/list.htm">list</a></b>, <b><a href=
+"../TclCmd/lappend.htm">lappend</a></b>, <b><a href=
+"../TclCmd/lindex.htm">lindex</a></b>, <b><a href=
+"../TclCmd/linsert.htm">linsert</a></b>, <b><a href=
+"../TclCmd/llength.htm">llength</a></b>, <b><a href=
+"../TclCmd/lsearch.htm">lsearch</a></b>, <b><a href=
+"../TclCmd/lset.htm">lset</a></b>, <b><a href=
+"../TclCmd/lreplace.htm">lreplace</a></b>, <b><a href=
+"../TclCmd/lsort.htm">lsort</a></b></p>
+
+<h3><a name="M6">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/E.htm#element">element</a>, <a href=
+"../Keywords/L.htm#list">list</a>, <a href=
+"../Keywords/R.htm#range">range</a>, <a href=
+"../Keywords/S.htm#sublist">sublist</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1993 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1996 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 2001 Kevin B. Kenny. All rights reserved.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

@@ -1,0 +1,25 @@
+
+// Malcolm Kesson
+// 15 Feb 2016
+global proc getNurbsData(int   $numSamples,
+						string $hyperShadeNode,
+						string $shapeNode,
+						vector $colors[],
+						vector $positions[],
+						vector $normals[]) {
+float  $u, $v;
+float  $minU = 0, $minV = 0, $maxU = 1, $maxV = 1;
+string $parents[] = `listRelatives -parent $shapeNode`;
+string $tformNode = $parents[0];
+
+int $maxUValue = getAttr( ($shapeNode) + ".maxValueU");
+int $maxVValue = getAttr( ($shapeNode) + ".maxValueV");
+
+for($n = 0; $n < $numSamples; $n++) {
+	$u = rand($minU, $maxU);
+	$v = rand($minV, $maxV);
+	$colors[$n] = `colorAtPoint -o RGB -u $u -v $v $hyperShadeNode`;
+	$positions[$n] = `pointOnSurface -p -u ($u * $maxUValue) -v ($v * $maxVValue) $tformNode`;
+	$normals[$n] =   `pointOnSurface    -u ($u * $maxUValue) -v ($v * $maxVValue) -nn $tformNode`;
+	}
+}

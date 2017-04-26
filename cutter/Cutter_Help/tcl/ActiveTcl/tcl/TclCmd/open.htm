@@ -1,0 +1,412 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Tcl Built-In Commands - open manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<dl>
+<dd><a href="open.htm#M2" name="L855">NAME</a> 
+
+<dl>
+<dd>open - Open a file-based or command pipeline channel</dd>
+</dl>
+</dd>
+
+<dd><a href="open.htm#M3" name="L856">SYNOPSIS</a> 
+
+<dl>
+<dd><b>open</b> <i>fileName</i></dd>
+
+<dd><b>open</b> <i>fileName access</i></dd>
+
+<dd><b>open</b> <i>fileName access permissions</i></dd>
+</dl>
+</dd>
+
+<dd><a href="open.htm#M4" name="L857">DESCRIPTION</a> 
+
+<dl>
+<dd><a href="open.htm#M5" name="L858"><b>r</b></a></dd>
+
+<dd><a href="open.htm#M6" name="L859"><b>r+</b></a></dd>
+
+<dd><a href="open.htm#M7" name="L860"><b>w</b></a></dd>
+
+<dd><a href="open.htm#M8" name="L861"><b>w+</b></a></dd>
+
+<dd><a href="open.htm#M9" name="L862"><b>a</b></a></dd>
+
+<dd><a href="open.htm#M10" name="L863"><b>a+</b></a></dd>
+</dl>
+
+<dl>
+<dd><a href="open.htm#M11" name="L864"><b>RDONLY</b></a></dd>
+
+<dd><a href="open.htm#M12" name="L865"><b>WRONLY</b></a></dd>
+
+<dd><a href="open.htm#M13" name="L866"><b>RDWR</b></a></dd>
+
+<dd><a href="open.htm#M14" name="L867"><b>APPEND</b></a></dd>
+
+<dd><a href="open.htm#M15" name="L868"><b>CREAT</b></a></dd>
+
+<dd><a href="open.htm#M16" name="L869"><b>EXCL</b></a></dd>
+
+<dd><a href="open.htm#M17" name="L870"><b>NOCTTY</b></a></dd>
+
+<dd><a href="open.htm#M18" name="L871"><b>NONBLOCK</b></a></dd>
+
+<dd><a href="open.htm#M19" name="L872"><b>TRUNC</b></a></dd>
+</dl>
+</dd>
+
+<dd><a href="open.htm#M20" name="L873">COMMAND PIPELINES</a></dd>
+
+<dd><a href="open.htm#M21" name="L874">SERIAL
+COMMUNICATIONS</a></dd>
+
+<dd><a href="open.htm#M22" name="L875">PORTABILITY ISSUES</a> 
+
+<dl>
+<dd><a href="open.htm#M23" name="L876"><b>Windows</b> (all
+versions)</a></dd>
+
+<dd><a href="open.htm#M24" name="L877"><b>Windows NT</b></a></dd>
+
+<dd><a href="open.htm#M25" name="L878"><b>Windows 95</b></a></dd>
+
+<dd><a href="open.htm#M26" name="L879"><b>Macintosh</b></a></dd>
+
+<dd><a href="open.htm#M27" name="L880"><b>Unix</b></a></dd>
+</dl>
+</dd>
+
+<dd><a href="open.htm#M28" name="L881">SEE ALSO</a></dd>
+
+<dd><a href="open.htm#M29" name="L882">KEYWORDS</a></dd>
+</dl>
+
+<hr>
+<h3><a name="M2">NAME</a></h3>
+
+<p>open - Open a file-based or command pipeline channel</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>open</b> <i>fileName</i><br>
+<b>open</b> <i>fileName access</i><br>
+<b>open</b> <i>fileName access permissions</i><br>
+</p>
+
+<h3><a name="M4">DESCRIPTION</a></h3>
+
+<p>This command opens a file, serial port, or command pipeline and
+returns a channel identifier that may be used in future invocations
+of commands like <b><a href="../TclCmd/read.htm">read</a></b>,
+<b><a href="../TclCmd/puts.htm">puts</a></b>, and <b><a href=
+"../TclCmd/close.htm">close</a></b>. If the first character of
+<i>fileName</i> is not <b>|</b> then the command opens a file:
+<i>fileName</i> gives the name of the file to open, and it must
+conform to the conventions described in the <b><a href=
+"../TclCmd/filename.htm">filename</a></b> manual entry.</p>
+
+<p>The <i>access</i> argument, if present, indicates the way in
+which the file (or command pipeline) is to be accessed. In the
+first form <i>access</i> may have any of the following values:</p>
+
+<dl>
+<dt><a name="M5"><b>r</b></a></dt>
+
+<dd>Open the file for reading only; the file must already exist.
+This is the default value if <i>access</i> is not specified.</dd>
+
+<dt><a name="M6"><b>r+</b></a></dt>
+
+<dd>Open the file for both reading and writing; the file must
+already exist.</dd>
+
+<dt><a name="M7"><b>w</b></a></dt>
+
+<dd>Open the file for writing only. Truncate it if it exists. If it
+doesn't exist, create a new file.</dd>
+
+<dt><a name="M8"><b>w+</b></a></dt>
+
+<dd>Open the file for reading and writing. Truncate it if it
+exists. If it doesn't exist, create a new file.</dd>
+
+<dt><a name="M9"><b>a</b></a></dt>
+
+<dd>Open the file for writing only. If the file doesn't exist,
+create a new empty file. Set the initial access position to the end
+of the file.</dd>
+
+<dt><a name="M10"><b>a+</b></a></dt>
+
+<dd>Open the file for reading and writing. If the file doesn't
+exist, create a new empty file. Set the initial access position to
+the end of the file.</dd>
+</dl>
+
+<p>In the second form, <i>access</i> consists of a list of any of
+the following flags, all of which have the standard POSIX meanings.
+One of the flags must be either <b>RDONLY</b>, <b>WRONLY</b> or
+<b>RDWR</b>.</p>
+
+<dl>
+<dt><a name="M11"><b>RDONLY</b></a></dt>
+
+<dd>Open the file for reading only.</dd>
+
+<dt><a name="M12"><b>WRONLY</b></a></dt>
+
+<dd>Open the file for writing only.</dd>
+
+<dt><a name="M13"><b>RDWR</b></a></dt>
+
+<dd>Open the file for both reading and writing.</dd>
+
+<dt><a name="M14"><b>APPEND</b></a></dt>
+
+<dd>Set the file pointer to the end of the file prior to each
+write.</dd>
+
+<dt><a name="M15"><b>CREAT</b></a></dt>
+
+<dd>Create the file if it doesn't already exist (without this flag
+it is an error for the file not to exist).</dd>
+
+<dt><a name="M16"><b>EXCL</b></a></dt>
+
+<dd>If <b>CREAT</b> is also specified, an error is returned if the
+file already exists.</dd>
+
+<dt><a name="M17"><b>NOCTTY</b></a></dt>
+
+<dd>If the file is a terminal device, this flag prevents the file
+from becoming the controlling terminal of the process.</dd>
+
+<dt><a name="M18"><b>NONBLOCK</b></a></dt>
+
+<dd>Prevents the process from blocking while opening the file, and
+possibly in subsequent I/O operations. The exact behavior of this
+flag is system- and device-dependent; its use is discouraged (it is
+better to use the <b><a href=
+"../TclCmd/fconfigure.htm">fconfigure</a></b> command to put a file
+in nonblocking mode). For details refer to your system
+documentation on the <b>open</b> system call's <b>O_NONBLOCK</b>
+flag.</dd>
+
+<dt><a name="M19"><b>TRUNC</b></a></dt>
+
+<dd>If the file exists it is truncated to zero length.</dd>
+</dl>
+
+<p>If a new file is created as part of opening it,
+<i>permissions</i> (an integer) is used to set the permissions for
+the new file in conjunction with the process's file mode creation
+mask. <i>Permissions</i> defaults to 0666.</p>
+
+<p>Note that if you are going to be reading or writing binary data
+from the channel created by this command, you should use the <b><a
+href="../TclCmd/fconfigure.htm">fconfigure</a></b> command to
+change the <b>-translation</b> option of the channel to <b><a href=
+"../TclCmd/binary.htm">binary</a></b> before transferring any
+binary data. This is in contrast to the ``b'' character passed as
+part of the equivalent of the <i>access</i> parameter to some
+versions of the C library <i>fopen()</i> function.</p>
+
+<h3><a name="M20">COMMAND PIPELINES</a></h3>
+
+<p>If the first character of <i>fileName</i> is ``|'' then the
+remaining characters of <i>fileName</i> are treated as a list of
+arguments that describe a command pipeline to invoke, in the same
+style as the arguments for <b><a href=
+"../TclCmd/exec.htm">exec</a></b>. In this case, the channel
+identifier returned by <b>open</b> may be used to write to the
+command's input pipe or read from its output pipe, depending on the
+value of <i>access</i>. If write-only access is used (e.g.
+<i>access</i> is <b>w</b>), then standard output for the pipeline
+is directed to the current standard output unless overridden by the
+command. If read-only access is used (e.g. <i>access</i> is
+<b>r</b>), standard input for the pipeline is taken from the
+current standard input unless overridden by the command. The id of
+the spawned process is accessible through the <b><a href=
+"../TclCmd/pid.htm">pid</a></b> command, using the channel id
+returned by <b>open</b> as argument.</p>
+
+<h3><a name="M21">SERIAL COMMUNICATIONS</a></h3>
+
+<p>If <i>fileName</i> refers to a serial port, then the specified
+serial port is opened and initialized in a platform-dependent
+manner. Acceptable values for the <i>fileName</i> to use to open a
+serial port are described in the PORTABILITY ISSUES section.</p>
+
+<p>The <b><a href="../TclCmd/fconfigure.htm">fconfigure</a></b>
+command can be used to query and set additional configuration
+options specific to serial ports.</p>
+
+<h3><a name="M22">PORTABILITY ISSUES</a></h3>
+
+<dl>
+<dt><a name="M23"><b>Windows</b> (all versions)</a></dt>
+
+<dd>Valid values for <i>fileName</i> to open a serial port are of
+the form <b>com</b><i>X</i><b>:</b>, where <i>X</i> is a number,
+generally from 1 to 4. This notation only works for serial ports
+from 1 to 9, if the system happens to have more than four. An
+attempt to open a serial port that does not exist or has a number
+greater than 9 will fail. An alternate form of opening serial ports
+is to use the filename <b>\\.\comX</b>, where X is any number that
+corresponds to a serial port; please note that this method is
+considerably slower on Windows 95 and Windows 98.</dd>
+
+<dt><a name="M24"><b>Windows NT</b></a></dt>
+
+<dd>When running Tcl interactively, there may be some strange
+interactions between the real console, if one is present, and a
+command pipeline that uses standard input or output. If a command
+pipeline is opened for reading, some of the lines entered at the
+console will be sent to the command pipeline and some will be sent
+to the Tcl evaluator. If a command pipeline is opened for writing,
+keystrokes entered into the console are not visible until the the
+pipe is closed. This behavior occurs whether the command pipeline
+is executing 16-bit or 32-bit applications. These problems only
+occur because both Tcl and the child application are competing for
+the console at the same time. If the command pipeline is started
+from a script, so that Tcl is not accessing the console, or if the
+command pipeline does not use standard input or output, but is
+redirected from or to a file, then the above problems do not
+occur.</dd>
+
+<dt><a name="M25"><b>Windows 95</b></a></dt>
+
+<dd>A command pipeline that executes a 16-bit DOS application
+cannot be opened for both reading and writing, since 16-bit DOS
+applications that receive standard input from a pipe and send
+standard output to a pipe run synchronously. Command pipelines that
+do not execute 16-bit DOS applications run asynchronously and can
+be opened for both reading and writing. 
+
+<p>When running Tcl interactively, there may be some strange
+interactions between the real console, if one is present, and a
+command pipeline that uses standard input or output. If a command
+pipeline is opened for reading from a 32-bit application, some of
+the keystrokes entered at the console will be sent to the command
+pipeline and some will be sent to the Tcl evaluator. If a command
+pipeline is opened for writing to a 32-bit application, no output
+is visible on the console until the the pipe is closed. These
+problems only occur because both Tcl and the child application are
+competing for the console at the same time. If the command pipeline
+is started from a script, so that Tcl is not accessing the console,
+or if the command pipeline does not use standard input or output,
+but is redirected from or to a file, then the above problems do not
+occur.</p>
+
+<p>Whether or not Tcl is running interactively, if a command
+pipeline is opened for reading from a 16-bit DOS application, the
+call to <b>open</b> will not return until end-of-file has been
+received from the command pipeline's standard output. If a command
+pipeline is opened for writing to a 16-bit DOS application, no data
+will be sent to the command pipeline's standard output until the
+pipe is actually closed. This problem occurs because 16-bit DOS
+applications are run synchronously, as described above.</p>
+</dd>
+
+<dt><a name="M26"><b>Macintosh</b></a></dt>
+
+<dd>Opening a serial port is not currently implemented under
+Macintosh. 
+
+<p>Opening a command pipeline is not supported under Macintosh,
+since applications do not support the concept of standard input or
+output.</p>
+</dd>
+
+<dt><a name="M27"><b>Unix</b></a></dt>
+
+<dd>Valid values for <i>fileName</i> to open a serial port are
+generally of the form <b>/dev/tty</b><i>X</i>, where <i>X</i> is
+<b>a</b> or <b>b</b>, but the name of any pseudo-file that maps to
+a serial port may be used. 
+
+<p>When running Tcl interactively, there may be some strange
+interactions between the console, if one is present, and a command
+pipeline that uses standard input. If a command pipeline is opened
+for reading, some of the lines entered at the console will be sent
+to the command pipeline and some will be sent to the Tcl evaluator.
+This problem only occurs because both Tcl and the child application
+are competing for the console at the same time. If the command
+pipeline is started from a script, so that Tcl is not accessing the
+console, or if the command pipeline does not use standard input,
+but is redirected from a file, then the above problem does not
+occur.</p>
+</dd>
+</dl>
+
+<p>See the PORTABILITY ISSUES section of the <b><a href=
+"../TclCmd/exec.htm">exec</a></b> command for additional
+information not specific to command pipelines about executing
+applications on the various platforms</p>
+
+<h3><a name="M28">SEE ALSO</a></h3>
+
+<p><b><a href="../TclCmd/file.htm">file</a></b>, <b><a href=
+"../TclCmd/close.htm">close</a></b>, <b><a href=
+"../TclCmd/filename.htm">filename</a></b>, <b><a href=
+"../TclCmd/fconfigure.htm">fconfigure</a></b>, <b><a href=
+"../TclCmd/gets.htm">gets</a></b>, <b><a href=
+"../TclCmd/read.htm">read</a></b>, <b><a href=
+"../TclCmd/puts.htm">puts</a></b>, <b><a href=
+"../TclCmd/exec.htm">exec</a></b>, <b><a href=
+"../TclCmd/pid.htm">pid</a></b>, <b>fopen</b></p>
+
+<h3><a name="M29">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/A.htm#access mode">access mode</a>, <a
+href="../Keywords/A.htm#append">append</a>, <a href=
+"../Keywords/C.htm#create">create</a>, <a href=
+"../Keywords/F.htm#file">file</a>, <a href=
+"../Keywords/N.htm#non-blocking">non-blocking</a>, <a href=
+"../Keywords/O.htm#open">open</a>, <a href=
+"../Keywords/P.htm#permissions">permissions</a>, <a href=
+"../Keywords/P.htm#pipeline">pipeline</a>, <a href=
+"../Keywords/P.htm#process">process</a>, <a href=
+"../Keywords/S.htm#serial">serial</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1993 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1996 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

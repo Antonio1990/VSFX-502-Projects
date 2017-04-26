@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Built-In Commands - if manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<h3><a name="M2">NAME</a></h3>
+
+<p>if - Execute scripts conditionally</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>if</b> <i>expr1</i> ?<b>then</b>? <i>body1</i> <b>elseif</b>
+<i>expr2</i> ?<b>then</b>? <i>body2</i> <b>elseif</b> ...
+?<b>else</b>? ?<i>bodyN</i>?<br>
+</p>
+
+<h3><a name="M4">DESCRIPTION</a></h3>
+
+<p>The <i>if</i> command evaluates <i>expr1</i> as an expression
+(in the same way that <b><a href="../TclCmd/expr.htm">expr</a></b>
+evaluates its argument). The value of the expression must be a
+boolean (a numeric value, where 0 is false and anything is true, or
+a string value such as <b>true</b> or <b>yes</b> for true and
+<b>false</b> or <b>no</b> for false); if it is true then
+<i>body1</i> is executed by passing it to the Tcl interpreter.
+Otherwise <i>expr2</i> is evaluated as an expression and if it is
+true then <b>body2</b> is executed, and so on. If none of the
+expressions evaluates to true then <i>bodyN</i> is executed. The
+<b>then</b> and <b>else</b> arguments are optional ``noise words''
+to make the command easier to read. There may be any number of
+<b>elseif</b> clauses, including zero. <i>BodyN</i> may also be
+omitted as long as <b>else</b> is omitted too. The return value
+from the command is the result of the body script that was
+executed, or an empty string if none of the expressions was
+non-zero and there was no <i>bodyN</i>.</p>
+
+<h3><a name="M5">SEE ALSO</a></h3>
+
+<p><b><a href="../TclCmd/expr.htm">expr</a></b>, <b><a href=
+"../TclCmd/for.htm">for</a></b>, <b><a href=
+"../TclCmd/foreach.htm">foreach</a></b></p>
+
+<h3><a name="M6">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/B.htm#boolean">boolean</a>, <a href=
+"../Keywords/C.htm#conditional">conditional</a>, <a href=
+"../Keywords/E.htm#else">else</a>, <a href=
+"../Keywords/F.htm#false">false</a>, <a href=
+"../Keywords/I.htm#if">if</a>, <a href=
+"../Keywords/T.htm#true">true</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1993 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1996 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

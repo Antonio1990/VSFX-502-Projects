@@ -1,0 +1,146 @@
+<!--
+ - PROPRIETARY INFORMATION.  This software is proprietary to
+ - Side Effects Software Inc., and is not to be reproduced,
+ - transmitted, or disclosed in any way without written permission.
+ -
+ -	Side Effects
+ -	477 Richmond Street West
+ -	Toronto, Ontario
+ -	Canada   M5V 3E7
+ -	416-504-9876
+ -->
+
+<html>
+
+<head>
+   <title> VEX Examples </title>
+</head>
+
+<body bgcolor="#ffffff" text="#000000">
+
+<table width=100%>
+<tr>
+   <td><img hspace=15 vspace=5 ALT="[SESI logo]" SRC="logo.jpg"</td>
+   <td>
+      <center>
+         <h1>VEX Language Reference - Version 7.0</h1>
+	 Side Effects Software Inc.  2004
+      </center>
+   </td>
+</tr>
+</table>
+
+<hr>
+<center><h1>VEX Examples</h1></center>
+
+Many examples may be found in the Houdini distribution by placing a
+VEX based node and then examining the VEX code by accessing the "Type
+properties..." from the tile menu entry.  Other example source may be
+found on the web.<p>
+
+This document contains some additional notes on writing efficient VEX code.<p>
+
+<hr>
+<h3>The Constant Color Cop</h3>
+
+The function could be written this way:
+<listing>
+    cop
+    constant(vector clr=1; float alpha=1)
+    {
+	R = clr.r;
+	G = clr.g;
+	B = clr.b;
+	A = alpha;
+    }
+</listing>
+
+However, it is better to use the high-efficiency <b>assign</b>
+functions.
+<listing>
+    cop
+    constant(vector clr=1; float alpha=1)
+    {
+	assign(R, G, B, clr);
+	A = alpha;
+    }
+</listing>
+
+<hr>
+<h3>A User Noise Function</h3>
+
+This example defines a two user functions which generate normalized
+multiple octaves of Perlin noise.
+<listing>
+    float
+    myfperlin3d(vector pos; int octaves; float rough)
+    {
+	int	i;
+	float	nval;
+	vector	pp;
+	float	result, sum, scale;
+
+	// Because parameters are passed by reference, we don't really
+	// want to modify the parameters value.  Therefore, we copy it
+	// to a temporary variable.
+	pp = pos;
+
+	scale = 1;
+	sum = 0;
+	result = 0;
+	for (i = 0; i <= octaves; i++)
+	{
+	    result += noise(pp);
+	    sum += scale;
+	    pp *= 2;
+	    scale *= rough;
+	}
+	return result / sum;
+
+    }
+
+    float
+    myfperlin1d(float pos; int octaves; float rough)
+    {
+	int	i;
+	float	nval;
+	float	pp;
+	float	result, sum, scale;
+
+	// Because parameters are passed by reference, we don't really
+	// want to modify the parameters value.  Therefore, we copy it
+	// to a temporary variable.
+	pp = pos;
+
+	scale = 1;
+	sum = 0;
+	result = 0;
+	for (i = 0; i <= octaves; i++)
+	{
+	    result += noise(pp);
+	    sum += scale;
+	    pp *= 2;
+	    scale *= rough;
+	}
+	return result / sum;
+
+    }
+</listing>
+
+It is possible to use #define macros to encode the contents of the
+function and simply call the macro to generate vector or other
+dimensions of noise.<p>
+
+
+<!-------------------------------------------------------------------!>
+<br>
+<hr>
+<center>
+<font size=-2>
+  Copyright &#169; 1999-2004 Side Effects Software Inc.<br>
+  477 Richmond Street West, Toronto, Ontario, Canada M5V 3E7
+</font>
+</center>
+
+</body>
+</html>

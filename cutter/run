@@ -1,0 +1,10 @@
+export PYTHONPATH=$PYTHONPATH:$RMANTREE/bin
+export RMS_SCRIPT_PATHS=$NETHOME/maya/projects/RfM_ini
+export MAYA_USER_DIR=$NETHOME/maya
+
+export PATH=$RMANTREE/bin/:$PATH
+export PATH=$RMSTREE/bin/:$PATH
+
+export RMANFB=it
+#cd $NETHOME/vsfx319/cutter 
+java -Xms512m -Xmx512m -classpath .:cutter.jar Cutter

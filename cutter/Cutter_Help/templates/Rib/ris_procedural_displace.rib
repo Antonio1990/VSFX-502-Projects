@@ -1,0 +1,40 @@
+# The manifold will parent the displacement to the object.
+Pattern "PxrManifold3D" "PxrManifold3D1"
+		"string coordsys" ["object"] # or "world", "shader", "camera"
+		# "PxrManifold3D1:result"    uses->|struct|manifold| 
+
+Pattern "PxrWorley" "PxrWorley1"
+		"float frequency" [8.0]
+		# Example manifold connection
+		"reference struct manifold" ["PxrManifold3D1:result"]
+		# "PxrWorley1:resultF"    uses->|float| 
+
+# Remap requires a RGB input.
+Pattern "PxrToFloat3" "PxrToFloat31"
+		"float input" [0.0]
+		"reference float inputR" ["PxrWorley1:resultF"]
+		"reference float inputG" ["PxrWorley1:resultF"]
+		"reference float inputB" ["PxrWorley1:resultF"]
+		# "PxrToFloat31:resultRGB"    uses->|color|vector|normal|point| 
+
+# Remapping the output to -0.5 to 0.5 ensures the displacement 
+# remains "centered" around the original surface position.
+Pattern "PxrRemap" "PxrRemap1"
+		"reference color inputRGB" ["PxrToFloat31:resultRGB"]
+		"float inputMin" [0.0]
+		"float inputMax" [1.0]
+		"int clampInput" [1]
+		"color bias" [.5 .5 .5]
+		"color gain" [.5 .5 .5]
+		"float outputMin" [-0.5]
+		"float outputMax" [ 0.5]
+		"int clampOutput" [0]
+		# "PxrRemap1:resultRGB"    uses->|color|vector|normal|point| 
+		# "PxrRemap1:resultR"    uses->|float| 
+
+Attribute "trace" "int displacements" [1]
+Attribute "displacementbound" "string coordinatesystem" ["shader"] "float sphere" [0.2]
+Displace "PxrDisplace" "PxrDisplace1"
+		"int enabled" [1]
+		"float dispAmount" [0.5]
+		"reference float dispScalar" ["PxrRemap1:resultR"]

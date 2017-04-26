@@ -1,0 +1,1257 @@
+<!DOCTYPE HTML PUBLIC "-//SQ//DTD HTML 2.0 HoTMetaL + extensions//EN">
+<!-- Published by Quadralay WebWorks HTML Lite 1.5 -->
+<HTML>
+<!-- "@(#)appnote.8.html	1.8 (Pixar) 20 Mar 1996" -->
+<HEAD>
+<TITLE>Application Note #8</TITLE>
+<link rel="stylesheet" type="text/css" href="css/pixar_docs.css">
+ 
+</HEAD> 
+<BODY BGCOLOR="#ffffff">
+<STRONG>PhotoRealistic
+RenderMan <BR>
+Application Note #8</STRONG></CENTER>
+<P><BR CLEAR="all\"></P>
+<CENTER><H2>RenderMan Quick Reference</H2> 
+<H5>May, 1990</H5>
+</CENTER>
+<H4>ALPHABETICAL LISTING OF ALL 96 INTERFACE CALLS</H4>
+<P>This application note lists all the RenderMan Interface calls alphabetically
+(using the RIB binding name). Each call includes syntax information, and is
+followed by one or more examples and page references to &#147;The RenderMan
+Interface,&#148; version 3.1 (September 1989) and to &#147;The RenderMan Companion: A
+Programmer's Guide to Realistic Computer Graphics,&#148; by Steve Upstill
+(Addison-Wesley, 1989). <EM>Spec</EM> refers to the former, and <EM>Book</EM>
+to the latter. </P>
+<PRE><STRONG># anything (a `#' at the beginning of a line indicates a comment)</STRONG><BR>
+RiArchiveRecord(type, format [,arg ...])
+ 
+Examples:  
+ 
+	<STRONG># This is a comment</STRONG>. 
+	RiArchiveRecord("comment", "This is comment number #%d", num);<BR>
+	RiArchiveRecord("structure","CapabilitiesNeeded Programmable Shading"); 
+ 
+	See <A href="section7.html#RiArchiveRecord">RiArchiveRecord</A> of the Spec. 
+ 
+<STRONG>AreaLightSource name int parameterlist</STRONG><BR>
+RtLightHandle<BR>
+RiAreaLightSource(name, parameterlist) 
+ 
+Examples: 
+ 
+	<STRONG>AreaLightSource "finitelight" 1 "decayexponent" .5</STRONG><BR>
+	<STRONG>AreaLightSource "glowtlight" 2 "color" [.5 0 0] "intensity" .6</STRONG> 
+ 
+	RtFloat decay = 0.5, intensity = 0.6;<BR>
+	RtColor color = { 0.5, 0.0, 0.0 };<BR>
+	RiLightSource("finitelight", "decayexponent", (RtPointer)&amp;decay,
+		 RI_NULL);<BR>
+	RiLightSource("glowlight", "color", (RtPointer)color, "intensity",
+		 (RtPointer)&amp;intens, RI_NULL); 
+ 
+	See <A href="section4.html#RiAreaLightSource">RiAreaLightSource</A> of the Spec and page 225 of the Book. 
+ 
+<STRONG>Atmosphere name parameterlist</STRONG><BR>
+RiAtmosphere(name, parameterlist) 
+ 
+Example: 
+ 
+	<STRONG>Atmosphere "fog" "background" [.2 .2 .3] "distance" 39.4 </STRONG>
+ 
+	RtColor fogcolor;<BR>
+	RtFloat distance;<BR>
+	RiAtmosphere("fog", "background", (RtPointer)fogcolor, "distance",<BR>
+	(RtPointer)&amp;distance, RI_NULL); 
+ 
+	See <A href="section4.html#RiAtmosphere">RiAtmosphere</A> of the Spec and page 235 of the Book. 
+ 
+<STRONG>Attribute name parmeterlist</STRONG><BR>
+RiAttribute(name, parameterlist) 
+ 
+Example: 
+ 
+	<STRONG>Attribute "bound" "displacement" 2.0</STRONG> 
+ 
+	RtFloat displace = 2.0;<BR>
+	RiAttribute("bound", "displacement", (RtPointer)&amp;displace, RI_NULL); 
+ 
+	See <A href="section4.html#RiAttribute">RiAttribute</A> of the Spec and page 46 of the Book. 
+ 
+<STRONG>AttributeBegin</STRONG><BR>
+RiAttributeBegin() 
+ 
+Example: 
+ 
+	<STRONG>AttributeBegin</STRONG> 
+ 
+	RiAttributeBegin(); 
+ 
+	See <A href="section4.html#RiAttributeBegin">RiAttributeBegin</A> of the Spec and page 50 of the Book. 
+ 
+<STRONG>AttributeEnd</STRONG><BR>
+RiAttributeEnd() 
+ 
+Example: 
+ 
+	<STRONG>AttributeEnd</STRONG> 
+ 
+	RiAttributeEnd(); 
+
+	See <A href="section4.html#RiAttributeEnd">RiAttributeEnd</A> of the Spec and page 50 of the Book. 
+
+<STRONG>Basis uname ustep vname vstep<BR>
+Basis uname ustep vbasis vstep<BR>
+Basis
+ubasis ustep vname vstep<BR>
+Basis ubasis ustep vbasis vstep</STRONG><BR>
+RiBasis(ubasis, ustep, vbasis, vstep) 
+ 
+Example: 
+ 
+	<STRONG>Basis "catmull-rom" 1 "catmull-rom" 1</STRONG> 
+ 
+	RiBasis(RiCatmullRomBasis, RI_CATMULLROMSTEP, RiCatmullRomBasis, 
+		RI_CATMULLROMSTEP); 
+ 
+	See <A href="section5.html#RiBasis">RiBasis</A> of the Spec and page 93 of the Book. 
+ 
+<STRONG>(Not available in RIB)</STRONG><BR>
+RiBegin(name) 
+ 
+Example: 
+ 
+	RiBegin(RI_NULL); 
+ 
+	See <A href="section4.html#RiBegin">RiBegin</A> of the Spec and page 48 of the Book. 
+ 
+<STRONG>Bound xmin xmax ymin ymax zmin zmax</STRONG><BR>
+RiBound(bound) 
+ 
+Example: 
+ 
+	<STRONG>Bound 0 .5 0 .5 .9 1</STRONG> 
+ 
+	RtBound bbox = { 0.0, 0.5, 0.0, 0.5, 0.9, 1.0 };<BR>
+	RiBound(bbox); 
+ 
+	See <A href="section4.html#RiBound">RiBound</A> of the Spec and page 125 of the Book. 
+ 
+<STRONG>Clipping near far</STRONG><BR>
+RiClipping(near, far) 
+ 
+Example: 
+ 
+	<STRONG>Clipping .1 1000</STRONG> 
+ 
+	RiClipping(0.1, 1000.0); 
+ 
+	See <A href="section4.html#RiClipping">RiClipping</A> of the Spec and page 145 of the Book. 
+ 
+<STRONG>Color C0 C1 ... Cn</STRONG><BR>
+RiColor(color) 
+ 
+Example: 
+ 
+	<STRONG>Color .2 .3 .9</STRONG> 
+ 
+	RtColor blue = { 0.2, 0.3, 0.9 }<BR>
+	RiColor(blue); 
+ 
+	See <A href="section4.html#RiColor">RiColor</A> of the Spec and page 213 of the Book. 
+ 
+<STRONG>ColorSamples nRGB RGBn</STRONG><BR>
+RiColorSamples(n, nRGB, RGBn) 
+ 
+Example: 
+ 
+	<STRONG>ColorSamples 1 [.3 .3 .4] ][1 1 1]</STRONG> 
+ 
+	RtFloat frommonochr[] = { 0.3, 0.3, 0.4 };<BR>
+	RtFloat tomonochr[] = { 1.0, 1.0, 1.0 };<BR>
+	RiColorSamples(1, frommonochr, tomonochr); 
+ 
+	See <A href="section4.html#RiColorSamples">RiColorSamples</A> of the Spec and page 43 of the Book. 
+ 
+<STRONG>ConcatTransform transform</STRONG><BR>
+RiConcatTransform(transform) 
+ 
+Example: 
+ 
+	<STRONG>ConcatTransform [2 0 0 0 0 2 0 0 0 0 2 0 0 0 0 1]</STRONG> 
+ 
+	RtMatrix foo = { 2.0, 0.0, 0.0, 0.0,  0.0, 2.0, 0.0, 0.0,  0.0, 0.0, 2.0,  
+		0.0, 0.0, 0.0, 0.0, 1.0 };<BR>
+	RiConcatTransform(foo); 
+ 
+	See <A href="section4.html#RiConcatTransform">RiConcatTransform</A> of the Spec and page 116 of the Book. 
+ 
+<STRONG>Cone height radius thetamax parameterlist</STRONG><BR>
+RiCone(height, radius, thetamax, parameterlist) 
+ 
+Example: 
+ 
+	<STRONG>Cone .5 .5 270 "Cs" 4</STRONG> 
+ 
+	RtColor four_colors[4];<BR>
+	RiCone(0.5, 0.5, 270.0, "Cs", (RtPointer)four_colors, RI_NULL); 
+ 
+	See <A href="section5.html#RiCone">RiCone</A> of the Spec and page 62 of the Book. 
+ 
+<STRONG>CoordinateSystem space</STRONG><BR>
+RiCoordinateSystem(space) 
+ 
+Example: 
+ 
+	<STRONG>CoordinateSystem "Endor"</STRONG> 
+ 
+	RiCoordinateSystem("Endor"); 
+ 
+	See <A href="section4.html#RiCoordinateSystem">RiCoordinateSystem</A> of the Spec and page 123 of the Book. 
+
+<STRONG>CoordSysTransform space</STRONG>
+<BR>
+RiCoordSysTransform(space)
+
+Example:
+
+	<STRONG>CoordSysTransform "Endor"</STRONG>
+
+	RiCoordSysTransform ("Endor");
+
+	(this function is not described in the Spec or the Book).
+ 
+<STRONG>CropWindow xmin xmax ymin ymax</STRONG><BR>
+RiCropWindow(xmin xmax ymin ymax) 
+
+Example 
+	<STRONG>CropWindow 0 .3 0 .5</STRONG> 
+ 
+	RiCropWindow(0.0, 0.3, 0.0, 0.5); 
+ 
+	See <A href="section4.html#RiCropWindow">RiCropWindow</A> of the Spec and page 162 of the Book. 
+ 
+<STRONG>Cylinder radius zmin zmax thetamax parameterlist</STRONG><BR>
+RiCylinder(radius, zmin, zmax, thetamax, parameterlist) 
+ 
+Example: 
+ 
+	<STRONG>Cylinder .5 .2 1 360</STRONG> 
+ 
+	RiCylinder(0.5, 0.2, 1.0, 360.0); 
+
+	See <A href="section4.html#RiCylinder">RiCylinder</A> of the Spec and page 63 of the Book.
+ 
+<STRONG>Declare name declaration</STRONG><BR>
+RiDeclare(name, declaration) 
+ 
+Example: 
+ 
+	<STRONG>Declare "centerpoint" "uniform point"</STRONG> 
+ 
+	RiDeclare("centerpoint", "uniform point");  
+ 
+	See <A href="section3.html#RiDeclare">RiDeclare</A> of the Spec and page 242 of the Book.  
+ 
+<STRONG>Deformation name parameterlist</STRONG><BR>
+RiDeformation(name parameterlist)  
+ 
+Example:  
+ 
+	<STRONG>Deformation "warpit"</STRONG> 
+ 
+	RiDeformation("warpit"); 
+ 
+	See <A href="section4.html#RiDeformation">RiDeformation</A> of the Spec and page 117 of the Book. 
+ 
+<STRONG>DepthOfField fstop focallength focaldistance</STRONG><BR>
+RiDepthOfField(fstop, focallength, focaldistance) 
+ 
+Example: 
+ 
+	<STRONG>DepthOfField 22 1 26.7</STRONG> 
+ 
+	RiDepthOfField(22.0 1.0 26.7); 
+ 
+	See <A href="section4.html#RiDepthOfField">RiDepthOfField</A> of the Spec and page 185 of the Book. 
+ 
+<STRONG>Detail minx maxx miny maxy minz maxz</STRONG> <BR>
+RiDetail(bound) 
+ 
+Example: 
+ 
+	<STRONG>Detail -1 1 -1 1 -1 1</STRONG> 
+ 
+	RtBound box = { -1.0, 1.0, -1.0, 1.0, -1.0, 1.0 }; <BR>
+	RiDetail(box); 
+ 
+	See <A href="section4.html#RiDetail">RiDetail</A> of the Spec and page 195 of the Book. 
+ 
+<STRONG>DetailRange minvisible lowertransition uppertransition maxvisible</STRONG><BR>
+RiDetailRange(minvisible, lowertransition, uppertransition, maxvisible) 
+ 
+Example: 
+ 
+	<STRONG>DetailRange 160 320 10000 10000</STRONG> 
+ 
+	RiDetailRange(160.0, 320.0, 10000.0, 10000.0); 
+ 
+	See <A href="section4.html#RiDetailRange">RiDetailRange</A> of the Spec and page 197 of the Book. 
+ 
+<STRONG>Disk height radius thetamax parameterlist</STRONG><BR>
+RiDisk(height, radius, thetamax,
+parameterlist) 
+ 
+Example: 
+ 
+	<STRONG>Disk 1 .5 270</STRONG> 
+ 
+	RiDisk(1.0, 0.5, 270.0, RI_NULL); 
+ 
+	See <A href="section5.html#RiDisk">RiDisk</A> of the Spec and page 62 of the Book. 
+ 
+<STRONG>Displacement name parameterlist</STRONG><BR>
+RiDisplacement(namem, parameterlist) 
+ 
+Example: 
+ 
+	<STRONG>Displacement "displaceit"</STRONG> 
+ 
+	RiDisplacement("displaceit", RI_NULL); 
+ 
+	See <A href="section4.html#RiDisplacement">RiDisplacement</A> of the Spec and page 260 of the Book. 
+ 
+<STRONG>Display name type mode parameterlist</STRONG><BR>
+RiDisplay(name, type, mode, parameterlist) 
+ 
+Example: 
+ 
+	<STRONG>Display "fb" "framebuffer" "rgba" "origin" [512 384] </STRONG>
+ 
+	RtInt origin = {512, 384};<BR>
+	RiDisplay("fb", "framebuffer", "rgba", "origin", (RtPointer)origin, 
+		RI_NULL); 
+ 
+	See <A href="section4.html#RiDisplay">RiDisplay</A> of the Spec and page 155 of the Book. 
+ 
+<STRONG>(Not available in RIB)</STRONG><BR>
+RiEnd() 
+ 
+Example: 
+ 
+	RiEnd(); 
+ 
+	See <A href="section4.html#RiEnd">RiEnd</A> of the Spec and page 48 of the Book. 
+ 
+<STRONG>ErrorHandler "ignore"<BR>
+ErrorHandler "print"<BR>
+ErrorHandler "abort"</STRONG><BR>
+RiErrorHandler(handler) 
+ 
+Example: 
+ 
+	<STRONG>ErrorHandler "print"</STRONG> 
+ 
+	RiErrorHandler(RiErrorPrint); 
+ 
+	See <A href="section7.html#RiErrorHandler">RiErrorHandler</A> of the Spec and page 38 of the Book. 
+ 
+<STRONG>Exposure gain gamma</STRONG><BR>
+RiExposure(gain, gamma) 
+ 
+Example: 
+ 
+	<STRONG>Exposure 1.5 2.3</STRONG> 
+ 
+	RiExposure(1.5, 2.3); 
+ 
+	See <A href="section4.html#RiExposure">RiExposure</A> of the Spec and page 180 of the Book. 
+ 
+<STRONG>Exterior name parameterlist</STRONG><BR>
+RiExterior(name, parameterlist) 
+ 
+	Example: 
+ 
+	<STRONG>Exterior "fog"</STRONG> 
+ 
+	RiExterior("fog", RI_NULL); 
+ 
+	See <A href="section4.html#RiExterior">RiExterior</A> of the Spec and page 235 of the Book. 
+ 
+<STRONG>Format xresolution yresolution pixelaspectratio</STRONG><BR>
+RiFormat(xresolution yresolution pixelaspectratio) 
+ 
+Example: 
+ 
+	<STRONG>Format 512 384 1</STRONG> 
+ 
+	RiFormat(512, 384, 1.0); 
+ 
+	See <A href="section4.html#RiFormat">RiFormat</A> of the Spec and page 156 of the Book. 
+ 
+<STRONG>FrameAspectRatio frameaspectratio</STRONG><BR>
+RiFrameAspectRatio(frameaspectratio) 
+ 
+Example: 
+ 
+	<STRONG>FrameAspectRatio 1.33333</STRONG> 
+ 
+	RiFrameAspectRatio(4.0/3.0); 
+ 
+	See <A href="section4.html#RiFrameAspectRatio">RiFrameAspectRatio</A> of the Spec and page 159 of the Book. 
+ 
+<STRONG>FrameBegin frame</STRONG><BR>
+RiFrameBegin(frame) 
+ 
+Example: 
+ 
+	<STRONG>FrameBegin 14</STRONG> 
+ 
+	RiFrameBegin(14); 
+ 
+	See <A href="section4.html#RiFrameBegin">RiFrameBegin</A> of the Spec and page 51 of the Book. 
+ 
+<STRONG>FrameEnd</STRONG><BR>
+RiFrameEnd() 
+ 
+Example: 
+ 
+	<STRONG>FrameEnd</STRONG> 
+ 
+	RiFrameEnd(); 
+ 
+	See <A href="section4.html#RiFrameAspectRatio">RiFrameAspectRatio</A> of the Spec and page 51 of the Book. 
+ 
+<STRONG>GeneralPolygon nvertices parameterlist</STRONG><BR>
+RiGeneralPolygon(nloops, nvertices, parameterlist) 
+ 
+Example: 
+ 
+	<STRONG>GeneralPolygon [4 3] "P" [-1 -1 0   -1 1 0   1 1 0   1 -1 0   -.5
+		-.5 0   0 .5 0   .5 -.5 0] </STRONG>
+ 
+	RiGeneralPolygon( (RtInt) 2, verts, RI_P, (RtPointer) poly, 
+		RI_NULL); 
+ 
+	See <A href="section5.html#RiGeneralPolygon">RiGeneralPolygon</A> of the Spec and page 78 of the Book. 
+ 
+<STRONG>GeometricApproximation type value<BR>
+GeometricApproximation "flatness" value</STRONG><BR>
+RiGeometricApproximation(type, value) 
+ 
+Example: 
+ 
+	<STRONG>GeometricApproximation "flatness" 2.5</STRONG> 
+ 
+	RiGeometricApproximation(RI_FLATNESS, 2.5); 
+ 
+	See p<A href="section4.html#RiGeometricApproximation">RiGeometricApproximation</A> of the Spec and page 172 of the Book. 
+ 
+<STRONG>Geometry name parameterlist</STRONG><BR>
+RiGeometry(name, parameterlist) 
+ 
+Example: 
+ 
+	<STRONG>Geometry "teapot"</STRONG> 
+ 
+	RiGeometry("teapot", RI_NULL); 
+ 
+	See <A href="section4.html#RiGeometry">RiGeometry</A> of the Spec. 
+ 
+<STRONG>Hider type parameterlist</STRONG><BR>
+RiHider(type, parameterlist) 
+ 
+Example: 
+ 
+	<STRONG>Hider "hidden"</STRONG> 
+ 
+	RiHider("hidden", RI_NULL); 
+ 
+	See <A href="section4.html#RiHider">RiHider</A> of the Spec and page 54 of the Book. 
+ 
+<STRONG>Hyperboloid x1 y1 z1 x2 y2 z2 thetamax parameterlist</STRONG><BR>
+RiHyperboloid(point1, point2, thetamax, parameterlist) 
+ 
+Example:  
+ 
+	<STRONG>Hyperboloid 1 -1 -1 1 1 1 360</STRONG>  
+ 
+	RiHyperboloid( (RtPoint)point1, (RtPoint)point2, 360.0, RI_NULL);  
+ 
+	See <A href="section5.html#RiHyperboloid">RiHyperboloid</A> of the Spec and page 63 of the Book.  
+ 
+<STRONG>Identity</STRONG><BR>
+RiIdentity()  
+ 
+Example:  
+ 
+	<STRONG>Identity</STRONG>  
+ 
+	RiIdentity();  
+ 
+	See <A href="section4.html#RiIdentity">RiIdentity</A> of the Spec and page 117 of the Book.  
+ 
+<STRONG>Illuminate sequencenumber onoff</STRONG><BR>
+RiIlluminate(light, onoff)  
+ 
+Example:  
+ 
+	<STRONG>Illuminate 2 1</STRONG>  
+ 
+	RtLightHandle light1;
+	RiIlluminate(light1, RI_TRUE);  
+ 
+	See <A href="section4.html#RiIlluminate">RiIlluminate</A> of the Spec and page 217 of the Book.  
+ 
+<STRONG>Imager name parameterlist</STRONG>
+RiImager(name, parameterlist)  
+ 
+Example:  
+ 
+	<STRONG>Imager "cymk"</STRONG>  
+ 
+	RiImager("cymk", RI_NULL);  
+ 
+	See <A href="section4.html#RiImager">RiImager</A> of the Spec and page 181 of the Book.  
+ 
+<STRONG>Interior name parameterlist</STRONG><BR>
+RiInterior(name, parameterlist)  
+ 
+Example:  
+ 
+<STRONG>Interior "water" </STRONG> 
+ 
+	RiInterior("water", RI_NULL);  
+ 
+	See <A href="section4.html#RiInterior">RiInterior</A> of the Spec and page 235 of the Book.  
+ 
+<STRONG>LightSource name sequencenumber parameterlist</STRONG><BR>
+RtLightHandle LightSource(name, parameterlist)  
+ 
+Example:  
+ 
+	<STRONG>LightSource "ambientlight" 2 "intensity" 10</STRONG>  
+ 
+	RtFloat intens = 10.0;<BR>
+	LightHandle = RiLightSource("ambientlight", "intensity", 
+		(RtPointer)&amp;intens, RI_NULL);  
+ 
+	See <A href="section4.html#RiLightSource">RiLightSource</A> of the Spec and page 216 of the Book.  
+ 
+<STRONG>MakeBump picturename texturename swrap twrap filter swidth twidth
+	parameterlist</STRONG><BR>
+RiMakeBump(picturename, texturename, swrap, twrap, filterfunc, swidth, twidth,
+	parameterlist)  
+ 
+Example:  
+ 
+	<STRONG>MakeBump "hills.pic" "hills.tx" "periodic" "clamp" 
+		"catmull-rom" 2 2</STRONG>  
+ 
+	RiMakeBump("hills.pic", "hills.tx", "periodic", "clamp", 
+		"RiCatmullRomFilter", 2.0, 2.0, RI_NULL);  
+ 
+	See <A href="section7.html#RiMakeBump">RiMakeBump</A> of the Spec and page 259 of the Book.  
+ 
+<STRONG>MakeCubeEnvironment px nx py ny pz nz texturename fov filter swidth 
+	twidth parameterlist</STRONG><BR>
+RiMakeCubeFaceEnvironment(px, nx, py, ny, pz, nz, texturename, fov, filterfunc,
+	 swidth, twidth, parameterlist)  
+ 
+Example:  
+ 
+	<STRONG>MakeCubeEnvironment "foo.x" "foo.nx" "foo.y "foo.ny" "foo.z" 
+		"foo.nz" "foo.env" 95 "triangle" 3.0 3.0  </STRONG>
+ 
+	RiMakeCubeFaceEnvironment("foo.x","foo.nx", "foo.y", "foo.ny", "foo.z", 
+		"foo.nz", "foo.env",95.0, RiTriangleFilter, 2.0, 2.0, RI_NULL);  
+ 
+	See <A href="section7.html#RiMakeCubeFaceEnvironment">RiMakeCubeFaceEnvironment</A> of the Spec and page 263 of the Book.  
+ 
+<STRONG>MakeLatLongEnvironment picturename texturename filter swidth 
+	twidth parameterlist</STRONG><BR>
+RiMakeLatLongEnvironment(picturename, texturename, filterfunc, swidth,
+	twidth, parameterlist)  
+ 
+Example:  
+ 
+	<STRONG>MakeLatLongEnvironment "long.pic" "long.tx" "catmull-rom" 2 2  </STRONG>
+ 
+	RiMakeLatLongEnvironment("long.pic", "long.tx", "RiCatmullRomFilter",
+		2.0, 2.0, RI_NULL);  
+ 
+	See <A href="section7.html#RiMakeLatLongEnvironment">RiMakeLatLongEnvironment</A> of the Spec and page 263 of the Book.  
+ 
+<STRONG>MakeShadow picturename texturename parameterlist</STRONG><BR>
+RiMakeShadow(picturename, texturename, parameterlist)  
+ 
+Example:  
+ 
+	<STRONG>MakeShadow "shadow.pic" "shadow.tx" </STRONG> 
+ 
+	See <A href="section7.html#RiMakeShadow">RiMakeShadow</A> of the Spec and page 269 of the Book.  
+ 
+<STRONG>MakeTexture picturename texturename swrap twrap filter
+	 swidth twidth</STRONG><BR>
+RiMakeTexture(picturename, texturename, swrap, twrap, filterfunc, swidth,
+	twidth, parameterlist)  
+ 
+Example:  
+ 
+	<STRONG>MakeTexture "globe.pic" "globe.tx" "periodic" "clamp"
+	"gaussian" 2 2</STRONG>
+ 
+	RiMakeTexture("globe.pic", "globe.tx", "periodic", "clamp", 
+		RiGaussianFilter, 2.0, 2.0, RI_NULL);  
+ 
+	See <A href="section7.html#RiMakeTexture">RiMakeTexture</A> of the Spec and page 256 of the Book.  
+
+<STRONG>Matte onoff</STRONG>
+RiMatte(onoff)  
+ 
+Example:  
+ 
+	<STRONG>Matte 1</STRONG>  
+ 
+	RiMatte(RI_TRUE);  
+ 
+	See <A href="section4.html#RiMatte">RiMatte</A> of the Spec and page 216 of the Book.  
+
+<STRONG>MotionBegin t0 t1...tn-1</STRONG>
+RiMotionBegin(n, t0, t1, ..., tnminus1)  
+ 
+Example:  
+ 
+	<STRONG>MotionBegin [0 1]</STRONG>  
+ 
+	RiMotionBegin(2, 0.0, 1.0);  
+ 
+	See <A href="section6.html#RiMotionBegin">RiMotionBegin</A> of the Spec and page 189 of the Book.  
+
+<STRONG>MotionEnd</STRONG>
+RiMotionEnd()  
+ 
+Example:  
+ 
+	<STRONG>MotionEnd</STRONG>  
+ 
+	RiMotionEnd();  
+ 
+	See <A href="section6.html#RiMotionEnd">RiMotionEnd</A> of the Spec and page 189 of the Book.  
+ 
+<STRONG>NuPatch nu uorder uknot umin umax nv vorder vknot vmin 
+	vmax parameterlist</STRONG><BR>
+RiNuPatch(nu, uorder, uknot, umin, umax, nv, vorder, vknot, vmin, vmax
+	 parameterlist)  
+ 
+Example:  
+ 
+<STRONG>  NuPatch 9 3 [0 0 0 1 1 2 2 3 3 4 4 4] 0 4 2 2 [0 0 1 1] 0 1 "Pw"<BR>
+	[1  0  0  1   1  1  0  1   0   2  0  2<BR>
+	-1  1  0  1  -1  0  0  1  -1  -1  0  1<BR>
+	 0 -2  0  2   1 -1  0  1   1   0  0  1<BR>
+	 1  0 -3  1   1  1 -3  1   0   2 -6  2<BR>
+	-1  1 -3  1  -1  0 -3  1  -1  -1 -3  1<BR>
+	 0 -2 -6  2   1 -1 -3  1   1   0 -3  1]
+</STRONG> 
+  RtFloat uknots[] = {0.0, 0.0, 0.0, 1.0, 1.0, 2.0, 2.0, 3.0, 3.0, 
+  	4.0, 4.0, 4.0}, vknots[] = {0.0, 0.0, 1.0, 1.0};<BR>
+  RtFloat controlPts[4][] = {<BR>
+	 1.0,  0.0, 0.0, 1.0,  1.0,  1.0, 0.0, 1.0,  0.0,  2.0, 0.0, 2.0,<BR>
+	-1.0,  1.0, 0.0, 1.0, -1.0,  0.0, 0.0, 1.0, -1.0, -1.0, 0.0, 1.0,<BR>
+	 0.0, -2.0, 0.0, 2.0,  1.0, -1.0, 0.0, 1.0,  1.0,  0.0, 0.0, 1.0,<BR>
+	 1.0,  0.0,-3.0, 1.0,  1.0,  1.0,-3.0, 1.0,  0.0,  2.0,-6.0, 2.0,<BR>
+	-1.0,  1.0,-3.0, 1.0, -1.0,  0.0,-3.0, 1.0, -1.0, -1.0,-3.0, 1.0,<BR>
+	 0.0, -2.0,-6.0, 2.0, 1.0,  -1.0,-3.0, 1.0,  1.0,  0.0,-3.0, 1.0 };<BR>
+  RiNuPatch(9, 3, knots, 0.0, 4.0, 2, 2, knots, 0.0, 1.0, RI_PW, 
+  	(RtPointer)controlPts, RI_NULL);  
+ 
+  See <A href="section5.html#RiNuPatch">RiNuPatch</A> of the Spec and page 104 of the Book.  
+ 
+<STRONG>ObjectBegin sequencenumber</STRONG><BR>
+RiObjectHandle RiObjectBegin()  
+ 
+Example:  
+ 
+	<STRONG>ObjectBegin 4 </STRONG> 
+ 
+	RtObjectHandle oh;<BR>
+	oh = RiObjectBegin();  
+ 
+	See <A href="section5.html#RiObjectBegin">RiObjectBegin</A> of the Spec and page 133 of the Book.  
+ 
+<STRONG>ObjectEnd</STRONG><BR>
+RiObjectEnd()  
+ 
+Example:  
+ 
+	<STRONG>ObjectEnd</STRONG>  
+ 
+	RiObjectEnd();  
+ 
+	See <A href="section5.html#RiObjectEnd">RiObjectEnd</A> of the Spec and page 133 of the Book.  
+ 
+<STRONG>ObjectInstance sequencenumber</STRONG><BR>
+RiObjectInstance(handle)  
+ 
+Example:  
+ 
+	<STRONG>ObjectInstance 4</STRONG>  
+ 
+	RtObjectHandle oh;<BR>
+	RiObjectInstance(oh);  
+ 
+	See <A href="section5.html#RiObjectInstance">RiObjectInstance</A> of the Spec and page 134 of the Book.  
+ 
+<STRONG>Opacity c0 c1 ... cn</STRONG><BR>
+RiOpacity(color)  
+ 
+Example:  
+ 
+	<STRONG>Opacity .5 1 1</STRONG>  
+ 
+	RtColor color = { 0.5, 1.0, 1.0 };<BR>
+	RiOpacity(color);  
+ 
+	See <A href="section4.html#RiOpacity">RiOpacity</A> of the Spec and page 213 of the Book.  
+ 
+<STRONG>Option name parameterlist</STRONG><BR>
+RiOption(name, parameterlist)  
+ 
+Example:  
+ 
+	<STRONG>Option "limits" "bucketsize" 24 24</STRONG>  
+ 
+	RtInt bs[] = { 24, 24 };<BR>
+	RiOption("limits", "bucketsize", (RtPointer)bs, RI_NULL);  
+ 
+	See <A href="section4.html#RiOption">RiOption</A> of the Spec and page 46 of the Book.  
+ 
+<STRONG>Orientation orientation</STRONG><BR>
+RiOrientation(orientation)  
+ 
+Example:  
+ 
+	<STRONG>Orientation "lh"</STRONG>  
+ 
+	RiOrientation(RI_LH);  
+ 
+	See <A href="section4.html#RiOrientation">RiOrientation</A> of the Spec and page 121 of the Book.  
+ 
+<STRONG>Paraboloid rmax zmin zmax thetamax parameterlist</STRONG><BR>
+RiParaboloid(rmax, zmin, zmax, thetamax, parameterlist)  
+ 
+Example:  
+ 
+	<STRONG>Paraboloid .5 .2 .7 270 "Cs" [1 .1 .1   1 .1 0   1 0 .1   
+		1 0 0]</STRONG>
+ 
+ 
+	RtColor redish[4] = {1.0, 0.1, 0.1, 1.0, 0.1, 0.0, 1.0, 0.0, 0.1, 1.0,
+		 0.0, 0.0};<BR>
+	RiParaboloid(0.5, 0.2, 0.7, 270.0, "Cs", (RtPointer)redish, RI_NULL);  
+ 
+	See <A href="section5.html#RiParaboloid">RiParaboloid</A> of the Spec and page 66 of the Book.  
+ 
+<STRONG>Patch type parameterlist</STRONG><BR>
+RiPatch(type, parameterlist)  
+ 
+Example:  
+ 
+	<STRONG>Patch "bilinear" "P" [-0.08 0.04 0.05   0.0 0.04 0.05     
+		-0.08 0.03 0.05   0.0 0.03 0.05] </STRONG> 
+ 
+	RtPoint patch[4] = {-0.08, 0.04, 0.05, 0.0, 0.04, 0.05, -0.08,
+		 0.03, 0.05, 0.0, 0.03, 0.05};<BR>
+	RiPatch(RI_BILINEAR, RI_P, (RtPointer)patch, RI_NULL);
+ 
+ 
+	See <A href="section5.html#RiPatch">RiPatch</A> of the Spec and page 87 of the Book.  
+ 
+<STRONG>PatchMesh type nu uwrap nv vwrap parameterlist</STRONG><BR>
+RiPatchMesh(type, nu, uwrap, nv, vwrap, parameterlist)  
+ 
+Example:  
+ 
+	<STRONG>Basis "catmul-rom" 1 "catmull-rom" 1</STRONG><BR>
+	<STRONG>PatchMesh "bicubic" 5 "nonperiodic" 4 "nonperiodic" "P" [<BR>
+  	0  -1  .2  .5  -1  .9  1  -1  .7  1.5  -1  .1  2  -1  .5<BR>
+  	0   1  .7  .5   1  .3  1   1  .6  1.5   1  .8  2   1  .4<BR>
+  	0   3  .4  .5   3  .6  1   3  .4  1.5   3  .7  2   3  .9<BR>
+  	0   7  .1  .5   7  .8  1   7  .5  1.5   7  .3  2   7  .6 ]</STRONG>
+ 
+	RtPoint mesh[20] =
+	{0.0,-1.0,0.2, 0.5,-1.0,0.9, 1.0,-1.0,0.7, 1.5,-1.0,0.1, 2.0,-1.0,0.5,<BR>
+	 0.0, 1.0,0.7, 0.5, 1.0,0.3, 1.0, 1.0,0.6, 1.5, 1.0,0.8, 2.0, 1.0,0.4,<BR>
+	 0.0, 3.0,0.4, 0.5, 3.0,0.6, 1.0, 3.0,0.4, 1.5, 3.0,0.7, 2.0, 3.0,0.9,<BR>
+	 0.0, 7.0,0.1, 0.5, 7.0,0.8, 1.0, 7.0,0.5, 1.5, 7.0,0.3, 2.0, 7.0,0.6};<BR>
+	RiBasis(RiCatmullRomBasis, 1, RiCatmullRomBasis, 1);
+	RiPatchMesh(RI_BICUBIC, 5, RI_NOWRAP,4, RI_NOWRAP, RI_P,
+		 (RtPointer)mesh, RI_NULL);  
+ 
+	See <A href="section5.html#RiPatchMesh">RiPatchMesh</A> of the Spec and page 98 of the Book.  
+ 
+<STRONG>Perspective fov</STRONG><BR>
+RiPerspective(fov)  
+ 
+Example:  
+ 
+	<STRONG>Perspective 90</STRONG>  
+ 
+	RiPerspective(90.0);  
+ 
+	See <A href="section4.html#RiPerspective">RiPerspective</A> of the Spec and page 114 of the Book.  
+ 
+<STRONG>PixelFilter function xwidth ywidth</STRONG><BR>
+RiPixelFilter(filterfunc, xwidth, ywidth)  
+ 
+Example:  
+ 
+	<STRONG>PixelFilter "gaussian" 2 1</STRONG>  
+ 
+	RiPixelFilter(RiGaussianFilter, 2.0, 1.0);  
+ 
+	See <A href="section4.html#RiPixelFilter">RiPixelFilter</A> of the Spec and page 176 of the Book.  
+ 
+<STRONG>PixelSamples xsamples ysamples</STRONG><BR>
+RiPixelSamples(xsamples, ysamples)  
+ 
+Example:  
+ 
+	<STRONG>PixelSamples 2 2 </STRONG> 
+ 
+	RiPixelSamples(2.0, 2.0);  
+ 
+	See <A href="section4.html#RiPixelSamples">RiPixelSamples</A> of the Spec and page 176 of the Book.  
+ 
+<STRONG>PixelSampleImager name parameterlist</STRONG><BR>
+RiPixelSampleImager(name, parameterlist)  
+ 
+Example:  
+ 
+	<STRONG>PixelSampleImager "remapValues"</STRONG>  
+ 
+	RiPixelSampleImager("remapValues", RI_NULL);  
+ 
+	See <A href="section4.html#RiPixelSampleImager">RiPixelSampleImager</A> of the Spec.  
+
+<STRONG>PixelVariance variation</STRONG><BR>
+RiPixelVariance(variation)  
+ 
+Example:  
+ 
+	<STRONG>PixalVariance .01</STRONG>  
+ 
+	RiPixelVariance(0.01);  
+ 
+	See <A href="section4.html#RiPixelVariance">RiPixelVariance</A> of the Spec and page 179 of the Book.  
+ 
+<STRONG>PointsGeneralPolygon nloops nvertices vertices parameterlist</STRONG><BR>
+RiPointsGeneralPolygon(npolys, nloops, nvertices, vertices, parameterlist)  
+ 
+Example:  
+
+<STRONG>	PointsGeneralPolygon [2 2] [4 3 4 3] [0 1 3 4 6 7 8 1 2 5 4
+	9 10 11]"P"[0 0 1  0 1 1  0 2 1  0 0 0  0 1 0  0 2 0 0 0.25
+	0.5 0 .75 .75 0 1.75 .25  0 1.25 0.5 0 1.75 .75 0 1.75 .25]
+</STRONG> 
+	RtPoint polys[12] = {0.0, 0.0, 1.0, 0.0, 1.0, 1.0, 0.0, 2.0, 1.0, 0.0,
+		 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 2.0, 0.0, 0.0, 0.25, 
+		0.5,  0 .75, 0.75,  0.0, 1.75, 0.25, 0.0, 1.25, 0.5,  0.0, 
+		1.75, 0.75,  0.0, 1.75, 0.25};<BR>
+	RtInt nloops[2] = {2, 2}, nverts[4] = {4, 3, 4, 3}, verts[14] = {0, 1, 
+		3, 4, 6, 7, 8, 1, 2, 5, 4, 9, 10, 11};<BR>
+	RiPointsGeneralPolygons((RtInt)2, nloops, nverts, verts, RI_P,
+		(RtPointer)polys, RI_NULL);  
+ 
+	See <A href="section5.html#RiPointsGeneralPolygons">RiPointsGeneralPolygons</A> of the Spec and page 82 of the Book.  
+ 
+<STRONG>PointsPolygons nvertices vertices parameterlist</STRONG><BR>
+RiPointsPolygons(npolys, nvertices, vertices, parameterlist)  
+ 
+Example:  
+ 
+<STRONG>	PointsPolygons [3 3 3] [0 3 2 0 1 3 1 4 3] "P" 
+		[0 1 1    0 3 1    00 0    0 2 0    0 4 0] "Cs" 
+		[0 .3 .4  0 .3 .9  .2 .2 .2  .5 .2 0 .9 .8 0]  
+</STRONG> 
+	RtPoint vertexstrip[5] = {0.0, 1.0, 1.0, 0.0, 3.0, 1.0, 0.0, 0.0, 0.0, 
+		0.0, 2.0, 0.0, 0.0, 4.0, 0.0};
+	RtColor colorstrip[5] = {0 .3, 0.4,  0 .3, 0.9, 0 .2, 0.2, 0.2, 0 .5, 
+		0.2, 0.0, 0 .9, 0.8, 0.0};
+	RtInt nverts[3] = {3, 3, 3}, verts[9] = {0, 3, 2, 0, 1, 3, 1, 4, 3};
+	RiPointsPolygons((RtInt)3, nverts, verts, RI_P, (RtPointer)vertexstrip,
+		RI_CS, (RtPointer)colorstrip, RI_NULL);
+
+	See <A href="section5.html#RiPointsPolygons">RiPointsPolygons</A> of the Spec and page 79 of the Book.  
+ 
+<STRONG>Polygon parameterlist</STRONG><BR>
+RiPolygon(nvertices, parameterlist)  
+ 
+Example:  
+ 
+	<STRONG>Polygon "P" [0 1 0   0 1 1   0 0 1   0 0 0]</STRONG>  
+ 
+	RtPoint points[4] = {0.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0,
+		 0.0, 0.0, 0.0};<BR>
+	RiPolygon(4, RI_P, (RtPointer)points, RI_NULL);  
+ 
+	See <A href="section5.html#RiPolygon">RiPolygon</A> of the Spec and page 70 of the Book.  
+ 
+<STRONG>(Not available in RIB)</STRONG>
+RiProcedural(data, bound, subdividefunc, freefunc)
+
+Example:  
+ 
+	RtPointer Child;<BR>
+	RtBound bound;<BR>
+	extern RtVoid FractDiv(), free();<BR>
+	RiProcedural(pChild, bound, FractDiv, free);  
+ 
+	See <A href="section5.html#RiProcedural">RiProcedural</A> of the Spec and page 201 of the Book.  
+ 
+<STRONG>Projection name parameterlist</STRONG><BR>
+RiProjection(name, parameterlist)  
+ 
+Example:  
+ 
+	<STRONG>Projection "perspective" "fov" [30.0]</STRONG>  
+ 
+	RtFloat fov = 30.0;<BR>
+	RiProjection("perspective", RI_FOV, (RtPointer)&amp;fov, RI_NULL);  
+ 
+	See <A href="section4.html#RiProjection">RiProjection</A> of the Spec and page 149 of the Book.  
+ 
+<STRONG>Quantize type one min max ditheramplitude</STRONG><BR>
+RiQuantize(type, one, min, max, ditheramplitude)  
+ 
+Example:  
+ 
+	<STRONG>Quantize "rgba" 255 0 255 1 </STRONG> 
+ 
+	RiQuantize(RI_RGBA, 255, 0, 255, 1.0);  
+ 
+	See <A href="section4.html#RiQuantize">RiQuantize</A> of the Spec and page 183 of the Book.  
+ 
+<STRONG>RelativeDetail relativedetail</STRONG><BR>
+RiRelativeDetail(relativedetail)  
+ 
+Example:  
+ 
+	<STRONG>RelativeDetail .6  </STRONG>
+ 
+	RiRelativeDetail(0.6);  
+ 
+	See <A href="section4.html#RiRelativeDetail">RiRelativeDetail</A> of the Spec and page 196 of the Book.  
+
+<STRONG>ReverseOrientation</STRONG>
+RiReverseOrientation()  
+ 
+Example:  
+ 
+	<STRONG>ReverseOrientation</STRONG>  
+ 
+	RiReverseOrientation();  
+ 
+	See <A href="section4.html#RiReverseOrientation">RiReverseOrientation</A> of the Spec and page 122 of the Book.  
+ 
+<STRONG>Rotate angle dx dy dz</STRONG>
+RiRotate(angle, dx, dy, dz)  
+ 
+Example:  
+ 
+	<STRONG>Rotate 90 0 1 0  </STRONG>
+ 
+	RiRotate(90.0, 0.0, 1.0, 0.0);  
+ 
+	See <A href="section4.html#RiRotate">RiRotate</A> of the Spec and page 112 of the Book.  
+ 
+<STRONG>Scale sx sy sz</STRONG>
+RiScale(sx, sy, sz)  
+ 
+Example:  
+ 
+	<STRONG>Scale .5 1 1</STRONG>  
+ 
+	RiScale(0.5, 1.0, 1.0);  
+ 
+	See <A href="section4.html#RiScale">RiScale</A> of the Spec and page 113 of the Book.  
+
+<STRONG>ScreenWindow left right bottom top</STRONG><BR>
+RiScreenWindow(left right bottom top)
+ 
+Example:  
+ 
+	<STRONG>ScreenWindow -1 1 -1 1 </STRONG> 
+ 
+	RiScreenWindow(-1.0, 1.0, -1.0, 1.0)  
+ 
+	See <A href="section4.html#RiScreenWindow">RiScreenWindow</A>  of the Spec and page 150 of the Book.  
+ 
+<STRONG>ShadingInterpolation type</STRONG><BR>
+RiShadingInterpolation(type)  
+ 
+Example:  
+ 
+	<STRONG>ShadingInterpolation "constant"</STRONG>  
+ 
+	RiShadingInterpolation(RI_CONSTANT);  
+ 
+	See <A href="section4.html#RiShadingInterpolation">RiShadingInterpolation</A> of the Spec and page 215 of the Book.  
+ 
+<STRONG>ShadingRate size</STRONG>
+RiShadingRate(size)  
+ 
+Example:  
+ 
+	<STRONG>ShadingRate 1 </STRONG> 
+ 
+	RiShadingRate(1.0);  
+ 
+	See <A href="section4.html#RiShadingRate">RiShadingRate</A> of the Spec and page 214 of the Book.  
+ 
+<STRONG>Shutter opentime closetime
+</STRONG>RiShutter(opentime, closetime)  
+ 
+Example:  
+ 
+	<STRONG>Shutter .1 .0</STRONG>  
+ 
+	RiShutter(0.1, 0.9);  
+ 
+	See <A href="section4.html#RiShutter">RiShutter</A> of the Spec and page 190 of the Book.  
+ 
+<STRONG>Sides sides
+</STRONG>RiSides(sides)  
+ 
+Example:  
+ 
+	<STRONG>Sides 2 </STRONG> 
+ 
+	RiSides (2);  
+ 
+	See <A href="section4.html#RiSides">RiSides</A> of the Spec and page 119 of the Book.  
+ 
+<STRONG>Skew angle dx1 dy1 dz1 dx2 dy2 dz2
+</STRONG>RiSkew(angle dx1 dy1 dz1 dx2 dy2 dz2)
+ 
+Example:  
+ 
+	<STRONG>Skew 45 0 1 0 1 0 0 </STRONG> 
+ 
+	RiSkew(45.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0);  
+ 
+	See <A href="section4.html#RiSkew">RiSkew</A> of the Spec and page 113 of the Book.  
+ 
+<STRONG>SolidBegin operation</STRONG>
+RiSolidBegin(operation)  
+ 
+Example:  
+
+	<STRONG>SolidBegin "union"  </STRONG>
+ 
+	RiSolidBegin(RI_UNION);  
+ 
+	See <A href="section5.html#RiSolidBegin">RiSolidBegin</A> of the Spec and page 126 of the Book.  
+ 
+<STRONG>SolidEnd</STRONG>
+RiSolidEnd()  
+ 
+Example:  
+ 
+	<STRONG>SolidEnd </STRONG> 
+ 
+	RiSolidEnd()  
+ 
+	See <A href="section5.html#RiSolidEnd">RiSolidEnd</A> of the Spec and page 126 of the Book.  
+ 
+<STRONG>Sphere radius zmin zmax thetamax parameterlist</STRONG>
+RiSphere(radius zmin zmax thetamax parameterlist)  
+ 
+Example:  
+ 
+	<STRONG>Sphere .5 0 .5 360 </STRONG> 
+ 
+	RiSphere(0.5, 0.0, 0.5, 360.0, RI_NULL);  
+ 
+	See <A href="section5.html#RiSphere">RiSphere</A> of the Spec and page 62 of the Book.  
+ 
+<STRONG>Surface name parameterlist</STRONG>
+RiSurface(name, parameterlist)  
+ 
+Example:  
+ 
+	<STRONG>Surface "wood" "roughness" .3 "Kd" 1 </STRONG> 
+ 
+	RtFloat rough = 0.3, kd = 1.0;
+	RiSurface("wood", "roughness", (RtPointer)&amp;rough, "Kd",
+		 (RtPointer)&amp;kd, RI_NULL);  
+ 
+	See <A href="section4.html#RiSurface" NAME="RiSurface">RiSurface</A> of the Spec and page 231 of the Book.  
+ 
+<STRONG>TextureCoordinates s1 t1 s2 t2 s3 t3 s4 t4</STRONG>
+RiTextureCoordinates(s1 t1 s2 t2 s3 t3 s4 t4)  
+ 
+Example:  
+ 
+	<STRONG>TextureCoordinates 0 0 2 -.5 -.5 1.75 3 3 </STRONG> 
+ 
+	RiTextureCoordinates(0.0, 0.0, 2.0, -0.5, -0.5, 1.75, 3.0, 3.0);  
+ 
+	See <A href="section4.html#RiTextureCoordinates" NAME="RiSurface">RiTextureCoordinates</A> of the Spec and page 251 of the Book.  
+ 
+<STRONG>Torus rmajor rminor phimin phimax thetamax parameterlist</STRONG>
+RiTorus(rmajor rminor phimin phimax thetamax parameterlist)  
+ 
+Example:  
+ 
+	<STRONG>Torus 3.5 .25 0 180 300</STRONG>  
+ 
+	RiTorus(3.5, 0.25, 0.0, 180.0, 300.0, RI_NULL);  
+ 
+	See <A href="section5.html#RiTorus" NAME="RiTorus">RiTorus</A> of the Spec and page 66 of the Book.  
+ 
+<STRONG>Transform transform</STRONG>
+RiTransform(transform)  
+ 
+Example:  
+ 
+	<STRONG>Transform [.5 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</STRONG>  
+ 
+	RiTransform(0.5, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0,
+		1.0, 0.0, 0.0, 0.0, 0.0, 1.0);  
+
+	See <A href="section4.html#RiTransform">RiTransform</A> of the Spec and page 117 of the Book.  
+ 
+<STRONG>TransformBegin</STRONG>
+RiTransformBegin()  
+ 
+Example:  
+ 
+	<STRONG>TransformBegin </STRONG> 
+ 
+	RiTransformBegin()  
+ 
+	See <A href="section4.html#RiTransformBegin">RiTransformBegin</A> of the Spec and page 111 of the Book.  
+ 
+<STRONG>TransformEnd</STRONG>
+RiTransformEnd()  
+ 
+Example:  
+ 
+	<STRONG>TransformEnd </STRONG> 
+ 
+	RiTransformEnd()  
+ 
+	See <A href="section4.html#RiTransformEnd">RiTransformEnd</A> of the Spec and page 111 of the Book.  
+ 
+<STRONG>(Not available in RIB)</STRONG><BR>
+RtPoint *
+RiTransformPoints(fromspace, tospace, n, points)  
+ 
+Example:  
+ 
+	RtPoint four_points[4];<BR>
+	RiTransformPoints("current", "lamptop", 4, four_points);  
+ 
+	See <A href="section4.html#RiTransformPoints">RiTransformPoints</A> of the Spec and page 123 of the Book.  
+ 
+<STRONG>Translate dx dy dz</STRONG><BR>
+RiTranslate(dx, dy, dz)  
+ 
+Example:  
+ 
+	<STRONG>Translate 0 1 0 </STRONG> 
+ 
+	RiTranslate(0.0, 1.0, 0.0)  
+ 
+	See <A href="section4.html#RiTranslate">RiTranslate</A> of the Spec and page 112 of the Book.  
+ 
+<STRONG>TrimCurve ncurves order knot min max n u v w</STRONG><BR>
+RiTrimCurve(nloops, ncurves, order, knot, min, max, n, u, v, w)  
+ 
+Example:  
+ 
+	TrimCurve 1 3 [0 0 0 1 1 2 2 3 3 4 4 4] 0 0 9 [1 1 1 0 
+		0 0 1 1 1] [.5 1 2 1.5 0 0 0 .5] 
+		[1 1 2 1 1 1 2 1 1]  
+ 
+	RtInt nloops = 1;
+	RtInt ncurves[1] = { 1 };
+	RtInt order[1] = { 3 };
+	RtFloat knot[12] = { 0,0,0,1,1,2,2,3,3,4,4,4 };
+	RtFloat min[1] = { 0 };
+	RtFloat max[1] = { 4 };
+	RtInt n[1] = { 9 };
+	RtFloat u[9] = { 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0 };
+	RtFloat v[9] = { 0.5, 1.0, 2.0, 1.0, 0.5, 0.0, 0.0, 0.0, 0.5 };
+	RtFloat w[9] = { 1.0, 1.0, 2.0, 1.0, 1.0, 1.0, 2.0, 1.0, 1.0 };
+	RiTrimCurve(nloops, ncurves, order, knot, min, max, n, u, v, w);  
+ 
+	See <A href="section5.html#RiTrimCurve">RiTrimCurve</A> of the Spec and page 249 of the Book.  
+ 
+<STRONG>WorldBegin</STRONG><BR>
+RiWorldBegin()  
+ 
+Example:  
+ 
+	<STRONG>WorldBegin</STRONG>  
+ 
+	RiWorldBegin();  
+ 
+	See <A href="section4.html#RiWorldBegin">RiWorldBegin</A> of the Spec and page 48 of the Book.  
+ 
+<STRONG>WorldEnd</STRONG><BR>
+RiWorldEnd()  
+ 
+Example:  
+ 
+	<STRONG>WorldEnd</STRONG>  
+ 
+	RiWorldEnd();  
+ 
+	See <A href="section4.html#RiWorldEnd">RiWorldEnd</A> of the Spec and page 48 of the Book.  
+</PRE>  
+
+ 
+
+<hr color="#CCCCCC" noshade size="1">
+
+<!-- pixar_nav -->
+<p class="no_Indent">
+<a href="./appnote.1.html" target="mainFrame">Prev</a> | 
+<a href="./prman_for_python.html" target="mainFrame">Next</a>
+</p>
+<!-- pixar_menupath_none -->
+<br>
+
+
+<center>
+<table border="0" width="705" cellspacing="0" cellpadding="0">
+<tr>
+
+
+<!-- Pixar Footer -->
+<div align="right">
+  <table border="0" width="360">
+    <tr>
+      <td>
+        <p style="margin-top: 0; margin-bottom: 0" class="pixar"><font size=-3 color="#CCCCCC"> 
+        <a href="http://www.pixar.com" target="_blank">Pixar Animation Studios</a> </font>
+        <br><font size=-3 color="#CCCCCC">
+        Copyright&copy; 
+<script LANGUAGE="javascript">
+<!-- 
+current = new Date();
+document.write(current.getFullYear());
+// -->
+</script>
+	Pixar. All rights reserved. <br>
+        Pixar&reg; and RenderMan&reg; are registered trademarks of Pixar.<br>
+        All other trademarks are the properties of their respective holders.</font></td>
+    </tr>
+  </table>
+</div>
+</center>
+<!-- Footer End -->
+</BODY></HTML>

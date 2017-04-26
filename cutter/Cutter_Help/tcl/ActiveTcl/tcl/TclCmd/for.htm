@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Built-In Commands - for manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<h3><a name="M2">NAME</a></h3>
+
+<p>for - ``For'' loop</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>for</b> <i>start test next body</i><br>
+</p>
+
+<h3><a name="M4">DESCRIPTION</a></h3>
+
+<p><b>For</b> is a looping command, similar in structure to the C
+<b>for</b> statement. The <i>start</i>, <i>next</i>, and
+<i>body</i> arguments must be Tcl command strings, and <i>test</i>
+is an expression string. The <b>for</b> command first invokes the
+Tcl interpreter to execute <i>start</i>. Then it repeatedly
+evaluates <i>test</i> as an expression; if the result is non-zero
+it invokes the Tcl interpreter on <i>body</i>, then invokes the Tcl
+interpreter on <i>next</i>, then repeats the loop. The command
+terminates when <i>test</i> evaluates to 0. If a <b><a href=
+"../TclCmd/continue.htm">continue</a></b> command is invoked within
+<i>body</i> then any remaining commands in the current execution of
+<i>body</i> are skipped; processing continues by invoking the Tcl
+interpreter on <i>next</i>, then evaluating <i>test</i>, and so on.
+If a <b><a href="../TclCmd/break.htm">break</a></b> command is
+invoked within <i>body</i> or <i>next</i>, then the <b>for</b>
+command will return immediately. The operation of <b><a href=
+"../TclCmd/break.htm">break</a></b> and <b><a href=
+"../TclCmd/continue.htm">continue</a></b> are similar to the
+corresponding statements in C. <b>For</b> returns an empty
+string.</p>
+
+<p>Note: <i>test</i> should almost always be enclosed in braces. If
+not, variable substitutions will be made before the <b>for</b>
+command starts executing, which means that variable changes made by
+the loop body will not be considered in the expression. This is
+likely to result in an infinite loop. If <i>test</i> is enclosed in
+braces, variable substitutions are delayed until the expression is
+evaluated (before each loop iteration), so changes in the variables
+will be visible. For an example, try the following script with and
+without the braces around <b>$x&lt;10</b>:</p>
+
+<pre>
+for {set x 0} {$x&lt;10} {incr x} {
+    puts "x is $x"
+}
+</pre>
+
+<h3><a name="M5">SEE ALSO</a></h3>
+
+<p><b><a href="../TclCmd/break.htm">break</a></b>, <b><a href=
+"../TclCmd/continue.htm">continue</a></b>, <b><a href=
+"../TclCmd/foreach.htm">foreach</a></b>, <b><a href=
+"../TclCmd/while.htm">while</a></b></p>
+
+<h3><a name="M6">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/F.htm#for">for</a>, <a href=
+"../Keywords/I.htm#iteration">iteration</a>, <a href=
+"../Keywords/L.htm#looping">looping</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1993 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1997 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

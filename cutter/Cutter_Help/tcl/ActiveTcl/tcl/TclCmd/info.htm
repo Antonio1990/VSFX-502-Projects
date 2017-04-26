@@ -1,0 +1,365 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Tcl Built-In Commands - info manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<dl>
+<dd><a href="info.htm#M2" name="L607">NAME</a> 
+
+<dl>
+<dd>info - Return information about the state of the Tcl
+interpreter</dd>
+</dl>
+</dd>
+
+<dd><a href="info.htm#M3" name="L608">SYNOPSIS</a> 
+
+<dl>
+<dd><b>info</b> <i>option</i> ?<i>arg arg ...</i>?</dd>
+</dl>
+</dd>
+
+<dd><a href="info.htm#M4" name="L609">DESCRIPTION</a> 
+
+<dl>
+<dd><a href="info.htm#M5" name="L610"><b>info args</b>
+<i>procname</i></a></dd>
+
+<dd><a href="info.htm#M6" name="L611"><b>info body</b>
+<i>procname</i></a></dd>
+
+<dd><a href="info.htm#M7" name="L612"><b>info cmdcount</b></a></dd>
+
+<dd><a href="info.htm#M8" name="L613"><b>info commands</b>
+?<i>pattern</i>?</a></dd>
+
+<dd><a href="info.htm#M9" name="L614"><b>info complete</b>
+<i>command</i></a></dd>
+
+<dd><a href="info.htm#M10" name="L615"><b>info default</b>
+<i>procname arg varname</i></a></dd>
+
+<dd><a href="info.htm#M11" name="L616"><b>info exists</b>
+<i>varName</i></a></dd>
+
+<dd><a href="info.htm#M12" name="L617"><b>info functions</b>
+?<i>pattern</i>?</a></dd>
+
+<dd><a href="info.htm#M13" name="L618"><b>info globals</b>
+?<i>pattern</i>?</a></dd>
+
+<dd><a href="info.htm#M14" name="L619"><b>info
+hostname</b></a></dd>
+
+<dd><a href="info.htm#M15" name="L620"><b>info level</b>
+?<i>number</i>?</a></dd>
+
+<dd><a href="info.htm#M16" name="L621"><b>info library</b></a></dd>
+
+<dd><a href="info.htm#M17" name="L622"><b>info loaded</b>
+?<i>interp</i>?</a></dd>
+
+<dd><a href="info.htm#M18" name="L623"><b>info locals</b>
+?<i>pattern</i>?</a></dd>
+
+<dd><a href="info.htm#M19" name="L624"><b>info
+nameofexecutable</b></a></dd>
+
+<dd><a href="info.htm#M20" name="L625"><b>info
+patchlevel</b></a></dd>
+
+<dd><a href="info.htm#M21" name="L626"><b>info procs</b>
+?<i>pattern</i>?</a></dd>
+
+<dd><a href="info.htm#M22" name="L627"><b>info script</b>
+?<i>filename</i>?</a></dd>
+
+<dd><a href="info.htm#M23" name="L628"><b>info
+sharedlibextension</b></a></dd>
+
+<dd><a href="info.htm#M24" name="L629"><b>info
+tclversion</b></a></dd>
+
+<dd><a href="info.htm#M25" name="L630"><b>info vars</b>
+?<i>pattern</i>?</a></dd>
+</dl>
+</dd>
+
+<dd><a href="info.htm#M26" name="L631">SEE ALSO</a></dd>
+
+<dd><a href="info.htm#M27" name="L632">KEYWORDS</a></dd>
+</dl>
+
+<hr>
+<h3><a name="M2">NAME</a></h3>
+
+<p>info - Return information about the state of the Tcl
+interpreter</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>info</b> <i>option</i> ?<i>arg arg ...</i>?<br>
+</p>
+
+<h3><a name="M4">DESCRIPTION</a></h3>
+
+<p>This command provides information about various internals of the
+Tcl interpreter. The legal <i>option</i>'s (which may be
+abbreviated) are:</p>
+
+<dl>
+<dt><a name="M5"><b>info args</b> <i>procname</i></a></dt>
+
+<dd>Returns a list containing the names of the arguments to
+procedure <i>procname</i>, in order. <i>Procname</i> must be the
+name of a Tcl command procedure.</dd>
+
+<dt><a name="M6"><b>info body</b> <i>procname</i></a></dt>
+
+<dd>Returns the body of procedure <i>procname</i>. <i>Procname</i>
+must be the name of a Tcl command procedure.</dd>
+
+<dt><a name="M7"><b>info cmdcount</b></a></dt>
+
+<dd>Returns a count of the total number of commands that have been
+invoked in this interpreter.</dd>
+
+<dt><a name="M8"><b>info commands</b> ?<i>pattern</i>?</a></dt>
+
+<dd>If <i>pattern</i> isn't specified, returns a list of names of
+all the Tcl commands in the current namespace, including both the
+built-in commands written in C and the command procedures defined
+using the <b><a href="../TclCmd/proc.htm">proc</a></b> command. If
+<i>pattern</i> is specified, only those names matching
+<i>pattern</i> are returned. Matching is determined using the same
+rules as for <b><a href="../TclCmd/string.htm">string
+match</a></b>. <i>pattern</i> can be a qualified name like
+<b>Foo::print*</b>. That is, it may specify a particular namespace
+using a sequence of namespace names separated by <b>::</b>s, and
+may have pattern matching special characters at the end to specify
+a set of commands in that namespace. If <i>pattern</i> is a
+qualified name, the resulting list of command names has each one
+qualified with the name of the specified namespace.</dd>
+
+<dt><a name="M9"><b>info complete</b> <i>command</i></a></dt>
+
+<dd>Returns 1 if <i>command</i> is a complete Tcl command in the
+sense of having no unclosed quotes, braces, brackets or array
+element names, If the command doesn't appear to be complete then 0
+is returned. This command is typically used in line-oriented input
+environments to allow users to type in commands that span multiple
+lines; if the command isn't complete, the script can delay
+evaluating it until additional lines have been typed to complete
+the command.</dd>
+
+<dt><a name="M10"><b>info default</b> <i>procname arg
+varname</i></a></dt>
+
+<dd><i>Procname</i> must be the name of a Tcl command procedure and
+<i>arg</i> must be the name of an argument to that procedure. If
+<i>arg</i> doesn't have a default value then the command returns
+<b>0</b>. Otherwise it returns <b>1</b> and places the default
+value of <i>arg</i> into variable <i>varname</i>.</dd>
+
+<dt><a name="M11"><b>info exists</b> <i>varName</i></a></dt>
+
+<dd>Returns <b>1</b> if the variable named <i>varName</i> exists in
+the current context (either as a global or local variable) and has
+been defined by being given a value, returns <b>0</b>
+otherwise.</dd>
+
+<dt><a name="M12"><b>info functions</b> ?<i>pattern</i>?</a></dt>
+
+<dd>If <i>pattern</i> isn't specified, returns a list of all the
+math functions currently defined. If <i>pattern</i> is specified,
+only those functions whose name matches <i>pattern</i> are
+returned. Matching is determined using the same rules as for <b><a
+href="../TclCmd/string.htm">string match</a></b>.</dd>
+
+<dt><a name="M13"><b>info globals</b> ?<i>pattern</i>?</a></dt>
+
+<dd>If <i>pattern</i> isn't specified, returns a list of all the
+names of currently-defined global variables. Global variables are
+variables in the global namespace. If <i>pattern</i> is specified,
+only those names matching <i>pattern</i> are returned. Matching is
+determined using the same rules as for <b><a href=
+"../TclCmd/string.htm">string match</a></b>.</dd>
+
+<dt><a name="M14"><b>info hostname</b></a></dt>
+
+<dd>Returns the name of the computer on which this invocation is
+being executed. Note that this name is not guaranteed to be the
+fully qualified domain name of the host. Where machines have
+several different names (as is common on systems with both TCP/IP
+(DNS) and NetBIOS-based networking installed,) it is the name that
+is suitable for TCP/IP networking that is returned.</dd>
+
+<dt><a name="M15"><b>info level</b> ?<i>number</i>?</a></dt>
+
+<dd>If <i>number</i> is not specified, this command returns a
+number giving the stack level of the invoking procedure, or 0 if
+the command is invoked at top-level. If <i>number</i> is specified,
+then the result is a list consisting of the name and arguments for
+the procedure call at level <i>number</i> on the stack. If
+<i>number</i> is positive then it selects a particular stack level
+(1 refers to the top-most active procedure, 2 to the procedure it
+called, and so on); otherwise it gives a level relative to the
+current level (0 refers to the current procedure, -1 to its caller,
+and so on). See the <b><a href=
+"../TclCmd/uplevel.htm">uplevel</a></b> command for more
+information on what stack levels mean.</dd>
+
+<dt><a name="M16"><b>info library</b></a></dt>
+
+<dd>Returns the name of the library directory in which standard Tcl
+scripts are stored. This is actually the value of the
+<b>tcl_library</b> variable and may be changed by setting
+<b>tcl_library</b>. See the <b><a href=
+"../TclCmd/tclvars.htm">tclvars</a></b> manual entry for more
+information.</dd>
+
+<dt><a name="M17"><b>info loaded</b> ?<i>interp</i>?</a></dt>
+
+<dd>Returns a list describing all of the packages that have been
+loaded into <i>interp</i> with the <b><a href=
+"../TclCmd/load.htm">load</a></b> command. Each list element is a
+sub-list with two elements consisting of the name of the file from
+which the package was loaded and the name of the package. For
+statically-loaded packages the file name will be an empty string.
+If <i>interp</i> is omitted then information is returned for all
+packages loaded in any interpreter in the process. To get a list of
+just the packages in the current interpreter, specify an empty
+string for the <i>interp</i> argument.</dd>
+
+<dt><a name="M18"><b>info locals</b> ?<i>pattern</i>?</a></dt>
+
+<dd>If <i>pattern</i> isn't specified, returns a list of all the
+names of currently-defined local variables, including arguments to
+the current procedure, if any. Variables defined with the <b><a
+href="../TclCmd/global.htm">global</a></b>, <b><a href=
+"../TclCmd/upvar.htm">upvar</a></b> and <b><a href=
+"../TclCmd/variable.htm">variable</a></b> commands will not be
+returned. If <i>pattern</i> is specified, only those names matching
+<i>pattern</i> are returned. Matching is determined using the same
+rules as for <b><a href="../TclCmd/string.htm">string
+match</a></b>.</dd>
+
+<dt><a name="M19"><b>info nameofexecutable</b></a></dt>
+
+<dd>Returns the full path name of the binary file from which the
+application was invoked. If Tcl was unable to identify the file,
+then an empty string is returned.</dd>
+
+<dt><a name="M20"><b>info patchlevel</b></a></dt>
+
+<dd>Returns the value of the global variable <b>tcl_patchLevel</b>;
+see the <b><a href="../TclCmd/tclvars.htm">tclvars</a></b> manual
+entry for more information.</dd>
+
+<dt><a name="M21"><b>info procs</b> ?<i>pattern</i>?</a></dt>
+
+<dd>If <i>pattern</i> isn't specified, returns a list of all the
+names of Tcl command procedures in the current namespace. If
+<i>pattern</i> is specified, only those procedure names in the
+current namespace matching <i>pattern</i> are returned. Matching is
+determined using the same rules as for <b><a href=
+"../TclCmd/string.htm">string match</a></b>.</dd>
+
+<dt><a name="M22"><b>info script</b> ?<i>filename</i>?</a></dt>
+
+<dd>If a Tcl script file is currently being evaluated (i.e. there
+is a call to <b><a href="../TclLib/Eval.htm">Tcl_EvalFile</a></b>
+active or there is an active invocation of the <b><a href=
+"../TclCmd/source.htm">source</a></b> command), then this command
+returns the name of the innermost file being processed. If
+<i>filename</i> is specified, then the return value of this command
+will be modified for the duration of the active invocation to
+return that name. This is useful in virtual file system
+applications. Otherwise the command returns an empty string.</dd>
+
+<dt><a name="M23"><b>info sharedlibextension</b></a></dt>
+
+<dd>Returns the extension used on this platform for the names of
+files containing shared libraries (for example, <b>.so</b> under
+Solaris). If shared libraries aren't supported on this platform
+then an empty string is returned.</dd>
+
+<dt><a name="M24"><b>info tclversion</b></a></dt>
+
+<dd>Returns the value of the global variable <b>tcl_version</b>;
+see the <b><a href="../TclCmd/tclvars.htm">tclvars</a></b> manual
+entry for more information.</dd>
+
+<dt><a name="M25"><b>info vars</b> ?<i>pattern</i>?</a></dt>
+
+<dd>If <i>pattern</i> isn't specified, returns a list of all the
+names of currently-visible variables. This includes locals and
+currently-visible globals. If <i>pattern</i> is specified, only
+those names matching <i>pattern</i> are returned. Matching is
+determined using the same rules as for <b><a href=
+"../TclCmd/string.htm">string match</a></b>. <i>pattern</i> can be
+a qualified name like <b>Foo::option*</b>. That is, it may specify
+a particular namespace using a sequence of namespace names
+separated by <b>::</b>s, and may have pattern matching special
+characters at the end to specify a set of variables in that
+namespace. If <i>pattern</i> is a qualified name, the resulting
+list of variable names has each matching namespace variable
+qualified with the name of its namespace.</dd>
+</dl>
+
+<h3><a name="M26">SEE ALSO</a></h3>
+
+<p><b><a href="../TclCmd/global.htm">global</a></b>, <b><a href=
+"../TclCmd/proc.htm">proc</a></b></p>
+
+<h3><a name="M27">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/C.htm#command">command</a>, <a href=
+"../Keywords/I.htm#information">information</a>, <a href=
+"../Keywords/I.htm#interpreter">interpreter</a>, <a href=
+"../Keywords/L.htm#level">level</a>, <a href=
+"../Keywords/N.htm#namespace">namespace</a>, <a href=
+"../Keywords/P.htm#procedure">procedure</a>, <a href=
+"../Keywords/V.htm#variable">variable</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1993 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1997 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1993-1997 Bell Labs Innovations for Lucent Technologies
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1998-2000 Ajuba Solutions
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

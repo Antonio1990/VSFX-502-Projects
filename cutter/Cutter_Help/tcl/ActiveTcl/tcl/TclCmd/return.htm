@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Tcl Built-In Commands - return manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<dl>
+<dd><a href="return.htm#M2" name="L1107">NAME</a> 
+
+<dl>
+<dd>return - Return from a procedure</dd>
+</dl>
+</dd>
+
+<dd><a href="return.htm#M3" name="L1108">SYNOPSIS</a> 
+
+<dl>
+<dd><b>return</b> ?<b>-code</b> <i>code</i>? ?<b>-errorinfo</b>
+<i>info</i>? ?<b>-errorcode</b> <i>code</i>? ?<i>string</i>?</dd>
+</dl>
+</dd>
+
+<dd><a href="return.htm#M4" name="L1109">DESCRIPTION</a></dd>
+
+<dd><a href="return.htm#M5" name="L1110">EXCEPTIONAL RETURNS</a> 
+
+<dl>
+<dd><a href="return.htm#M6" name="L1111"><b>ok</b></a></dd>
+
+<dd><a href="return.htm#M7" name="L1112"><b>error</b></a></dd>
+
+<dd><a href="return.htm#M8" name="L1113"><b>return</b></a></dd>
+
+<dd><a href="return.htm#M9" name="L1114"><b>break</b></a></dd>
+
+<dd><a href="return.htm#M10" name="L1115"><b>continue</b></a></dd>
+
+<dd><a href="return.htm#M11" name="L1116"><i>value</i></a></dd>
+</dl>
+</dd>
+
+<dd><a href="return.htm#M12" name="L1117">SEE ALSO</a></dd>
+
+<dd><a href="return.htm#M13" name="L1118">KEYWORDS</a></dd>
+</dl>
+
+<hr>
+<h3><a name="M2">NAME</a></h3>
+
+<p>return - Return from a procedure</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>return</b> ?<b>-code</b> <i>code</i>? ?<b>-errorinfo</b>
+<i>info</i>? ?<b>-errorcode</b> <i>code</i>? ?<i>string</i>?<br>
+</p>
+
+<h3><a name="M4">DESCRIPTION</a></h3>
+
+<p>Return immediately from the current procedure (or top-level
+command or <b><a href="../TclCmd/source.htm">source</a></b>
+command), with <i>string</i> as the return value. If <i>string</i>
+is not specified then an empty string will be returned as
+result.</p>
+
+<h3><a name="M5">EXCEPTIONAL RETURNS</a></h3>
+
+<p>In the usual case where the <b>-code</b> option isn't specified
+the procedure will return normally (its completion code will be
+TCL_OK). However, the <b>-code</b> option may be used to generate
+an exceptional return from the procedure. <i>Code</i> may have any
+of the following values:</p>
+
+<dl>
+<dt><a name="M6"><b>ok</b></a></dt>
+
+<dd>Normal return: same as if the option is omitted.</dd>
+
+<dt><a name="M7"><b>error</b></a></dt>
+
+<dd>Error return: same as if the <b>error</b> command were used to
+terminate the procedure, except for handling of <b>errorInfo</b>
+and <b>errorCode</b> variables (see below).</dd>
+
+<dt><a name="M8"><b>return</b></a></dt>
+
+<dd>The current procedure will return with a completion code of
+TCL_RETURN, so that the procedure that invoked it will return
+also.</dd>
+
+<dt><a name="M9"><b>break</b></a></dt>
+
+<dd>The current procedure will return with a completion code of
+TCL_BREAK, which will terminate the innermost nested loop in the
+code that invoked the current procedure.</dd>
+
+<dt><a name="M10"><b>continue</b></a></dt>
+
+<dd>The current procedure will return with a completion code of
+TCL_CONTINUE, which will terminate the current iteration of the
+innermost nested loop in the code that invoked the current
+procedure.</dd>
+
+<dt><a name="M11"><i>value</i></a></dt>
+
+<dd><i>Value</i> must be an integer; it will be returned as the
+completion code for the current procedure.</dd>
+</dl>
+
+<p>The <b>-code</b> option is rarely used. It is provided so that
+procedures that implement new control structures can reflect
+exceptional conditions back to their callers.</p>
+
+<p>Two additional options, <b>-errorinfo</b> and <b>-errorcode</b>,
+may be used to provide additional information during error returns.
+These options are ignored unless <i>code</i> is <b>error</b>.</p>
+
+<p>The <b>-errorinfo</b> option specifies an initial stack trace
+for the <b>errorInfo</b> variable; if it is not specified then the
+stack trace left in <b>errorInfo</b> will include the call to the
+procedure and higher levels on the stack but it will not include
+any information about the context of the error within the
+procedure. Typically the <i>info</i> value is supplied from the
+value left in <b>errorInfo</b> after a <b><a href=
+"../TclCmd/catch.htm">catch</a></b> command trapped an error within
+the procedure.</p>
+
+<p>If the <b>-errorcode</b> option is specified then <i>code</i>
+provides a value for the <b>errorCode</b> variable. If the option
+is not specified then <b>errorCode</b> will default to
+<b>NONE</b>.</p>
+
+<h3><a name="M12">SEE ALSO</a></h3>
+
+<p><b>break</b>, <b>continue</b>, <b>error</b>, <b><a href=
+"../TclCmd/proc.htm">proc</a></b></p>
+
+<h3><a name="M13">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/B.htm#break">break</a>, <a href=
+"../Keywords/C.htm#continue">continue</a>, <a href=
+"../Keywords/E.htm#error">error</a>, <a href=
+"../Keywords/P.htm#procedure">procedure</a>, <a href=
+"../Keywords/R.htm#return">return</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1993 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1996 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

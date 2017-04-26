@@ -1,0 +1,145 @@
+<!--
+ - PROPRIETARY INFORMATION.  This software is proprietary to
+ - Side Effects Software Inc., and is not to be reproduced,
+ - transmitted, or disclosed in any way without written permission.
+ -
+ -	Side Effects
+ -	477 Richmond Street West
+ -	Toronto, Ontario
+ -	Canada   M5V 3E7
+ -	416-504-9876
+ -->
+
+<html>
+
+<head>
+   <title> VEX Compiler Reference</title>
+</head>
+
+<body bgcolor="#ffffff" text="#000000">
+
+<table width=100%>
+<tr>
+   <td><img hspace=15 vspace=5 ALT="[SESI logo]" SRC="logo.jpg"</td>
+   <td>
+      <center>
+         <h1>VEX Language Reference - Version 7.0</h1>
+	 Side Effects Software Inc.  2004
+      </center>
+   </td>
+</tr>
+</table>
+
+<hr>
+<center><h1>Changes since Houdini 6.1</h1></center>
+
+These are highlights of major changes since the <a href="changes6.0.html">
+6.1 release</a> of houdini.<p>
+
+<menu>
+    <li> <a href="#ch_func">Function Additions/Modifications</a>
+    <li> <a href="#ch_vexop">Custom VEX Ops</a>
+    <li> <a href="#ch_compiler">Compiler</a>
+</menu>
+
+<!-------------------------------------------------------------------!>
+<a name="ch_vexop"></a>
+<hr>
+<center><h1> Function Additions/Modifications</h1></center>
+<menu>
+    <li> The shading contexts now have a function to query some
+	information about the render state.  Please see help for the
+	<a href="shading.html#renderstate">renderstate()</a>
+	function.<p>
+
+    <li> The <a href="context.html#fn_addattribute">addattribute()</a>
+	function now takes additional arguments to specify type
+	qualifiers for the attribute.<p>
+
+    <li> There are now functions which compute the BRDFs for the
+	different lighting models.  These can be used in illuminance
+	loops to replicate the same lighting as the <b>specular(),
+	blinn(), phong(),</b> etc. functions.
+	<menu>
+	    <li> <b>float specularBRDF(vector L, N, V; float rough)</b>
+	    <li> <b>float phongBRDF(vector L, N, V; float rough)</b>
+	    <li> <b>float blinnBRDF(vector L, N, V; float rough)</b>
+	    <li> <b>float diffuseBRDF(vector L, N, V; float rough)</b>
+	    <li> <b>float diffuseBRDF(vector L, N)</b>
+	</menu>
+	The last (<b>diffuseBRDF</b>) is equivalent to <b>dot(L,
+	N)</b><p>
+
+    <li> There are new functions to deal with <a href="functions.html#pcloud">
+	    Point Cloud Textures</a>.<p>
+
+    <li> The <a href="shading.html#surf_import">shimport()</a>
+	function can now be used to import values from the shadow
+	shader for surface and fog shaders.<p>
+
+    <li> There are new versions of the <a
+	href="functions.html#matrix"> maketransform</a> functions
+	similar to the <b>lookat</b> functions, but with slightly
+	different symantics.<p>
+</menu>
+
+<!-------------------------------------------------------------------!>
+<a name="ch_vexop"></a>
+<hr>
+<center><h1> Custom VEX OPs </h1></center>
+<menu>
+    <li> The optimization levels in specified in the custom VEX Ops
+	 (i.e. VEX plug-ins) have changed slightly.  The new meanings
+	 of the optimization levels are:
+	 <menu>
+	    <li> <b><tt>VEX_OPTIMIZE_0</tt></b><br>
+		The plug-in function will never be optimized out by
+		the run-time optimizer.  This allows users to write
+		functions like printf() which don't have any actual
+		bearing in the results of the VEX execution, but
+		shouldn't be optimized out.
+	    <li> <b><tt>VEX_OPTIMIZE_1</tt></b><br>
+		Minimal optimization is performed.  If the results of
+		the computation performed by the plug-in function
+		aren't used, then the function will be optimized out.
+		However, the optimizer assumes that the result of the
+		plug-in function is not solely dependent on the inputs
+		to the function.
+	    <li> <b><tt>VEX_OPTIMIZE_2</tt></b><br>
+		Full optimization.  The optimizer will attempt to
+		minimize the number of calls to the plug-in in order
+		to produce more efficient run-time code.
+	</menu>
+
+    <li> The constructor for plug-in's has changed to allow for hints
+	to be passed to the compiler about signature construction.
+	When a function modifies more than 1 argument, it is now
+	possible to force the first argument to be a return code
+	rather than having a <b>void</b> type as the return code.
+	Please see the header file (VEX_VexOp.h) for more details.
+</menu>
+
+<!-------------------------------------------------------------------!>
+<a name="ch_compiler"></a>
+<hr>
+<center><h1> Compiler </h1></center>
+<menu>
+    <li> There is a new #pragma to define arbitrary tags for a
+	 parameter.  This new <a href="compiler.html#pr_parmtag">
+	 #pragma</a> is explained in the compiler reference.
+    <li>#pragma hint <i>param</i> invisible<br>
+	This new pragma hint type will create the new parameter but remain
+	invisible from the user interface.
+</menu>
+
+<!-------------------------------------------------------------------!>
+<hr>
+<center>
+<font size=-2>
+  Copyright &#169; 1999-2004 Side Effects Software Inc.<br>
+  477 Richmond Street West, Toronto, Ontario, Canada M5V 3E7
+</font>
+</center>
+
+</body>
+</html>

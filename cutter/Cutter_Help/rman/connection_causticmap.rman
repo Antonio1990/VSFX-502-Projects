@@ -1,0 +1,1 @@
+Declare param {string PNAME_CausticMap} {	label "Caustic Map"	subtype  connection	range {		pass:render:RenderCaustic	}

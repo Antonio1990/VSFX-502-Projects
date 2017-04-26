@@ -1,0 +1,173 @@
+<!--
+ - PROPRIETARY INFORMATION.  This software is proprietary to
+ - Side Effects Software Inc., and is not to be reproduced,
+ - transmitted, or disclosed in any way without written permission.
+ -
+ -	Side Effects
+ -	477 Richmond Street West
+ -	Toronto, Ontario
+ -	Canada   M5V 3E7
+ -	416-504-9876
+ -->
+
+<html>
+
+<head>
+   <title> VEX Compiler Reference</title>
+</head>
+
+<body bgcolor="#ffffff" text="#000000">
+
+<table width=100%>
+<tr>
+   <td><img hspace=15 vspace=5 ALT="[SESI logo]" SRC="logo.jpg"</td>
+   <td>
+      <center>
+         <h1>VEX Language Reference - Version 7.0</h1>
+	 Side Effects Software Inc.  2004
+      </center>
+   </td>
+</tr>
+</table>
+
+<hr>
+<center><h1>Changes since Houdini 5.5</h1></center>
+
+These are highlights of major changes since the <a href="changes5.0.html">
+5.5 release</a> of houdini.<p>
+
+<menu>
+    <li> <a href="#ch_compile">Compiler Changes</a>
+    <li> <a href="#ch_func">Function Additions/Modifications</a>
+    <li> <a href="#ch_area">Area Sampling and Global Illumination</a>
+    <li> <a href="#ch_photon">The new Photon Context</a>
+</menu>
+
+<a name="ch_compile"></a>
+<hr>
+<center><h1> Compiler Changes </h1></center>
+<menu>
+    <li> There is now a pragma to give a hint that the string
+    parameter refers to a path to an operator.  Please see the
+    section explaining <a href="compiler.html#pr_hint">#pragma hint</a>
+</menu>
+
+<!-------------------------------------------------------------------!>
+<a name="ch_func"></a>
+<hr>
+<center><h1> Function Additions/Modifications </h1></center>
+<menu>
+    <li> For the shading contexts, the <b>shadowmap()</b> function has
+	 been re-written.  Many artifacts and quality issues should
+	 disappear and the quality of z-mapped shadows should be
+	 improved dramatically.
+	 <p>
+
+    <li> The <b>nrandom()</b> function can now generate random numbers
+	using different "schemes".  The current schemes supported are:
+	<menu>
+	    <li> <b>default</b> - Previous behaviour using a fast
+				  random number generator.
+	    <li> <b>twister</b> - Random number generation using the
+		<a href="http://www.math.keio.ac.jp/~matumoto/emt.html">
+		Mersenne Twister</a>.
+	    <li> <b>qstrat</b> - Quasi-Stratified random number
+		generation.
+	</menu>
+	<p>
+
+    <li> The <b>nrandom()</b> function has a new form which generates
+	 pairs of random numbers:<br>
+	     <dd><b>nrandom(float &x, &y, [string scheme])</b>
+	 <p>
+
+    <li> Many ray tracing functions have been <a
+	href="shading.html#ctx_rayopt">augmented</a> with additional
+	optional arguments to control behaviour of rays.  This
+	includes <a href="#ch_area">area sampling</a>, maximum
+	intersection distance limiting and hit/miss controls.<p>
+	
+    <li>There is a new SOP context function called
+	<a href="context.html#fn_addvariablename">
+	<b>addvariablename(string aname; string vname)</b></a>
+	which allows you to set up local variables in the same manner as the
+	AttribCreate SOP.<p>
+
+    <li>There are new SOP context functions called
+	<a href="context.html#fn_getneighbourcount">
+	<b>getneighbourcount(int ptnum, input)</b></a> and
+	<a href="context.html#fn_getneighbour">
+	<b>getneighbour(int ptnum, neighbournum, input)</b></a>
+	which allow the querying of point connectivity within a vex
+	SOP.
+	<p>
+
+    <li>There is a new function to intersect a ray against a 3D
+	texture map: <a href="context.html#fn_intersect3d">
+	<b>intersect3d()</b></a>.
+	<p>
+
+    <li>There are new functions to mimic the houdini expression
+	functions <b>rand(), noise(), snoise(), turb(),</b> and
+	<b>sturb()</b>.  Documentation may be found <a
+	href="functions.html#random">here</a> and <a
+	href="functions.html#hnoise">here</a>.
+
+
+</menu>
+
+<!-------------------------------------------------------------------!>
+<a name="ch_area"></a>
+<hr>
+<center><h1> Area Sampling and Global Illumination </h1></center>
+<menu>
+    <li> All functions which perform ray-tracing (<b>trace(),
+	refractlight(), reflectlight(), fastshadow(), filtershadow(),
+	hittest()</b>) can take optional parameters to cause area
+	sampling to be done.
+	<p>
+
+    <li> The new <a href="shading.html#fn_irradiance"><b>irradiance</b></a>
+	function can be used to compute irradiance in mantra.
+	Irradiance is computed by sampling stochastically over the
+	hemisphere and computing the incoming illumination from the
+	other geometry in the scene.
+	<p>
+
+    <li> The new <a href="shading.html#fn_occlusion"><b>occlusion</b></a>
+	function can be used to compute ambient occlusion in mantra.
+	Like the <b>irradiance</b> function, the hemisphere is
+	sampled.  But rather than computing the illumination from the
+	rest of the scene, only occlusion testing is performed.  This
+	can be much faster than irradiance computation.
+	<p>
+
+    <li> The new <a href="functions.html#fn_photonmap"><b>photonmap</b></a>
+	function can be used to evaluate a photon texture.  Photon
+	maps can be generated using mantra or i3dconvert.  The
+	<b>photonmap</b> function is available in all VEX contexts
+	(not only shading).
+	<p>
+</menu>
+
+<!-------------------------------------------------------------------!>
+<hr>
+
+<a name="ch_photon"></a>
+There is a new VEX context to construct shaders for <a
+href="shading.html#ctx_photon">photon shading.</a>  This context is
+invoked when mantra is generating photon maps.<p>
+
+<br>
+
+<!-------------------------------------------------------------------!>
+<hr>
+<center>
+<font size=-2>
+  Copyright &#169; 1999-2004 Side Effects Software Inc.<br>
+  477 Richmond Street West, Toronto, Ontario, Canada M5V 3E7
+</font>
+</center>
+
+</body>
+</html>

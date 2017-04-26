@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Tk Built-In Commands - focus manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<dl>
+<dd><a href="focus.htm#M2" name="L492">NAME</a> 
+
+<dl>
+<dd>focus - Manage the input focus</dd>
+</dl>
+</dd>
+
+<dd><a href="focus.htm#M3" name="L493">SYNOPSIS</a> 
+
+<dl>
+<dd><b>focus</b></dd>
+
+<dd><b>focus</b> <i>window</i></dd>
+
+<dd><b>focus</b> <i>option</i> ?<i>arg arg ...</i>?</dd>
+</dl>
+</dd>
+
+<dd><a href="focus.htm#M4" name="L494">DESCRIPTION</a> 
+
+<dl>
+<dd><a href="focus.htm#M5" name="L495"><b>focus</b></a></dd>
+
+<dd><a href="focus.htm#M6" name="L496"><b>focus</b>
+<i>window</i></a></dd>
+
+<dd><a href="focus.htm#M7" name="L497"><b>focus -displayof</b>
+<i>window</i></a></dd>
+
+<dd><a href="focus.htm#M8" name="L498"><b>focus -force</b>
+<i>window</i></a></dd>
+
+<dd><a href="focus.htm#M9" name="L499"><b>focus -lastfor</b>
+<i>window</i></a></dd>
+</dl>
+</dd>
+
+<dd><a href="focus.htm#M10" name="L500">QUIRKS</a></dd>
+
+<dd><a href="focus.htm#M11" name="L501">KEYWORDS</a></dd>
+</dl>
+
+<hr>
+<h3><a name="M2">NAME</a></h3>
+
+<p>focus - Manage the input focus</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>focus</b><br>
+<b>focus</b> <i>window</i><br>
+<b>focus</b> <i>option</i> ?<i>arg arg ...</i>?<br>
+</p>
+
+<h3><a name="M4">DESCRIPTION</a></h3>
+
+<p>The <b>focus</b> command is used to manage the Tk input focus.
+At any given time, one window on each display is designated as the
+<i>focus window</i>; any key press or key release events for the
+display are sent to that window. It is normally up to the window
+manager to redirect the focus among the top-level windows of a
+display. For example, some window managers automatically set the
+input focus to a top-level window whenever the mouse enters it;
+others redirect the input focus only when the user clicks on a
+window. Usually the window manager will set the focus only to
+top-level windows, leaving it up to the application to redirect the
+focus among the children of the top-level.</p>
+
+<p>Tk remembers one focus window for each top-level (the most
+recent descendant of that top-level to receive the focus); when the
+window manager gives the focus to a top-level, Tk automatically
+redirects it to the remembered window. Within a top-level Tk uses
+an <i>explicit</i> focus model by default. Moving the mouse within
+a top-level does not normally change the focus; the focus changes
+only when a widget decides explicitly to claim the focus (e.g.,
+because of a button click), or when the user types a key such as
+Tab that moves the focus.</p>
+
+<p>The Tcl procedure <b>tk_focusFollowsMouse</b> may be invoked to
+create an <i>implicit</i> focus model: it reconfigures Tk so that
+the focus is set to a window whenever the mouse enters it. The Tcl
+procedures <b>tk_focusNext</b> and <b>tk_focusPrev</b> implement a
+focus order among the windows of a top-level; they are used in the
+default bindings for Tab and Shift-Tab, among other things.</p>
+
+<p>The <b>focus</b> command can take any of the following
+forms:</p>
+
+<dl>
+<dt><a name="M5"><b>focus</b></a></dt>
+
+<dd>Returns the path name of the focus window on the display
+containing the application's main window, or an empty string if no
+window in this application has the focus on that display. Note: it
+is better to specify the display explicitly using <b>-displayof</b>
+(see below) so that the code will work in applications using
+multiple displays.</dd>
+
+<dt><a name="M6"><b>focus</b> <i>window</i></a></dt>
+
+<dd>If the application currently has the input focus on
+<i>window</i>'s display, this command resets the input focus for
+<i>window</i>'s display to <i>window</i> and returns an empty
+string. If the application doesn't currently have the input focus
+on <i>window</i>'s display, <i>window</i> will be remembered as the
+focus for its top-level; the next time the focus arrives at the
+top-level, Tk will redirect it to <i>window</i>. If <i>window</i>
+is an empty string then the command does nothing.</dd>
+
+<dt><a name="M7"><b>focus -displayof</b> <i>window</i></a></dt>
+
+<dd>Returns the name of the focus window on the display containing
+<i>window</i>. If the focus window for <i>window</i>'s display
+isn't in this application, the return value is an empty
+string.</dd>
+
+<dt><a name="M8"><b>focus -force</b> <i>window</i></a></dt>
+
+<dd>Sets the focus of <i>window</i>'s display to <i>window</i>,
+even if the application doesn't currently have the input focus for
+the display. This command should be used sparingly, if at all. In
+normal usage, an application should not claim the focus for itself;
+instead, it should wait for the window manager to give it the
+focus. If <i>window</i> is an empty string then the command does
+nothing.</dd>
+
+<dt><a name="M9"><b>focus -lastfor</b> <i>window</i></a></dt>
+
+<dd>Returns the name of the most recent window to have the input
+focus among all the windows in the same top-level as <i>window</i>.
+If no window in that top-level has ever had the input focus, or if
+the most recent focus window has been deleted, then the name of the
+top-level is returned. The return value is the window that will
+receive the input focus the next time the window manager gives the
+focus to the top-level.</dd>
+</dl>
+
+<h3><a name="M10">QUIRKS</a></h3>
+
+<p>When an internal window receives the input focus, Tk doesn't
+actually set the X focus to that window; as far as X is concerned,
+the focus will stay on the top-level window containing the window
+with the focus. However, Tk generates FocusIn and FocusOut events
+just as if the X focus were on the internal window. This approach
+gets around a number of problems that would occur if the X focus
+were actually moved; the fact that the X focus is on the top-level
+is invisible unless you use C code to query the X server
+directly.</p>
+
+<h3><a name="M11">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/E.htm#events">events</a>, <a href=
+"../Keywords/F.htm#focus">focus</a>, <a href=
+"../Keywords/K.htm#keyboard">keyboard</a>, <a href=
+"../Keywords/T.htm#top-level">top-level</a>, <a href=
+"../Keywords/W.htm#window manager">window manager</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1990-1994 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1996 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

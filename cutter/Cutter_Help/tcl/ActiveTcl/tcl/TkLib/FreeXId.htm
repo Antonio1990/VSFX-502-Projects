@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Tk Library Procedures - Tk_FreeXId manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<h3><a name="M2">NAME</a></h3>
+
+<p>Tk_FreeXId - make X resource identifier available for reuse</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>#include &lt;tk.h&gt;</b><br>
+<b>Tk_FreeXId(</b><i>display, id</i><b>)</b><br>
+</p>
+
+<h3><a name="M4">ARGUMENTS</a></h3>
+
+<dl>
+<dt>Display <b>*display</b> (in)</dt>
+
+<dd>Display for which <i>id</i> was allocated.</dd>
+
+<dt>XID <b>id</b> (in)</dt>
+
+<dd>Identifier of X resource (window, font, pixmap, cursor,
+graphics context, or colormap) that is no longer in use.</dd>
+</dl>
+
+<h3><a name="M5">DESCRIPTION</a></h3>
+
+<p>The default allocator for resource identifiers provided by Xlib
+is very simple-minded and does not allow resource identifiers to be
+re-used. If a long-running application reaches the end of the
+resource id space, it will generate an X protocol error and crash.
+Tk replaces the default id allocator with its own allocator, which
+allows identifiers to be reused. In order for this to work,
+<b>Tk_FreeXId</b> must be called to tell the allocator about
+resources that have been freed. Tk automatically calls
+<b>Tk_FreeXId</b> whenever it frees a resource, so if you use
+procedures like <b><a href=
+"../TkLib/GetFont.htm">Tk_GetFont</a></b>, <b><a href=
+"../TkLib/GetGC.htm">Tk_GetGC</a></b>, and <b><a href=
+"../TkLib/GetPixmap.htm">Tk_GetPixmap</a></b> then you need not
+call <b>Tk_FreeXId</b>. However, if you allocate resources directly
+from Xlib, for example by calling <b>XCreatePixmap</b>, then you
+should call <b>Tk_FreeXId</b> when you call the corresponding Xlib
+free procedure, such as <b>XFreePixmap</b>. If you don't call
+<b>Tk_FreeXId</b> then the resource identifier will be lost, which
+could cause problems if the application runs long enough to lose
+all of the available identifiers.</p>
+
+<h3><a name="M6">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/R.htm#resource identifier">resource
+identifier</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1990 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1996 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

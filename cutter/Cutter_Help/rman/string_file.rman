@@ -1,0 +1,1 @@
+Declare param {string PNAME_STR} {	label "YourFileLabel"	description "No description."	subtype file	range {*.rib}	}

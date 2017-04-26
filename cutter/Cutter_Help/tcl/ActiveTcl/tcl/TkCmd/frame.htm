@@ -1,0 +1,340 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Tk Built-In Commands - frame manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<dl>
+<dd><a href="frame.htm#M2" name="L541">NAME</a> 
+
+<dl>
+<dd>frame - Create and manipulate frame widgets</dd>
+</dl>
+</dd>
+
+<dd><a href="frame.htm#M3" name="L542">SYNOPSIS</a> 
+
+<dl>
+<dd><b>frame</b> <i>pathName</i> ?<i>options</i>?</dd>
+</dl>
+</dd>
+
+<dd><a href="frame.htm#M4" name="L543">STANDARD OPTIONS</a> 
+
+<dl>
+<dd><a href="options.htm#M-borderwidth">-borderwidth or -bd,
+borderWidth, BorderWidth</a></dd>
+
+<dd><a href="options.htm#M-cursor">-cursor, cursor, Cursor</a></dd>
+
+<dd><a href=
+"options.htm#M-highlightbackground">-highlightbackground,
+highlightBackground, HighlightBackground</a></dd>
+
+<dd><a href="options.htm#M-highlightcolor">-highlightcolor,
+highlightColor, HighlightColor</a></dd>
+
+<dd><a href="options.htm#M-highlightthickness">-highlightthickness,
+highlightThickness, HighlightThickness</a></dd>
+
+<dd><a href="options.htm#M-padx">-padx, padX, Pad</a></dd>
+
+<dd><a href="options.htm#M-pady">-pady, padY, Pad</a></dd>
+
+<dd><a href="options.htm#M-relief">-relief, relief, Relief</a></dd>
+
+<dd><a href="options.htm#M-takefocus">-takefocus, takeFocus,
+TakeFocus</a></dd>
+</dl>
+</dd>
+
+<dd><a href="frame.htm#M5" name="L544">WIDGET-SPECIFIC OPTIONS</a> 
+
+<dl>
+<dd><a href="frame.htm#M6" name="L545">-background, background,
+Background</a></dd>
+
+<dd><a href="frame.htm#M7" name="L546">-class, class,
+Class</a></dd>
+
+<dd><a href="frame.htm#M8" name="L547">-colormap, colormap,
+Colormap</a></dd>
+
+<dd><a href="frame.htm#M9" name="L548">-container, container,
+Container</a></dd>
+
+<dd><a href="frame.htm#M10" name="L549">-height, height,
+Height</a></dd>
+
+<dd><a href="frame.htm#M11" name="L550">-visual, visual,
+Visual</a></dd>
+
+<dd><a href="frame.htm#M12" name="L551">-width, width,
+Width</a></dd>
+</dl>
+</dd>
+
+<dd><a href="frame.htm#M13" name="L552">DESCRIPTION</a></dd>
+
+<dd><a href="frame.htm#M14" name="L553">WIDGET COMMAND</a> 
+
+<dl>
+<dd><a href="frame.htm#M15" name="L554"><i>pathName</i> <b>cget</b>
+<i>option</i></a></dd>
+
+<dd><a href="frame.htm#M16" name="L555"><i>pathName</i>
+<b>configure</b> ?<i>option</i>? <i>?value option value
+...</i>?</a></dd>
+</dl>
+</dd>
+
+<dd><a href="frame.htm#M17" name="L556">BINDINGS</a></dd>
+
+<dd><a href="frame.htm#M18" name="L557">SEE ALSO</a></dd>
+
+<dd><a href="frame.htm#M19" name="L558">KEYWORDS</a></dd>
+</dl>
+
+<hr>
+<h3><a name="M2">NAME</a></h3>
+
+<p>frame - Create and manipulate frame widgets</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>frame</b> <i>pathName</i> ?<i>options</i>?<br>
+</p>
+
+<h3><a name="M4">STANDARD OPTIONS</a></h3>
+
+<dl>
+<dt><b><a href="options.htm#M-borderwidth">-borderwidth or -bd,
+borderWidth, BorderWidth</a></b></dt>
+
+<dt><b><a href="options.htm#M-cursor">-cursor, cursor,
+Cursor</a></b></dt>
+
+<dt><b><a href=
+"options.htm#M-highlightbackground">-highlightbackground,
+highlightBackground, HighlightBackground</a></b></dt>
+
+<dt><b><a href="options.htm#M-highlightcolor">-highlightcolor,
+highlightColor, HighlightColor</a></b></dt>
+
+<dt><b><a href=
+"options.htm#M-highlightthickness">-highlightthickness,
+highlightThickness, HighlightThickness</a></b></dt>
+
+<dt><b><a href="options.htm#M-padx">-padx, padX, Pad</a></b></dt>
+
+<dt><b><a href="options.htm#M-pady">-pady, padY, Pad</a></b></dt>
+
+<dt><b><a href="options.htm#M-relief">-relief, relief,
+Relief</a></b></dt>
+
+<dt><b><a href="options.htm#M-takefocus">-takefocus, takeFocus,
+TakeFocus</a></b></dt>
+</dl>
+
+<h3><a name="M5">WIDGET-SPECIFIC OPTIONS</a></h3>
+
+<dl>
+<dt>Command-Line Name: <b><a name="M6">-background</a></b></dt>
+
+<dt>Database Name: <b>background</b></dt>
+
+<dt>Database Class: <b>Background</b></dt>
+
+<dd>This option is the same as the standard <b>background</b>
+option except that its value may also be specified as an empty
+string. In this case, the widget will display no background or
+border, and no colors will be consumed from its colormap for its
+background and border.</dd>
+
+<dt>Command-Line Name: <b><a name="M7">-class</a></b></dt>
+
+<dt>Database Name: <b>class</b></dt>
+
+<dt>Database Class: <b>Class</b></dt>
+
+<dd>Specifies a class for the window. This class will be used when
+querying the option database for the window's other options, and it
+will also be used later for other purposes such as bindings. The
+<b>class</b> option may not be changed with the <b>configure</b>
+widget command.</dd>
+
+<dt>Command-Line Name: <b><a name="M8">-colormap</a></b></dt>
+
+<dt>Database Name: <b>colormap</b></dt>
+
+<dt>Database Class: <b>Colormap</b></dt>
+
+<dd>Specifies a colormap to use for the window. The value may be
+either <b>new</b>, in which case a new colormap is created for the
+window and its children, or the name of another window (which must
+be on the same screen and have the same visual as <i>pathName</i>),
+in which case the new window will use the colormap from the
+specified window. If the <b>colormap</b> option is not specified,
+the new window uses the same colormap as its parent. This option
+may not be changed with the <b>configure</b> widget command.</dd>
+
+<dt>Command-Line Name: <b><a name="M9">-container</a></b></dt>
+
+<dt>Database Name: <b>container</b></dt>
+
+<dt>Database Class: <b>Container</b></dt>
+
+<dd>The value must be a boolean. If true, it means that this window
+will be used as a container in which some other application will be
+embedded (for example, a Tk toplevel can be embedded using the
+<b>-use</b> option). The window will support the appropriate window
+manager protocols for things like geometry requests. The window
+should not have any children of its own in this application. This
+option may not be changed with the <b>configure</b> widget
+command.</dd>
+
+<dt>Command-Line Name: <b><a name="M10">-height</a></b></dt>
+
+<dt>Database Name: <b>height</b></dt>
+
+<dt>Database Class: <b>Height</b></dt>
+
+<dd>Specifies the desired height for the window in any of the forms
+acceptable to <b><a href=
+"../TkLib/GetPixels.htm">Tk_GetPixels</a></b>. If this option is
+less than or equal to zero then the window will not request any
+size at all.</dd>
+
+<dt>Command-Line Name: <b><a name="M11">-visual</a></b></dt>
+
+<dt>Database Name: <b>visual</b></dt>
+
+<dt>Database Class: <b>Visual</b></dt>
+
+<dd>Specifies visual information for the new window in any of the
+forms accepted by <b><a href=
+"../TkLib/GetVisual.htm">Tk_GetVisual</a></b>. If this option is
+not specified, the new window will use the same visual as its
+parent. The <b>visual</b> option may not be modified with the
+<b>configure</b> widget command.</dd>
+
+<dt>Command-Line Name: <b><a name="M12">-width</a></b></dt>
+
+<dt>Database Name: <b>width</b></dt>
+
+<dt>Database Class: <b>Width</b></dt>
+
+<dd>Specifies the desired width for the window in any of the forms
+acceptable to <b><a href=
+"../TkLib/GetPixels.htm">Tk_GetPixels</a></b>. If this option is
+less than or equal to zero then the window will not request any
+size at all.</dd>
+</dl>
+
+<h3><a name="M13">DESCRIPTION</a></h3>
+
+<p>The <b>frame</b> command creates a new window (given by the
+<i>pathName</i> argument) and makes it into a frame widget.
+Additional options, described above, may be specified on the
+command line or in the option database to configure aspects of the
+frame such as its background color and relief. The <b>frame</b>
+command returns the path name of the new window.</p>
+
+<p>A frame is a simple widget. Its primary purpose is to act as a
+spacer or container for complex window layouts. The only features
+of a frame are its background color and an optional 3-D border to
+make the frame appear raised or sunken.</p>
+
+<h3><a name="M14">WIDGET COMMAND</a></h3>
+
+<p>The <b>frame</b> command creates a new Tcl command whose name is
+the same as the path name of the frame's window. This command may
+be used to invoke various operations on the widget. It has the
+following general form:</p>
+
+<pre>
+<i>pathName option</i> ?<i>arg arg ...</i>?
+</pre>
+
+<p><i>PathName</i> is the name of the command, which is the same as
+the frame widget's path name. <i>Option</i> and the <i>arg</i>s
+determine the exact behavior of the command. The following commands
+are possible for frame widgets:</p>
+
+<dl>
+<dt><a name="M15"><i>pathName</i> <b>cget</b>
+<i>option</i></a></dt>
+
+<dd>Returns the current value of the configuration option given by
+<i>option</i>. <i>Option</i> may have any of the values accepted by
+the <b>frame</b> command.</dd>
+
+<dt><a name="M16"><i>pathName</i> <b>configure</b> ?<i>option</i>?
+<i>?value option value ...</i>?</a></dt>
+
+<dd>Query or modify the configuration options of the widget. If no
+<i>option</i> is specified, returns a list describing all of the
+available options for <i>pathName</i> (see <b><a href=
+"../TkLib/ConfigWidg.htm">Tk_ConfigureInfo</a></b> for information
+on the format of this list). If <i>option</i> is specified with no
+<i>value</i>, then the command returns a list describing the one
+named option (this list will be identical to the corresponding
+sublist of the value returned if no <i>option</i> is specified). If
+one or more <i>option-value</i> pairs are specified, then the
+command modifies the given widget option(s) to have the given
+value(s); in this case the command returns an empty string.
+<i>Option</i> may have any of the values accepted by the
+<b>frame</b> command.</dd>
+</dl>
+
+<h3><a name="M17">BINDINGS</a></h3>
+
+<p>When a new frame is created, it has no default event bindings:
+frames are not intended to be interactive.</p>
+
+<h3><a name="M18">SEE ALSO</a></h3>
+
+<p><b><a href="../TkCmd/labelframe.htm">labelframe</a></b>, <b><a
+href="../TkCmd/toplevel.htm">toplevel</a></b></p>
+
+<h3><a name="M19">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/F.htm#frame">frame</a>, <a href=
+"../Keywords/W.htm#widget">widget</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1990-1994 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1996 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

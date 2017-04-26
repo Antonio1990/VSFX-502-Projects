@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Library Procedures - Tk_GetGC manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<h3><a name="M2">NAME</a></h3>
+
+<p>Tk_GetGC, Tk_FreeGC - maintain database of read-only graphics
+contexts</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>#include &lt;tk.h&gt;</b><br>
+GC<br>
+<b>Tk_GetGC</b>(<i>tkwin, valueMask, valuePtr</i>)<br>
+<b>Tk_FreeGC(</b><i>display, gc</i>)<br>
+</p>
+
+<h3><a name="M4">ARGUMENTS</a></h3>
+
+<dl>
+<dt>Tk_Window <b>tkwin</b> (in)</dt>
+
+<dd>Token for window in which the graphics context will be
+used.</dd>
+
+<dt>unsigned long <b>valueMask</b> (in)</dt>
+
+<dd>Mask of bits (such as <b>GCForeground</b> or <b>GCStipple</b>)
+indicating which fields of <i>*valuePtr</i> are valid.</dd>
+
+<dt>XGCValues <b>*valuePtr</b> (in)</dt>
+
+<dd>Pointer to structure describing the desired values for the
+graphics context.</dd>
+
+<dt>Display <b>*display</b> (in)</dt>
+
+<dd>Display for which <i>gc</i> was allocated.</dd>
+
+<dt>GC <b>gc</b> (in)</dt>
+
+<dd>X identifier for graphics context that is no longer needed.
+Must have been allocated by <b>Tk_GetGC</b>.</dd>
+</dl>
+
+<h3><a name="M5">DESCRIPTION</a></h3>
+
+<p><b>Tk_GetGC</b> and <b>Tk_FreeGC</b> manage a collection of
+graphics contexts being used by an application. The procedures
+allow graphics contexts to be shared, thereby avoiding the server
+overhead that would be incurred if a separate GC were created for
+each use. <b>Tk_GetGC</b> takes arguments describing the desired
+graphics context and returns an X identifier for a GC that fits the
+description. The graphics context that is returned will have
+default values in all of the fields not specified explicitly by
+<i>valueMask</i> and <i>valuePtr</i>.</p>
+
+<p><b>Tk_GetGC</b> maintains a database of all the graphics
+contexts it has created. Whenever possible, a call to
+<b>Tk_GetGC</b> will return an existing graphics context rather
+than creating a new one. This approach can substantially reduce
+server overhead, so <b>Tk_GetGC</b> should generally be used in
+preference to the Xlib procedure <b>XCreateGC</b>, which creates a
+new graphics context on each call.</p>
+
+<p>Since the return values of <b>Tk_GetGC</b> are shared, callers
+should never modify the graphics contexts returned by
+<b>Tk_GetGC</b>. If a graphics context must be modified
+dynamically, then it should be created by calling <b>XCreateGC</b>
+instead of <b>Tk_GetGC</b>.</p>
+
+<p>When a graphics context is no longer needed, <b>Tk_FreeGC</b>
+should be called to release it. There should be exactly one call to
+<b>Tk_FreeGC</b> for each call to <b>Tk_GetGC</b>. When a graphics
+context is no longer in use anywhere (i.e. it has been freed as
+many times as it has been gotten) <b>Tk_FreeGC</b> will release it
+to the X server and delete it from the database.</p>
+
+<h3><a name="M6">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/G.htm#graphics context">graphics
+context</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1990 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1996 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

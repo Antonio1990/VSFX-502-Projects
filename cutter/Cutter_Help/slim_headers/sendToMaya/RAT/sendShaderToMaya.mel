@@ -1,0 +1,24 @@
+string $paletteName = "ShaderTest";
+
+string $palette = `slimcmd slim FindPalette $paletteName`;
+
+if($palette == "")
+	{
+	// The named palette does not exist
+	$palette = `slimcmd slim CreatePalette -edit -new`;
+	slimcmd $palette SetLabel $paletteName;
+	}
+else
+	{
+	// Clear existing appearances from the named palette
+	string $all = `slimcmd $palette GetAppearances`;
+	slimcmd $palette DeleteEntries $all -remove;
+	}
+
+string $path = "_SHADER_PATH_.slo";
+string $shader = `slimcmd $palette CreateInstance -file $path`;
+
+slimcmd $shader PreviewRender;
+slimcmd $palette UpdateEditor;
+slimcmd slim WindowCmd Show $palette;
+slimcmd $shader Edit;

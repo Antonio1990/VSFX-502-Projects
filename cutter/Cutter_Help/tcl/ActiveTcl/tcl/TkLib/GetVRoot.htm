@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Tk Library Procedures - Tk_GetVRootGeometry manual
+page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<h3><a name="M2">NAME</a></h3>
+
+<p>Tk_GetVRootGeometry - Get location and size of virtual root for
+window</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>#include &lt;tk.h&gt;</b><br>
+<b>Tk_GetVRootGeometry(</b><i>tkwin, xPtr, yPtr, widthPtr,
+heightPtr</i><b>)</b><br>
+</p>
+
+<h3><a name="M4">ARGUMENTS</a></h3>
+
+<dl>
+<dt>Tk_Window <b>tkwin</b> (in)</dt>
+
+<dd>Token for window whose virtual root is to be queried.</dd>
+
+<dt>int <b>xPtr</b> (out)</dt>
+
+<dd>Points to word in which to store x-offset of virtual root.</dd>
+
+<dt>int <b>yPtr</b> (out)</dt>
+
+<dd>Points to word in which to store y-offset of virtual root.</dd>
+
+<dt>int <b>widthPtr</b> (out)</dt>
+
+<dd>Points to word in which to store width of virtual root.</dd>
+
+<dt>int <b>heightPtr</b> (out)</dt>
+
+<dd>Points to word in which to store height of virtual root.</dd>
+</dl>
+
+<h3><a name="M5">DESCRIPTION</a></h3>
+
+<p><b>TkGetVRootGeometry</b> returns geometry information about the
+virtual root window associated with <i>tkwin</i>. The
+``associated'' virtual root is the one in which <i>tkwin</i>'s
+nearest top-level ancestor (or <i>tkwin</i> itself if it is a
+top-level window) has been reparented by the window manager. This
+window is identified by a <b>__SWM_ROOT</b> or <b>__WM_ROOT</b>
+property placed on the top-level window by the window manager. If
+<i>tkwin</i> is not associated with a virtual root (e.g. because
+the window manager doesn't use virtual roots) then *<i>xPtr</i> and
+*<i>yPtr</i> will be set to 0 and *<i>widthPtr</i> and
+*<i>heightPtr</i> will be set to the dimensions of the screen
+containing <i>tkwin</i>.</p>
+
+<h3><a name="M6">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/G.htm#geometry">geometry</a>, <a href=
+"../Keywords/H.htm#height">height</a>, <a href=
+"../Keywords/L.htm#location">location</a>, <a href=
+"../Keywords/V.htm#virtual root">virtual root</a>, <a href=
+"../Keywords/W.htm#width">width</a>, <a href=
+"../Keywords/W.htm#window manager">window manager</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1990 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1996 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

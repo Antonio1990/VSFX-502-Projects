@@ -1,0 +1,458 @@
+<!-- $Revision:$ -->
+<args format="1.0">
+    <shaderType> 
+        <tag value="bxdf"/> 
+    </shaderType>
+  <help>
+	A version of PxrSurface that uses the most basic inputs.  
+  </help>
+    <page name="Diffuse" open="True">
+        <param name="diffuseGain" 
+               label="Gain"
+               type="float" default="1.0" 
+               slider="1" slidermin="0.0" slidermax="1.0"
+               vstructmember="inputMaterial.diffuseGain"
+               min="0.0" max="1.0" sensitivity="0.01">
+            <tags>
+                 <tag value="float"/>
+            </tags>
+            <help>
+                Diffuse gain.  This is a multiplier for the diffuse
+                lobe.
+            </help>
+        </param>
+        <param name="diffuseColor" 
+               label="Color"
+               type="color" default="0.5 0.5 0.5"
+               vstructmember="inputMaterial.diffuseColor">
+            <tags>
+                 <tag value="color"/>
+            </tags>
+            <help>
+                Diffuse color.  This sets the color for the diffuse lobe.
+            </help>
+        </param>
+        <param name="diffuseDoubleSided"
+                label="Double Sided"
+                type="int" default="1"
+                widget="checkBox" 
+                connectable="False">
+            <help>
+                If on, illuminate on both sides of the surface for this diffuse lobe.
+            </help>
+        </param>
+    </page>
+    <param name="diffuseBackUseDiffuseColor"
+           label="Use Diffuse Color"
+           type="int" default="1"
+           widget="checkBox" 
+           vstructmember="inputMaterial.diffuseBackUseDiffuseColor"
+           connectable="False"
+           conditionalVisOp='equalTo'
+           conditionalVisPath='../diffuseDoubleSided' conditionalVisValue='1'>
+        <help>
+            If on, the back side will use the regular Diffuse Color.
+            Turn it off to enable a specific Back Color field.
+        </help>
+    </param>
+    <param name="diffuseBackColor" 
+           label="Back Color"
+           type="color" default="1 1 1"
+           vstructmember="inputMaterial.diffuseBackColor">
+        <hintdict name="conditionalVisOps">
+            <string value="and" name="conditionalVisOp"/>
+            <string value="conditionalVis1" name="conditionalVisLeft"/>
+            <string value="conditionalVis2" name="conditionalVisRight"/>
+            <string value="equalTo" name="conditionalVis1Op"/>
+            <string value="../diffuseDoubleSided" name="conditionalVis1Path"/>
+            <string value="1" name="conditionalVis1Value"/>
+            <string value="equalTo" name="conditionalVis2Op"/>
+            <string value="../diffuseBackUseDiffuseColor" name="conditionalVis2Path"/>
+            <string value="0" name="conditionalVis2Value"/>
+        </hintdict>
+        <tags>
+            <tag value="color"/>
+        </tags>
+        <help>
+            Diffuse back color.
+        </help>
+    </param>
+    <page name="Primary Specular" open="True">
+        <param name="specularFaceColor" 
+               label="Face Color"
+               type="color" default="0 0 0"
+               vstructmember="inputMaterial.specularFaceColor"
+               conditionalVisOp='equalTo'
+               conditionalVisPath='../specularFresnelMode' conditionalVisValue='0'>
+            <tags>
+                <tag value="color"/>
+            </tags>
+            <help>
+                Specular color at 0 degree incidence.  This is the specular color for
+                facing the camera.
+            </help>
+        </param>
+        <param name="specularEdgeColor" 
+               label="Edge Color"
+               type="color" default="0 0 0" 
+               vstructmember="inputMaterial.specularEdgeColor">
+            <tags>
+                <tag value="color"/>
+            </tags>
+            <help>
+                Specular color at 90 degree incidence.  This is the specular color for
+                the glancing angle on the edge.
+            </help>
+        </param>
+        <param name="specularRoughness" 
+               label="Roughness"
+               type="float" default="0.2"
+               slider="1" slidermin="0.001" slidermax="1.0"
+               min="0.001" max="1.0" sensitivity="0.01"
+               vstructmember="inputMaterial.specularRoughness">
+            <tags>
+                <tag value="float"/>
+            </tags>
+            <help>
+                Specular roughness.  The higher the number, the rougher it gets.
+                The range is between 0 to 1.  Negative number is not allowed.
+            </help>
+        </param>
+        <param name="specularDoubleSided"
+                label="Double Sided"
+                type="int" default="0"
+                widget="checkBox" 
+                connectable="False">
+            <help>
+                If on, illuminate on both sides of the surface for this specular lobe.
+            </help>
+        </param>
+    </page>
+    <page name="Clear Coat" open="False">
+        <param name="clearcoatFaceColor"
+               label="Face Color"
+               type="color" default="0 0 0"
+               vstructmember="inputMaterial.clearcoatFaceColor"
+               conditionalVisOp='equalTo'
+               conditionalVisPath='../clearcoatFresnelMode' conditionalVisValue='0'>
+            <tags>
+                <tag value="color"/>
+            </tags>
+            <help>
+                Clearcoat color at 0 degree incidence.  This is the clearcoat color for
+                facing the camera.
+            </help>
+        </param>
+        <param name="clearcoatEdgeColor"
+               label="Edge Color"
+               type="color" default="0 0 0"
+               vstructmember="inputMaterial.clearcoatEdgeColor">
+            <tags>
+                <tag value="color"/>
+            </tags>
+            <help>
+                Clearcoat color at 90 degree incidence.  This is the clearcoat color for
+                the glancing angle on the edge.
+            </help>
+        </param>
+        <param name="clearcoatIor"
+               label="Refraction Index"
+               type="color" default="1.5 1.5 1.5"
+               color_restrictComponents='False' color_enableFilmlookVis='False'
+               vstructmember="inputMaterial.clearcoatIor"
+               conditionalVisOp='equalTo'
+               conditionalVisPath='../clearcoatFresnelMode' conditionalVisValue='1'>
+            <tags>
+                <tag value="color"/>
+            </tags>
+            <help>
+                Refractive Index is the dielectric index of refraction for
+                the material.  Channel values for this parameter typically
+                lie in the range 1 - 3.  Since we support 3 color values
+                to capture the spectral effect presets may be preferred
+                over color pickers.
+            </help>
+        </param>
+        <param name="clearcoatExtinctionCoeff"
+               label="Extinction Coefficient"
+               type="color" default="0.0 0.0 0.0"
+               color_restrictComponents='False' color_enableFilmlookVis='False'
+               vstructmember="inputMaterial.clearcoatExtinctionCoeff"
+               conditionalVisOp='equalTo'
+               conditionalVisPath='../clearcoatFresnelMode' conditionalVisValue='1'>
+            <tags>
+                <tag value="color"/>
+            </tags>
+            <help>
+               Extinction Coefficient is a second refractive index for
+               the material useful for characterizing metallic behaviors.
+               Channel values for this parameter typically lie in the
+               range 1 - 3.  Since we support 3 color values to capture
+               the spectral effect presets may be prefered over color
+               pickers.  When 0, the material reacts as a dielectric
+               (glass, clearcoat)> When non-zero, the material responds
+               as a conductor would.
+            </help>
+        </param>
+        <param name="clearcoatRoughness" 
+               label="Roughness"
+               type="float" default="0.0"
+               slider="1" slidermin="0.001" slidermax="0.2"
+               min="0.001" max="0.2" sensitivity="0.01"
+               vstructmember="inputMaterial.clearcoatRoughness">
+            <tags>
+                <tag value="float"/>
+            </tags>
+            <help>
+                Clearcoat roughness.  The higher the number, the rougher it gets.
+                The range is between 0 to 1.  Negative number is not allowed.
+            </help>
+        </param>
+    </page>
+
+    <page name="Iridescence" open="False">
+        <param name="iridescenceFaceGain"
+               label="Face gain" 
+               type="float" default="0"
+               vstructmember="inputMaterial.iridescenceFaceGain"
+               slider="1" slidermin="0" slidermax="1">
+            <tags>
+                <tag value="float"/>
+            </tags>
+            <help>
+                Iridescence gain at 0 degree incidence.  This is the iridescence 
+                gain for facing the camera.
+            </help>
+        </param>
+        <param name="iridescenceEdgeGain"
+               label="Edge gain"
+               type="float" default="0"
+               vstructmember="inputMaterial.iridescenceEdgeGain"
+               slider="1" slidermin="0" slidermax="1">
+            <tags>
+                <tag value="float"/>
+            </tags>
+            <help>
+                Iridescence gain at 90 degree incidence.  This is the iridescence 
+                gain for the glancing angle on the edge.
+            </help>
+        </param>
+        <param name="iridescencePrimaryColor"
+               label="Primary Color"
+               type="color" default="1 0 0"
+               vstructmember="inputMaterial.iridescencePrimaryColor"
+               conditionalVisOp='equalTo'
+               conditionalVisPath='../iridescenceMode' conditionalVisValue='0'>
+            <tags>
+                <tag value="color"/>
+            </tags>
+            <help>
+                Iridescence primary color on the hue wheel to start from.
+            </help>
+        </param>
+        <param name="iridescenceSecondaryColor"
+               label="Secondary Color"
+               type="color" default="0 0 1"
+               vstructmember="inputMaterial.iridescenceSecondaryColor"
+               conditionalVisOp='equalTo'
+               conditionalVisPath='../iridescenceMode' conditionalVisValue='0'>
+            <tags>
+                <tag value="color"/>
+            </tags>
+            <help>
+                Iridescence secondary color on the hue wheel to end at.
+            </help>
+        </param>
+        <param name="iridescenceRoughness"
+               label="Roughness"
+               type="float" default="0.2"
+               slider="1" slidermin="0.001" slidermax="1.0"
+               min="0.001" max="1.0" sensitivity="0.01"
+               vstructmember="inputMaterial.iridescenceRoughness">
+            <tags>
+                <tag value="float"/>
+            </tags>
+            <help>
+                Iridescence roughness.  The higher the number, it rougher it gets.
+                The range is between 0 to 1.  Negative number is not allowed.
+            </help>
+        </param>
+    </page>
+
+    <page name="Fuzz" open="False">
+        <param name="fuzzGain" 
+               label="Gain"
+               type="float" default="0.0"
+               slider="1" slidermin="0.0" slidermax="1.0"
+               vstructmember="inputMaterial.fuzzGain"
+               min="0.0" max="1.0" sensitivity="0.01">
+            <tags>
+                 <tag value="float"/>
+            </tags>
+            <help>
+                Fuzz gain. This is a multiplier for the fuzz lobe.
+            </help>
+        </param>
+        <param name="fuzzColor" 
+               label="Color"
+               type="color" default="1 1 1"
+               vstructmember="inputMaterial.fuzzColor">
+            <tags>
+                <tag value="color"/>
+            </tags>
+            <help>
+                Fuzz color.  This sets the color for the fuzz lobe.
+            </help>
+        </param>
+        <param name="fuzzConeAngle" type="float" default="8"
+               label="Cone Angle"
+               slider="1" slidermin="0.0" slidermax="20.0"
+               min="0.0" max="20.0" sensitivity="0.1"
+               vstructmember="inputMaterial.fuzzConeAngle">
+            <tags>
+                <tag value="float"/>
+            </tags>
+            <help>
+                Since fuzz is a hair-like property, its roughness is controlled by a cone 
+                angle in degree which typically ranges from 6 to 20.  It is in fact derived 
+                from PxrMarchnerHair's specular R lobe where it assumes each hair is 
+                oriented along the surface normal and is softened by multiplying LdotN. 
+            </help>
+        </param>
+    </page>
+
+    <page name="Glass" open="True">
+        <param name="refractionGain" 
+               label="Refraction Gain"
+               type="float" default="0.0"
+               min="0.0" max="1.0" sensitivity="0.01"
+               vstructmember="inputMaterial.refractionGain"
+               slider="1" slidermin="0.0" slidermax="1.0">
+            <tags>
+                <tag value="float"/>
+            </tags>
+            <help>
+                Refraction gain.  This is a multiplier for the refraction.
+            </help>
+        </param> 
+        <param name="reflectionGain" 
+               label="Reflection Gain"
+               type="float" default="0.0"
+               min="0.0" max="1.0" sensitivity="0.01"
+               vstructmember="inputMaterial.reflectionGain"
+               slider="1" slidermin="0.0" slidermax="1.0">
+            <tags>
+                <tag value="float"/>
+            </tags>
+            <help>
+                Reflection gain.  This is a multiplier for the reflection.
+            </help>
+        </param> 
+        <param name="refractionColor" 
+               label="Refraction Color"
+               vstructmember="inputMaterial.refractionColor"
+               type="color" default="1 1 1">
+            <tags>
+                <tag value="color"/>
+            </tags>
+            <help>
+                Refraction color.  This sets the color for the refraction.
+            </help>
+        </param> 
+        <param name="glassRoughness" 
+               label="Roughness"
+               type="float" default="0.1"
+               min="0.0" max="1.0" sensitivity="0.01"
+               vstructmember="inputMaterial.glassRoughness"
+               slider="1" slidermin="0.0" slidermax="1.0">
+            <tags>
+                <tag value="float"/>
+            </tags>
+            <help>
+                Roughness for both reflection and refraction.  Bigger number
+                is rougher.
+            </help>
+        </param> 
+        <page name="Advanced" open="False">
+            <param name="glassIor" 
+                   label="Refractive Index"
+                   type="float" default="1.5"
+                   min="1.0" max="2.0" sensitivity="0.01"
+                   vstructmember="inputMaterial.glassIor"
+                   slider="1" slidermin="1.0" slidermax="2.0">
+                <tags>
+                    <tag value="float"/>
+                </tags>
+                <help>
+                    Index of refraction.
+                </help>
+            </param>
+            <param name="thinGlass"
+                label="Thin"
+                type="int" default="0"
+                widget="checkBox" connectable="False">
+                <help>
+                    If on, correctly split energy according to ior between reflection 
+                    and refraction, but do not bend the ray in refraction (simulating 
+                    a double pane of glass with a single pane).
+                </help>
+            </param>
+        </page>
+    </page>
+    
+
+   <page name="Glow">
+        <param name="glowGain" 
+               label="Gain"
+               type="float" default="0.0"
+               slider="1" slidermin="0.0" slidermax="1.0"
+               vstructmember="inputMaterial.glowGain"
+               min="0.0" max="1.0" sensitivity="0.01">
+            <tags>
+                <tag value="float"/>
+            </tags>
+            <help>
+                Glow gain.  This is a multiplier for the glow.
+            </help>
+         </param>
+        <param name="glowColor" 
+               label="Color" 
+               type="color" default="1 1 1" 
+               vstructmember="inputMaterial.glowColor">
+            <tags>
+                <tag value="color"/>
+            </tags>
+            <help>
+                Controls the glow (incandescence) of the material.
+            </help>
+        </param>
+    </page>
+
+    <page name="Globals" open="False">
+        <param name="presence"
+               label="Presence"
+               type="float"
+               default="1" min="0" max="1"
+               widget="default">
+           <tags>
+               <tag value="float"/>
+           </tags>
+           <help>
+               Connect a mask function here to apply a cutout pattern
+               to your object.  Presence is defined as a binary (0 or 1) function
+               that can take on continuous values to antialias the
+               shape.  Useful for modeling leaves and other thin,
+               complex shapes.
+               <p>
+               IMPORTANT NOTE: This value should be either 0 or 1.
+               A value between 0 and 1 will produce unwanted noise !!!
+               </p>
+           </help>
+        </param>
+    </page>
+    <rfmdata nodeid="1053345"
+        classification="shader/surface:rendernode/RenderMan/bxdf:swatch/rmanSwatch"/>
+    <rfcdata nodeid="1036857" description="Mpxrsurface"/>
+   
+
+</args>

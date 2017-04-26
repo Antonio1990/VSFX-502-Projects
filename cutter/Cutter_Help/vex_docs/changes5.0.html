@@ -1,0 +1,180 @@
+<!--
+ - PROPRIETARY INFORMATION.  This software is proprietary to
+ - Side Effects Software Inc., and is not to be reproduced,
+ - transmitted, or disclosed in any way without written permission.
+ -
+ -	Side Effects
+ -	477 Richmond Street West
+ -	Toronto, Ontario
+ -	Canada   M5V 3E7
+ -	416-504-9876
+ -->
+
+<html>
+
+<head>
+   <title> VEX Compiler Reference</title>
+</head>
+
+<body bgcolor="#ffffff" text="#000000">
+
+<table width=100%>
+<tr>
+   <td><img hspace=15 vspace=5 ALT="[SESI logo]" SRC="logo.jpg"</td>
+   <td>
+      <center>
+         <h1>VEX Language Reference - Version 7.0</h1>
+	 Side Effects Software Inc.  2004
+      </center>
+   </td>
+</tr>
+</table>
+
+<hr>
+<center><h1>Changes since Houdini 5.0</h1></center>
+
+These are highlights of major changes since the <a href="changes4.1.html">
+5.0 release</a> of houdini.<p>
+
+<menu>
+    <li> <a href="#ch_cpp">CPP Changes</a>
+    <li> <a href="#ch_var">New Variables</a>
+    <li> <a href="#ch_func">Function Additions/Modifications</a>
+    <li> <a href="#ch_image3d">3D Texture Changes</a>
+</menu>
+
+<a name="ch_cpp"></a>
+<hr>
+<center><h1> CPP Changes</h1></center>
+<menu>
+    <li> The CPP parser used for vcc, dialog script parsing, etc. has
+	been modified to have a <b>strcmp</b> operator.  This can be
+	used to compare string values using the same semantics as the
+	C/C++ function of the same name.  For example:
+
+	<listing>
+	    #if defined(FOO) || strcmp("dothis", "dothis")
+		#include "dothis.h"
+	    #endif
+	</listing>
+
+    <li> The CPP parser used for vcc, dialog script parsing, etc. has
+	been modified to have an <b>access</b> operator.  This can be
+	used to determine if a file exists and can be read, similar to
+	the C/C++ UNIX system call of the same name.  For example:
+
+	<listing>
+	    #if defined(FOO) && access("$HFS/includer")
+		#include "$HFS/includer"
+	    #endif
+	</listing>
+</menu>
+
+<a name="ch_var"></a>
+<hr>
+<center><h1> New Global Variable</h1></center>
+<menu>
+    <li> There is a new global variable available in the Surface,
+	Displacement and Fog shading contexts.  The <b>Pz</b> variable
+	represents the z-coordinate of the <b>P</b> variable.  Its
+	primary use is in rendering deep rasters.
+</menu>
+
+<a name="ch_func"></a>
+<hr>
+<center><h1> Function Additions/Modifications </h1></center>
+<menu>
+    <li> There are four new versions of the periodic Perlin noise
+        functions. All four encapsulate the periodicity values into
+	a single vector or vector4.<p>
+	<menu>
+	   <li> <b>float pnoise(vector pos, p)</b>
+	   <li> <b>vector pnoise(vector pos, p)</b>
+	   <li> <b>float pnoise(vector4 pos, p)</b>
+	   <li> <b>vector pnoise(vector4 pos, p)</b>
+	</menu><p>
+
+    <li> There is a new noise function <b>vnoise()</b> which is
+	similar to the <b>wnoise()</b> functions but has more controls
+	and gives back more information.<p>
+	<menu>
+	   <li> <b>void vnoise(float pos, jitter; int &seed; float &f1, &f2; float &p1, &p2, [period])</b>
+	   <li> <b>void vnoise(float pos_x, pos_y, jitter_x, jitter_y; int &seed; float &f1, &f2; float &p1_x, &p1_y, &p2_x, &p2_y, [period])</b>
+	   <li> <b>void vnoise(vector pos, jitter; int &seed; float &f1, &f2; vector &p1, &p2, [period])</b>
+	   <li> <b>void vnoise(vector4 pos, jitter; int &seed; float &f1, &f2; vector4 &p1, &p2, [period])</b>
+	</menu>
+	The functions take a <b>jitter</b> parameter which determines
+	how randomly the points are placed in space.  As well, it will
+	return the actual locations in space of the two closest
+	points.<p>
+
+    <li> There are two new versions of the pow function:<p>
+	<menu>
+	   <li> <b>vector pow(vector, float)</b>
+	   <li> <b>vector4 pow(vector4, float)</b>
+	</menu>
+
+    <li> There are new versions of the length/distance functions:<p>
+	<menu>
+	   <li> <b>float length(vector4)</b>
+	   <li> <b>float length2(vector4)</b>
+	   <li> <b>float distance(vector4, vector4)</b>
+	   <li> <b>float distance2(vector4, vector4)</b>
+	</menu>
+
+    <li> The <b>atoi()</b> and <b>atof()</b> functions were added to
+	convert strings to integers and floats.<p>
+
+</menu>
+
+<a name="ch_image3d"></a>
+<hr>
+<center><h1> 3D Texture Changes</h1></center>
+<menu>
+
+    <li> Some VEX functions to access 3D textures were re-named.
+    Integration of textures is no longer overloaded using
+    <b>texture3d</b>, but instead is <b>integrate3d</b>.  The
+    integration clipping function <b>texture3dIso</b> has been
+    renamed <b>integrate3dClip</b>.  To make your VEX code compilable
+    with either 5.0 or 5.1, insert the following code at the beginning
+    of the file:
+    <listing>
+	#if __vex_major == 5 && __vex_minor < 1
+	    #define integrate3d texture3d
+	    #define integrate3dClip texture3dIso
+	#endif
+    </listing>
+    and replace all integration calls with <b>integrate3d</b> and all
+    texture3dIso calls with <b>integrate3dClip</b>.<p>
+
+    <li> Texture filtering can now be done on 3D texture maps.  This
+	is done in the same fashion as 2D texture calls, by passing
+	optional arguments.<p>
+
+    <li> There is now more control over quality of the integration
+	functions.  Please see help for <b>integrate3d</b> and
+	<a href="functions.html#image3d">integrate3dClip</a> for
+	further details.<p>
+
+    <li> There is a new function, <b>gradient3d()</b>, which can be
+	used to compute the gradient field of a single channel density
+	field.<p>
+
+    <li> The "minlimit" control for integration is now silently
+	ignored.<p>
+
+</menu>
+
+<!-------------------------------------------------------------------!>
+<br>
+<hr>
+<center>
+<font size=-2>
+  Copyright &#169; 1999-2004 Side Effects Software Inc.<br>
+  477 Richmond Street West, Toronto, Ontario, Canada M5V 3E7
+</font>
+</center>
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Built-In Commands - source manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<h3><a name="M2">NAME</a></h3>
+
+<p>source - Evaluate a file or resource as a Tcl script</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>source</b> <i>fileName</i><br>
+<b>source</b> <b>-rsrc</b> <i>resourceName</i>
+?<i>fileName</i>?<br>
+<b>source</b> <b>-rsrcid</b> <i>resourceId</i>
+?<i>fileName</i>?<br>
+</p>
+
+<h3><a name="M4">DESCRIPTION</a></h3>
+
+<p>This command takes the contents of the specified file or
+resource and passes it to the Tcl interpreter as a text script. The
+return value from <b>source</b> is the return value of the last
+command executed in the script. If an error occurs in evaluating
+the contents of the script then the <b>source</b> command will
+return that error. If a <b><a href=
+"../TclCmd/return.htm">return</a></b> command is invoked from
+within the script then the remainder of the file will be skipped
+and the <b>source</b> command will return normally with the result
+from the <b><a href="../TclCmd/return.htm">return</a></b>
+command.</p>
+
+<p>The end-of-file character for files is '\32' (^Z) for all
+platforms. The source command will read files up to this character.
+This restriction does not exist for the <b><a href=
+"../TclCmd/read.htm">read</a></b> or <b><a href=
+"../TclCmd/gets.htm">gets</a></b> commands, allowing for files
+containing code and data segments (scripted documents). If you
+require a ``^Z'' in code for string comparison, you can use
+``\032'' or ``\u001a'', which will be safely substituted by the Tcl
+interpreter into ``^Z''.</p>
+
+<p>The <i>-rsrc</i> and <i>-rsrcid</i> forms of this command are
+only available on Macintosh computers. These versions of the
+command allow you to source a script from a <b>TEXT</b> resource.
+You may specify what <b>TEXT</b> resource to source by either name
+or id. By default Tcl searches all open resource files, which
+include the current application and any loaded C extensions.
+Alternatively, you may specify the <i>fileName</i> where the
+<b>TEXT</b> resource can be found.</p>
+
+<h3><a name="M5">SEE ALSO</a></h3>
+
+<p><b><a href="../TclCmd/file.htm">file</a></b>, <b><a href=
+"../TclCmd/cd.htm">cd</a></b></p>
+
+<h3><a name="M6">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/F.htm#file">file</a>, <a href=
+"../Keywords/S.htm#script">script</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1993 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1996 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 2000 Scriptics Corporation.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

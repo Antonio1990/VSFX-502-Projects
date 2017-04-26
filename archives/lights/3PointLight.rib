@@ -1,0 +1,60 @@
+#Lighting Archive
+
+AttributeBegin
+		Rotate  0  0 1 0 # oribital
+		Rotate 0 1 0 0 # elevation
+		Translate 0 0 0  # distance
+
+#Key Light
+AttributeBegin
+		Rotate  0  0 1 0 # oribital
+		Rotate -50 1 0 0 # elevation
+		Translate 0 0 9  # distance
+		Scale 2 2 -1
+
+		Attribute "visibility" "int indirect" [0] "int transmission" [0]
+		Attribute "visibility" "int camera" [0]
+		Light "PxrRectLight" "PxrRectLightShape2"
+				"float exposure" [5]
+				"color lightColor" [1 1 1]
+				"float coneAngle" [90]
+				"int enableShadows" [1]
+				"color shadowColor" [0 0 0]
+	AttributeEnd
+	
+	#Fill Light
+	AttributeBegin
+		Rotate  0  0 1 0 # oribital
+		Rotate -50 1 0 0 # elevation
+		Rotate -50 0 1 0 # Rotate Along Y-Axis
+		Translate 0 0 9  # distance
+		Scale 2 2 -1
+
+		Attribute "visibility" "int indirect" [0] "int transmission" [0]
+		Attribute "visibility" "int camera" [0]
+		Light "PxrRectLight" "PxrRectLightShape3"
+				"float exposure" [5]
+				"color lightColor" [1 0 0]
+				"float coneAngle" [90]
+				"int enableShadows" [1]
+				"color shadowColor" [0 0 0]
+	AttributeEnd
+	
+	#Rim LIght
+	AttributeBegin
+		Rotate  0  0 1 0 # oribital
+		Rotate 180 0 1 0 # Rotate Along Y-Axis
+		Rotate -20 1 0 0 # elevation
+		Translate 0 0 9  # distance
+		Scale 4 4 -1
+
+		Attribute "visibility" "int indirect" [0] "int transmission" [0]
+		Attribute "visibility" "int camera" [0]
+		Light "PxrRectLight" "PxrRectLightShape4"
+				"float exposure" [2]
+				"color lightColor" [0 0 1]
+				"float coneAngle" [90]
+				"int enableShadows" [1]
+				"color shadowColor" [0 0 0]
+	AttributeEnd
+AttributeEnd

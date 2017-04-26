@@ -1,0 +1,23 @@
+# Maintained by Cutter.
+# For information about customizing the compilation and linking of devkit
+# DSOs and executables go to,
+#	http://www.fundza.com/cutter/devkit/index.html
+# Malcolm Kesson Sept 27 2016
+#
+STRICT	= -Wall -fPIC _USER_FLAGS_
+CFLAGS	= ${STRICT} -I/usr/include -I./ -I"_DEVKIT_PATH_/include" _OTHER_INCLUDE_DIRS_
+LDFLAGS	= -export-dynamic -shared
+LIBPATH	= _OTHER_LIB_DIRS_
+LIBS	= _OTHER_LIBS_
+OBJS	= _IMPLICIT_PLUGIN_NAME_.o _OTHER_OBJS_
+
+.cpp.o :
+	g++ $(CFLAGS) -c $<	
+.c.o :
+	g++ $(CFLAGS) -c $<
+
+all: _OUT_PATH_
+
+_OUT_PATH_ : ${OBJS}
+	g++ -g -fPIC ${LDFLAGS} ${LIBPATH} ${LIBS} ${OBJS} -o $@
+	rm ./_IMPLICIT_PLUGIN_NAME_.o

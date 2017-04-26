@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Tcl Library Procedures - Tcl_Init manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<h3><a name="M2">NAME</a></h3>
+
+<p>Tcl_Init - find and source initialization script</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>#include &lt;tcl.h&gt;</b><br>
+int<br>
+<b>Tcl_Init</b>(<i>interp</i>)<br>
+</p>
+
+<h3><a name="M4">ARGUMENTS</a></h3>
+
+<dl>
+<dt><a href="../TclLib/Interp.htm">Tcl_Interp</a> <b>*interp</b>
+(in)</dt>
+
+<dd>Interpreter to initialize.</dd>
+</dl>
+
+<h3><a name="M5">DESCRIPTION</a></h3>
+
+<p><b>Tcl_Init</b> is a helper procedure that finds and <b><a href=
+"../TclCmd/source.htm">source</a></b>'s the <b>init.tcl</b> script,
+which should exist somewhere on the Tcl library path. On Macintosh
+systems, it additionally checks for an <b>Init</b> resource and
+sources the contents of that resource if <b>init.tcl</b> cannot be
+found.</p>
+
+<p><b>Tcl_Init</b> is typically called from <b><a href=
+"../TclLib/AppInit.htm">Tcl_AppInit</a></b> procedures.</p>
+
+<h3><a name="M6">SEE ALSO</a></h3>
+
+<p><b><a href="../TclLib/AppInit.htm">Tcl_AppInit</a></b>, <b><a
+href="../TclLib/Tcl_Main.htm">Tcl_Main</a></b></p>
+
+<h3><a name="M7">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/A.htm#application">application</a>, <a
+href="../Keywords/I.htm#initialization">initialization</a>, <a
+href="../Keywords/I.htm#interpreter">interpreter</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1998-2000 by Scriptics Corporation.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

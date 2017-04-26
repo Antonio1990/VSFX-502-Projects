@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Tcl Library Procedures - Tcl_Concat manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<h3><a name="M2">NAME</a></h3>
+
+<p>Tcl_Concat - concatenate a collection of strings</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>#include &lt;tcl.h&gt;</b><br>
+CONST char *<br>
+<b>Tcl_Concat</b>(<i>argc, argv</i>)<br>
+</p>
+
+<h3><a name="M4">ARGUMENTS</a></h3>
+
+<dl>
+<dt>int <b>argc</b> (in)</dt>
+
+<dd>Number of strings.</dd>
+
+<dt>CONST char * CONST <b>argv[]</b> (in)</dt>
+
+<dd>Array of strings to concatenate. Must have <i>argc</i>
+entries.</dd>
+</dl>
+
+<h3><a name="M5">DESCRIPTION</a></h3>
+
+<p><b>Tcl_Concat</b> is a utility procedure used by several of the
+Tcl commands. Given a collection of strings, it concatenates them
+together into a single string, with the original strings separated
+by spaces. This procedure behaves differently than <b><a href=
+"../TclLib/SplitList.htm">Tcl_Merge</a></b>, in that the arguments
+are simply concatenated: no effort is made to ensure proper list
+structure. However, in most common usage the arguments will all be
+proper lists themselves; if this is true, then the result will also
+have proper list structure.</p>
+
+<p><b>Tcl_Concat</b> eliminates leading and trailing white space as
+it copies strings from <b>argv</b> to the result. If an element of
+<b>argv</b> consists of nothing but white space, then that string
+is ignored entirely. This white-space removal was added to make the
+output of the <b><a href="../TclCmd/concat.htm">concat</a></b>
+command cleaner-looking.</p>
+
+<p>The result string is dynamically allocated using <b><a href=
+"../TclLib/Alloc.htm">Tcl_Alloc</a></b>; the caller must eventually
+release the space by calling <b><a href=
+"../TclLib/Alloc.htm">Tcl_Free</a></b>.</p>
+
+<h3><a name="M6">SEE ALSO</a></h3>
+
+<p><b><a href="../TclLib/StringObj.htm">Tcl_ConcatObj</a></b></p>
+
+<h3><a name="M7">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/C.htm#concatenate">concatenate</a>, <a
+href="../Keywords/S.htm#strings">strings</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1989-1993 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1996 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

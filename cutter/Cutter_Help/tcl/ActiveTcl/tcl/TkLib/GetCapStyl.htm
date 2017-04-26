@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Library Procedures - Tk_GetCapStyle manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<h3><a name="M2">NAME</a></h3>
+
+<p>Tk_GetCapStyle, Tk_NameOfCapStyle - translate between strings
+and cap styles</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>#include &lt;tk.h&gt;</b><br>
+int<br>
+<b>Tk_GetCapStyle(</b><i>interp, string, capPtr</i><b>)</b><br>
+CONST char *<br>
+<b>Tk_NameOfCapStyle(</b><i>cap</i><b>)</b><br>
+</p>
+
+<h3><a name="M4">ARGUMENTS</a></h3>
+
+<dl>
+<dt><a href="../TclLib/Interp.htm">Tcl_Interp</a> <b>*interp</b>
+(in)</dt>
+
+<dd>Interpreter to use for error reporting.</dd>
+
+<dt>CONST char <b>*string</b> (in)</dt>
+
+<dd>String containing name of cap style: one of ```butt'',
+``projecting'', or ``round''.</dd>
+
+<dt>int <b>*capPtr</b> (out)</dt>
+
+<dd>Pointer to location in which to store X cap style corresponding
+to <i>string</i>.</dd>
+
+<dt>int <b>cap</b> (in)</dt>
+
+<dd>Cap style: one of <b>CapButt</b>, <b>CapProjecting</b>, or
+<b>CapRound</b>.</dd>
+</dl>
+
+<h3><a name="M5">DESCRIPTION</a></h3>
+
+<p><b>Tk_GetCapStyle</b> places in <i>*capPtr</i> the X cap style
+corresponding to <i>string</i>. This will be one of the values
+<b>CapButt</b>, <b>CapProjecting</b>, or <b>CapRound</b>. Cap
+styles are typically used in X graphics contexts to indicate how
+the end-points of lines should be capped. See the X documentation
+for information on what each style implies.</p>
+
+<p>Under normal circumstances the return value is <b>TCL_OK</b> and
+<i>interp</i> is unused. If <i>string</i> doesn't contain a valid
+cap style or an abbreviation of one of these names, then an error
+message is stored in <i>interp-&gt;result</i>, <b>TCL_ERROR</b> is
+returned, and <i>*capPtr</i> is unmodified.</p>
+
+<p><b>Tk_NameOfCapStyle</b> is the logical inverse of
+<b>Tk_GetCapStyle</b>. Given a cap style such as <b>CapButt</b> it
+returns a statically-allocated string corresponding to <i>cap</i>.
+If <i>cap</i> isn't a legal cap style, then ``unknown cap style''
+is returned.</p>
+
+<h3><a name="M6">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/B.htm#butt">butt</a>, <a href=
+"../Keywords/C.htm#cap style">cap style</a>, <a href=
+"../Keywords/P.htm#projecting">projecting</a>, <a href=
+"../Keywords/R.htm#round">round</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1990 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1996 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

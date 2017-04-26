@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Library Procedures - Tk_RestrictEvents manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<h3><a name="M2">NAME</a></h3>
+
+<p>Tk_RestrictEvents - filter and selectively delay X events</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>#include &lt;tk.h&gt;</b><br>
+Tk_RestrictProc *<br>
+<b>Tk_RestrictEvents</b>(<i>proc, clientData,
+prevClientDataPtr</i>)<br>
+</p>
+
+<h3><a name="M4">ARGUMENTS</a></h3>
+
+<dl>
+<dt>Tk_RestrictProc <b>*proc</b> (in)</dt>
+
+<dd>Predicate procedure to call to filter incoming X events. NULL
+means do not restrict events at all.</dd>
+
+<dt>ClientData <b>clientData</b> (in)</dt>
+
+<dd>Arbitrary argument to pass to <i>proc</i>.</dd>
+
+<dt>ClientData <b>*prevClientDataPtr</b> (out)</dt>
+
+<dd>Pointer to place to save argument to previous restrict
+procedure.</dd>
+</dl>
+
+<h3><a name="M5">DESCRIPTION</a></h3>
+
+<p>This procedure is useful in certain situations where
+applications are only prepared to receive certain X events. After
+<b>Tk_RestrictEvents</b> is called, <b>Tk_DoOneEvent</b> (and hence
+<b><a href="../TkLib/MainLoop.htm">Tk_MainLoop</a></b>) will filter
+X input events through <i>proc</i>. <i>Proc</i> indicates whether a
+given event is to be processed immediately, deferred until some
+later time (e.g. when the event restriction is lifted), or
+discarded. <i>Proc</i> is a procedure with arguments and result
+that match the type <b>Tk_RestrictProc</b>:</p>
+
+<pre>
+typedef Tk_RestrictAction Tk_RestrictProc(
+    ClientData <i>clientData</i>,
+    XEvent *<i>eventPtr</i>);
+</pre>
+
+<p>The <i>clientData</i> argument is a copy of the
+<i>clientData</i> passed to <b>Tk_RestrictEvents</b>; it may be
+used to provide <i>proc</i> with information it needs to filter
+events. The <i>eventPtr</i> points to an event under consideration.
+<i>Proc</i> returns a restrict action (enumerated type
+<b>Tk_RestrictAction</b>) that indicates what <b>Tk_DoOneEvent</b>
+should do with the event. If the return value is
+<b>TK_PROCESS_EVENT</b>, then the event will be handled
+immediately. If the return value is <b>TK_DEFER_EVENT</b>, then the
+event will be left on the event queue for later processing. If the
+return value is <b>TK_DISCARD_EVENT</b>, then the event will be
+removed from the event queue and discarded without being
+processed.</p>
+
+<p><b>Tk_RestrictEvents</b> uses its return value and
+<i>prevClientDataPtr</i> to return information about the current
+event restriction procedure (a NULL return value means there are
+currently no restrictions). These values may be used to restore the
+previous restriction state when there is no longer any need for the
+current restriction.</p>
+
+<p>There are very few places where <b>Tk_RestrictEvents</b> is
+needed. In most cases, the best way to restrict events is by
+changing the bindings with the <b><a href=
+"../TkCmd/bind.htm">bind</a></b> Tcl command or by calling <b><a
+href="../TkLib/EventHndlr.htm">Tk_CreateEventHandler</a></b> and
+<b><a href="../TkLib/EventHndlr.htm">Tk_DeleteEventHandler</a></b>
+from C. The main place where <b>Tk_RestrictEvents</b> must be used
+is when performing synchronous actions (for example, if you need to
+wait for a particular event to occur on a particular window but you
+don't want to invoke any handlers for any other events). The
+``obvious'' solution in these situations is to call
+<b>XNextEvent</b> or <b>XWindowEvent</b>, but these procedures
+cannot be used because Tk keeps its own event queue that is
+separate from the X event queue. Instead, call
+<b>Tk_RestrictEvents</b> to set up a filter, then call
+<b>Tk_DoOneEvent</b> to retrieve the desired event(s).</p>
+
+<h3><a name="M6">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/D.htm#delay">delay</a>, <a href=
+"../Keywords/E.htm#event">event</a>, <a href=
+"../Keywords/F.htm#filter">filter</a>, <a href=
+"../Keywords/R.htm#restriction">restriction</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1990 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1996 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

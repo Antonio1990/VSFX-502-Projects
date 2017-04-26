@@ -1,0 +1,20 @@
+Double-clickable script for launching Cutter on MacOSX.
+Save this script as a .term file, for example, "run.term" in your cutter directory.
+Double-clicking on the icon of this file will launch Cutter.
+
+#-----snip-----snip------snip-----snip------snip-----snip------snip-----snip------
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>WindowSettings</key>
+	<array>
+		<dict>
+			<key>ExecutionString</key>
+			<string>cd FULL_PATH_TO_YOUR_CUTTER_DIRECTORY ;java -classpath .:cutter.jar Cutter</string>
+		</dict>
+	</array>
+</dict>
+</plist>
+#-----snip-----snip------snip-----snip------snip-----snip------snip-----snip------
+

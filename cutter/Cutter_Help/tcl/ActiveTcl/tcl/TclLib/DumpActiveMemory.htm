@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Tcl Library Procedures - Tcl_DumpActiveMemory manual
+page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<h3><a name="M2">NAME</a></h3>
+
+<p>Tcl_DumpActiveMemory, Tcl_InitMemory, Tcl_ValidateAllMemory -
+Validated memory allocation interface.</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>#include &lt;tcl.h&gt;</b><br>
+int<br>
+<b>Tcl_DumpActiveMemory</b>(<i>fileName</i>)<br>
+void<br>
+<b>Tcl_InitMemory</b>(<i>interp</i>)<br>
+void<br>
+<b>Tcl_ValidateAllMemory</b>(<i>fileName, line</i>)<br>
+<br>
+</p>
+
+<h3><a name="M4">ARGUMENTS</a></h3>
+
+<dl>
+<dt><a href="../TclLib/Interp.htm">Tcl_Interp</a> <b>*interp</b>
+(in)</dt>
+
+<dd>Tcl interpreter in which to add commands.</dd>
+
+<dt>CONST char <b>*fileName</b> (in)</dt>
+
+<dd>For <b>Tcl_DumpActiveMemory</b>, name of the file to which
+memory information will be written. For
+<b>Tcl_ValidateAllMemory</b>, name of the file from which the call
+is being made (normally <b>__FILE__</b>).</dd>
+
+<dt>int <b>line</b> (in)</dt>
+
+<dd>Line number at which the call to <b>Tcl_ValidateAllMemory</b>
+is made (normally <b>__LINE__</b>).</dd>
+</dl>
+
+<h3><a name="M5">DESCRIPTION</a></h3>
+
+<p>These functions provide access to Tcl memory debugging
+information. They are only functional when Tcl has been compiled
+with <b>TCL_MEM_DEBUG</b> defined at compile-time. When
+<b>TCL_MEM_DEBUG</b> is not defined, these functions are all
+no-ops.</p>
+
+<p><b>Tcl_DumpActiveMemory</b> will output a list of all currently
+allocated memory to the specified file. The information output for
+each allocated block of memory is: starting and ending addresses
+(excluding guard zone), size, source file where <b><a href=
+"../TclLib/Alloc.htm">ckalloc</a></b> was called to allocate the
+block and line number in that file. It is especially useful to call
+<b>Tcl_DumpActiveMemory</b> after the Tcl interpreter has been
+deleted.</p>
+
+<p><b>Tcl_InitMemory</b> adds the Tcl <b><a href=
+"../TclCmd/memory.htm">memory</a></b> command to the interpreter
+given by <i>interp</i>. <b>Tcl_InitMemory</b> is called by <b><a
+href="../TclLib/Tcl_Main.htm">Tcl_Main</a></b>.</p>
+
+<p><b>Tcl_ValidateAllMemory</b> forces a validation of the guard
+zones of all currently allocated blocks of memory. Normally
+validation of a block occurs when its freed, unless full validation
+is enabled, in which case validation of all blocks occurs when
+<b><a href="../TclLib/Alloc.htm">ckalloc</a></b> and <b><a href=
+"../TclLib/Alloc.htm">ckfree</a></b> are called. This function
+forces the validation to occur at any point.</p>
+
+<h3><a name="M6">SEE ALSO</a></h3>
+
+<p><b>TCL_MEM_DEBUG</b>, <b><a href=
+"../TclCmd/memory.htm">memory</a></b></p>
+
+<h3><a name="M7">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/M.htm#memory">memory</a>, <a href=
+"../Keywords/D.htm#debug">debug</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1992-1999 Karl Lehenbauer and Mark Diekhans.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 2000 by Scriptics Corporation.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+

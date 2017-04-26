@@ -1,0 +1,2187 @@
+<!--
+ - PROPRIETARY INFORMATION.  This software is proprietary to
+ - Side Effects Software Inc., and is not to be reproduced,
+ - transmitted, or disclosed in any way without written permission.
+ -
+ -	Side Effects
+ -	477 Richmond Street West
+ -	Toronto, Ontario
+ -	Canada   M5V 3E7
+ -	416-504-9876
+ -->
+
+<html>
+
+<head>
+   <title> VEX Run Time Library Reference </title>
+</head>
+
+<body bgcolor="#ffffff" text="#000000">
+
+<table width=100%>
+<tr>
+   <td><img hspace=15 vspace=5 ALT="[SESI logo]" SRC="logo.jpg"</td>
+   <td>
+      <center>
+         <h1>VEX Language Reference - Version 7.0</h1>
+	 Side Effects Software Inc.  2004
+      </center>
+   </td>
+</tr>
+</table>
+
+<hr>
+<center><h1>VEX Run Time Library Reference</h1></center>
+
+<menu>
+    <li> <a href="#qr_operations">Standard VEX Operations</a>
+    <li> <a href="#qr_math"> Runtime Math Library</a>
+    <li> <a href="#qr_string"> Runtime String Library</a>
+    <li> <a href="#qr_noise"> Runtime Noise/Random Functions</a>
+    <li> <a href="#qr_image"> Runtime Image Access Functions</a>
+    <li> <a href="#qr_geo"> Runtime Geometry Functions</a>
+    <li> <a href="#qr_xform"> Runtime Transformation Library</a>
+    <li> <a href="#qr_misc"> Runtime Miscellaneous Functions</a>
+</menu>
+
+<hr>
+<a name="qr_operations">
+<center><h1>Operations supported in VEX</h1></center>
+</a>
+
+The standard arithmetic operations are supported for most data types.
+Please see the <a href="compiler.html#cg_structure">order of
+operations</a> for VEX.  Below is a list of the currently defined
+operators (and their return types):<p>
+
+<menu>
+    <li> <b>Addition/Subtraction</b>
+    <center><table border=0 cellpadding=0 cellspacing=0 width=60%>
+      <tr bgcolor=black>
+	 <td><font color=white><b>Result</b></font></td>
+	 <td><font color=white><b>LHS</b></font></td>
+	 <td><font color=white><b>RHS</b></font></td>
+      </tr>
+      <tr><td> matrix </td>	<td> matrix </td>	<td> matrix </td></tr>
+      <tr><td> matrix3 </td>	<td> matrix3 </td>	<td> matrix3 </td></tr>
+      <tr><td> vector4 </td>	<td> vector4 </td>	<td> vector4 </td></tr>
+      <tr><td> vector4 </td>	<td> vector4 </td>	<td> vector </td></tr>
+      <tr><td> vector4 </td>	<td> vector4 </td>	<td> float </td></tr>
+      <tr><td> vector4 </td>	<td> vector4 </td>	<td> int </td></tr>
+      <tr><td> vector </td>	<td> vector </td>	<td> vector4 </td></tr>
+      <tr><td> vector </td>	<td> vector </td>	<td> vector </td></tr>
+      <tr><td> vector </td>	<td> vector </td>	<td> float </td></tr>
+      <tr><td> vector </td>	<td> vector </td>	<td> int </td></tr>
+      <tr><td> float </td>	<td> float </td>	<td> float </td></tr>
+      <tr><td> float </td>	<td> float </td>	<td> int </td></tr>
+      <tr><td> int </td>	<td> int </td>		<td> float </td></tr>
+      <tr><td> int </td>	<td> int </td>		<td> int </td></tr>
+    </table></center>
+
+    <li> <b>Multiplication</b>
+    <center><table border=0 cellpadding=0 cellspacing=0 width=60%>
+      <tr bgcolor=black>
+	 <td><font color=white><b>Result</b></font></td>
+	 <td><font color=white><b>LHS</b></font></td>
+	 <td><font color=white><b>RHS</b></font></td>
+      </tr>
+      <tr><td> matrix </td>	<td> matrix </td>	<td> matrix </td></tr>
+      <tr><td> matrix3 </td>	<td> matrix3 </td>	<td> matrix3 </td></tr>
+      <tr><td> vector4 </td>	<td> vector4 </td>	<td> matrix </td></tr>
+      <tr><td> vector4 </td>	<td> vector4 </td>	<td> vector4 </td></tr>
+      <tr><td> vector4 </td>	<td> vector4 </td>	<td> vector </td></tr>
+      <tr><td> vector4 </td>	<td> vector4 </td>	<td> float </td></tr>
+      <tr><td> vector4 </td>	<td> vector4 </td>	<td> int </td></tr>
+      <tr><td> vector </td>	<td> vector </td>	<td> matrix </td></tr>
+      <tr><td> vector </td>	<td> vector </td>	<td> matrix3 </td></tr>
+      <tr><td> vector </td>	<td> vector </td>	<td> vector4 </td></tr>
+      <tr><td> vector </td>	<td> vector </td>	<td> vector </td></tr>
+      <tr><td> vector </td>	<td> vector </td>	<td> float </td></tr>
+      <tr><td> vector </td>	<td> vector </td>	<td> int </td></tr>
+      <tr><td> float </td>	<td> float </td>	<td> float </td></tr>
+      <tr><td> float </td>	<td> float </td>	<td> int </td></tr>
+      <tr><td> int </td>	<td> int </td>		<td> float </td></tr>
+      <tr><td> int </td>	<td> int </td>		<td> int </td></tr>
+    </table></center>
+
+    <li> <b>Division</b>
+    <center><table border=0 cellpadding=0 cellspacing=0 width=60%>
+      <tr bgcolor=black>
+	 <td><font color=white><b>Result</b></font></td>
+	 <td><font color=white><b>LHS</b></font></td>
+	 <td><font color=white><b>RHS</b></font></td>
+      </tr>
+      <tr><td> vector4 </td>	<td> vector4 </td>	<td> float </td></tr>
+      <tr><td> vector4 </td>	<td> vector4 </td>	<td> int </td></tr>
+      <tr><td> vector </td>	<td> vector </td>	<td> float </td></tr>
+      <tr><td> vector </td>	<td> vector </td>	<td> int </td></tr>
+      <tr><td> float </td>	<td> float </td>	<td> float </td></tr>
+      <tr><td> float </td>	<td> float </td>	<td> int </td></tr>
+      <tr><td> int </td>	<td> int </td>		<td> float </td></tr>
+      <tr><td> int </td>	<td> int </td>		<td> int </td></tr>
+    </table></center>
+
+    <li> <b>Modulo</b>
+    <center><table border=0 cellpadding=0 cellspacing=0 width=60%>
+      <tr bgcolor=black>
+	 <td><font color=white><b>Result</b></font></td>
+	 <td><font color=white><b>LHS</b></font></td>
+	 <td><font color=white><b>RHS</b></font></td>
+      </tr>
+      <tr><td> vector4 </td>	<td> vector4 </td>	<td> float </td></tr>
+      <tr><td> vector </td>	<td> vector </td>	<td> float </td></tr>
+      <tr><td> float </td>	<td> float </td>	<td> float </td></tr>
+      <tr><td> int </td>	<td> int </td>		<td> int </td></tr>
+    </table></center>
+
+    <li> <b>Unary Negation</b>
+    <center><table border=0 cellpadding=0 cellspacing=0 width=60%>
+      <tr bgcolor=black>
+	 <td><font color=white><b>Result</b></font></td>
+	 <td><font color=white><b>LHS</b></font></td>
+      </tr>
+      <tr><td> vector4 </td>	<td> vector4 </td></tr>
+      <tr><td> vector </td>	<td> vector </td></tr>
+      <tr><td> float </td>	<td> float </td></tr>
+      <tr><td> int </td>	<td> int </td></tr>
+    </table></center>
+
+    <li> <b>Structure reference/assignment</b><p>
+    It is possible to reference individual elements of a vector/vector4
+    type using the dot operator.  Vector and Point data types are not
+    actually structures, but the dot operator is provided as a
+    convenience.  The vector/vector4 can be referenced as either a
+    position or a color.  When referencing by position, the structure
+    elements are (.x, .y, .z, [.w]).  When referencing by color, the
+    structure elements are (.r, .g, .b, [.a]).  The .w and .a
+    components are only available for the vector4 data type.<p>
+    It is also possible to use the getcomp() and setcomp()
+    functions.<p>
+
+    Note:  There is currently no mechanism for extracting components
+    from matrix types.  However, it is possible to get some of the
+    information by multiplying a vector by the matrix and extracting
+    information from the vector.  Please see <a href="#matrix">Matrix
+    Functions</a> for further information.<p>
+
+    <li> <b>Equality Operators.</b><p>
+    The equality operators (==, !=, <, <=, >, >=) are defined when the
+    left hand of the operator is the same type as the right hand side.
+    They are defined for string, float and integer types only.  The
+    operations result in integer types.
+
+    <li> <b>Logic Operators</b><p>
+
+    The &&, || and ! operator apply solely to integer values.
+
+    <li> <b> Bitwise Operations</b><p>
+
+    The &, |, ^ and ~ operators are defined for integers only.
+
+    <li> <b> Special functions</b><p>
+
+    <menu>
+	<li>
+	    <a name="fn_assign">
+	    <b>assign(float &, float &, float &, float &, vector4)<br>
+	       assign(float &, float &, float &, vector)<br>
+	       assign(float &, float &, float &, ..., matrix3 mat)<br>
+	       assign(float &, float &, float &, ..., matrix mat)</b><br>
+
+	   These two functions provide an efficient way of extracting
+	   the components of a vector, vector4, matrix3 or matrix to
+	   float variables.  To assign the components from a matrix3,
+	   9 floats are required.  For a matrix type, 16 floats are
+	   required.<p>
+
+	<li>
+	    <a name="fn_set">
+	    <b>matrix set(float, float, ..., float)<br>
+	       matrix3 set(float, float, ..., float)<br>
+	       vector4 set(float, float, float, float)<br>
+	       vector set(float, float, float)</b><br>
+
+	    These two functions provide a very efficient way of
+	    creating a vector/vector4.  Each component is assigned
+	    from the argument passed in.  The <b>set()</b> function
+	    which returns a matrix type expects 16 float values, while
+	    the function returning a matrix3 expects 9 values.<p>
+
+	<li>
+	    <a name="fn_getcomp">
+	    <b>float getcomp(vector4, int)<br>
+	       float getcomp(vector, int)<br>
+	       float getcomp(matrix , float, int row, int col)<br>
+	       float getcomp(matrix3 , float, int row, int col)</b><br>
+
+	    These functions extract a single component of a vector,
+	    vector4, matrix3 or matrix.<p>
+
+	<li>
+	    <a name="fn_setcomp">
+	    <b>void setcomp(vector4 &, float, int)<br>
+	       void setcomp(vector &, float, int)<br>
+	       void setcomp(matrix &, float, int row, int col)<br>
+	       void setcomp(matrix3 &, float, int row, int col)</b><br>
+	    
+	    These functions set a single component of a vector, vector4,
+	    matrix3 or matrix.<p>
+    </menu>
+</menu>
+
+<hr>
+
+<a name="qr_math">
+<center><h1>Mathematical Functions in VEX</h1></center>
+</a>
+<menu>
+<li><a href="#basic" > Basic Mathematical Functions</a>
+<li><a href="#vector"> Vector Functions</a>
+<li><a href="#interp"> Interpolation Functions</a>
+<li><a href="#matrix"> Matrix Functions</a>
+<li><a href="#geometry"> Geometric Functions</a>
+<li><a href="#render"> Rendering Functions</a>
+<li><a href="#color" > Color Functions</a>
+</menu>
+
+<hr>
+<a name="basic">
+<center><h3>Basic Mathematical Functions</h3></center>
+</a>
+<b>
+ vector4 abs( vector4 ), vector abs( vector ), float abs( float ), int abs( int )<br>
+ vector4 acos( vector4 ), vector acos( vector ), float acos( float )<br>
+ vector4 asin( vector4 ), vector asin( vector ), float asin( float )<br>
+ vector4 atan( vector4 ), vector atan( vector ), float atan( float )<br>
+ float atan(float x, y), atan2( float x, y)<br>
+ vector4 ceil( vector4 ), vector ceil( vector ), float ceil( float )<br>
+ vector4 cos( vector4 ), vector cos( vector ), float cos( float )<br>
+ vector4 cosh( vector4 ), vector cosh( vector ), float cosh( float )<br>
+ vector4 degrees( vector4 ), vector degrees( vector ), float degrees( float )<br>
+ vector4 exp( vector4 ), vector exp( vector ), float exp( float )<br>
+ vector4 floor( vector4 ), vector floor( vector ), float floor( float ), int floor( float )<br>
+ vector4 frac( vector4 ), vector frac( vector ), float frac( float )<br>
+ vector4 int( vector4 ), vector int( vector ), float int( float )<br>
+ vector4 log( vector4 ), vector log( vector ), float log( float )<br>
+ vector4 log10( vector4 ), vector log10( vector ), float log10( float )<br>
+ vector4 pow( vector4, float ), vector pow( vector, float ), float pow( float, float )<br>
+ vector4 radians( vector4 ), vector radians( vector ), float radians( float )<br>
+ vector4 rint( vector4 ), vector rint( vector ), float rint( float )<br>
+ vector4 sin( vector4 ), vector sin( vector ), float sin( float )<br>
+ vector4 sinh( vector4 ), vector sinh( vector ), float sinh( float )<br>
+ vector4 sqrt( vector4 ), vector sqrt( vector ), float sqrt( float )<br>
+ vector4 tan( vector4 ), vector tan( vector ), float tan( float )<br>
+ vector4 tanh( vector4 ), vector tanh( vector ), float tanh( float )<br>
+ </b><br>
+ Many of these functions are defined for vector/vector4 data types.  In
+ these cases, each element of the vector/vector4 has the operator
+ applied to it.  For example:
+ <listing>
+    vector4	v, v1;
+    v1 = sin(v);
+ </listing>
+ Is equivalent to:
+ <listing>
+    vector4	v, v1;
+    v1.x = sin(v.x);
+    v1.y = sin(v.y);
+    v1.z = sin(v.z);
+    v1.w = sin(v.w);
+ </listing>
+ but evaluates much more efficiently.<p>
+
+ <b>abs</b> computes the absolute value of the argument.<br>
+ <b>acos</b> computes the arc-cosine of the argument.  The return
+     value is in the range 0 to PI.<br>
+ <b>asin</b> computes the arc-sine of the argument.  The return value
+     is in the range -PI/2 to PI/2.<br>
+ <b>atan</b> computes the arc-tangent of the argument.  The return
+     value is in the range -PI/2 to PI/2.  When two floats are passed,
+     the function behaves as atan2()<br>
+ <b>atan2</b> returns the arc-tangent of y/x and has a return value in
+     the range -PI to PI<br>
+ <b>ceil</b> returns the smallest integer greater than or equal to
+	the argument<br>
+ <b>cos</b> computes the cosine of the argument.<br>
+ <b>cosh</b> computes the hyperbolic cosine of the argument.<br>
+ <b>degrees</b> converts the argument from radians into degrees<br>
+ <b>exp</b> computes the exponential function of the argument.<br>
+ <b>floor</b> returns the largest integer less than or equal to the
+	argument<br>
+ <b>frac</b> returns the fractional component of the floating point
+	 number.  This is equivalent to&nbsp;(x&nbsp;-&nbsp;floor(x)).<br>
+ <b>int</b> if the argument is negative, this returns ceil(x),
+	 otherwise it returns floor(x).<br>
+ <b>log</b> computes the natural logarithm of the argument<br>
+ <b>log10</b> computes the logarithm (base 10) of the argument<br>
+ <b>pow</b> raises the first argument to the power of the second
+     argument<br>
+ <b>radians</b> converts the argument from degrees into radians<br>
+ <b>rint</b> rounds the number to the closest integer.<br>
+ <b>sin</b> computes the sine of the argument<br>
+ <b>sinh</b> computes the hyperbolic sine of the argument<br>
+ <b>sqrt</b> computes the square root of the argument<br>
+ <b>tan</b> computes the trigonometric tangent of the argument<br>
+ <b>tanh</b> computes the hyperbolic tangent of the argument<br>
+
+
+<hr>
+<a name="vector">
+<center><h3>Vector Functions</h3></center>
+</a>
+ <a name="fn_distance">
+ <b>float distance( vector p1, p2),<br>
+    float distance2( vector p1, p2)</br>
+    float distance( vector4 p1, p2)</br>
+    float distance2( vector4 p1, p2)</b></br>
+    Returns the distance between the two 3 or 4 dimensional points passed in.
+    <b>distance2</b> returns the squared distance.<p>
+
+ <a name="fn_dot">
+ <b>float dot( vector4 a; vector b),<br>
+    float dot( vector a; vector4 b),<br>
+    float dot( vector a, b)</b><br>
+    Computes the dot product between the arguments.  When 4 component
+    vectors are specified, only the first three components are
+    taken into consideration.<p>
+
+ <a name="fn_length">
+ <b>float length( vector ),<br>
+    float length2( vector )<br>
+    float length( vector4 )<br>
+    float length2( vector4 )</b><br>
+    Computes the length of the vector or vector4.
+    <b>length2</b> returns the squared distance.<p>
+
+ <a name="fn_normalize">
+ <b>vector normalize( vector )</b><br>
+    Returns the normalized vector<p>
+
+ <a name="fn_avg">
+ <b>float avg( vector )<br>
+    float max( vector )<br>
+    float min( vector )</b><br>
+    Returns the average of the 3 components, the maximum of the 3
+    components or the minimum of the 3 components of the vector.<p>
+
+ <a name="fn_cross">
+ <b>vector cross( vector a, b )</b><br>
+    Computes the cross product between the two vectors<p>
+
+<hr>
+<a name="interp">
+<center><h3>Interpolation Functions</h3></center>
+</a>
+ <a name="fn_min2">
+ <b>float min( float a, b, ...),<br>
+    float max( float a, b, ... )</b><br>
+    Returns the minimum or maximum value of the parameters.  Any
+    number of parameters may be specified<p>
+
+ <a name="fn_clamp">
+ <b>vector4 clamp( vector4 value, min, max),<br>
+     vector clamp( vector value, min, max),<br>
+     float clamp( float value, min, max),<br>
+     int clamp( int value, min, max )</b><br>
+    Each component of the vector is clamped between the minimum and
+    maximum values<p>
+
+ <a name="fn_fit">
+ <b>float fit( float value, omin, omax, nmin, nmax)<br>
+    vector fit( vector value, omin, omax, nmin, nmax)<br>
+    vector4 fit( vector4 value, omin, omax, nmin, nmax)</b><br>
+    Takes the value in the rangeo (omin, omax) and shifts it to the
+    corresponding value in the new range (nmin, nmax).  For example:
+    <br>
+	<dd><b>fit(.3, 0, 1, 10, 20)</b><br>
+    Would return the value 13.<p>
+
+ <a name="fn_lerp">
+ <b>vector4 lerp( vector4 value1, value2; float amount),<br>
+     vector lerp( vector value1, value2; float amount),<br>
+     float lerp( float value1, value2; float amount)</b><br>
+    Performs bilinear interpolation between the values.  If the amount
+    is outside the range 0 to 1, the values will be extrapolated
+    linearly.<p>
+
+ <a name="fn_smooth">
+ <b>float smooth( float value1, value2, amount, rolloff),<br>
+     float smooth( float value1, value2, amount)</b><br>
+    Computes a number between zero and one.  The return code is 0 if
+    the amount passed in is less than or equal to value1, 1 if the
+    amount is greater than or equal to value2.  If the amount is
+    between value1 and value2, a smooth (easin/easeout) interpolation
+    is computed.  If a rolloff is specified, the inflection point of
+    the blend will be shifted.  If the rolloff is greater than 1, the
+    shift will be to the right, if the rolloff is less than 1 (and
+    greater than 0), the shift will be to the left.<p>
+
+ <a name="fn_cspline">
+ <b>vector4 cspline( float t; vector4 val1, ... ),<br>
+ vector cspline( float t; vector val1, ... ),<br>
+ float cspline( float t; float val1, ... )</b><br>
+    Computes a Catmull-Rom (Cardinal) spline between the key points
+    specified.  The keys are uniformly spaced over the range 0 to 1.
+    Because of the nature of the Cardinal spline, the value associated
+    with the first and last keys will never be returned.  However,
+    these keys are used to determine the shape of the curve on entry
+    and exit.<p>
+
+ <a name="fn_lspline">
+ <b>vector4 lspline( float t; vector4 val1, ... ),<br>
+     vector lspline( float t; vector val1, ... ),<br>
+     float lspline( float t; float val1, ... )</b><br>
+    Computes a linear spline between the key points.  This is
+    equivalent to a sequence of lerp() functions.<p>
+
+ <a name="fn_ckspline">
+ <b>vector4 ckspline( float t; vector4 val1; float key1; vector4 val2; float
+		 key2, ... ),<br>
+    vector ckspline( float t; vector val1; float key1; vector val2; float
+		 key2, ... ),<br>
+    float ckspline( float t; float val1; float key1; float val2; float
+		 key2, ... )</b><br>
+    Computes a Catmull-Rom (Cardinal) spline between the key points
+    specified.  The values are spaced according to the keys given.
+    The domain of the interpolant (t) should be between the second and
+    second last key value specified.  The keys should be specified in
+    ascending order or results will be unpredictable.<p>
+
+    Because of the nature of the Cardinal spline, the value associated
+    with the first and last keys will never be returned.  However,
+    these keys are used to determine the shape of the curve on entry
+    and exit.  For example:<p>
+<listing>
+	Cf = ckspline(s, {1,1,1},    -0.25,	// First key
+			 {.5,.5,.5},  0.0,	// Second key
+			 {.5, 0,.5},  0.25,	// Third key
+			 {0,0,.8},    1.0,	// Fourth key
+			 {0,0,0},     1.25);	// Fifth key
+</listing>
+    The Catmull-Rom spline defined by the above keys would be valid
+    for interpolants in the range 0 to 1.  The first and last keys are
+    used solely to determine the slope of the curve at the second and
+    second last keys.<p>
+
+ <a name="fn_lkspline">
+ <b>vector4 lkspline( float t; vector4 v1; float k2;
+			       vector4 v2; float k2; ... ),<br>
+     vector lkspline( float t; vector v1; float k1;
+			       vector v2; float k2; ... ),<br>
+     float lkspline( float t; float v1; float k1;
+			      float v2; float k2; ... )</b><br>
+    Computes a linear spline between the key points.  The values are
+    spaced according to the keys given.  The keys should be specified
+    in ascending order or the results will be unpredictable.<p>
+
+<hr>
+<a name="matrix">
+<center><h3> Matrix Functions</h3></center>
+</a>
+ <b>float determinant( matrix ), float determinant( matrix3 )<br>
+    matrix3 dihedral( vector a, b)<br>
+    matrix ident( void ), matrix3 ident( void )<br>
+    matrix invert( matrix ), matrix3 invert( matrix3 )<br>
+    matrix3 lookat( vector from, to, up),<br>
+    matrix3 lookat( vector from, to; float roll),<br>
+    matrix3 lookat( vector from, to)<br>
+    void rotate( matrix &; float amount; vector axis),<br>
+    void rotate( matrix3 &; float amount; vector axis)<br>
+    void scale( matrix &; vector scale_vector),<br>
+    void scale( matrix3 &; vector scale_vector)<br>
+    void translate( matrix &; vector4 amount),<br>
+    void translate( matrix &; vector amount)<br>
+    void transpose( matrix & ),<br>
+    void transpose( matrix3 & )<br>
+    matrix maketransform(int trs, xyz; vector t, r, s, p)<br>
+    matrix maketransform(int trs, xyz; vector t, r, s)<br>
+    matrix3 maketransform(vector zaxis, xaxis)<br>
+    matrix maketransform(vector zaxis, xaxis; vector translate)<br>
+    vector vtransform(vector v; matrix xform)<br>
+    vector cracktransform(int trs, xyz, c; vector p; matrix xform)</b><br>
+
+    <br>
+    <b>determinant</b> computes the determinant of the matrix<br>
+    <b>dihedral</b> computes the rotation matrix which rotates the
+	vector <b>a</b> onto the vector <b>b</b>.<br>
+    <b>ident</b> computes identity matrices<br>
+    <b>invert</b> inverts the matrix.  If the matrix is singular, the
+	original matrix is returned.<br>
+    <b>lookat</b> computes a rotation matrix to orient the z-axis along
+	the vector (to-from) under the transformation.  If an up
+	vector is specified, this will determine the roll.<br>
+    <b>rotate</b> applies a rotation to the given matrix.  The angle must be
+        given in radians and the axis must be normalized.<br>
+    <b>scale</b> scales the given matrix in three directions
+	simultaneously (X, Y, Z - given by the components of the
+	scale_vector).<br>
+    <b>translate</b> will apply a translation to the given matrix<br>
+    <b>transpose</b> will transpose the given matrix<br>
+    <b>maketransform(int trs, xyz, ...)</b> Builds a general 4x4
+	transform matrix given an order of transformations (trs), an
+	order for rotations (<b>xyz</b>), a vector representing the
+	translation (<b>t</b>), rotation (<b>r</b>), scale (<b>s</b>)
+	(and optionally a pivot (<b>p</b>)).  The specifications for
+	the <b>trs</b> and <b>xyz</b> parameters can be found in
+	<b>$HFS/houdini/vex/include/math.h</b><br>
+    <b>maketransform(vector zaxis, xaxis, ...)</b> Builds either a 3x3
+	transform matrix or a 4x4 transform matrix.  The transform
+	matrix will be constructed so that applying the matrix will
+	transform the z-axis to the axis specified and the x-axis to
+	the axis specified.  The version which returns a 4x4 transform
+	will apply the translation to the 4x4 matrix.  This function
+	is very similar to the <b>lookat</b> function.  The vectors
+	passed in are <i>not</i> normalized meaning that scales should
+	be preserved in construction of the transform.<br>
+     <b>vtransform</b><br>
+	The <b>*</b> operator on a vector multiplied by a transform
+	matrix assumes that the vector represents positional
+	information.  If the vector represents directional
+	information, the <b>vtransform</b> function will do the
+	correct multiplication.  Basically, the translations
+	associated with the 4x4 matrix will not be applied to the
+	transform.<br>
+     <b>cracktransform</b><br>
+	Depending on the value of <b>c</b>, returns the translate
+	(<b>c=0</b>), rotate (<b>c=1</b>), or scale (<b>c=2</b>)
+	component of the transform (<b>xform</b>). The function uses
+	the given transform and rotation orders (<b>trs</b> and
+	<b>xyz</b>) and the given pivot point (<b>pivot</b>) to
+	calculate the return value. The specifications for the
+	<b>trs</b> and <b>xyz</b> parameters can be found in
+	<b>$HFS/houdini/vex/include/math.h</b>.<br>
+
+<hr>
+<a name="geometry">
+<center><h3>Geometric Functions</h3></center>
+</a>
+ <a name="fn_clip">
+ <b>void clip( int &result; vector &p0, &p1; vector min, max)<br>
+    void clip( int &result, vector &p0, &p1; vector4 plane)</b><br>
+    The clip functions will clip the line segment between p0 and p1.
+    The first form will clip the line segment to the bounding box
+    specified by the min & max corner points.<br>
+    The second form will clip the line segment against an arbitrary 3D
+    plane specified by the plane equation (plane.x*x + plane.y*y +
+    plane.z*z + plane.w).<br>
+    If the line is entirely clipped out of the result will be set to
+    0.  otherwise, the values p0 and p1 will be clipped to the
+    constraints specified and the result will be 1.<p>
+ <a name="fn_ptlined">
+ <b> float ptlined(vector P0, P1, Q)</b><br>
+    This function returns the closest distance between the point <b>Q</b> and
+    a finite line segment between points <b>P0</b> and <b>P1</b>.
+
+<hr>
+<a name="render">
+<center><h3>Rendering Functions</h3></center>
+</a>
+ <a name="fn_atten">
+ <b>float atten( float attenuation, distance)</b><br>
+    Computes attenuated falloff.  This is equivalent to:
+    attenuation/(attenuation+distance).<p>
+ <a name="fn_fresnel">
+ <b>vector fresnel( vector i, n; float eta; float &kr, &kt)</b><br>
+ <b>vector fresnel( vector i, n; float eta; float &kr, &kt;
+		    vector &R, &T)</b><br>
+    Computes the fresnel reflection/refraction contributions given an
+    incoming vector, surface normal (both normalized), and an index of
+    refraction (eta).  The amount of reflected light will be returned
+    in Kr, and the amount of transmitted light will be returned in Kt.
+    Optionally, the reflection and transmission vectors can be
+    returned in the R and T variables.  The R & T variables will be
+    normalized vectors on exit.<p>
+    As a note, <b>kt</b> is scaled by the index of refraction
+    (<b>eta</b>) which can cause the value to be non-intuitive.  To
+    change this behaviour, simply divide the <b>kt</b> returned from
+    the <b>fresnel</b> function by the index of refraction passed
+    in.<p>
+
+ <a name="fn_frontface">
+ <b>vector frontface( vector N, I, Nref)<br>
+    vector frontface( vector N, I)</b><br>
+    If <b>dot(I, Nref)</b> is less than zero, N will be negated.  The
+    second form (which doesn't take a reference vector) is only
+    available in the shading contexts, where the <b>Ng</b> variable is
+    used.<p>
+ <a name="fn_reflect">
+ <b>vector reflect( vector direction, normal)</b><br>
+    Returns the vector representing the reflection of the direction
+    against the normal.<p>
+ <a name="fn_refract">
+ <b>vector refract( vector direction, normal; float index)</b><br>
+    Computes the refraction ray given an incoming direction, the
+    normalized normal and an index of refraction<p>
+
+<hr>
+<a name="color">
+<center><h3>Color Functions</h3></center>
+</a>
+ <a name="fn_hsvtorgb">
+ <b>vector hsvtorgb( vector ), vector hsvtorgb( float hue, sat, val)</b><br>
+    Convert HSV color space into RGB color space.  A vector
+    representing the RGB triple is returned.  The hue should be in the
+    range 0 to 1.<p>
+ <a name="fn_luminance">
+ <b>float luminance( vector ), float luminance( float r, g, b)</b><br>
+    Compute the luminance of the RGB color specified by the parameters<p>
+
+ <a name="fn_rgbtohsv">
+ <b>vector rgbtohsv( vector ), vector rgbtohsv( float h, s, v)</b><br>
+    Convert RGB color space to HSV color space.  A vector representing
+    the HSV color is returned.  The hue will be in the range 0 to 1.<p>
+
+<hr>
+<a name="qr_string">
+<center><h1>String Functions in VEX</h1></center>
+</a>
+<menu>
+ <a name="fn_concat">
+ <li><b>string concat(string s1, s2, ...)</b><br>
+     Concatenate all the strings specified to form a single string.
+     This is equivalent (but slightly more efficient when there are
+     more than 2 strings) to adding all the strings together.<p>
+
+ <a name="fn_strlen">
+ <li><b>int strlen(string string)</b><br>
+     This function computes the length of the string given.<p>
+
+ <a name="fn_atoi">
+ <li><b>int atoi(string string)</b><br>
+     <b>float atof(string string)</b><br>
+     These functions convert a string to an integer or float value.<p>
+
+ <a name="fn_match">
+ <li><b>int match(string pattern, subject)</b><br>
+     This function returns 1 if the subject matches the pattern
+     specified, or 0 if the subject doesn't match.  The standard
+     Houdini pattern matching is used.  Multiple patterns may be
+     separated by spaces or commas.  The special characters for
+     matching are:
+     <menu>
+	<li> <b>?</b>  Match any character
+	<li> <b>*</b>  Match any number of characters
+	<li> <b>[list]</b>  Match any of the characters specified in
+	the list.
+     </menu>
+     If a pattern is prefixed by a carat (^), then subjects which
+     match this pattern will be excluded from the match.
+    Examples:<br>
+<listing>
+	"a*"		- Match any string beginning with a.
+	"a*,^aardvark"  - Match any string beginning with a
+	  		  except for aardvark.
+	"[abc]*z"	- Match any string beginning with a,
+	  		  b or c and ending with z.
+	"g*,^geo*"	- Match any string beginning with g, but not
+			  any string beginning with geo.
+</listing>
+</menu>
+
+<hr>
+<a name="qr_noise">
+<center><h1>Noise Functions in VEX</h1></center>
+</a>
+<menu>
+<li><a href="#noise" > Perlin Noise</a>
+<li><a href="#wnoise"> Worley Noise</a>
+<li><a href="#vnoise"> Voronoi Noise</a>
+<li><a href="#onoise"> Original Perlin Noise</a>
+<li><a href="#snoise"> Sparse Convolution Noise</a>
+<li><a href="#anoise"> Alligator Noise</a>
+<li><a href="#hnoise"> Hscript Noise</a>
+<li><a href="#random"> Random Number Generation</a>
+<li><a href="#nrandom"> Non-Deterministic Random Number Generation</a>
+</menu>
+
+The relative costs for computing noise of different types is roughly:
+<center><table border=1 cellpadding=5>
+    <tr bgcolor=black>
+	<td><font color=white><b>Cost</b></font></td>
+	<td><font color=white><b>Noise Type</b></font></td>
+    </tr>
+    <tr>
+	<td><b>1.0</b></td>
+	<td>Perlin Noise</td>
+    </tr>
+    <tr>
+	<td><b>1.1</b></td>
+	<td>Original Perlin Noise</td>
+    </tr>
+    <tr>
+	<td><b>1.8</b></td>
+	<td>Worley Noise</td>
+    </tr>
+    <tr>
+	<td><b>2.1</b></td>
+	<td>Sparse Convolution Noise</td>
+    </tr>
+    <tr>
+	<td><b>2.3</b></td>
+	<td>Alligator Noise</td>
+    </tr>
+</table></center>
+<hr>
+<a name="noise">
+<center><h3>Perlin Noise Functions</h3></center>
+</a>
+There are two forms of Perlin style noise.  A non-periodic noise which
+changes randomly throughout the N-dimensional space and a periodic
+form which repeats itself over a given range of the space.  The
+periodic form can be used to generate patterns which "tile" over
+N-dimensional space (i.e. a noise based texture map which repeats
+seamlessly).<p>
+
+The noise has a range of (0, 1) with a median value of 0.5.  The
+distribution of the noise depends on the dimension, with higher
+dimensions approaching a Gaussian distribution of noise values.<p>
+
+<center><table border=1 cellpadding=5>
+    <tr bgcolor=black>
+	<td><font color=white><b>Dimen.</b></font></td>
+	<td><font color=white><b>Scalar</b></font></td>
+	<td><font color=white><b>Vector</b></font></td>
+	<td><font color=white><b>Periodic Scalar</b></font></td>
+	<td><font color=white><b>Periodic Vector</b></font></td>
+    </tr>
+    <tr>
+	<td> <b>1D</b> </td>
+	<td><b>float<br>noise(float x)</b></td>
+	<td><b>vector<br>noise(float x)</b></td>
+	<td><b>float<br>pnoise(float x;<br><dd>int px)</b></td>
+	<td><b>vector<br>pnoise(float x;<br><dd>int px)</b></td>
+    </tr>
+    <tr>
+	<td><b>2D</b></td>
+	<td><b>float<br>noise(float x, y)</b></td>
+	<td><b>vector<br>noise(float x, y)</b></td>
+	<td><b>float<br>pnoise(float x, y; <br><dd>int px, py)</b></td>
+	<td><b>vector<br>pnoise(float x, y;<br><dd>int px, py)</b></td>
+    </tr>
+    <tr>
+	<td><b>3D</b></td>
+	<td><b>float<br>noise(vector)</b></td>
+	<td><b>vector<br>noise(vector)</b></td>
+	<td><b>float<br>pnoise(vector;<br><dd>int px, py, pz)</br></dd>
+	       float<br>pnoise(vector pos, p)</b></td>
+	<td><b>vector<br>pnoise(vector;<br><dd>int px, py, pz)</br></dd>
+	       vector<br>pnoise(vector pos, p)</b></td>
+    </tr>
+    <tr>
+	<td> <b>4D</b></td>
+	<td><b>float<br>noise(vector4)</b></td>
+	<td><b>vector<br>noise(vector4)</b></td>
+	<td><b>float<br>pnoise(vector4;<br><dd>int px, py,<br><dd>pz, pw)</br></dd>
+	       float<br>pnoise(vector4 pos, p)</b></td>
+	<td><b>vector<br>pnoise(vector4;<br><dd>int px, py,<br><dd>pz, pw)</br></dd>
+	       vector<br>pnoise(vector4 pos, p)</b></td>
+    </tr>
+</table></center>
+<br>
+
+<hr>
+<a name="wnoise">
+<center><h3>Worley Noise Functions</h3></center>
+</a>
+Worley noise works by scattering points randomly through space
+(according to a nice Poisson distribution).  The wnoise functions
+return the distance to the N closest points (where N is either 2 or
+4).  They also return a "seed" which is associated with the first
+closest point.  This seed is pretty much guaranteed to be unique for
+every point (meaning that it's unlikely that two points close by have
+the same seed associated with them).<p>
+The general form of the wnoise functions is:<br>
+<dd><b> void wnoise(position; int &seed; float &f1, &f2)</b><br>
+<dd><b> void wnoise(position; int &seed; float &f1, &f2, &f3, &f4)</b><br>
+
+where position is either a single float (1D noise), two floats (2D
+noise), a vector (3D noise) or a vector4 (4D noise).  The seed is
+returned in the integer parameter, and the N closest points are
+returned in f1...fN (where N is 2 or 4).<p>
+
+The distances returned will be sorted from closest to farthest,
+meaning that the following identity is true:<br>
+<dd><b> f1 &lt= f2 &lt= f3 &lt= f4 </b><br>
+<p>
+It is then possible to combine these distances to generate noise
+patterns.  The noise generated tends to be very "cellular" in nature,
+in fact, one of the nice things is that you can determine "cell"
+boundaries by using the expression:<br>
+<dd><b>if (f2 - f1 < tollerance) ... </b><br>
+which will be true if the point in space is crossing the boundary
+between two cells.<p>
+
+<hr>
+<a name="vnoise">
+<center><h3>Voronoi Noise Functions</h3></center>
+</a>
+Voronoi noise gives almost identical results to the Worley noise
+functions.  However, the Voronoi noise functions have controls over
+jittering (i.e. how randomly the points are scattered through space)
+and also return the actual locations of the two nearest points.
+The Voronoi noise functions are limited to returning the two nearest
+points.<p>
+The general form of the wnoise functions is:<br>
+<dd><b> void vnoise(position, jitter; int &seed; float &f1, &f2; &pos1, &pos2)</b><br>
+
+where position, jitter, pos1 and pos2 are a single float (1D noise),
+two floats (2D noise), a vector (3D noise) or a vector4 (4D noise).
+The seed is returned in the integer parameter, and the distance to
+pos1 and pos2 are returned in f1 and f2.<p>
+
+Though this function is slightly more expensive than <b>wnoise</b>,
+the fact that the actual point posisitions are returned allows the
+function to overcome some of the artifacts of Worley noise.  For
+example, to get even boundaries along the cell boundaries:<br>
+<dd><b>if (f2 - f1 < tollerance * (distance(p1, p2)/(f1+f2))...</b><br>
+which will "normalize" the boundary width based on the distance
+between the two random points in space.<p>
+
+There are also periodic forms of <b>vnoise()</b><p>
+
+For example:
+<listing>
+    // 1D noise
+    float	fp0, fp1, p1x, p1y, p2x, p2y;
+    vector	vp0, vp1;
+    vnoise(s*10, 0.8, seed, f1, f2, fp0, fp1);
+    vnoise(s*10, t*10, 0.8, 0.8, seed, f1, f2, p1x, p1y, p2x, p2y);
+    vnoise(P*10, {.8, .8, .8}, seed, f1, f2, vp0, vp1);
+</listing>
+
+<hr>
+<a name="onoise">
+<center><h3>Original Perlin Noise Functions</h3></center>
+</a>
+These functions are similar to the <a href="#noise">noise</a>
+functions listed above.  However, they are marginally less efficient
+in computation and don't have the same charactaristics.<p>
+The bounds on the noise are roughly (-1, 1).  Only 3D noise is
+supported.  However, this noise has the ability to compute turbulence
+with roughness and attenuation on the noise.<p>
+ <b><li>float onoise(vector pos),<br>
+    <li>vector onoise(vector pos),<br>
+    <li>float onoise(vector pos; int turbulence; float rough, atten),<br>
+    <li>vector onoise(vector pos; int turbulence; float rough, atten),</b><br>
+
+
+<hr>
+<a name="snoise">
+<center><h3>Sparse Convolution Noise Functions</h3></center>
+</a>
+These functions are similar to the <a href="#wnoise">Worley noise</a>
+functions listed above.  The noise returned is based on the weights of
+all of the closest points, with each points's contribution based on a
+meta-ball like rolloff curve.  That is, if the sample point is close
+to the sphere, its contribution will be greater.<p>
+The bounds on the noise are roughly (-1.7, 1.7).  Only 3D noise is
+supported.  However, this noise has the ability to compute turbulence
+with roughness and attenuation on the noise.<p>
+ <b><li>float snoise(vector pos),<br>
+    <li>vector snoise(vector pos),<br>
+    <li>float snoise(vector pos; int turbulence; float rough, atten),<br>
+    <li>vector snoise(vector pos; int turbulence; float rough, atten),</b><br>
+
+<hr>
+<a name="anoise">
+<center><h3>Alligator Noise Functions</h3></center>
+</a>
+These functions are similar to the <a href="#wnoise">Worley noise</a>
+functions listed above.  It is currently not possible to simulate
+alligator noise using the Worley functions, but it's possible to get a
+very similar "look".<p>
+The bounds on the noise are roughly (-1, 1).  Only 3D noise is
+supported.  However, this noise has the ability to compute turbulence
+with roughness and attenuation on the noise.<p>
+ <b><li>float anoise(vector pos),<br>
+    <li>vector anoise(vector pos),<br>
+    <li>float anoise(vector pos; int turbulence; float rough, atten),<br>
+    <li>vector anoise(vector pos; int turbulence; float rough, atten)</b><br>
+
+<hr>
+<a name="hnoise">
+<center><h3>Hscript Noise Functions</h3></center>
+</a>
+These functions mimic the Houdini expression functions <b>noise(),
+snoise(), turb()</b> and <b>sturb()</b>.  They have very similar
+properties to the <a href="#onoise">onoise()</a> and <a
+href="#snoise">snoise</a> functions, but will produce results which
+match the Houdini expression functions exactly.<p>
+ <b><li>float hscript_noise(vector pos),<br>
+    <li>float hscript_turb(vector pos; int turbulence),<br>
+    <li>float hscript_snoise(vector pos),<br>
+    <li>float hscript_sturb(vector pos; int turbulence)</b><br>
+
+<hr>
+<a name="random">
+<center><h3>Random Number Functions in VEX</h3></center>
+</a>
+<b>vector4 random(vector4 position)<br>
+   vector4 random(vector position)<br>
+   vector4 random(float xpos, float ypos)<br>
+   vector4 random(float position)<br>
+   vector4 random(int xpos, int ypos)<br>
+   vector4 random(int position)<br>
+   vector random(vector4 position)<br>
+   vector random(vector position)<br>
+   vector random(float xpos, float ypos)<br>
+   vector random(float position)<br>
+   vector random(int xpos, int ypos)<br>
+   vector random(int position)<br>
+   float random(vector4 position)<br>
+   float random(vector position)<br>
+   float random(float xpos, float ypos)<br>
+   float random(float position)<br>
+   float random(int xpos, int ypos)<br>
+   float random(int position)<br><br>
+   float hscript_rand(float seed)<br>
+</b><p>
+These random functions will generate a random number based on the
+position in N dimensional space (where N is 1 to 4 dimensions).
+Unlike the noise functions which smoothly interpolate the random
+values between integer lattice points, the random functions do not.
+The random() functions are very efficient ways of doing something
+like:  <b><tt>noise(floor(position))</tt></b>.<p>
+
+The <b>hscript_rand()</b> function will produce the exact same
+results as the Houdini expression function of the same name.  This
+function will generate different random values for every floating
+point seed.  This is different that the <b>random()</b> function which
+converts the floating point argument to an integer seed.  The
+<b>hscript_rand()</b> function may produce different results on
+different hardware or operating systems.<p>
+
+<hr>
+<a name="nrandom">
+<center><h3>Non-Deterministic Random Number Functions in VEX</h3></center>
+</a>
+
+<b>vector4 nrandom([string scheme])<br>
+   vector nrandom([string scheme])<br>
+   float nrandom([string scheme])<br>
+</b><p>
+The nrandom() functions are non-deterministic random number generators
+for VEX.  Numbers generated will be between 0 and 1.  These random
+generators will generate the same sequence of random numbers if called
+in precisely the same order.  However, there is no seed involved so it
+is not possible to reproduce the same random number or sequence
+multiple times.<p>
+An optional string argument is taken to determine the random number
+generation method.  The string may be one of:
+<center>
+    <table width=70% border=1>
+    <tr><td><b>default</b></td>
+	<td>Efficient random number generation.  This method is
+	    backward compatible with previous releases of Houdini.</td>
+    </tr>
+    <tr><td><b>mersenne</b><br> or <b>twister</b></td>
+	<td>Uses the Mersenne Twister which has some very nice
+	properties.  This code is based of the work of:<blockquote>
+	Copyright (C) 1997 - 2002, Makoto Matsumoto and Takuji
+	Nishimura,<br>
+	All rights reserved.</blockquote></td>
+    </tr>
+    </table>
+</center>
+
+<hr>
+<a name="qr_image">
+<center><h1>Image Functions in VEX</h1></center>
+</a>
+<menu>
+<li><a href="#color" > Color Images</a>
+<li><a href="#bump"> Bump Images</a>
+<li><a href="#zdepth"> Z-Pic Depth Images</a>
+<li><a href="#image3d"> 3D Image Functions</a>
+<li><a href="#pcloud"> Point Cloud Texture Functions</a>
+</menu>
+
+<h4>General Notes</h4>
+<menu>
+<li> Unless otherwise specified, if the u/v coordinates are not in the
+    range [0,1), the fractional component of the coordinate will be used
+    to access the map.  This means that uv=(0.3, 0.5) will evaluate to the
+    same value as uv=(3.3, -5.5).<p>
+<li> When area sampling an image, if a .rat file is used as a texture,
+    the sampling will use a more efficient and higher quality
+    algorithm for averaging the pixel samples enclosed in the
+    area.<p>
+</menu>
+
+<hr>
+<a name="color">
+<center><h3>Color Image Functions</h3></center>
+</a>
+There are various forms for looking up a color from a disk image.
+There are typically two forms of each function, one which returns a
+vector (RGB values only) and the other which returns a vector4 (RGB and
+Alpha values).  The functions have the forms:<p>
+<menu>
+ <li><b>vector colormap(string filename; vector uvw; ...)</b><br>
+     This function will lookup a single sample of from the filename given.
+     The first two components of the vector are used to reference the
+     image (in 0 to 1 space).  No area sampling is done, but bilinear
+     interpolation is done on raw pixel values.<p>
+
+ <li><b>vector colormap(string filename; float u, v; ...)</b><br>
+     This function will lookup a single sample of from the filename given.
+     The first two components of the vector are used to reference the
+     image (in 0 to 1 space).  No area sampling is done, but bilinear
+     interpolation is done on raw pixel values.<p>
+
+ <li><b>vector colormap(string filename; float u0, v0, u1, v1,<br>
+     <dd>u2, v2, u3, v3; int samples; ...)</b><br>
+     This function will sample the area enclosed by the quadrilateral
+     (uv0),(uv1),(uv2),(uv3).  The quadrilateral will be sampled
+     stochastically using the number of samples passed in (unless the
+     image is a .rat file).  Each sample will use bilinear
+     interpolation on raw pixel values.<p>
+ <li><b>vector colormap(string filename; vector uv, du, dv; int samples; ...)</b><br>
+     This function will filter the area of the image enclosed by the
+     quadrilateral formed by (uv)-(uv+du)-(uv+du+dv)-(uv+dv).  The
+     quadrilateral will be sampled stochastically using the number of
+     samples specified (unless the image is a .rat file).  Each sample
+     will use bilinear interpolation on raw pixel values.<p>
+ <li><b>vector colormap(string filename; vector uv0, uv1, uv2, uv3; ...)</b><br>
+     This function will filter the area of the image enclosed by the
+     quadrilateral formed by (uv0)-(uv1)-(uv2)-(uv3).  The
+     quadrilateral will be sampled stochastically using the number of
+     samples specified (unless the image is a .rat file).  Each sample
+     will use bilinear interpolation on raw pixel values.<p>
+</menu>
+
+There are corresponding versions of each of the above functions which
+return vector4 data types (which include alpha information in the fourth
+component of the vector4).  If an image doesn't have an alpha channel
+associated with it (i.e. a JPEG image), the alpha will be set to 1.
+For example:<br>
+    <dd><b>vector4 colormap(string filename; float u, v; ...)</b><br>
+<p>
+
+There are corresponding versions of each of the above functions which
+do not use bilinear interpolation of the raw pixel values.  These
+function names are prefixed with "raw".  For example:<br>
+    <dd><b>vector rawcolormap(string filename; float u, v; ...)</b><br>
+    <dd><b>vector4 rawcolormap(string filename; float u, v; ...)</b><br>
+<p>
+
+All of the <b>colormap</b> functions are variadic (meaning they take
+variable number of arguments).  Additional arguments can be used to
+specify filtering options for the texture.  These arguments must be
+defined at load time.  That is, the arguments must be constants or
+parameters.  The additional arguments are:<p>
+
+<a name="image_filter">
+<h3>Image Map Filter Arguments</h3>
+<center><table border=1>
+    <tr bgcolor=black>
+	<td><font color=white><b>Keyword</b></font></td>
+	<td><font color=white><b>Values</b></font></td>
+    </tr>
+    <tr>
+	<td> <b>wrap</b>&nbsp;or<br><b>mode</b> </td>
+	<td>
+	    Puts constraints on how the image is evaluated when the
+	    texture coordinates are outside the range 0 to 1.<br>
+	    <dl>
+		<dt> <b>repeat, periodic</b>
+		<dd> The image map will repeat outside the range 0 to 1.
+		     Basically, the integer component of the texture
+		     coordinate is ignored.
+		<dt> <b>clamp, edge, streak</b>
+		<dd> The texture coordinates will be clamped to the
+		     range 0 to 1.  This causes evaluations outside
+		     the range to evaluate to the color at the closest
+		     edge of the image (the border pixels are streaked
+		     outside the range).
+		<dt> <b>black, decal, color</b>
+		<dd> Coordinates outside the range 0 to 1 will
+		     evaluate to the border color (rather than a color in
+		     the image).  The border color is black (i.e. 0)
+		     by default.
+	    </dl>
+    </tr>
+    <tr>
+	<td> <b>uwrap</b>&nbsp;or<br><b>swrap</b>&nbsp;or</br><b>smode</b> </td>
+	<td> Specifies the behaviour when the <b>u</b> coordinate is
+	     outside the range 0 to 1.  The values are the same as
+	     with <b>wrap</b>.
+    </tr>
+    <tr>
+	<td> <b>vwrap</b>&nbsp;or<br><b>twrap</b>&nbsp;or</br><b>tmode</b> </td>
+	<td> Specifies the behaviour when the <b>v</b> coordinate is
+	     outside the range 0 to 1.  The values are the same as
+	     with <b>wrap</b>.
+    </tr>
+    <tr>
+	<td> <b>border</b> </td>
+	<td> Specifies the border color when Black/Decal/Color
+	     wrapping is used.  The value following this argument
+	     should be a float, vector or vector4 argument.  If not
+	     specified, the border color will be black (i.e. 0) by
+	     default.</td>
+    </tr>
+    <tr></tr>
+    <tr></tr>
+    <tr>
+	<td> <b>filter</b> </td>
+	<td> Specifies the type of anti-aliasing filter to be
+	     used for evaluation.  The following argument should be a
+	     string specifying one of:<br>
+	     <center><table cellspacing=0>
+	     <tr>
+		<td><b>point</b></td>
+		<td>- Point sampling (i.e. no filtering)</td>
+	     </tr>
+	     <tr>
+		<td><b>box</b></td>
+		<td>- Box filter (default)</td>
+	     </tr>
+	     <tr>
+		<td><b>gauss</b></td>
+		<td>- Gaussian filter</td>
+	     </tr>
+	     <tr>
+		<td><b>bartlett</b></td>
+		<td>- Bartlett/Triangular filter</td>
+	     </tr>
+	     <tr>
+		<td><b>sinc</b></td>
+		<td>- Sinc sharpening filter</td>
+	     </tr>
+	     <tr>
+		<td><b>hanning</b></td>
+		<td>- Hanning filter</td>
+	     </tr>
+	     <tr>
+		<td><b>blackman</b></td>
+		<td>- Blackman filter</td>
+	     </tr>
+	     <tr>
+		<td><b>catrom</b></td>
+		<td>- Catmull-Rom filter</td>
+	     </tr>
+	    </table></center>
+	</td>
+    </tr>
+    <tr>
+	<td> <b>xfilter</b>&nbsp;or<br>
+	     <b>sfilter</b>&nbsp;or<br>
+	     <b>ufilter</b> </td>
+	<td> Specifies the filter for the x direction.  The filter can
+	     be any one of those listed above.</td>
+    </tr>
+    <tr>
+	<td> <b>yfilter</b>&nbsp;or<br>
+	     <b>tfilter</b>&nbsp;or<br>
+	     <b>vfilter</b> </td>
+	<td> Specifies the filter for the y direction.  The filter can
+	     be any one of those listed above.</td>
+    </tr>
+    <tr>
+	<td> <b>width</b> </td>
+	<td> Specifies the filter width in both x and y directions.
+	     The following argument should be a float value. </td>
+    </tr>
+    <tr>
+	<td><b>swidth</b>&nbsp;or<br>
+	    <b>xwidth</b>&nbsp;or<br>
+	    <b>uwidth</b> </td>
+	<td> Specifies the filter width only in the x direction.</td>
+    </tr>
+    <tr>
+	<td><b>twidth</b>&nbsp;or<br>
+	    <b>ywidth</b>&nbsp;or<br>
+	    <b>vwidth</b> </td>
+	<td> Specifies the filter width only in the y direction </td>
+    </tr>
+    <tr>
+	<td><b>extrapolate</b><br>
+	<td> Specifies whether derivative extrapolation should be used
+	when computing anti-aliasing information.  Extrapolation of
+	derivatives is on by default.  The argument should be either 0
+	or 1.</td>
+    </tr>
+    <tr>
+	<td><b>lerp</b><br>
+	<td> Specifies whether RAT files should interpolate between
+	different MIP levels.  By default, this is turned off.
+	Turning interpolation on will help remove discontinuities when
+	different MIP levels of a .rat file are accessed.  However,
+	the results of texture evaluation will be slightly softer
+	(i.e. blurrier) and will take more time.  The argument should
+	be either 0 or 1.</td>
+    </tr>
+</table></center>
+
+<br>Examples of specifying filter parameters:</br>
+<listing>
+    colormap(map, u, v, "smode", "decal", "tmode", "repeat", "border", {.1,1,1});
+    colormap(map, u, v, "mode", "clamp", "width", 1.3);
+    colormap(map, u, v, "filter", "gauss", "width", 1.3, "mode", "repeat");
+</listing>
+<p>
+
+<hr>
+<a name="bump">
+<center><h3>Bump Map Functions</h3></center>
+</a>
+<menu>
+ <b><li>void bumpmap( string filename;  float &du, &dv; vector uvw)
+    <li>void bumpmapR( string filename; float &du, &dv; vector uvw)
+    <li>void bumpmapG( string filename; float &du, &dv; vector uvw)
+    <li>void bumpmapB( string filename; float &du, &dv; vector uvw)
+    <li>void bumpmapA( string filename; float &du, &dv; vector uvw)
+    <li>void bumpmapL( string filename; float &du, &dv; vector uvw)<br>
+    <br>
+    <li>void bumpmap( string filename;  float &du, &dv; float u, v)
+    <li>void bumpmapA( string filename; float &du, &dv; float u, v)
+    <li>void bumpmapB( string filename; float &du, &dv; float u, v)
+    <li>void bumpmapG( string filename; float &du, &dv; float u, v)
+    <li>void bumpmapL( string filename; float &du, &dv; float u, v)
+    <li>void bumpmapR( string filename; float &du, &dv; float u, v)
+ </b>
+</menu>
+ <p>
+
+ Bump maps will return the color gradient of the image in the
+ <b>du/dv</b> parameters.  There are 6 different forms of the bump map
+ function differentiated by the trailing character of the function
+ name.  The functions will compute the gradient based on:
+    <menu>
+	<li> Using a pre-computed bumpmap (i.e. output from ibumpmap)
+	<li> Using the gradient in the red channel (<b>bumpmapR</b>)
+	<li> Using the gradient in the green channel (<b>bumpmapG</b>)
+	<li> Using the gradient in the blue channel (<b>bumpmapB</b>)
+	<li> Using the gradient in the alpha channel (<b>bumpmapA</b>)
+	<li> Using the gradient of the luminance (<b>bumpmapL</b>)
+    </menu>
+ Bilinear interpolation is done on the raw pixel values.  Though,
+ there are versions of the above functions which do not use bilinear
+ interpolation.  These non-interpolating functions have their names
+ prefixed with "raw".  For example:<br>
+    <dd><b>rawbumpmapG(string filename; float &du, &dv; vector uvw);</b><br>
+ <p>
+ The du/dv parameters will be in the range (-1, 1).
+
+<hr>
+<a name="zdepth">
+<center><h3> Z-Pic Depth Image Functions</h3></center>
+</a>
+ <b>float depthmap(string filename; vector uvw)<br>
+ float depthmap(string filename; float u, v)<br>
+ float shadowmap(string filename; vector Pndc; float spread, bias, quality)</b><br>
+ <p>
+ The <b>depthmap</b> functions work on an image which was rendered as a z-depth
+ image from mantra.  They return the floating point distance from the
+ camera to the pixel in question.  There is no area sampling done when
+ sampling depth values.  As well, if the u/v values are not in the
+ range 0 to 1, a value of 1E6 will be returned (indicating a "far"
+ value).<p>
+ The <b>shadowmap</b> function will treat the depth map as if the
+ image were rendered from a light source.  The Pndc parameter represents
+ the position of the point being shaded in the NDC space of the light's
+ projection.  The spread is a softness control on the shadow, while
+ the bias controls how accurate the depth samples need to be.  The
+ quality is a general control to increase/decrease sampling.  A
+ quality of 1 is typical quality.  The fractional amount of
+ illumination which reaches the sample point will be returned.  For
+ example, if the point is fully in shadow, the return value will be 0,
+ if it is fully illuminated, the return value will be 1.<p>
+<hr>
+
+<a name="image3d">
+<center><h3> 3D Image Functions</h3></center>
+</a>
+
+<p>
+<menu>
+<a name="fn_photonmap">
+ <li><b>vector photonmap(string mapname; vector P, N, ...)</b><br><br>
+</a>
+    The <b>photonmap</b> function will evaluate a photon map and
+    return the resulting color information.  The function takes
+    optional arguments to define the behaviour of the evaluation:
+
+    <a name="photon_options">
+     <center><table border=1 width=90%>
+	<tr><td>"nphotons" <num_photons></td>
+	    <td>Specifies the number of photons to use in the
+	    filtering process.  This specifies the maximum number of
+	    photons which will be filtered to produce the final
+	    color.<br>
+	    The default is 50 photons.
+	    </td></tr>
+	
+	<tr><td>"type" <brdf_type></td>
+	    <td>This parameter specifies how the photons should be
+	    interpreted.  There are two possibilities for the type of
+	    photon filtering:
+	    <ol>
+		<li> <b>diffuse</b> - Each photon will be scaled by
+		    the Lambertian cosine law.
+		<li> <b>irradiance</b> - The raw energy of each photon
+		    will be used (without any filtering).
+	    </ol>
+	    The default is "diffuse".
+	    </td></tr>
+
+	<tr><td>"error" <error_tolerance></td>
+	    <td>Specifies the "accuracy" for the lookup of photons in
+	    the photon map.  This parameter determines the search
+	    radius to find photons in the map.  Larger numbers will
+	    result in less accurate evaluations (i.e. smaller areas of
+	    the map will be scanned), while smaller number will result
+	    in larger areas of the map being scanned.  The cost of
+	    filtering goes up as the error tolerance is decreased
+	    (meaning renders will take longer).<br>
+	    The default 0.001.
+	    </td></tr>
+	
+	<tr><td>"filter" <filter_type></td>
+	    <td>Specifies the "filter" for computing the irradiance
+	    from photons.  When evaluating photon contributions, the
+	    incoming radiance is divided by the area that the photons
+	    cover (to determine the flux).  The area can be computed
+	    in three different fashions:
+	    <ol>
+		<li> <b>sphere</b> - The minimum bounding sphere of
+		    all photons will be used to estimate the area.
+		    This estimator will result in soft "blobby"
+		    looking photon evaluation.  It can be inaccurate
+		    near edges of primitives.
+		<li> <b>convex</b> - The convex hull of all photons is
+		    used to estimate the area.  This estimator will
+		    result in slightly "sharper" edges in the photon
+		    evaluation, and can be more accurate near edges of
+		    primitives.  However, since there are sharper
+		    edges, this estimator can produce very noisy
+		    evaluations.
+		<li> <b>direct</b> - When evaluating direct
+		    illumination, the projected area of each photon is
+		    used independently of all other photons.  This
+		    method causes very little blending and should only
+		    be used when evaluting direct illumination from
+		    photon maps.
+	     </ol>
+	     The default is "sphere".
+	    </td></tr>
+	
+	
+     </table></center>
+     Example:
+     <listing>
+	Cf = photonmap(map, P, normalize(frontface(N, I)),
+			"nphotons", 100,
+			"type", "diffuse",
+			"error", 0.05,
+			"filter", "convex);
+    </listing>
+    <p>
+
+ <!--
+ <a name="fn_photonirradiance">
+ <li><b>vector photonirradiance(string mapname; vector P, N, ...)</b><br><br>
+    The <b>photonirradiance</b> function will evaluate only the
+    closest photon to the point requested.  The <a href="#photon_options">
+    optional arguments</a> are largely ignored for this function.
+    However, if the "nphotons" optional argument is 0, then the color
+    returned will be 0.
+    <p>
+ -->
+
+ <a name="fn_texture3d">
+ <li><b>float texture3d(string filename, channel; vector P, ...);</b><br>
+     <b>vector texture3d(string filename, channel; vector P, ...);</b><br>
+     <b>vector4 texture3d(string filename, channel; vector P, ...);</b><br><br>
+
+     Returns the value of the 3d image at the position specified by
+     <b>P</b>.  If <b>P</b> is outside of the bounding box of the
+     image, the value returned will be 0.  If the channel specified
+     contains more values than the return type (i.e. a vector channel
+     when a float return type is desired), the first component of the
+     vector will be returned.  If the channel specified contains fewer
+     values than the return type, the missing components will be
+     filled with the last valid channel.<p>
+     Texture files will be searched for in the path specified by the
+     <b>HOUDINI_TEXTURE_PATH</b> environment variable.<p>
+
+     Additional arguments may be specified to control the evaluation:<br>
+     <center><table border=1 width=90%>
+	<tr><td>"filter" <filter_name></td>
+	    <td>Specifies the <a href="#image_filter">filter</a> for evaluation.
+	    </td></tr>
+
+	<tr><td>"width" <filter_width></td>
+	    <td>Specifies the filter width for evaluation.
+	    </td></tr>
+    </table></center><p>
+
+ <a name="fn_gradient3d">
+ <li><b>vector gradient3d(string filename, channel; vector P, ...);</b><br><br>
+
+     Returns the gradient of a single channel texture image at the
+     position specified by <b>P</b>.  If <b>P</b> is outside of the
+     bounding box of the image, the value returned will be 0.  If the
+     channel specified contains more values than the return type (i.e.
+     a vector channel when a float return type is desired), the
+     gradient of the first component of the vector will be returned.
+
+     Additional arguments may be specified to control the evaluation:<br>
+     <center><table border=1 width=90%>
+	<tr><td>"filter" <filter_name></td>
+	    <td>Specifies the <a href="#image_filter">filter</a> for evaluation.
+	    </td></tr>
+
+	<tr><td>"width" <filter_width></td>
+	    <td>Specifies the filter width for evaluation.
+	    </td></tr>
+    </table></center><p>
+
+ <a name="fn_intersect3d">
+ <li><b>int intersect3d(string filename, channel; vector &p0, p1, float density, ...);</b><br><br>
+
+     This function intersects a ray (with it's origin at p0 and
+     extending to p1), against a 3d texture image.  The ray will
+     intersect the iso-surface of the texture at the density
+     specified.  If no intersection is found, then 0 is returned.<p>
+
+     The point <b>p0</b> will be modified regardless of whether an
+     intersection is found or not.<p>
+
+     Additional arguments may be specified to control the evaluation:<br>
+     <center><table border=1 width=90%>
+	<tr><td>"filter" <filter_name></td>
+	    <td>Specifies the <a href="#image_filter">filter</a> for evaluation.
+	    </td></tr>
+
+	<tr><td>"width" <filter_width></td>
+	    <td>Specifies the filter width for evaluation.
+	    </td></tr>
+    </table></center><p>
+
+  <a name="fn_integrate3d">
+  <li>
+      <b>float integrate3d(string filename, channel;
+			 vector p0, p1, ...)</b><br>
+      <b>vector integrate3d(string filename, channel;
+			 vector p0, p1, ...)</b><br>
+      <b>vector4 integrate3d(string filename, channel;
+			 vector p0, p1, ...)</b><br><br>
+     This function will "integrate" the 3d image along the line
+     specified by <b>p0</b> and <b>p1</b>.<p>
+     Additional arguments may be specified to control the integration:<br>
+     <center><table border=1 width=90%>
+	<tr><td>"maxlimit" <value></td>
+	    <td>Terminate the integration if the computed sum exceeds
+	    the value specified.  This option should not be used if
+	    the 3d image contains both positive and negative values as
+	    the integration my terminate prematurely.<p>
+	    Caveat:  The vector forms of this function don't deal with
+	    termination as precisely as the scalar form.
+	    </td></tr>
+
+	<tr><td>"accuracy" <value></td>
+	    <td>Determine the accuracy of integration.  If the
+	    accuracy is less than 1, limited filtering is done.  If
+	    the accuracy is greater than 1 higher quality sampling is
+	    performed.  The default value is 0.  Please be cautioned
+	    that accurate filtering can be 10 times as expensive for
+	    even simple data sets.
+	    </td></tr>
+	
+	<tr><td>"iscale" <value></td>
+	    <td>Scale the value of the image by the value specified
+	    during the integration
+	    </td></tr>
+
+	<tr><td>"filter" <filter_name></td>
+	    <td>Specifies the <a href="#image_filter">filter</a> for evaluation.
+	    </td></tr>
+
+	<tr><td>"width" <filter_width></td>
+	    <td>Specifies the filter width for accurate integration.
+	    </td></tr>
+	
+    </table></center>
+    
+    <br>For example:
+    <listing>
+	<tt>shadow_amount = integrate3d(file, "density", P, L, "maxlimit", 1, "iscale", shadow_density);</tt>
+    </listing>
+
+ <a name="fn_texture3dBox">
+ <li><b>void texture3dBox(string filename, channel;
+			 vector &min, &max)</b><br><br>
+
+     This function queries the 3D texture map specified and returns
+     the bounding box information of the file.  The bounding box is
+     returned in the vectors <b>min</b> and <b>max</b>.<p>
+
+ <a name="fn_integrate3dClip">
+ <li><b>int integrate3dClip(string filename, channel;
+			    vector &p0, p1; float limit, ...)</b><br><br>
+
+     The <b>integrate3dClip</b> function integrates along the ray
+     described by <b>p0</b> and <b>p1</b> where "interesting" things
+     start happening in a given I3D texture.  It works by marching
+     along the given ray, integrating the value of <b>channel</b> in
+     the 3d texture space until the sum of the integration reaches
+     the <b>limit</b>.  At that point, it stops and sets the value of
+     <b>p0</b> to be the point where <b>limit</b> was reached and
+     returns 1.<p>
+
+     If the <b>limit</b> is not reached during the integration, then
+     the function will return 0 and the value of <b>p0</b> will be set to
+     the value of <b>p1</b>.<p>
+
+     Caveats:
+     <menu>
+     <li> If 3d textures have negative values, these will contribute
+	 to the integration.
+     <li> When clipping against vector channels, integration is
+	 terminated when any component of the <b>channel</b> reaches
+	 the <b>limit</b>.
+     </menu>
+
+     This function can be used to "skip" un-interesting parts of the
+     3D texture map when doing ray-marching through the map.<p>
+
+     Additional arguments may be specified to control the
+     integration:<br>
+     <center><table border=1 width=90%>
+	<tr><td>"accuracy" <value></td>
+	    <td>Determine the accuracy of integration.  If the
+	    accuracy is less than 1, limited filtering is done.  If
+	    the accuracy is greater than 1 higher quality sampling is
+	    performed.  The default value is 0.  Please be cautioned
+	    that accurate filtering can be 10 times as expensive for
+	    even simple data sets.
+	    </td></tr>
+	
+	<tr><td>"iscale" <value></td>
+	    <td>Scale the value of the image by the value specified
+	    during the integration
+	    </td></tr>
+
+	<tr><td>"filter" <filter_name></td>
+	    <td>Specifies the <a href="#image_filter">filter</a> for evaluation.
+	    </td></tr>
+
+	<tr><td>"width" <filter_width></td>
+	    <td>Specifies the filter width for accurate integration.
+	    </td></tr>
+	
+    </table></center>
+    
+     <br>For example:
+     <listing>
+	clipped = integrate3dClip(file, "density", eye, ps, .001);
+	if (clipped)
+	{
+	    // eye will be moved to the start of the "interesting"
+	    // area.
+	    raymarch(eye, ps);
+	}
+      </listing>
+    <p>
+
+ </menu>
+
+<hr>
+<a name="pcloud">
+<center><h3> Point Cloud Texture Functions</h3></center>
+</a>
+The following functions act on point cloud textures.  Point cloud
+textures may either be specified as a tiled block file (tbf) or as a
+geometry file.<p>
+
+A point cloud texture is simply a collection of points in space.  Each
+point has several <b>channels</b> associated with the texture.  For
+example, the texture might have a <b>P</b> channel to indicate the
+position of the point, or a <b>temperature</b> to indicate the
+temperature at the point.<p>
+
+When a geometry file is used as a source for the point cloud, each
+point attribute is available as a read-only channel.<p>
+
+It is also possible to create temporary read-write channels.  These
+channels allow information to be stored in the point cloud and re-used
+by later computations.  The information in these temporary channels is
+maintained while the texture is still referenced by any VEX function.
+That is, if two VEX functions reference the same texture, any
+temporary channels will be shared between the two functions.  If the
+texture is flushed from the texture cache, then all temporary channels
+will also be flushed and information will need to be re-computed.<p>
+
+Given a query point in space, the VEX functions provided allow the
+user to find the closest points and operate on them.<p>
+
+An example of how a point cloud texture might be used is in a simple
+occlusion map caching shader.
+ <listing>
+    surface
+    store_occlusion()
+    {
+	int		handle;
+	vector		qP, qN;
+	vector		pp, nn;
+	vector		occ;
+	float		sum;
+
+	qP = wo_space(P);	// Transform into object space
+	qN = wo_nspace(N);
+	handle = pcopen(map, "P", qP, "N", qN, .5, 50);
+	// Iterate over all of the points which don't have an "occlusion"
+	// value stored.
+	while (pcunshaded(handle, "occlusion"))
+	{
+	    pcimport(handle, "P", pp);	// Find the point's P value
+	    pcimport(handle, "N", nn);	// Find the point's N value
+	    pp = ow_space(pp);
+	    nn = normalize(frontface(ow_nspace(nn), I));
+	    // Compute occlusion at the map point
+	    occ = occlusion(pp, nn, "background", {1,1,1});
+	    // Store the occlusion value in the map.
+	    pxexport(handle, "occlusion", occ);
+	}
+	Cf = 0;
+	sum = 0;
+	while (pciterate(handle))
+	{
+	    pcimport(handle, "occlusion", occ);
+	    Cf += occ;
+	    sum++;
+	}
+	Cf += 1/sum;
+    }
+  </listing>
+
+Another example, might be a simple image re-construction filter.  This
+filter takes a point cloud and filters the points to re-construct an
+image:
+  <listing>
+    cop
+    recon(string map=""; float z=0)
+    {
+	int	handle;
+	vector	pp, clr;
+	pp = set(X, Y, z);
+	handle = pcopen(map, "P", pp, .1, 10);
+	clr = pcfilter(handle, "Cd");
+	assign(R, G, B, clr);
+    }
+  </listing>
+
+<menu>
+ <a name="fn_pcopen">
+ <li><b>int pcopen(string filename, Pchannel; vector P; float radius, int maxpoints, ["prefix", channel_prefix] )</b><br>
+ <li><b>int pcopen(string filename, Pchannel; vector P; string Nchannel; vector N; float radius, int maxpoints, ["prefix", channel_prefix] )</b><br>
+ This function returns a <b>handle</b> to the file specified.  The
+ file may use the op: syntax to reference SOP geometry in the OP
+ contexts.  The <b>Pchannel</b> parameter indicates the channel in the
+ texture which contains the position to be searched.  The <b>P</b>
+ parameter specifies the search query position.  Only the
+ <b>maxpoints</b> closest points within the sphere of the given
+ <b>radius</b> will be found.<p>
+ Optionally, the <b>Nchannel</b> specifies a direction channel and the
+ <b>N</b> parameter specifies a search direction.  Only points which
+ are pointed in the same direction (i.e. <i>dot(N, Npoint) &gt 0</i>)
+ will be found in the search.<p>
+ The <b>prefix</b> parameter is used when referencing tiled block
+ files and is used to specify the channel prefix used in the file.<p>
+
+ <a name="fn_pcclose">
+ <li<b>void pcclose(int &handle);</b></br>
+ This function closes the handle associated with a <b>pcopen</b>
+ function.  VEX will close handles automatically, however, it's good
+ practice to call <b>pcclose</b>.  When there are <b>pcopen</b> calls
+ made from within a loop, VEX may consume additional memory if
+ <b>pcclose</b> isn't called when the handle is no longer required.<p>
+
+ <a name="fn_pcfarthest">
+ <li><b>float pcfarthest(int handle)</b><br>
+ Returns the distance to the farthest point found in the search
+ performed by <b>pcopen</b>.  If no points were found, the function
+ will return a very large value (1e37)<p>
+
+ <a name="fn_pcfilter">
+ <li><b>float pcfilter(int handle; string channel)</b><br>
+     <b>vector pcfilter(int handle; string channel)</b><br>
+     <b>vector4 pcfilter(int handle; string channel)</b><br>
+     <b>matrix3 pcfilter(int handle; string channel)</b><br>
+     <b>matrix pcfilter(int handle; string channel)</b><br>
+ Filters the points found using a simple reconstruction filter.  This
+ function is roughly equivalent to:
+ <listing>
+    float pcfilter(int handle; string channel)
+    {
+	float	sum, w, d;
+	float	value, result = 0;
+	while (pciterate(handle))
+	{
+	    pcimport(handle, "point.distance", d);
+	    pcimport(handle, channel, value);
+	    w = 1 - smooth(0, radius, d);
+	    sum += w;
+	    result += w * value;
+	}
+	result /= sum;
+	return result;
+    }
+  </listing><p>
+
+  <a name="fn_pciterate">
+  <li><b>int pciterate(int handle)</b><br>
+  This function can be used to iterate over all the points which were
+  found in the <b>pcopen</b> query.  The function returns 1 while
+  there are points left in the iteration loop, or 0 when there are no
+  further points.<p>
+  <b>WARNINGS:</b>
+  <menu>
+    <li>It is not possible to nest <b>pcunshaded</b> or
+	<b>pciterate</b> loops for the same <b>handle</b>.  That is,
+	for a single <b>pcopen</b> call, only one <b>pcunshaded</b> or
+	<b>pciterate</b> loop may be entered.
+    <li> Computations involving derivatives inside pcunshaded() loops
+	may have slightly different results.  If derivatives are
+	required for variables which aren't set by <b>pcimport</b> it
+	may be better to pre-compute the derivatives before the
+	<b>pcunshaded</b> loop is entered.
+  </menu>
+  <p>
+
+  <a name="fn_pcunshaded">
+  <li><b>int pcunshaded(int handle; string channel)</b><br>
+  This function can be used to iterate over all of the points of a
+  read-write channel which haven't had any data written to the
+  <b>channel</b> yet.  The function works just like the
+  <b>pciterate</b> function in that 1 is returned while there are
+  still points left unshaded.<p>
+  <b>WARNINGS:</b>
+  <menu>
+    <li>This function will not work correctly when used in multi-threaded OPs.
+    <li>It is not possible to nest <b>pcunshaded</b> or
+	<b>pciterate</b> loops for the same <b>handle</b>.  That is,
+	for a single <b>pcopen</b> call, only one <b>pcunshaded</b> or
+	<b>pciterate</b> loop may be entered.
+    <li> Computations involving derivatives inside pcunshaded() loops
+	may have slightly different results.  If derivatives are
+	required for variables which aren't set by <b>pcimport</b> it
+	may be better to pre-compute the derivatives before the
+	<b>pcunshaded</b> loop is entered.
+  </menu>
+  <p>
+
+  <a name="fn_pcimport">
+  <li><b>int pcimport(int handle; string channel; int &value)</b><br>
+      <b>int pcimport(int handle; string channel; float &value)</b><br>
+      <b>int pcimport(int handle; string channel; vector &value)</b><br>
+      <b>int pcimport(int handle; string channel; vector4 &value)</b><br>
+      <b>int pcimport(int handle; string channel; matrix3 &value)</b><br>
+      <b>int pcimport(int handle; string channel; matrix &value)</b><br>
+  Inside either a <b>pciterate</b> or a <b>pcunshaded</b> loop, these
+  functions can be used to import channels of the texture.  The
+  function will return 1 if the import succeeded or 0 if the import
+  failed (this is usually due to a missing channel in the texture).<p>
+  There are two special channels which can be imported
+  <menu>
+    <li> <b>point.number</b> The number of the point being processed
+    <li> <b>point.distance</b> The distance of the point being processed from the query point.
+  </menu><p>
+
+  <a name="fn_pcexport">
+  <li><b>int pcexport(int handle; string channel; int value)</b><br>
+      <b>int pcexport(int handle; string channel; float value)</b><br>
+      <b>int pcexport(int handle; string channel; vector value)</b><br>
+      <b>int pcexport(int handle; string channel; vector4 value)</b><br>
+      <b>int pcexport(int handle; string channel; matrix3 value)</b><br>
+      <b>int pcexport(int handle; string channel; matrix value)</b><br>
+  Inside either a <b>pciterate</b> or a <b>pcunshaded</b> loop, these
+  functions can be used to export data into a read-write channel of
+  the texture.  The function will return 1 if the export succeeded or
+  0 if the export failed.  The export will fail if the channel is not
+  a read-write channel.<p>
+</menu>
+
+<hr>
+<a name="qr_geo">
+<center><h1>Geometry Functions in VEX</h1></center>
+</a>
+The following functions act on the geometry stored within (filename).
+Allowable file formats are either geo or bgeo.  The geometry specified
+by the filename is cached in Houdini/Mantra.  The <b>geocache</b>
+command in Houdini can be used to control the caching of the geometry.
+<menu>
+ <a name="fn_getbounds">
+ <li><b>int getbounds( string filename; vector &min, &max )</b><br>
+    Returns the bounding box of the geometry specified by the
+    filename.  The point corresponding to the minimum corner of the
+    bounding box will be returned in <b>min</b>, while the maximum
+    will be in <b>max</b>.  The function returns 1 if successful, or 0
+    if it wasn't possible to load the geometry.<p>
+
+ <a name="fn_npoints">
+ <li><b>int npoints( string filename )</b><br>
+    Returns the number of points for all primitives in the geometry
+    file<p>
+
+ <a name="fn_nprimitives">
+ <li><b>int nprimitives( string filename )</b><br>
+    Returns the number of primitives in the geometry file<p>
+
+ <a name="fn_intersect">
+ <li><b>int intersect( string filename; vector orig, dir, &p;
+			float &u, &v)</b><br>
+    This function computes the intersection of the specified ray with
+    the geometry.  The primitive number is returned or in the result
+    of an error, has a value of -1.  The world position of the
+    intersection location is stored in (p).  The corresponding
+    parametric location of the intersection is stored in (u),(v). In
+    the case of multiple intersections, the intersection closest to
+    the ray origin is used.<p>  
+    NOTE:  When intersections are performed against metaball geometry,
+    it is impossible to determine the primitive number of the metaball
+    which was hit.  In this case, the function returns the number of
+    primitives in the intersection geometry.<p>
+
+ <a name="fn_metaweight">
+ <li><b>float metaweight( string filename; vector p)</b><br>
+    Returns the metaweight of the geometry at position (p).<p>
+
+ <a name="fn_metamarch">
+ <li><b>int metamarch(int &index; string filename; vector &p0, &p1;
+           float displace_bound)</b><br>
+    This function will take the ray defined by <b>p0</b> and <b>p1</b>
+    and partition the ray into zero or more sub-intervals.  Each
+    interval will intersect a cluster of metaballs from the file
+    <b>filename</b>.  The interval may not actually intersect any
+    metaballs, but will provide fairly tight bounds on the cluster.
+    This allows a ray-marching algorithm to "skip" uninteresting areas
+    and only focus on marching through areas where metaballs might be
+    found.<p>
+    The first time the function is called, the <b>index</b> parameter
+    should be set to <b>-1</b> and the <b>p0</b> and <b>p1</b>
+    variables should be set to the end-points of the ray.  If an
+    interval was found, the function will return 1 and the <b>p0</b>
+    and <b>p1</b> variables will be set to the end-points of the
+    interval.  Otherwise the function will return 0 and the
+    <b>p0/p1</b> variables will be unchanged.<p>
+    On subsequent calls to the function, the value of <b>index</b>
+    will be modified by the function and any additional interesting
+    intervals will be returned.  Thus, the function can be used to
+    ray-march through just areas of interest, skipping the dead space.
+
+<listing>
+      int     index;
+      vector  p0, p1;
+
+      // Initialize input values
+      index = -1;
+      p0 = Eye; p1 = P;
+      result = 0;
+      while (metamarch(index, metaball_file, p0, p1, displace_bound))
+      {
+          result += ray_march(metaball_file, p0, p1);
+      }
+</listing>
+
+ <a name="fn_metastart">
+ <li><b>int metastart(string filename; vector p)<br>
+        int metanext(int handle)<br><br>
+	int metaimport(int handle; string attrib; vector P; float &value)<br>
+	int metaimport(int handle; string attrib; vector P; vector &value)<br>
+	int metaimport(int handle; string attrib; vector P; vector4 &value)<br>
+	int metaimport(int handle; string attrib; vector P; matrix3 &value)<br>
+	int metaimport(int handle; string attrib; vector P; matrix &value)</b><br><br>
+
+    These functions allow querying of metaball geometry on a
+    per-metaball basis.  The semantics are that <b>metastart</b> will
+    open a geometry file and return a "handle" to the geometry.  The
+    handle contains a list of all the metaballs of interest at the
+    position specified in the metastart() function.  The
+    <b>metanext</b> function will move the handle to the next metaball
+    for evaluation.  The <b>metaimport</b> function provides a
+    mechanism to query attributes of the metaball.  There are
+    currently three "special" attributes which can be queried:<br>
+
+    <center><table border=1 cellpadding=0 cellspacing=0 width=60%>
+      <tr bgcolor=black>
+	<td><font color=white>Name</font></td>
+	<td><font color=white>Meaning</font></td>
+	<td><font color=white>Data Type</font></td>
+      </tr>
+      <tr><td> "meta:density" </td>
+	  <td> The density of the current metaball </td>
+	  <td> <b>float</b> </td>
+      </tr>
+      <tr><td> "meta:prim" </td>
+	  <td> The primitive number of the current metaball </td>
+	  <td> <b>float</b> </td>
+      </tr>
+      <tr><td> "meta:transform" </td>
+	  <td> The transform associated with the current metaball.
+	       Applying the inverse of this transform will transform a
+	       point into the "space" of the metaball. </td>
+	  <td> <b>matrix</b> </td>
+      </tr>
+    </table></center>
+
+    For example, the <a href="#fn_metaweight">metaweight</a> function
+    can be expressed in the following way:
+    <listing>
+	float
+	metaweight(string file; vector P)
+	{
+	    int		handle;
+	    float	density, tmp;
+
+	    density = 0;
+	    handle = metastart(file, P);
+	    while (metanext(handle))
+	    {
+		if (metaimport(handle, "meta:density", P, tmp))
+		    density += tmp;
+	    }
+	    return density;
+	}
+    </listing>
+
+    Note:  The attributes evaluated are un-premultiplied by the weight
+    of the metaball at the position and must be multipled for
+    blending.  For example, to evaluate a vector attribute (say color)
+    on metaballs, the following function could be used:
+    <listing>
+	vector
+	meta_attribute(string file, attrib_name; vector P)
+	{
+	    int		handle;
+	    vector	result, tmp;
+	    float	density;
+
+	    handle = metastart(file, P);
+	    result = 0;
+	    while (metanext(handle))
+	    {
+		if (metaimport(handle, "meta:density", P, density))
+		{
+		    if (metaimport(handle, attrib_name, P, tmp))
+			result += density * tmp;
+		}
+	    }
+	    return result;
+	}
+    </listing>
+
+    Note: In the <b>image3d</b> context, there is a default metaball
+    geometry (specified by the -g option on the command line to the
+    <b>i3dgen</b> program).  If the filename is an empty string, the
+    default geometry will be used.<p>
+
+ <a name="fn_prim_normal">
+ <li><b>vector prim_normal( string filename; int prim_number;float u, v)</b><br>
+    Returns the normal of the primitive (prim_number) at parametric
+    location (u), (v).<p>
+
+ <a name="fn_prim_attribute">
+ <li><b>int prim_attribute(string filename;int &adata; string att;
+			    int pn; float u, v)</b><br>
+     <b>int prim_attribute(string filename;float &adata; string att;
+			    int pn; float u, v)</b><br>
+     <b>int prim_attribute(string filename;vector &adata; string att;
+			    int pn; float u, v)</b><br>
+     <b>int prim_attribute(string filename;vector4 &adata; string att;
+			    int pn; float u, v)</b><br>
+     <b>int prim_attribute(string filename;matrix3 &adata; string att;
+			    int pn; float u, v)</b><br>
+     <b>int prim_attribute(string filename;matrix &adata; string att;
+			    int pn; float u, v)</b><br>
+
+    Evaluates the attribute string (att) for primitive (pn) at the
+    parametric location (u), (v).  The result is stored in (adata),
+    which can be one of several different forms.  In either case, if
+    the attribute data is of a smaller size than (adata) an error of 0
+    is returned. For example if attribute Cd is a vector, (adata)
+    cannot be a matrix or any another structure which can store more
+    than 3 values.  prim_attribute returns 1 upon successful
+    completion.<p>
+</menu>
+<hr>
+
+<a name="qr_xform">
+<center><h1>Transformation Functions in VEX</h1></center>
+</a>
+
+The transformation functions are typically only used in the context of
+Rendering.  When rendering, all variables are defined in "camera"
+space.  This means that all objects are transformed so that the camera
+is at the origin pointing down the z-axis.  Often, it is useful to get
+the variable in a different space.  VEX supports three spaces for each
+rendering context:  "world", "object" and "texture".<p>
+
+In the SOP and POP context, all variables are in "object" space to
+begin with.  Transforming the variables into "world" space will apply
+the transform of the object containing the SOP to the variables.<p>
+
+There are a set of VEX functions to transform positions, direction
+vectors  and normals into other spaces.  The techniques for
+transforming each type of vector are subtly different, so it is
+important to use the correct transformation (depending on what the
+entity represents).<p>
+
+<menu>
+ <li><b>vector4  ow_space( vector4 )</b><br>
+     <b>vector ow_space( vector )</b><br>
+     Transforms a position value from Object to World space.<p>
+ <li><b>vector4  wo_space( vector4 )</b><br>
+     <b>vector wo_space( vector )</b><br>
+     Transforms a position value from World to Object space.<p>
+ <li><b>vector4  tw_space( vector4 )</b><br>
+     <b>vector tw_space( vector )</b><br>
+     Transforms a position value from Texture to World space.<p>
+ <li><b>vector4  wt_space( vector4 )</b><br>
+     <b>vector wt_space( vector )</b><br>
+     Transforms a position value from World to Texture space.<p>
+     <br>
+
+ <li><b>vector ow_nspace( vector )</b><br>
+    Transforms a normal vector from Object to World space.<p>
+ <li><b>vector wo_nspace( vector )</b><br>
+    Transforms a normal vector from World to Object space.<p>
+ <li><b>vector tw_nspace( vector )</b><br>
+    Transforms a normal vector from Texture to World space.<p>
+ <li><b>vector wt_nspace( vector )</b><br>
+    Transforms a normal vector from World to Texture space.<p>
+    <br>
+
+ <li><b>vector ow_vspace( vector )</b><br>
+    Transforms a direction vector from Object to World space.<p>
+ <li><b>vector wo_vspace( vector )</b><br>
+    Transforms a direction vector from World to Object space.<p>
+ <li><b>vector tw_vspace( vector )</b><br>
+    Transforms a direction vector from Texture to World space.<p>
+ <li><b>vector wt_vspace( vector )</b><br>
+    Transforms a direction vector from World to Texture space.<p>
+
+ <a name="fn_ndc">
+ <li><b>vector toNDC( vector )</b><br>
+    Transforms a position into normal device coordinates.  This space
+    is really only well defined for <a href="shading.html#ctx_spaces">
+    Displacement, Surface and Light contexts</a>.<p>
+ <li><b>vector fromNDC( vector )</b><br>
+    Transforms a position from normal device coordinates to the
+    coordinates in the appropriate space.  NDC space is really only
+    well defined for <a href="shading.html#ctx_spaces"> Displacement,
+    Surface and Light contexts</a>.<p>
+
+</menu>
+
+<hr>
+
+<a name="qr_misc">
+<center><h1>Miscellaneous Functions</h1></center>
+</a>
+<menu>
+
+ <a name="fn_printf">
+ <li><b>void printf( string format, ...)<br>
+        string sprintf( string format, ...)</b><br>
+    Prints values to the starting console.<p>
+    The format string is a simpler version of the C printf format
+    string.  When a <b>%</b> symbol is found in the string, an
+    argument will be printed out in a format specified by the
+    characters following the <b>%</b> symbol.  The conversion of the
+    argument is specified by a single letter: <b>g, f, s, d, x, c,
+    p</b>.  It is possible to prefix the format option with an
+    optional width specification.  It is also possible to use an
+    asterix (<b>*</b>) to cause the width option to be read from the
+    next argument.  If the specified field width begins with a 0,
+    leading spaces will be replaced with leading zeros.<p>
+    The format characters supported are:
+<center><table border=1 cellpadding=5>
+    <tr>
+	<td><b>%g, %p, %c</b></td>
+	<td>Print an integer float, vector, vector4, matrix3, matrix
+	    or string in "general" form.</td>
+    </tr>
+    <tr>
+	<td><b>%f</b></td>
+	<td>Print a float, vector, vector4, matrix3 or matrix in
+	    floating point form.</td>
+    </tr>
+    <tr>
+	<td><b>%s</b></td>
+	<td>Print a string variable</td>
+    </tr>
+    <tr>
+	<td><b>%d</b></td>
+	<td>Print an integer variable in decimal</td>
+    </tr>
+    <tr>
+	<td><b>%x</b></td>
+	<td>Print an integer variable in hexidecimal</td>
+    </tr>
+    <tr>
+	<td><b>%%</b></td>
+	<td>Print a % symbol</td>
+    </tr>
+</table></center>
+    Currently there is no support for any special operators on output
+    formatting (i.e. dash, dollar, dot, etc.)<p>
+
+    Examples:<br>
+<listing>
+	printf("P = %g, dot(N, P) = %g, %d = %x\n", P, dot(N, P), ptnum, ptnum);
+	printf("RGB = {%g,%g,%g}\n", clr.r, clr.g, clr.b);
+	printf("P = %20s\n", "20 chars");
+	Cf = texture(sprintf("/maps/map%d.rat", i));
+	Cf = texture(sprintf("/maps/map%04d.rat", i));
+</listing>
+
+ <a name="fn_sleep">
+ <li><b>void sleep( int milliseconds)</b><br>
+    Will give up processor cycles for N milliseconds.<p>
+
+ <a name="fn_isbound">
+ <li><b>int isbound( string variable_name)</b><br>
+    This function will return 1 if the variable name given is bound to
+    a geometry attribute.  Parameters in VEX can be overridden by
+    geometry attributes (if the attributes exist on the surface being
+    rendered).  If the geometry overrides the default attribute, this
+    function will return 1.  Otherwise it will return 0.<p>
+    Though this function is defined for all contexts, it is only
+    useful in the Displacement, Surface, POP, and SOP contexts.  No
+    other contexts are currently able to bind geometry attributes to
+    VEX variables.<p>
+
+    For example, in a POP function:<br>
+
+<listing>
+	pop
+	mycolor(vector uv=0; string map="")
+	{
+	    if (isbound("uv") && map != "")
+	    {
+		// User has texture coordinates here, so create
+		// velocity based on a texture map.
+		v = colormap(map, uv);
+	    }
+	    else
+	    {
+		// No texture coordinates, so use a random value
+		v = random(id);
+	    }
+	}
+</listing>
+</menu>
+
+<hr><br>
+<center>
+<font size=-2>
+  Copyright &#169; 1999-2004 Side Effects Software Inc.<br>
+  477 Richmond Street West, Toronto, Ontario, Canada M5V 3E7
+</font>
+</center>
+
+</body>
+</html>

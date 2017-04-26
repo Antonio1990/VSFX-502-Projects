@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy, see www.w3.org">
+<meta name='Author' content='ActiveState'>
+<link rel='stylesheet' type='text/css' href='../../aspn.css'>
+<title>Tcl Library Procedures - Tcl_UpVar manual page</title>
+</head>
+<body>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'
+bgcolor='EAE2BB'>
+<tr>
+<td><a target='_blank' href=
+'http://www.ActiveState.com/Products/ActiveTcl'><img src=
+'../../images/ActiveTcl.gif' border='0' align='left' height='61'
+width='64'></a> </td>
+<td>
+<div align='center' class='heading'>ActiveTcl User Guide</div>
+</td>
+<td><a target='_blank' href='http://www.ActiveState.com'><img src=
+'../../images/AS_logo.gif' border='0' align='right' height='48'
+width='112'></a> </td>
+</tr>
+
+<tr>
+<td class='lineColour' colspan='3'></td>
+</tr>
+</table>
+
+<br>
+<h3><a name="M2">NAME</a></h3>
+
+<p>Tcl_UpVar, Tcl_UpVar2 - link one variable to another</p>
+
+<h3><a name="M3">SYNOPSIS</a></h3>
+
+<p><b>#include &lt;tcl.h&gt;</b><br>
+int<br>
+<b>Tcl_UpVar(</b><i>interp, frameName, sourceName, destName,
+flags</i><b>)</b><br>
+int<br>
+<b>Tcl_UpVar2(</b><i>interp, frameName, name1, name2, destName,
+flags</i><b>)</b><br>
+</p>
+
+<h3><a name="M4">ARGUMENTS</a></h3>
+
+<dl>
+<dt><a href="../TclLib/Interp.htm">Tcl_Interp</a> <b>*interp</b>
+(in)</dt>
+
+<dd>Interpreter containing variables; also used for error
+reporting.</dd>
+
+<dt>CONST char <b>*frameName</b> (in)</dt>
+
+<dd>Identifies the stack frame containing source variable. May have
+any of the forms accepted by the <b><a href=
+"../TclCmd/upvar.htm">upvar</a></b> command, such as <b>#0</b> or
+<b>1</b>.</dd>
+
+<dt>CONST char <b>*sourceName</b> (in)</dt>
+
+<dd>Name of source variable, in the frame given by
+<i>frameName</i>. May refer to a scalar variable or to an array
+variable with a parenthesized index.</dd>
+
+<dt>CONST char <b>*destName</b> (in)</dt>
+
+<dd>Name of destination variable, which is to be linked to source
+variable so that references to <i>destName</i> refer to the other
+variable. Must not currently exist except as an upvar-ed
+variable.</dd>
+
+<dt>int <b>flags</b> (in)</dt>
+
+<dd>Either TCL_GLOBAL_ONLY or 0; if non-zero, then <i>destName</i>
+is a global variable; otherwise it is a local to the current
+procedure (or global if no procedure is active).</dd>
+
+<dt>CONST char <b>*name1</b> (in)</dt>
+
+<dd>First part of source variable's name (scalar name, or name of
+array without array index).</dd>
+
+<dt>CONST char <b>*name2</b> (in)</dt>
+
+<dd>If source variable is an element of an array, gives the index
+of the element. For scalar source variables, is NULL.</dd>
+</dl>
+
+<h3><a name="M5">DESCRIPTION</a></h3>
+
+<p><b>Tcl_UpVar</b> and <b>Tcl_UpVar2</b> provide the same
+functionality as the <b><a href="../TclCmd/upvar.htm">upvar</a></b>
+command: they make a link from a source variable to a destination
+variable, so that references to the destination are passed
+transparently through to the source. The name of the source
+variable may be specified either as a single string such as
+<b>xyx</b> or <b>a(24)</b> (by calling <b>Tcl_UpVar</b>) or in two
+parts where the array name has been separated from the element name
+(by calling <b>Tcl_UpVar2</b>). The destination variable name is
+specified in a single string; it may not be an array element.</p>
+
+<p>Both procedures return either TCL_OK or TCL_ERROR, and they
+leave an error message in the interpreter's result if an error
+occurs.</p>
+
+<p>As with the <b><a href="../TclCmd/upvar.htm">upvar</a></b>
+command, the source variable need not exist; if it does exist,
+unsetting it later does not destroy the link. The destination
+variable may exist at the time of the call, but if so it must exist
+as a linked variable.</p>
+
+<h3><a name="M6">KEYWORDS</a></h3>
+
+<p><a href="../Keywords/L.htm#linked variable">linked variable</a>,
+<a href="../Keywords/U.htm#upvar">upvar</a>, <a href=
+"../Keywords/V.htm#variable">variable</a></p>
+
+<hr>
+<pre>
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994 The Regents of the University of California.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1994-1996 Sun Microsystems, Inc.
+<a href=
+"../copyright.htm">Copyright</a> &copy; 1995-1997 Roger E. Critchlow Jr.
+</pre>
+</body>
+</html>
+
