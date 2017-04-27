@@ -16,11 +16,11 @@ Format 640 360 1
 Display "untitled" "it" "rgba"
 Projection "perspective" "fov" [20]
 #CameraPos_01 -----------------------------------------------------------------------------------------
-Translate  0 -1.25 15
-Rotate -20 1 0 0
-Rotate 25 0 1 0
+#Translate  0 -1.25 15
+#Rotate -20 1 0 0
+#Rotate 25 0 1 0
 #Rotate  45 0 1 0
-Scale 1 1 -1
+#Scale 1 1 -1
 
 #CameraPos_02 - Top View -----------------------------------------------------------------------------------------
 #Translate  0 -1.25 15
@@ -31,6 +31,12 @@ Scale 1 1 -1
 #Translate  0 -1.25 10
 #Rotate 00 1 0 0
 #Scale 1 1 -1
+
+#CameraPos_04 - Spout Side Perspective -----------------------------------------------------------------------------------------
+Translate  0 -1.25 10
+Rotate -45 0 1 0
+Rotate -25 1 1 0
+Scale 1 1 -1
 
 #DisplayFilter "PxrBackgroundDisplayFilter" "background" "color backgroundColor" [1 1 1]
 WorldBegin
