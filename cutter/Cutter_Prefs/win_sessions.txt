@@ -331,3 +331,49 @@ closedAt: Wednesday 26 April 2017 at 2:4 AM
 openedBytes: 2432
 closedBytes: 2380
 saved: 22
+===================================
+DATE: Thursday 27 April 2017 at 1:18 PM
+VERSION: 7.7.7
+---
+openedPath: F:\502\vsfx502\archives\geo\TeapotShape_01.rib
+closedPath: F:\502\vsfx502\archives\geo\TeapotShape_01.rib
+openedAt: Thursday 27 April 2017 at 1:17 PM
+closedAt: Thursday 27 April 2017 at 1:18 PM
+openedBytes: 3584
+closedBytes: 3584
+saved: 0
+---
+openedPath: F:\502\vsfx502\ribs\Teapot_Scene.rib
+closedPath: F:\502\vsfx502\ribs\Teapot_Scene.rib
+openedAt: Thursday 27 April 2017 at 1:17 PM
+closedAt: Thursday 27 April 2017 at 1:18 PM
+openedBytes: 2518
+closedBytes: 2518
+saved: 0
+===================================
+DATE: Friday 28 April 2017 at 1:16 AM
+VERSION: 7.7.7
+---
+openedPath: F:\502\vsfx502\archives\geo\TeapotShape_01.rib
+closedPath: F:\502\vsfx502\archives\geo\TeapotShape_01.rib
+openedAt: Thursday 27 April 2017 at 5:22 PM
+closedAt: Friday 28 April 2017 at 1:16 AM
+openedBytes: 3584
+closedBytes: 4482
+saved: 174
+---
+openedPath: F:\502\vsfx502\ribs\Teapot_Scene.rib
+closedPath: F:\502\vsfx502\ribs\Teapot_Scene.rib
+openedAt: Thursday 27 April 2017 at 5:23 PM
+closedAt: Friday 28 April 2017 at 1:16 AM
+openedBytes: 2518
+closedBytes: 2912
+saved: 48
+---
+openedPath: F:\502\vsfx502\archives\geo\CupShape_01.rib
+closedPath: F:\502\vsfx502\archives\geo\CupShape_01.rib
+openedAt: Thursday 27 April 2017 at 9:44 PM
+closedAt: Friday 28 April 2017 at 1:16 AM
+openedBytes: 163
+closedBytes: 1515
+saved: 118

@@ -23,7 +23,7 @@ Projection "perspective" "fov" [20]
 #Scale 1 1 -1
 
 #CameraPos_02 - Top View -----------------------------------------------------------------------------------------
-#Translate  0 -1.25 15
+#Translate  0 0 10
 #Rotate -90 1 0 0
 #Scale 1 1 -1
 
@@ -35,7 +35,7 @@ Projection "perspective" "fov" [20]
 #CameraPos_04 - Spout Side Perspective -----------------------------------------------------------------------------------------
 Translate  0 -1.25 10
 Rotate -45 0 1 0
-Rotate -25 1 1 0
+#Rotate -25 1 0 1
 Scale 1 1 -1
 
 #DisplayFilter "PxrBackgroundDisplayFilter" "background" "color backgroundColor" [1 1 1]
@@ -54,10 +54,23 @@ ReadArchive "Lights/3PointLight.rib"
 
 # Lighting Rig -----------------------------------------------------
 
-# TeapotGeometry -----------------------------------------------------
+# Scene Geometry -----------------------------------------------------
 
 #ReadArchive "Materials/TeapotShader.rib"
+
+#Cup Geo--------------------------------------------------------------
+TransformBegin
+ReadArchive "geo/CupShape_01.rib"
+TransformEnd
+TransformBegin
+Translate 0 0 1.1
+ReadArchive "geo/CupShape_01.rib"
+TransformEnd
+
+#Teapot Geo ---------------------------------------------------------
+TransformBegin
 ReadArchive "geo/TeapotShape_01.rib"
+TransformEnd
 
 # TeapotGeometry -----------------------------------------------------
 	

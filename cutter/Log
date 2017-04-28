@@ -1,4 +1,4 @@
-    Launched at: 2017_4_25_9.38:58
+    Launched at: 2017_4_27_5.22:54
     Warning: DirPresetsPanel.addDefaultDirectories() - cannot find users maya directory at,
         "C:/Documents and Settings/My Documents/maya".
     Warning: DirPresetsPanel.addDefaultDirectories() - cannot find users maya directory at,
@@ -16,9 +16,26 @@ Users PWD is "F:\502\vsfx502\cutter"
 
     Exception:DocOpenAction - java.lang.Exception: OpenSelectionHandler - no selection
     Info:RibScriptHandler.checkSearchPaths() - front document is a pre-bake rib
+    Info:RibScriptHandler.checkSearchPaths() - front document is a pre-bake rib
+    Info:FileUtils.isRMSRibFile() - null parent directory for input file "tmp.rib"
+    Info:RibScriptHandler.checkSearchPaths() - front document is a pre-bake rib
+    Info:RibScriptHandler.checkSearchPaths() - front document is a pre-bake rib
+    Info:FileUtils.isRMSRibFile() - null parent directory for input file "tmp.rib"
+    Info:FileUtils.isRMSRibFile() - null parent directory for input file "tmp.rib"
+    Info:FileUtils.isRMSRibFile() - null parent directory for input file "tmp.rib"
+    Info:FileUtils.isRMSRibFile() - null parent directory for input file "tmp.rib"
+    Info:FileUtils.isRMSRibFile() - null parent directory for input file "tmp.rib"
+    Exception:KCompletionManager.showPopup() - java.lang.NullPointerException
+    Info:RibScriptHandler.checkSearchPaths() - front document is a pre-bake rib
+    Info:FileUtils.isRMSRibFile() - null parent directory for input file "tmp.rib"
+    Info:RibScriptHandler.checkSearchPaths() - front document is a pre-bake rib
+    Info:RibScriptHandler.checkSearchPaths() - front document is a pre-bake rib
+    Info:RibScriptHandler.checkSearchPaths() - front document is a pre-bake rib
+    Info:RibScriptHandler.checkSearchPaths() - front document is a pre-bake rib
+    Info:KAbstractWindow.removeMayaClient table size is 0
     Info:KAbstractWindow.removeMayaClient table size is 0
     Info:KAbstractWindow.removeMayaClient table size is 0
     Info:KAbstractWindow.removeMayaClient table size is 0
     Warning: Preferences.updateBackup() regenerating "prefs.ini"
     Error 2: Preferences.updateBackup() unable to read "prefs.ini"
-Cutter exited at 2017_4_26_2.4:28960
+Cutter exited at 2017_4_28_1.16:58465

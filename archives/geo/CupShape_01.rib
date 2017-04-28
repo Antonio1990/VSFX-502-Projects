@@ -1,0 +1,84 @@
+AttributeBegin
+# Global Transform Controls---------------------------------------
+	TransformBegin
+	Translate -2 0 0
+	Scale 0.5 0.35 0.5
+	
+# Begin Cup Shapes------------------------------------------------
+#Outer Shapes
+#Shape_01 - Outer
+	AttributeBegin
+	TransformBegin
+		Translate 0 1 0
+		Rotate 90 1 0 0
+		Scale 1 1 0.75
+		Sphere 1 0 0.75 360
+	TransformEnd
+	AttributeEnd
+
+#Shape_02 - Outer
+	AttributeBegin
+	TransformBegin
+		Translate 0 1 0
+		Rotate -90 1 0 0
+		Scale 1 1 1.5
+		Sphere 1 0 0.65 360
+	TransformEnd
+	AttributeEnd
+	
+#Shape_01 - Interior
+	AttributeBegin
+	TransformBegin
+		Translate 0 1 0
+		Rotate 90 1 0 0
+		Scale -0.95 -0.95 0.75
+		Sphere 1 0 0.75 360
+	TransformEnd
+	AttributeEnd
+
+#Shape_02 - Interior
+	AttributeBegin
+	TransformBegin
+		Translate 0 1 0
+		Rotate -90 1 0 0
+		Scale -0.95 -0.95 1.5
+		Sphere 1 0 0.65 360
+	TransformEnd
+	AttributeEnd
+	
+#Shape_03
+	AttributeBegin
+	TransformBegin
+		Translate 0 0.45 0
+		Rotate -90 1 0 0
+		Scale 1 1 1
+		Torus 0.55 0.1 0 360 360 
+	TransformEnd
+	AttributeEnd
+
+# Cup-Inside/Rim--------------------------------------------------
+	
+# Rim-Torus
+	AttributeBegin
+	TransformBegin
+		Translate 0 1.95 0
+		Rotate -90 1 0 0
+		Scale 0.85 0.85 0.85
+		Torus 0.85 0.05 0 180 360 
+	TransformEnd
+	AttributeEnd
+	
+# Rim-Disk
+	#AttributeBegin
+	#TransformBegin
+		#Translate 0 2 0
+		#Rotate -90 1 0 0
+		#Scale 1 1 1
+		#Disk 1.1 0.75 360  
+	#TransformEnd
+	#AttributeEnd
+
+	
+	
+	TransformEnd
+AttributeEnd
