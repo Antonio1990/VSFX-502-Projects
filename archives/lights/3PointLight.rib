@@ -1,13 +1,13 @@
-#Lighting Archive
+#Lighting Archive ------------------------------------------------------------------------------
 
 AttributeBegin
 		Rotate  0  0 1 0 # oribital
 		Rotate 0 1 0 0 # elevation
 		Translate 0 0 0  # distance
 
-#Key Light
+#Key Light ------------------------------------------------------------------------------
 AttributeBegin
-		Rotate  0  0 1 0 # oribital
+		Rotate  -45  0 1 0 # oribital
 		Rotate -50 1 0 0 # elevation
 		Translate 0 0 9  # distance
 		Scale 2 2 -1
@@ -15,46 +15,81 @@ AttributeBegin
 		Attribute "visibility" "int indirect" [0] "int transmission" [0]
 		Attribute "visibility" "int camera" [0]
 		Light "PxrRectLight" "PxrRectLightShape2"
-				"float exposure" [5]
-				"color lightColor" [1 1 1]
+				"float exposure" [4]
+				"color lightColor" [2 1 1]
 				"float coneAngle" [90]
 				"int enableShadows" [1]
 				"color shadowColor" [0 0 0]
 	AttributeEnd
 	
-	#Fill Light
-	AttributeBegin
-		Rotate  0  0 1 0 # oribital
-		Rotate -50 1 0 0 # elevation
-		Rotate -50 0 1 0 # Rotate Along Y-Axis
-		Translate 0 0 9  # distance
-		Scale 2 2 -1
+#Fill Light ------------------------------------------------------------------------------
+	#AttributeBegin
+		#Rotate  0  0 1 0 # oribital
+		#Rotate -50 1 0 0 # elevation
+		#Rotate -50 0 1 0 # Rotate Along Y-Axis
+		#Translate 0 0 9  # distance
+		#Scale 2 2 -1
 
-		Attribute "visibility" "int indirect" [0] "int transmission" [0]
-		Attribute "visibility" "int camera" [0]
-		Light "PxrRectLight" "PxrRectLightShape3"
-				"float exposure" [5]
-				"color lightColor" [1 0 0]
-				"float coneAngle" [90]
-				"int enableShadows" [1]
-				"color shadowColor" [0 0 0]
-	AttributeEnd
+		#Attribute "visibility" "int indirect" [1] "int transmission" [0]
+		#Attribute "visibility" "int camera" [0]
+		#Light "PxrRectLight" "PxrRectLightShape3"
+				#"float exposure" [1]
+				#"color lightColor" [1 0 0]
+				#"float coneAngle" [90]
+				#"int enableShadows" [0]
+				#"color shadowColor" [0 0 0]
+	#AttributeEnd
 	
-	#Rim LIght
+#Rim LIght ------------------------------------------------------------------------------
 	AttributeBegin
 		Rotate  0  0 1 0 # oribital
-		Rotate 180 0 1 0 # Rotate Along Y-Axis
+		Rotate 135 0 1 0 # Rotate Along Y-Axis
 		Rotate -20 1 0 0 # elevation
 		Translate 0 0 9  # distance
 		Scale 4 4 -1
 
-		Attribute "visibility" "int indirect" [0] "int transmission" [0]
+		Attribute "visibility" "int indirect" [1] "int transmission" [0]
 		Attribute "visibility" "int camera" [0]
 		Light "PxrRectLight" "PxrRectLightShape4"
 				"float exposure" [2]
-				"color lightColor" [0 0 1]
+				"color lightColor" [0.5 0.5 1]
 				"float coneAngle" [90]
 				"int enableShadows" [1]
 				"color shadowColor" [0 0 0]
 	AttributeEnd
+	
+#DomeLight ------------------------------------------------------------------------------
+	
+	AttributeBegin
+	Attribute "visibility" "int indirect" [0] "int transmission" [0]
+	Attribute "visibility" "int camera" [1]
+	Rotate -90 1 0 0
+	# txmake -envlatl ../tiffs/name.hdr ../textures/name.env.tex
+	Light "PxrDomeLight" "PxrDomeLight1"
+		"float intensity" [0.5]
+		"float exposure" [1]
+		"color lightColor" [1 0.7 0.7]
+		"string lightColorMap" ["../textures/Lobby-Center_2k.tex"]
+		"int enableTemperature" [0]
+		"float temperature" [6500]
+		"float specular" [1.0]
+		"float diffuse" [1.0]
+		"int enableShadows" [1]
+		"color shadowColor" [0 0 0]
+		"float shadowDistance" [-1.0]
+		"float shadowFalloff" [-1.0]
+		"float shadowFalloffGamma" [1.0]
+		"string shadowSubset" [""]
+		"string shadowExcludeSubset" [""]
+		"int traceLightPaths" [0]
+		"int thinShadow" [1]
+		"int fixedSampleCount" [0]
+		"string lightGroup" [""]
+		"float importanceMultiplier" [1.0]
+	AttributeEnd
+	
+#Environment Light -----------------------------------------------------------------------
+
+
+	
 AttributeEnd

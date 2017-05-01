@@ -1,4 +1,4 @@
-    Launched at: 2017_4_27_5.22:54
+    Launched at: 2017_4_29_0.34:12
     Warning: DirPresetsPanel.addDefaultDirectories() - cannot find users maya directory at,
         "C:/Documents and Settings/My Documents/maya".
     Warning: DirPresetsPanel.addDefaultDirectories() - cannot find users maya directory at,
@@ -15,27 +15,106 @@ Users $HOME directory is "C:\Users\taizyd"
 Users PWD is "F:\502\vsfx502\cutter"
 
     Exception:DocOpenAction - java.lang.Exception: OpenSelectionHandler - no selection
-    Info:RibScriptHandler.checkSearchPaths() - front document is a pre-bake rib
-    Info:RibScriptHandler.checkSearchPaths() - front document is a pre-bake rib
-    Info:FileUtils.isRMSRibFile() - null parent directory for input file "tmp.rib"
-    Info:RibScriptHandler.checkSearchPaths() - front document is a pre-bake rib
-    Info:RibScriptHandler.checkSearchPaths() - front document is a pre-bake rib
-    Info:FileUtils.isRMSRibFile() - null parent directory for input file "tmp.rib"
-    Info:FileUtils.isRMSRibFile() - null parent directory for input file "tmp.rib"
-    Info:FileUtils.isRMSRibFile() - null parent directory for input file "tmp.rib"
-    Info:FileUtils.isRMSRibFile() - null parent directory for input file "tmp.rib"
-    Info:FileUtils.isRMSRibFile() - null parent directory for input file "tmp.rib"
-    Exception:KCompletionManager.showPopup() - java.lang.NullPointerException
-    Info:RibScriptHandler.checkSearchPaths() - front document is a pre-bake rib
-    Info:FileUtils.isRMSRibFile() - null parent directory for input file "tmp.rib"
-    Info:RibScriptHandler.checkSearchPaths() - front document is a pre-bake rib
-    Info:RibScriptHandler.checkSearchPaths() - front document is a pre-bake rib
-    Info:RibScriptHandler.checkSearchPaths() - front document is a pre-bake rib
-    Info:RibScriptHandler.checkSearchPaths() - front document is a pre-bake rib
-    Info:KAbstractWindow.removeMayaClient table size is 0
-    Info:KAbstractWindow.removeMayaClient table size is 0
-    Info:KAbstractWindow.removeMayaClient table size is 0
+    Exception:DocOpenAction - java.lang.Exception: OpenSelectionHandler - no selection
+    Info: KTextHistoryDB.add() - not adding 3266547 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3267145 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3267743 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3268341 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3268937 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3269533 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3270129 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3270725 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3271321 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3271917 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3272513 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3273110 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3273708 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3274306 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3274905 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3275504 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3276102 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3276700 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3277300 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3277900 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3278500 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3279100 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3279700 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3280300 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3280900 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3281500 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3282100 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3282700 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3283300 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3283900 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3284500 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3285100 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3285700 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3286300 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3286900 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3287500 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3288100 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3288700 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3289300 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3289904 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3290504 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3291104 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3291705 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3292306 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3292905 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3293504 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3294104 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3294704 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3295304 exceeds 3072000
+    Exception:DocOpenAction - java.lang.Exception: OpenSelectionHandler - no selection
+    Info: KTextHistoryDB.add() - not adding 3295903 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3296502 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3297101 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3297700 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3298299 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3298898 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3299497 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3300096 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3300695 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3301328 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3301961 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3302594 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3303229 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3303864 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3304499 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3305134 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3305769 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3306404 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3307039 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3307674 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3308309 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3308944 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3309579 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3310214 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3310849 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3311484 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3312119 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3312754 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3313389 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3314024 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3314659 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3315294 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3315929 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3316564 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3317199 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3317834 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3318469 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3319104 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3319739 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3320374 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3321009 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3321644 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3322279 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3322891 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3323541 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3324187 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3324833 exceeds 3072000
+    Info: KTextHistoryDB.add() - not adding 3325480 exceeds 3072000
     Info:KAbstractWindow.removeMayaClient table size is 0
     Warning: Preferences.updateBackup() regenerating "prefs.ini"
     Error 2: Preferences.updateBackup() unable to read "prefs.ini"
-Cutter exited at 2017_4_28_1.16:58465
+Cutter exited at 2017_4_29_1.35:49298

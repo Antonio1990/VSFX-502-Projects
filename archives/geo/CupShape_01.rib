@@ -1,7 +1,7 @@
 AttributeBegin
 # Global Transform Controls---------------------------------------
 	TransformBegin
-	Translate -2 0 0
+	Translate -2 -0.1 0
 	Scale 0.5 0.35 0.5
 	
 # Begin Cup Shapes------------------------------------------------

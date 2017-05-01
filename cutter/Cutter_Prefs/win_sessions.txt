@@ -377,3 +377,140 @@ closedAt: Friday 28 April 2017 at 1:16 AM
 openedBytes: 163
 closedBytes: 1515
 saved: 118
+===================================
+DATE: Friday 28 April 2017 at 2:40 PM
+VERSION: 7.7.7
+---
+openedPath: F:\502\vsfx502\archives\materials\Teapot_BaseShader.rib
+closedPath: F:\502\vsfx502\archives\materials\Teapot_BaseShader.rib
+openedAt: Friday 28 April 2017 at 11:45 AM
+closedAt: Friday 28 April 2017 at 2:40 PM
+openedBytes: 286
+closedBytes: 2926
+saved: 66
+---
+openedPath: F:\502\vsfx502\archives\geo\TeapotShape_01.rib
+closedPath: F:\502\vsfx502\archives\geo\TeapotShape_01.rib
+openedAt: Friday 28 April 2017 at 11:30 AM
+closedAt: Friday 28 April 2017 at 2:40 PM
+openedBytes: 4482
+closedBytes: 4528
+saved: 3
+---
+openedPath: F:\502\vsfx502\ribs\Teapot_Scene.rib
+closedPath: F:\502\vsfx502\ribs\Teapot_Scene.rib
+openedAt: Friday 28 April 2017 at 11:33 AM
+closedAt: Friday 28 April 2017 at 2:40 PM
+openedBytes: 2912
+closedBytes: 2914
+saved: 3
+---
+openedPath: F:\502\vsfx502\archives\geo\CupShape_01.rib
+closedPath: F:\502\vsfx502\archives\geo\CupShape_01.rib
+openedAt: Friday 28 April 2017 at 11:30 AM
+closedAt: Friday 28 April 2017 at 2:40 PM
+openedBytes: 1515
+closedBytes: 1515
+saved: 0
+---
+openedPath: F:\502\vsfx502\archives\lights\3PointLight.rib
+closedPath: F:\502\vsfx502\archives\lights\3PointLight.rib
+openedAt: Friday 28 April 2017 at 11:36 AM
+closedAt: Friday 28 April 2017 at 2:40 PM
+openedBytes: 1557
+closedBytes: 1621
+saved: 15
+---
+openedPath: F:\502\vsfx502\archives\materials\BumpyPlastic.rib
+closedPath: F:\502\vsfx502\archives\materials\BumpyPlastic.rib
+openedAt: Friday 28 April 2017 at 0:33 PM
+closedAt: Friday 28 April 2017 at 2:40 PM
+openedBytes: 1528
+closedBytes: 1528
+saved: 0
+===================================
+DATE: Friday 28 April 2017 at 11:25 PM
+VERSION: 7.7.7
+---
+openedPath: F:\502\vsfx502\archives\geo\TeapotShape_01.rib
+closedPath: F:\502\vsfx502\archives\geo\TeapotShape_01.rib
+openedAt: Friday 28 April 2017 at 7:52 PM
+closedAt: Friday 28 April 2017 at 11:25 PM
+openedBytes: 4528
+closedBytes: 4650
+saved: 42
+---
+openedPath: F:\502\vsfx502\archives\materials\Teapot_BaseShader.rib
+closedPath: F:\502\vsfx502\archives\materials\Teapot_BaseShader.rib
+openedAt: Friday 28 April 2017 at 7:52 PM
+closedAt: Friday 28 April 2017 at 11:25 PM
+openedBytes: 2926
+closedBytes: 4847
+saved: 47
+---
+openedPath: F:\502\vsfx502\ribs\Teapot_Scene.rib
+closedPath: F:\502\vsfx502\ribs\Teapot_Scene.rib
+openedAt: Friday 28 April 2017 at 7:52 PM
+closedAt: Friday 28 April 2017 at 11:25 PM
+openedBytes: 2914
+closedBytes: 3048
+saved: 23
+---
+openedPath: F:\502\vsfx502\archives\geo\CupShape_01.rib
+closedPath: F:\502\vsfx502\archives\geo\CupShape_01.rib
+openedAt: Friday 28 April 2017 at 10:22 PM
+closedAt: Friday 28 April 2017 at 11:25 PM
+openedBytes: 1515
+closedBytes: 1518
+saved: 1
+---
+openedPath: F:\502\vsfx502\archives\lights\3PointLight.rib
+closedPath: F:\502\vsfx502\archives\lights\3PointLight.rib
+openedAt: Friday 28 April 2017 at 8:53 PM
+closedAt: Friday 28 April 2017 at 11:25 PM
+openedBytes: 1621
+closedBytes: 2525
+saved: 13
+---
+openedPath: F:\502\vsfx502\archives\materials\BumpyPlastic.rib
+closedPath: F:\502\vsfx502\archives\materials\BumpyPlastic.rib
+openedAt: Friday 28 April 2017 at 8:14 PM
+closedAt: Friday 28 April 2017 at 11:25 PM
+openedBytes: 1528
+closedBytes: 1528
+saved: 0
+===================================
+DATE: Saturday 29 April 2017 at 1:35 AM
+VERSION: 7.7.7
+---
+openedPath: F:\502\vsfx502\archives\materials\Teapot_BaseShader.rib
+closedPath: F:\502\vsfx502\archives\materials\Teapot_BaseShader.rib
+openedAt: Saturday 29 April 2017 at 1:6 AM
+closedAt: Saturday 29 April 2017 at 1:35 AM
+openedBytes: 4844
+closedBytes: 5500
+saved: 20
+---
+openedPath: F:\502\vsfx502\ribs\Teapot_Scene.rib
+closedPath: F:\502\vsfx502\ribs\Teapot_Scene.rib
+openedAt: Saturday 29 April 2017 at 0:34 AM
+closedAt: Saturday 29 April 2017 at 1:35 AM
+openedBytes: 3048
+closedBytes: 3050
+saved: 8
+---
+openedPath: F:\502\vsfx502\archives\lights\Env_HDR.rib
+closedPath: F:\502\vsfx502\archives\lights\Env_HDR.rib
+openedAt: Saturday 29 April 2017 at 0:35 AM
+closedAt: Saturday 29 April 2017 at 1:5 AM
+openedBytes: 870
+closedBytes: 870
+saved: 0
+---
+openedPath: F:\502\vsfx502\archives\lights\3PointLight.rib
+closedPath: F:\502\vsfx502\archives\lights\3PointLight.rib
+openedAt: Saturday 29 April 2017 at 0:34 AM
+closedAt: Saturday 29 April 2017 at 1:35 AM
+openedBytes: 2525
+closedBytes: 3047
+saved: 7
