@@ -146,9 +146,9 @@ Pattern "PxrMultiplyDivide" "PxrMultiplyDivide1"
 
 #PxrSurface Node--------------------------------------------------------------------------------------
 Bxdf "PxrSurface" "PxrSurface1"
-		"float diffuseGain" [0.5]
+		"float diffuseGain" [0.75]
 		#"reference color diffuseColor" ["PxrMix2:resultRGB"]
-		"color diffuseColor" [0.85 0.31 0.29]
+		"color diffuseColor" [0.95 0.15 0.20]
 		"int diffuseDoubleSided" [1]
 		"color specularFaceColor" [0.25 0.25 0.25]
 		"reference float specularRoughness" ["PxrMix1:resultR"]
@@ -164,7 +164,7 @@ Displace "PxrDisplace" "PxrDisplace1"
 		"int enabled" [1]
 		"reference float dispAmount" ["PxrFractal1:resultF"]
 		"float dispScalar" [0.0]
-		"vector dispVector" [0.001 0.001 0.001]
+		"vector dispVector" [0.002 0.002 0.002]
 		"vector modelDispVector" [0.0 0.0 0.0]
 		
 		

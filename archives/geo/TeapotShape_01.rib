@@ -46,6 +46,7 @@ AttributeBegin
 	
 #Torus
 	AttributeBegin
+	ReadArchive "Materials/Teapot_RedSurface.rib"
 	TransformBegin
 		Translate 0 0.65 0
 		Rotate 90 1 0 0
@@ -120,6 +121,7 @@ AttributeBegin
 #Bevelled lip ------------------------------------------------
 	#Lip Torus
 	AttributeBegin
+	ReadArchive "Materials/Teapot_RedSurface.rib"
 	TransformBegin
 		Translate 0 1.8 0
 		Rotate 90 1 0 0
@@ -130,7 +132,6 @@ AttributeBegin
 	
 	#Inward Curve
 	AttributeBegin
-	ReadArchive "Materials/Teapot_RedSurface.rib"
 	TransformBegin
 		Translate 0 1.7 0
 		Rotate 90 1 0 0
@@ -178,12 +179,13 @@ AttributeBegin
 	
 #Spout Lip
 	AttributeBegin
+	ReadArchive "Materials/Teapot_RedSurface.rib"
 	TransformBegin
-	Translate -1.45 1.7 0
+	Translate -1.45 1.75 0
 		Rotate 180 0 1 0
 		Rotate 90 1 0 0
 		Scale 1 1 1 
-		Torus 0.07 0.025 180 360 360 
+		Torus 0.1 0.01 180 360 360 
 	TransformEnd
 	AttributeEnd
 	

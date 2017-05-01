@@ -60,6 +60,7 @@ AttributeBegin
 	
 # Rim-Torus
 	AttributeBegin
+	ReadArchive "Materials/Teapot_RedSurface.rib"
 	TransformBegin
 		Translate 0 1.95 0
 		Rotate -90 1 0 0

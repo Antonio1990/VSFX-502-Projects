@@ -15,6 +15,7 @@ PixelVariance 0.05
 Format 640 360 1
 Display "untitled" "it" "rgba"
 Projection "perspective" "fov" [20]
+DepthOfField 5.0 1.0 7.0
 #CameraPos_01 -----------------------------------------------------------------------------------------
 #Translate  0 -1.25 15
 #Rotate -20 1 0 0
@@ -32,11 +33,35 @@ Projection "perspective" "fov" [20]
 #Rotate 00 1 0 0
 #Scale 1 1 -1
 
-#CameraPos_04 - Spout Side Perspective -----------------------------------------------------------------------------------------
-Translate  0 -0.65 6.5
+#CameraPos_04 - Shot_01-FInal -----------------------------------------------------------------------------------------
+#Translate  0.45 -0.8 6.8
+#Rotate -12 1 0 0
+#Rotate 45 0 1 0
+#Scale 1 1 -1
+
+#CameraPos_05 - Shot_02-Final -----------------------------------------------------------------------------------------
+Translate  0.45 -0.55 8.0
 Rotate -12 1 0 0
-Rotate 45 0 1 0
+Rotate -45 0 1 0
 Scale 1 1 -1
+
+#WorkCamera -----------------------------------------------------------------------------------------
+#Translate  0.45 -0.55 8.0
+#Rotate -35 1 0 0
+#Rotate -45 0 1 0
+#Scale 1 1 -1
+
+#CameraPos_06 - Shot_01-Semi -----------------------------------------------------------------------------------------
+#Translate  0.45 -0.5 7.2
+#Rotate -35 1 0 0
+#Rotate 45 0 1 0
+#Scale 1 1 -1
+
+#CameraPos_07 - Shot_02-Semi -----------------------------------------------------------------------------------------
+#Translate  0.45 -0.55 8.0
+#Rotate -12 1 0 0
+#Rotate -45 0 1 0
+#Scale 1 1 -1
 
 #DisplayFilter "PxrBackgroundDisplayFilter" "background" "color backgroundColor" [1 1 1]
 WorldBegin

@@ -164,7 +164,7 @@ Displace "PxrDisplace" "PxrDisplace1"
 		"int enabled" [1]
 		"reference float dispAmount" ["PxrFractal1:resultF"]
 		"float dispScalar" [0.0]
-		"vector dispVector" [0.001 0.001 0.001]
+		"vector dispVector" [0.002 0.002 0.002]
 		"vector modelDispVector" [0.0 0.0 0.0]
 		
 		

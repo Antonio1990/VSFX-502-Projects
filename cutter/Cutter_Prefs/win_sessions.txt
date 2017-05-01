@@ -514,3 +514,62 @@ closedAt: Saturday 29 April 2017 at 1:35 AM
 openedBytes: 2525
 closedBytes: 3047
 saved: 7
+===================================
+DATE: Sunday 30 April 2017 at 10:32 PM
+VERSION: 7.7.7
+---
+openedPath: F:\502\vsfx502\archives\geo\TeapotShape_01.rib
+closedPath: F:\502\vsfx502\archives\geo\TeapotShape_01.rib
+openedAt: Sunday 30 April 2017 at 6:24 PM
+closedAt: Sunday 30 April 2017 at 10:31 PM
+openedBytes: 4650
+closedBytes: 4793
+saved: 10
+---
+openedPath: F:\502\vsfx502\archives\materials\Teapot_BaseShader.rib
+closedPath: F:\502\vsfx502\archives\materials\Teapot_BaseShader.rib
+openedAt: Sunday 30 April 2017 at 6:24 PM
+closedAt: Sunday 30 April 2017 at 10:31 PM
+openedBytes: 5500
+closedBytes: 5883
+saved: 18
+---
+openedPath: F:\502\vsfx502\ribs\Teapot_Scene.rib
+closedPath: F:\502\vsfx502\ribs\Teapot_Scene.rib
+openedAt: Sunday 30 April 2017 at 5:56 PM
+closedAt: Sunday 30 April 2017 at 10:32 PM
+openedBytes: 3050
+closedBytes: 3924
+saved: 46
+---
+openedPath: F:\502\vsfx502\archives\geo\CupShape_01.rib
+closedPath: F:\502\vsfx502\archives\geo\CupShape_01.rib
+openedAt: Sunday 30 April 2017 at 10:15 PM
+closedAt: Sunday 30 April 2017 at 10:31 PM
+openedBytes: 1566
+closedBytes: 1566
+saved: 1
+---
+openedPath: F:\502\vsfx502\archives\lights\3PointLight.rib
+closedPath: F:\502\vsfx502\archives\lights\3PointLight.rib
+openedAt: Sunday 30 April 2017 at 7:20 PM
+closedAt: Sunday 30 April 2017 at 10:14 PM
+openedBytes: 3047
+closedBytes: 3047
+saved: 1
+---
+openedPath: F:\502\vsfx502\archives\materials\Teapot_RedSurface.rib
+closedPath: F:\502\vsfx502\archives\materials\Teapot_RedSurface.rib
+openedAt: Sunday 30 April 2017 at 7:24 PM
+closedAt: Sunday 30 April 2017 at 10:31 PM
+openedBytes: 3069
+closedBytes: 5863
+saved: 11
+---
+openedPath: F:\502\vsfx502\archives\materials\TeapotGround.rib
+closedPath: F:\502\vsfx502\archives\materials\TeapotGround.rib
+openedAt: Sunday 30 April 2017 at 6:33 PM
+closedAt: Sunday 30 April 2017 at 6:36 PM
+openedBytes: 282
+closedBytes: 282
+saved: 0
