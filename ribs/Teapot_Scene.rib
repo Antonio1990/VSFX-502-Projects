@@ -12,10 +12,10 @@ Hider "raytrace" "int incremental" [1] "int minsamples" [0] "int maxsamples" [12
 Integrator "PxrPathTracer" "PxrPathTracer" "int maxPathLength" [10] "int allowCaustics" [0]
 PixelVariance 0.05
 
-Format 640 360 1
+Format 1920 1080 1
 Display "untitled" "it" "rgba"
 Projection "perspective" "fov" [20]
-DepthOfField 5.0 1.0 7.0
+DepthOfField 5.0 1.0 6.5
 #CameraPos_01 -----------------------------------------------------------------------------------------
 #Translate  0 -1.25 15
 #Rotate -20 1 0 0
@@ -34,20 +34,32 @@ DepthOfField 5.0 1.0 7.0
 #Scale 1 1 -1
 
 #CameraPos_04 - Shot_01-FInal -----------------------------------------------------------------------------------------
-#Translate  0.45 -0.8 6.8
-#Rotate -12 1 0 0
-#Rotate 45 0 1 0
-#Scale 1 1 -1
+Translate  0.45 -0.8 6.8
+Rotate -12 1 0 0
+Rotate 45 0 1 0
+Scale 1 1 -1
 
 #CameraPos_05 - Shot_02-Final -----------------------------------------------------------------------------------------
-Translate  0.45 -0.55 8.0
-Rotate -12 1 0 0
-Rotate -45 0 1 0
-Scale 1 1 -1
+#Translate  0.45 -0.55 8.0
+#Rotate -12 1 0 0
+#Rotate -45 0 1 0
+#Scale 1 1 -1
+
+#CameraPos_05 - Shot_03-Final -----------------------------------------------------------------------------------------
+#Translate  0.45 -0.55 8.0
+#Rotate -12 1 0 0
+#Rotate -30 0 1 0
+#Scale 1 1 -1
+
+#CameraPos_05 - Shot_04-Final -----------------------------------------------------------------------------------------
+#Translate  0.45 -0.55 8.0
+#Rotate -12 1 0 0
+#Rotate -15 0 1 0
+#Scale 1 1 -1
 
 #WorkCamera -----------------------------------------------------------------------------------------
 #Translate  0.45 -0.55 8.0
-#Rotate -35 1 0 0
+#Rotate -15 1 0 0
 #Rotate -45 0 1 0
 #Scale 1 1 -1
 
@@ -108,9 +120,11 @@ AttributeEnd
 	
 	# Floor Plane-----------------------------------------------
 	AttributeBegin
+		TransformBegin
 		Scale 10 1 10
 		ReadArchive "Materials/TeapotGround.rib"
 		Polygon "P" [-0.5 0 -0.5  -0.5 0 0.5  0.5 0 0.5  0.5 0 -0.5]
 				"st" [0 0  0 1  1 1  1 0]
+	TransformEnd
 	AttributeEnd
 WorldEnd

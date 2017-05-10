@@ -1,0 +1,38 @@
+shader circle
+(
+float x_pos=0.75 
+		[[
+		string label = "X_Position",
+		]],
+float y_pos= 0.75
+		[[
+		string label = "Y_Position",
+		]],
+float rad=0.1
+		[[
+		string label = "Radius",
+		]],
+color col = color(1,1,0)
+		[[
+		string label = "Circle Color",
+		]],
+color col2 = color(0,0,1)
+		[[
+		string label = "Background Color",
+		]],
+output color resultRGB = 0
+)
+
+{
+vector uv = vector(u,v,0);
+uv[0] = uv[0] - x_pos;
+uv[1] = uv[1] - y_pos;
+float circle = length(uv);
+if(circle <= rad)
+	resultRGB=col;
+else
+	resultRGB=col2;
+//circle = clamp(circle,0.0,1.0);
+//resultRGB = mix(col,col2,circle);
+//resultRGB = color(1,0,0);
+}

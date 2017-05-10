@@ -573,3 +573,111 @@ closedAt: Sunday 30 April 2017 at 6:36 PM
 openedBytes: 282
 closedBytes: 282
 saved: 0
+===================================
+DATE: Tuesday 2 May 2017 at 11:26 PM
+VERSION: 7.7.8
+---
+openedPath: F:\502\vsfx502\archives\geo\TeapotShape_01.rib
+closedPath: F:\502\vsfx502\archives\geo\TeapotShape_01.rib
+openedAt: Tuesday 2 May 2017 at 10:45 PM
+closedAt: Tuesday 2 May 2017 at 11:26 PM
+openedBytes: 4738
+closedBytes: 4738
+saved: 0
+---
+openedPath: F:\502\vsfx502\archives\materials\Teapot_BaseShader.rib
+closedPath: F:\502\vsfx502\archives\materials\Teapot_BaseShader.rib
+openedAt: Tuesday 2 May 2017 at 6:7 PM
+closedAt: Tuesday 2 May 2017 at 11:26 PM
+openedBytes: 7433
+closedBytes: 7662
+saved: 5
+---
+openedPath: F:\502\vsfx502\ribs\Teapot_Scene.rib
+closedPath: F:\502\vsfx502\ribs\Teapot_Scene.rib
+openedAt: Tuesday 2 May 2017 at 5:52 PM
+closedAt: Tuesday 2 May 2017 at 11:26 PM
+openedBytes: 3808
+closedBytes: 4367
+saved: 17
+---
+openedPath: F:\502\taizyd_korambayil\kettle\code\SpoutShape_01.rib
+closedPath: F:\502\taizyd_korambayil\kettle\code\SpoutShape_01.rib
+openedAt: Tuesday 2 May 2017 at 10:46 PM
+closedAt: Tuesday 2 May 2017 at 11:26 PM
+openedBytes: 820
+closedBytes: 820
+saved: 1
+---
+openedPath: F:\502\vsfx502\archives\materials\Teapot_RedSurface.rib
+closedPath: F:\502\vsfx502\archives\materials\Teapot_RedSurface.rib
+openedAt: Tuesday 2 May 2017 at 6:8 PM
+closedAt: Tuesday 2 May 2017 at 11:26 PM
+openedBytes: 5689
+closedBytes: 5689
+saved: 0
+===================================
+DATE: Friday 5 May 2017 at 2:25 AM
+VERSION: 7.7.8
+---
+openedPath: F:\502\maya\projects\RfM_osl\src\osltesting.osl
+closedPath: F:\502\maya\projects\RfM_osl\src\osltesting.osl
+openedAt: Friday 5 May 2017 at 1:16 AM
+closedAt: Friday 5 May 2017 at 2:25 AM
+openedBytes: 34
+closedBytes: 194
+saved: 25
+---
+openedPath: F:\502\taizyd_korambayil\kettle\code\SpoutShape_01.rib
+closedPath: F:\502\taizyd_korambayil\kettle\code\SpoutShape_01.rib
+openedAt: Friday 5 May 2017 at 1:14 AM
+closedAt: Friday 5 May 2017 at 1:15 AM
+openedBytes: 820
+closedBytes: 820
+saved: 0
+===================================
+DATE: Monday 8 May 2017 at 11:42 PM
+VERSION: 7.7.8
+---
+openedPath: F:\502\maya\projects\RfM_osl\src\dist2Color.osl
+closedPath: F:\502\maya\projects\RfM_osl\src\dist2Color.osl
+openedAt: Monday 8 May 2017 at 11:8 PM
+closedAt: Monday 8 May 2017 at 11:42 PM
+openedBytes: 420
+closedBytes: 420
+saved: 0
+---
+openedPath: F:\502\taizyd_korambayil\kettle\code\SpoutShape_01.rib
+closedPath: F:\502\taizyd_korambayil\kettle\code\SpoutShape_01.rib
+openedAt: Monday 8 May 2017 at 11:6 PM
+closedAt: Monday 8 May 2017 at 11:6 PM
+openedBytes: 820
+closedBytes: 820
+saved: 0
+---
+openedPath: F:\502\maya\projects\RfM_osl\src\circle.osl
+closedPath: F:\502\maya\projects\RfM_osl\src\circle.osl
+openedAt: Monday 8 May 2017 at 11:7 PM
+closedAt: Monday 8 May 2017 at 11:42 PM
+openedBytes: 49
+closedBytes: 432
+saved: 26
+===================================
+DATE: Wednesday 10 May 2017 at 0:20 AM
+VERSION: 7.7.8
+---
+openedPath: F:\502\maya\projects\RfM_osl\src\dist2Color.osl
+closedPath: F:\502\maya\projects\RfM_osl\src\dist2Color.osl
+openedAt: Wednesday 10 May 2017 at 0:9 AM
+closedAt: Wednesday 10 May 2017 at 0:9 AM
+openedBytes: 420
+closedBytes: 420
+saved: 0
+---
+openedPath: F:\502\maya\projects\RfM_osl\src\circle.osl
+closedPath: F:\502\maya\projects\RfM_osl\src\circle.osl
+openedAt: Wednesday 10 May 2017 at 0:12 AM
+closedAt: Wednesday 10 May 2017 at 0:20 AM
+openedBytes: 657
+closedBytes: 657
+saved: 1

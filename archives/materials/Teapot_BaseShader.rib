@@ -17,8 +17,24 @@ Pattern "PxrManifold2D" "PxrManifold2D1"
 
 		# "PxrMayaFile1:outColor"    uses->|color|point|vector|normal|pattern| 
 		# "PxrMayaFile1:outAlpha"    uses->|float|pattern| 
-		# "PxrMayaFile1:outTransparency"    uses->|float|pattern| 
+		# "PxrMayaFile1:outTransparency"    uses->|float|pattern|
 		
+#Grunge Tiling -----------------------------------------------------------------------------------------
+
+Pattern "PxrManifold2D" "PxrManifold2D2"
+		"float angle" [0]
+		"float scaleS" [2]
+		"float scaleT" [2]
+		"float offsetS" [0]
+		"float offsetT" [0]
+		"int invertT" [1]
+		"string primvarS" [""]
+		"string primvarT" [""]
+		# "PxrManifold2D2:result"    uses->|struct|manifold| 
+		# "PxrManifold2D2:resultS"    uses->|float| 
+		# "PxrManifold2D2:resultT"    uses->|float| 
+
+
 # Dirt Mask ------------------------------------------------------------------------------------------
 
 Pattern "PxrDirt" "PxrDirt1"
@@ -62,6 +78,29 @@ Pattern "PxrTexture" "PxrTexture2"
 		# "PxrTexture2:resultB"    uses->|float| 
 		# "PxrTexture2:resultA"    uses->|float| 
 		
+# Grunge Pattern --------------------------------------------------------------------------------------
+
+Pattern "PxrTexture" "PxrTexture3"
+		"string filename" ["../textures/Grunge_01.tex"]
+		"int firstChannel" [0]
+		"int atlasStyle" [0]
+		"int invertT" [1]
+		"int filter" [1]
+		"float blur" [0.0]
+		"int lerp" [1]
+		"color missingColor" [1. 0. 1.]
+		"float missingAlpha" [1.0]
+		"int linearize" [1]
+		# Examples manifold connection
+		"reference struct manifold" ["PxrManifold2D2:result"]
+		#"reference struct manifold" ["PxrManifold3D1:result"]
+
+		# "PxrTexture3:resultRGB"    uses->|color|vector|normal|point| 
+		# "PxrTexture3:resultR"    uses->|float| 
+		# "PxrTexture3:resultG"    uses->|float| 
+		# "PxrTexture3:resultB"    uses->|float| 
+		# "PxrTexture3:resultA"    uses->|float|
+		
 #Pixar noise pattern----------------------------------------------------------------------------------
 #Surface Bump
 Pattern "PxrFractal" "PxrFractal1"
@@ -84,12 +123,28 @@ Pattern "PxrFractal" "PxrFractal1"
 
 Pattern "PxrMix" "PxrMix1"
 		"color color1" [0.35 0.35 0.35]
-		"color color2" [0.6 0.6 0.6]
+		"color color2" [0.65 0.65 0.65]
 		"reference float mix" ["PxrFractal1:resultF"]
 		# "PxrMix1:resultRGB"    uses->|color|vector|normal|point| 
 		# "PxrMix1:resultR"    uses->|float| 
 		# "PxrMix1:resultG"    uses->|float| 
 		# "PxrMix1:resultB"    uses->|float|
+
+Pattern "PxrMix" "PxrMix3"
+		"color color1" [0.35 0.35 0.35]
+		"reference color color2" ["PxrMix1:resultRGB"]
+		"reference float mix" ["PxrTexture3:resultR"]
+		# "PxrMix3:resultRGB"    uses->|color|vector|normal|point| 
+		# "PxrMix3:resultR"    uses->|float| 
+		# "PxrMix3:resultG"    uses->|float| 
+		# "PxrMix3:resultB"    uses->|float|
+		
+		
+
+		
+# Roughness Multiply -----------------------------------------------------------------------------------
+
+
 
 # Color Mixing -----------------------------------------------------------------------------------------		
 Pattern "PxrMix" "PxrMix2"
@@ -146,12 +201,12 @@ Pattern "PxrMultiplyDivide" "PxrMultiplyDivide1"
 
 #PxrSurface Node--------------------------------------------------------------------------------------
 Bxdf "PxrSurface" "PxrSurface1"
-		"float diffuseGain" [1]
+		"float diffuseGain" [0.3]
 		#"reference color diffuseColor" ["PxrMix2:resultRGB"]
 		"reference color diffuseColor" ["PxrMultiplyDivide1:output"]
 		"int diffuseDoubleSided" [1]
-		"color specularFaceColor" [0.25 0.25 0.25]
-		"reference float specularRoughness" ["PxrMix1:resultR"]
+		"color specularFaceColor" [0.5 0.5 0.5]
+		"reference float specularRoughness" ["PxrMix3:resultR"]
 		"int specularDoubleSided" [0]
 		"float presence" [1]
 		#"reference normal diffuseBumpNormal" ["PxrNormalMap1:resultN"]
@@ -164,7 +219,7 @@ Displace "PxrDisplace" "PxrDisplace1"
 		"int enabled" [1]
 		"reference float dispAmount" ["PxrFractal1:resultF"]
 		"float dispScalar" [0.0]
-		"vector dispVector" [0.002 0.002 0.002]
+		"vector dispVector" [0.004 0.004 0.004]
 		"vector modelDispVector" [0.0 0.0 0.0]
 		
 		

@@ -64,12 +64,12 @@ AttributeBegin
 	Attribute "visibility" "int indirect" [0] "int transmission" [0]
 	Attribute "visibility" "int camera" [1]
 	Rotate -90 1 0 0
-	# txmake -envlatl ../tiffs/name.hdr ../textures/name.env.tex
+	# txmake -envlatl ../tiffs/Alexs_Apt_2k.hdr ../textures/Alexs_Apt_2k.env.tex
 	Light "PxrDomeLight" "PxrDomeLight1"
 		"float intensity" [0.5]
 		"float exposure" [1]
 		"color lightColor" [1 0.7 0.7]
-		"string lightColorMap" ["../textures/Lobby-Center_2k.tex"]
+		"string lightColorMap" ["../textures/Alexs_Apt_2k.env.tex"]
 		"int enableTemperature" [0]
 		"float temperature" [6500]
 		"float specular" [1.0]

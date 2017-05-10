@@ -1,10 +1,92 @@
+#Wood Texture------------------------------------------------------
+Pattern "PxrManifold2D" "PxrManifold2D1"
+		"float angle" [0]
+		"float scaleS" [10]
+		"float scaleT" [10]
+		"float offsetS" [0]
+		"float offsetT" [0]
+		"int invertT" [1]
+		"string primvarS" [""]
+		"string primvarT" [""]
+		# "PxrManifold2D1:result"    uses->|struct|manifold| 
+		# "PxrManifold2D1:resultS"    uses->|float| 
+		# "PxrManifold2D1:resultT"    uses->|float| 
 
-#Matte Floor Material
+# txmake -mode periodic ../tiffs/Grunge_01.jpg ../textures/Grunge_01.tex
+# txmake -mode periodic ../tiffs/SurfaceWood.jpg ../textures/SurfaceWood.tex
+Pattern "PxrTexture" "PxrTexture1"
+		"string filename" ["SurfaceWood.tex"]
+		"int firstChannel" [0]
+		"int atlasStyle" [0]
+		"int invertT" [1]
+		"int filter" [1]
+		"float blur" [0.0]
+		"int lerp" [1]
+		"color missingColor" [1. 0. 1.]
+		"float missingAlpha" [1.0]
+		"int linearize" [0]
+		# Examples manifold connection
+		"reference struct manifold" ["PxrManifold2D1:result"]
+		#"reference struct manifold" ["PxrManifold3D1:result"]
+
+		# "PxrTexture1:resultRGB"    uses->|color|vector|normal|point| 
+		# "PxrTexture1:resultR"    uses->|float| 
+		# "PxrTexture1:resultG"    uses->|float| 
+		# "PxrTexture1:resultB"    uses->|float| 
+		# "PxrTexture1:resultA"    uses->|float|
+		
+Pattern "PxrTexture" "PxrTexture2"
+		"string filename" ["Grunge_01.tex"]
+		"int firstChannel" [0]
+		"int atlasStyle" [0]
+		"int invertT" [1]
+		"int filter" [1]
+		"float blur" [0.0]
+		"int lerp" [1]
+		"color missingColor" [1. 0. 1.]
+		"float missingAlpha" [1.0]
+		"int linearize" [0]
+		# Examples manifold connection
+		#"reference struct manifold" ["PxrManifold2D1:result"]
+		#"reference struct manifold" ["PxrManifold3D1:result"]
+
+		# "PxrTexture2:resultRGB"    uses->|color|vector|normal|point| 
+		# "PxrTexture2:resultR"    uses->|float| 
+		# "PxrTexture2:resultG"    uses->|float| 
+		# "PxrTexture2:resultB"    uses->|float| 
+		# "PxrTexture2:resultA"    uses->|float|  
+		
+# Roughness Mix ----------------------------------------------------------------------------
+
+Pattern "PxrMix" "PxrMix1"
+		"color color1" [0.2 0.2 0.2]
+		"color color2" [0.7 0.7 0.7]
+		"reference float mix" ["PxrTexture2:resultR"]
+		# "PxrMix1:resultRGB"    uses->|color|vector|normal|point| 
+		# "PxrMix1:resultR"    uses->|float| 
+		# "PxrMix1:resultG"    uses->|float| 
+		# "PxrMix1:resultB"    uses->|float| 
+
+
+
+
+
+#Matte Floor Material ---------------------------------------------------------------------
 Bxdf "PxrSurface" "PxrSurface1"
 		"float diffuseGain" [1.0]
-		"color diffuseColor" [0.5 0.5 0.5]
+		"reference color diffuseColor" ["PxrTexture1:resultRGB"]
 		"int diffuseDoubleSided" [1]
-		"color specularFaceColor" [0.5 0.5 0.5]
-		"float specularRoughness" [0.5]
+		"color specularFaceColor" [0.2 0.2 0.2]
+		"reference float specularRoughness" ["PxrMix1:resultR"]
 		"int specularDoubleSided" [0]
 		"float presence" [1]
+		
+#Wood_Displacement-------------------------------------------------------------------------
+
+Attribute "displacementbound" "float sphere" [0.1]
+Displace "PxrDisplace" "PxrDisplace1"
+		"int enabled" [1]
+		"reference float dispAmount" ["PxrTexture1:resultR"]
+		"float dispScalar" [0.0]
+		"vector dispVector" [0.0 0.1 0.0]
+		"vector modelDispVector" [0.0 0.0 0.0]
