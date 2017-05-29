@@ -1,0 +1,18 @@
+// Malcolm Kesson
+// Jan 27 2016
+
+global proc addStringAttr(string $name, string $value) {
+    string  $sel[] = `ls -sl`;
+    for($current in $sel) {
+        string $shapes[] = `listRelatives -s $current`;
+        string $shape = $shapes[0];
+        if(size($shape) == 0)
+			continue;
+			
+        if(attributeExists($name, $shape) == 0) {
+            addAttr -ln $name -sn $name -dt "string" $shape;
+            }
+        setAttr ($shape + ("." + $name)) -type "string" $value;
+        print("name >" + $name + "<");
+        }
+    }

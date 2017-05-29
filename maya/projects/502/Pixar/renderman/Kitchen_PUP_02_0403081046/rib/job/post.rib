@@ -1,0 +1,17 @@
+Option "ribparse" "string varsubst" [""]
+Option "ribparse" "string varsubst" ["$"]
+IfBegin "!defined(RMSPROJ_FROM_ENV)"
+Option "user" "string RMSPROJ" "/home/tkoram20/maya/projects/502/Pixar/"
+IfEnd
+IfBegin "!defined(RMSTREE)"
+Option "user" "string RMSTREE" "/opt/pixar/RenderManForMaya-21.2-maya2017/"
+IfEnd
+Option "searchpath" "string resource"  ["${RMSPROJ}:@"]
+Option "searchpath" "string archive"  ["${RMSPROJ}:."]
+Option "searchpath" "string display"  ["${RMSTREE}/bin:@"]
+Option "searchpath" "string shader"  ["${RMSTREE}/lib/shaders/:${RMANTREE}/lib/shaders:/home/tkoram20/maya/projects/RfM_osl:@"]
+Option "searchpath" "string texture"  ["${RMSPROJ}:${RMSTREE}/lib/textures/:@"]
+Option "searchpath" "string rixplugin"  ["${RMSTREE}/lib/shaders/:/home/tkoram20/maya/projects/RfM_ris:@"]
+Option "searchpath" "string dirmap" [""]
+Option "searchpath" "string rifilter"  ["${RMSTREE}/lib/rif/:${RMANTREE}/lib/plugins:@"]
+Option "searchpath" "string procedural"  ["${RMSTREE}/lib/plugins/:${RMSTREE}/lib/plugins:${RMANTREE}/lib/plugins:@"]

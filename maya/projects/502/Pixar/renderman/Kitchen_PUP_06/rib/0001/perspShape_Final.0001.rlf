@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<RenderManLookFile Version="1" Format="RenderMan Look Data" AssemblyName="perspShape_Final">
+    <InjectablePayloads>
+        <Payload Id="light_GraySG" Label="" Source="1" Content="1"><![CDATA[##RenderMan RIB
+version 3.04
+Displacement "null" 
+Bxdf "PxrSurface" "light_Gray" "float diffuseGain" [1] "color diffuseColor" [0.898876 0.898876 0.898876] "float diffuseRoughness" [0] "float diffuseExponent" [1] "normal diffuseBumpNormal" [0 0 0] "int diffuseDoubleSided" [1] "int diffuseBackUseDiffuseColor" [1] "color diffuseBackColor" [0.18 0.18 0.18] 
+	"float diffuseTransmitGain" [0] "color diffuseTransmitColor" [0.18 0.18 0.18] "int specularFresnelMode" [0] "color specularFaceColor" [0 0 0] "color specularEdgeColor" [0 0 0] "float specularFresnelShape" [5] "color specularIor" [1.5 1.5 1.5] 
+	"color specularExtinctionCoeff" [0 0 0] "float specularRoughness" [0.2] "int specularModelType" [0] "float specularAnisotropy" [0] "vector specularAnisotropyDirection" [0 0 0] "normal specularBumpNormal" [0 0 0] "int specularDoubleSided" [0] 
+	"int roughSpecularFresnelMode" [0] "color roughSpecularFaceColor" [0 0 0] "color roughSpecularEdgeColor" [0 0 0] "float roughSpecularFresnelShape" [5] "color roughSpecularIor" [1.5 1.5 1.5] "color roughSpecularExtinctionCoeff" [0 0 0] 
+	"float roughSpecularRoughness" [0.6] "int roughSpecularModelType" [0] "float roughSpecularAnisotropy" [0] "vector roughSpecularAnisotropyDirection" [0 0 0] "normal roughSpecularBumpNormal" [0 0 0] "int roughSpecularDoubleSided" [0] "int clearcoatFresnelMode" [0] "color clearcoatFaceColor" [0 0 0] 
+	"color clearcoatEdgeColor" [0 0 0] "float clearcoatFresnelShape" [5] "color clearcoatIor" [1.5 1.5 1.5] "color clearcoatExtinctionCoeff" [0 0 0] "float clearcoatRoughness" [0] "int clearcoatModelType" [0] "float clearcoatAnisotropy" [0] 
+	"vector clearcoatAnisotropyDirection" [0 0 0] "normal clearcoatBumpNormal" [0 0 0] "int clearcoatDoubleSided" [0] "float specularEnergyCompensation" [1] "float clearcoatEnergyCompensation" [1] "float iridescenceFaceGain" [0] "float iridescenceEdgeGain" [0] "float iridescenceFresnelShape" [5] "int iridescenceMode" [0] 
+	"color iridescencePrimaryColor" [1 0 0] "color iridescenceSecondaryColor" [0 0 1] "float iridescenceRoughness" [0.2] "float iridescenceCurve" [1] "float iridescenceScale" [1] "int iridescenceFlip" [0] "float iridescenceThickness" [800] "int iridescenceDoubleSided" [0] "float fuzzGain" [0] 
+	"color fuzzColor" [1 1 1] "float fuzzConeAngle" [8] "normal fuzzBumpNormal" [0 0 0] "int fuzzDoubleSided" [0] "int subsurfaceType" [0] "float subsurfaceGain" [0] "color subsurfaceColor" [0.83 0.791 0.753] 
+	"float subsurfaceDmfp" [10] "color subsurfaceDmfpColor" [0.851 0.557 0.395] "float shortSubsurfaceGain" [0] "color shortSubsurfaceColor" [0.9 0.9 0.9] "float shortSubsurfaceDmfp" [5] "float longSubsurfaceGain" [0] "color longSubsurfaceColor" [0.8 0 0] 
+	"float longSubsurfaceDmfp" [20] "color subsurfacePostTint" [1 1 1] "float subsurfaceDiffuseSwitch" [1] "int subsurfaceDoubleSided" [0] "float subsurfaceTransmitGain" [0] "int considerBackside" [1] "int continuationRayMode" [0] "int maxContinuationHits" [2] "float followTopology" [0] "string subsurfaceSubset" [""] "float singlescatterGain" [0] "color singlescatterColor" [0.83 0.791 0.753] 
+	"float singlescatterMfp" [10] "color singlescatterMfpColor" [0.851 0.557 0.395] "float singlescatterDirectionality" [0] "float singlescatterIor" [1.3] "float singlescatterBlur" [0] "float singlescatterDirectGain" [0] "color singlescatterDirectGainTint" [1 1 1] "int singlescatterDoubleSided" [0] "int singlescatterConsiderBackside" [1] 
+	"int singlescatterContinuationRayMode" [0] "int singlescatterMaxContinuationHits" [2] "int singlescatterDirectGainMode" [0] "string singlescatterSubset" [""] "color irradianceTint" [1 1 1] "float irradianceRoughness" [0] "float unitLength" [0.1] "float refractionGain" [0] "float reflectionGain" [0] "color refractionColor" [1 1 1] 
+	"float glassRoughness" [0.1] "float glassIor" [1.5] "int thinGlass" [0] "color ssAlbedo" [0 0 0] "color extinction" [0 0 0] "float g" [0] "int multiScatter" [0] "int enableOverlappingVolumes" [0] "float glowGain" [0] "color glowColor" [1 1 1] 
+	"normal bumpNormal" [0 0 0] "color shadowColor" [0 0 0] "int shadowMode" [0] "float presence" [1] "int presenceCached" [1] "__instanceid" ["light_Gray_30"]
+]]></Payload>
+        <Payload Id="FridgeShineySG" Label="" Source="1" Content="1"><![CDATA[##RenderMan RIB
+version 3.04
+Displacement "null" 
+Bxdf "PxrSurface" "FridgeShiney" "float diffuseGain" [0.325843] "color diffuseColor" [0.244944 0.290553 0.324] "float diffuseRoughness" [0] "float diffuseExponent" [1] "normal diffuseBumpNormal" [0 0 0] "int diffuseDoubleSided" [0] "int diffuseBackUseDiffuseColor" [1] "color diffuseBackColor" [0.18 0.18 0.18] 
+	"float diffuseTransmitGain" [0] "color diffuseTransmitColor" [0.18 0.18 0.18] "int specularFresnelMode" [0] "color specularFaceColor" [1 1 1] "color specularEdgeColor" [1 1 1] "float specularFresnelShape" [5] "color specularIor" [1.5 1.5 1.5] 
+	"color specularExtinctionCoeff" [0 0 0] "float specularRoughness" [0.0122247] "int specularModelType" [1] "float specularAnisotropy" [0] "vector specularAnisotropyDirection" [0 0 0] "normal specularBumpNormal" [0 0 0] "int specularDoubleSided" [0] 
+	"int roughSpecularFresnelMode" [0] "color roughSpecularFaceColor" [0 0 0] "color roughSpecularEdgeColor" [0 0 0] "float roughSpecularFresnelShape" [5] "color roughSpecularIor" [1.5 1.5 1.5] "color roughSpecularExtinctionCoeff" [0 0 0] 
+	"float roughSpecularRoughness" [0.6] "int roughSpecularModelType" [0] "float roughSpecularAnisotropy" [0] "vector roughSpecularAnisotropyDirection" [0 0 0] "normal roughSpecularBumpNormal" [0 0 0] "int roughSpecularDoubleSided" [0] "int clearcoatFresnelMode" [0] "color clearcoatFaceColor" [0 0 0] 
+	"color clearcoatEdgeColor" [0 0 0] "float clearcoatFresnelShape" [5] "color clearcoatIor" [1.5 1.5 1.5] "color clearcoatExtinctionCoeff" [0 0 0] "float clearcoatRoughness" [0] "int clearcoatModelType" [0] "float clearcoatAnisotropy" [0] 
+	"vector clearcoatAnisotropyDirection" [0 0 0] "normal clearcoatBumpNormal" [0 0 0] "int clearcoatDoubleSided" [0] "float specularEnergyCompensation" [0] "float clearcoatEnergyCompensation" [0] "float iridescenceFaceGain" [0] "float iridescenceEdgeGain" [0] "float iridescenceFresnelShape" [5] "int iridescenceMode" [0] 
+	"color iridescencePrimaryColor" [1 0 0] "color iridescenceSecondaryColor" [0 0 1] "float iridescenceRoughness" [0.2] "float iridescenceCurve" [1] "float iridescenceScale" [1] "int iridescenceFlip" [0] "float iridescenceThickness" [800] "int iridescenceDoubleSided" [0] "float fuzzGain" [0] 
+	"color fuzzColor" [1 1 1] "float fuzzConeAngle" [8] "normal fuzzBumpNormal" [0 0 0] "int fuzzDoubleSided" [0] "int subsurfaceType" [0] "float subsurfaceGain" [0] "color subsurfaceColor" [0.83 0.791 0.753] 
+	"float subsurfaceDmfp" [10] "color subsurfaceDmfpColor" [0.851 0.557 0.395] "float shortSubsurfaceGain" [0] "color shortSubsurfaceColor" [0.9 0.9 0.9] "float shortSubsurfaceDmfp" [5] "float longSubsurfaceGain" [0] "color longSubsurfaceColor" [0.8 0 0] 
+	"float longSubsurfaceDmfp" [20] "color subsurfacePostTint" [1 1 1] "float subsurfaceDiffuseSwitch" [1] "int subsurfaceDoubleSided" [0] "float subsurfaceTransmitGain" [0] "int considerBackside" [1] "int continuationRayMode" [0] "int maxContinuationHits" [2] "float followTopology" [0] "string subsurfaceSubset" [""] "float singlescatterGain" [0] "color singlescatterColor" [0.83 0.791 0.753] 
+	"float singlescatterMfp" [10] "color singlescatterMfpColor" [0.851 0.557 0.395] "float singlescatterDirectionality" [0] "float singlescatterIor" [1.3] "float singlescatterBlur" [0] "float singlescatterDirectGain" [0] "color singlescatterDirectGainTint" [1 1 1] "int singlescatterDoubleSided" [0] "int singlescatterConsiderBackside" [1] 
+	"int singlescatterContinuationRayMode" [0] "int singlescatterMaxContinuationHits" [2] "int singlescatterDirectGainMode" [0] "string singlescatterSubset" [""] "color irradianceTint" [1 1 1] "float irradianceRoughness" [0] "float unitLength" [0.1] "float refractionGain" [0] "float reflectionGain" [0] "color refractionColor" [1 1 1] 
+	"float glassRoughness" [0.1] "float glassIor" [1.5] "int thinGlass" [0] "color ssAlbedo" [0 0 0] "color extinction" [0 0 0] "float g" [0] "int multiScatter" [0] "int enableOverlappingVolumes" [0] "float glowGain" [0] "color glowColor" [1 1 1] 
+	"normal bumpNormal" [0 0 0] "color shadowColor" [0 0 0] "int shadowMode" [0] "float presence" [1] "int presenceCached" [1] "__instanceid" ["FridgeShiney_41"]
+]]></Payload>
+        <Payload Id="BurnerBlackMetalSG" Label="" Source="1" Content="1"><![CDATA[##RenderMan RIB
+version 3.04
+Displacement "null" 
+Bxdf "PxrSurface" "BurnerBlackMetal" "float diffuseGain" [1] "color diffuseColor" [0.007 0.007 0.007] "float diffuseRoughness" [0] "float diffuseExponent" [1] "normal diffuseBumpNormal" [0 0 0] "int diffuseDoubleSided" [0] "int diffuseBackUseDiffuseColor" [1] "color diffuseBackColor" [0.18 0.18 0.18] 
+	"float diffuseTransmitGain" [0] "color diffuseTransmitColor" [0.18 0.18 0.18] "int specularFresnelMode" [0] "color specularFaceColor" [0.449438 0.449438 0.449438] "color specularEdgeColor" [1 1 1] "float specularFresnelShape" [5] "color specularIor" [1.5 1.5 1.5] 
+	"color specularExtinctionCoeff" [0 0 0] "float specularRoughness" [0.2] "int specularModelType" [0] "float specularAnisotropy" [0] "vector specularAnisotropyDirection" [0 0 0] "normal specularBumpNormal" [0 0 0] "int specularDoubleSided" [0] 
+	"int roughSpecularFresnelMode" [0] "color roughSpecularFaceColor" [0 0 0] "color roughSpecularEdgeColor" [0 0 0] "float roughSpecularFresnelShape" [5] "color roughSpecularIor" [1.5 1.5 1.5] "color roughSpecularExtinctionCoeff" [0 0 0] 
+	"float roughSpecularRoughness" [0.6] "int roughSpecularModelType" [0] "float roughSpecularAnisotropy" [0] "vector roughSpecularAnisotropyDirection" [0 0 0] "normal roughSpecularBumpNormal" [0 0 0] "int roughSpecularDoubleSided" [0] "int clearcoatFresnelMode" [0] "color clearcoatFaceColor" [0 0 0] 
+	"color clearcoatEdgeColor" [0 0 0] "float clearcoatFresnelShape" [5] "color clearcoatIor" [1.5 1.5 1.5] "color clearcoatExtinctionCoeff" [0 0 0] "float clearcoatRoughness" [0] "int clearcoatModelType" [0] "float clearcoatAnisotropy" [0] 
+	"vector clearcoatAnisotropyDirection" [0 0 0] "normal clearcoatBumpNormal" [0 0 0] "int clearcoatDoubleSided" [0] "float specularEnergyCompensation" [0] "float clearcoatEnergyCompensation" [0] "float iridescenceFaceGain" [0] "float iridescenceEdgeGain" [0] "float iridescenceFresnelShape" [5] "int iridescenceMode" [0] 
+	"color iridescencePrimaryColor" [1 0 0] "color iridescenceSecondaryColor" [0 0 1] "float iridescenceRoughness" [0.2] "float iridescenceCurve" [1] "float iridescenceScale" [1] "int iridescenceFlip" [0] "float iridescenceThickness" [800] "int iridescenceDoubleSided" [0] "float fuzzGain" [0] 
+	"color fuzzColor" [1 1 1] "float fuzzConeAngle" [8] "normal fuzzBumpNormal" [0 0 0] "int fuzzDoubleSided" [0] "int subsurfaceType" [0] "float subsurfaceGain" [0] "color subsurfaceColor" [0.83 0.791 0.753] 
+	"float subsurfaceDmfp" [10] "color subsurfaceDmfpColor" [0.851 0.557 0.395] "float shortSubsurfaceGain" [0] "color shortSubsurfaceColor" [0.9 0.9 0.9] "float shortSubsurfaceDmfp" [5] "float longSubsurfaceGain" [0] "color longSubsurfaceColor" [0.8 0 0] 
+	"float longSubsurfaceDmfp" [20] "color subsurfacePostTint" [1 1 1] "float subsurfaceDiffuseSwitch" [1] "int subsurfaceDoubleSided" [0] "float subsurfaceTransmitGain" [0] "int considerBackside" [1] "int continuationRayMode" [0] "int maxContinuationHits" [2] "float followTopology" [0] "string subsurfaceSubset" [""] "float singlescatterGain" [0] "color singlescatterColor" [0.83 0.791 0.753] 
+	"float singlescatterMfp" [10] "color singlescatterMfpColor" [0.851 0.557 0.395] "float singlescatterDirectionality" [0] "float singlescatterIor" [1.3] "float singlescatterBlur" [0] "float singlescatterDirectGain" [0] "color singlescatterDirectGainTint" [1 1 1] "int singlescatterDoubleSided" [0] "int singlescatterConsiderBackside" [1] 
+	"int singlescatterContinuationRayMode" [0] "int singlescatterMaxContinuationHits" [2] "int singlescatterDirectGainMode" [0] "string singlescatterSubset" [""] "color irradianceTint" [1 1 1] "float irradianceRoughness" [0] "float unitLength" [0.1] "float refractionGain" [0] "float reflectionGain" [0] "color refractionColor" [1 1 1] 
+	"float glassRoughness" [0.1] "float glassIor" [1.5] "int thinGlass" [0] "color ssAlbedo" [0 0 0] "color extinction" [0 0 0] "float g" [0] "int multiScatter" [0] "int enableOverlappingVolumes" [0] "float glowGain" [0] "color glowColor" [1 1 1] 
+	"normal bumpNormal" [0 0 0] "color shadowColor" [0 0 0] "int shadowMode" [0] "float presence" [1] "int presenceCached" [1] "__instanceid" ["BurnerBlackMetal_77"]
+]]></Payload>
+        <Payload Id="FridgeSG" Label="" Source="1" Content="1"><![CDATA[##RenderMan RIB
+version 3.04
+Displacement "null" 
+Bxdf "PxrSurface" "Frigde" "float diffuseGain" [1] "color diffuseColor" [0.426966 0.0657528 0.0657528] "float diffuseRoughness" [0.25] "float diffuseExponent" [1] "normal diffuseBumpNormal" [0 0 0] "int diffuseDoubleSided" [0] "int diffuseBackUseDiffuseColor" [1] "color diffuseBackColor" [0.18 0.18 0.18] 
+	"float diffuseTransmitGain" [0] "color diffuseTransmitColor" [0.18 0.18 0.18] "int specularFresnelMode" [0] "color specularFaceColor" [1.358 1.45677 2] "color specularEdgeColor" [1 0 0] "float specularFresnelShape" [0] "color specularIor" [1.5 1.5 1.5] 
+	"color specularExtinctionCoeff" [0 0 0] "float specularRoughness" [0.1] "int specularModelType" [0] "float specularAnisotropy" [0] "vector specularAnisotropyDirection" [0 0 0] "normal specularBumpNormal" [0 0 0] "int specularDoubleSided" [0] 
+	"int roughSpecularFresnelMode" [0] "color roughSpecularFaceColor" [0 0 0] "color roughSpecularEdgeColor" [0 0 0] "float roughSpecularFresnelShape" [5] "color roughSpecularIor" [1.5 1.5 1.5] "color roughSpecularExtinctionCoeff" [0 0 0] 
+	"float roughSpecularRoughness" [0.135697] "int roughSpecularModelType" [0] "float roughSpecularAnisotropy" [0] "vector roughSpecularAnisotropyDirection" [0 0 0] "normal roughSpecularBumpNormal" [0 0 0] "int roughSpecularDoubleSided" [0] "int clearcoatFresnelMode" [1] "color clearcoatFaceColor" [0.516854 0.516854 0.516854] 
+	"color clearcoatEdgeColor" [0 0 0] "float clearcoatFresnelShape" [32] "color clearcoatIor" [1.5 1.5 1.5] "color clearcoatExtinctionCoeff" [0 0 0] "float clearcoatRoughness" [0.001] "int clearcoatModelType" [0] "float clearcoatAnisotropy" [0] 
+	"vector clearcoatAnisotropyDirection" [0 0 0] "normal clearcoatBumpNormal" [0 0 0] "int clearcoatDoubleSided" [0] "float specularEnergyCompensation" [0] "float clearcoatEnergyCompensation" [0] "float iridescenceFaceGain" [0] "float iridescenceEdgeGain" [0] "float iridescenceFresnelShape" [5] "int iridescenceMode" [0] 
+	"color iridescencePrimaryColor" [1 0 0] "color iridescenceSecondaryColor" [0 0 1] "float iridescenceRoughness" [0.2] "float iridescenceCurve" [1] "float iridescenceScale" [1] "int iridescenceFlip" [0] "float iridescenceThickness" [800] "int iridescenceDoubleSided" [0] "float fuzzGain" [0] 
+	"color fuzzColor" [1 1 1] "float fuzzConeAngle" [8] "normal fuzzBumpNormal" [0 0 0] "int fuzzDoubleSided" [0] "int subsurfaceType" [0] "float subsurfaceGain" [0] "color subsurfaceColor" [0.83 0.791 0.753] 
+	"float subsurfaceDmfp" [10] "color subsurfaceDmfpColor" [0.851 0.557 0.395] "float shortSubsurfaceGain" [0] "color shortSubsurfaceColor" [0.9 0.9 0.9] "float shortSubsurfaceDmfp" [5] "float longSubsurfaceGain" [0] "color longSubsurfaceColor" [0.8 0 0] 
+	"float longSubsurfaceDmfp" [20] "color subsurfacePostTint" [1 1 1] "float subsurfaceDiffuseSwitch" [1] "int subsurfaceDoubleSided" [0] "float subsurfaceTransmitGain" [0] "int considerBackside" [1] "int continuationRayMode" [0] "int maxContinuationHits" [2] "float followTopology" [0] "string subsurfaceSubset" [""] "float singlescatterGain" [0] "color singlescatterColor" [0.83 0.791 0.753] 
+	"float singlescatterMfp" [10] "color singlescatterMfpColor" [0.851 0.557 0.395] "float singlescatterDirectionality" [0] "float singlescatterIor" [1.3] "float singlescatterBlur" [0] "float singlescatterDirectGain" [0] "color singlescatterDirectGainTint" [1 1 1] "int singlescatterDoubleSided" [0] "int singlescatterConsiderBackside" [1] 
+	"int singlescatterContinuationRayMode" [0] "int singlescatterMaxContinuationHits" [2] "int singlescatterDirectGainMode" [0] "string singlescatterSubset" [""] "color irradianceTint" [1 1 1] "float irradianceRoughness" [0] "float unitLength" [0.1] "float refractionGain" [0] "float reflectionGain" [0] "color refractionColor" [1 1 1] 
+	"float glassRoughness" [0.1] "float glassIor" [1.5] "int thinGlass" [0] "color ssAlbedo" [0 0 0] "color extinction" [0 0 0] "float g" [0] "int multiScatter" [0] "int enableOverlappingVolumes" [0] "float glowGain" [0] "color glowColor" [1 1 1] 
+	"normal bumpNormal" [1 1 1] "color shadowColor" [0 0 0] "int shadowMode" [0] "float presence" [1] "int presenceCached" [1] "__instanceid" ["Frigde_0"]
+]]></Payload>
+        <Payload Id="KettleSurfaceYellowSG" Label="" Source="1" Content="1"><![CDATA[##RenderMan RIB
+version 3.04
+Displacement "null" 
+Bxdf "PxrSurface" "KettleSurfaceYellow" "float diffuseGain" [1] "color diffuseColor" [0.18 0.18 0.18] "float diffuseRoughness" [0] "float diffuseExponent" [1] "normal diffuseBumpNormal" [0 0 0] "int diffuseDoubleSided" [0] "int diffuseBackUseDiffuseColor" [1] "color diffuseBackColor" [0.18 0.18 0.18] 
+	"float diffuseTransmitGain" [0] "color diffuseTransmitColor" [0.18 0.18 0.18] "int specularFresnelMode" [0] "color specularFaceColor" [0 0 0] "color specularEdgeColor" [0 0 0] "float specularFresnelShape" [5] "color specularIor" [1.5 1.5 1.5] 
+	"color specularExtinctionCoeff" [0 0 0] "float specularRoughness" [0.2] "int specularModelType" [0] "float specularAnisotropy" [0] "vector specularAnisotropyDirection" [0 0 0] "normal specularBumpNormal" [0 0 0] "int specularDoubleSided" [0] 
+	"int roughSpecularFresnelMode" [0] "color roughSpecularFaceColor" [0 0 0] "color roughSpecularEdgeColor" [0 0 0] "float roughSpecularFresnelShape" [5] "color roughSpecularIor" [1.5 1.5 1.5] "color roughSpecularExtinctionCoeff" [0 0 0] 
+	"float roughSpecularRoughness" [0.6] "int roughSpecularModelType" [0] "float roughSpecularAnisotropy" [0] "vector roughSpecularAnisotropyDirection" [0 0 0] "normal roughSpecularBumpNormal" [0 0 0] "int roughSpecularDoubleSided" [0] "int clearcoatFresnelMode" [0] "color clearcoatFaceColor" [0 0 0] 
+	"color clearcoatEdgeColor" [0 0 0] "float clearcoatFresnelShape" [5] "color clearcoatIor" [1.5 1.5 1.5] "color clearcoatExtinctionCoeff" [0 0 0] "float clearcoatRoughness" [0] "int clearcoatModelType" [0] "float clearcoatAnisotropy" [0] 
+	"vector clearcoatAnisotropyDirection" [0 0 0] "normal clearcoatBumpNormal" [0 0 0] "int clearcoatDoubleSided" [0] "float specularEnergyCompensation" [0] "float clearcoatEnergyCompensation" [0] "float iridescenceFaceGain" [0] "float iridescenceEdgeGain" [0] "float iridescenceFresnelShape" [5] "int iridescenceMode" [0] 
+	"color iridescencePrimaryColor" [1 0 0] "color iridescenceSecondaryColor" [0 0 1] "float iridescenceRoughness" [0.2] "float iridescenceCurve" [1] "float iridescenceScale" [1] "int iridescenceFlip" [0] "float iridescenceThickness" [800] "int iridescenceDoubleSided" [0] "float fuzzGain" [0] 
+	"color fuzzColor" [1 1 1] "float fuzzConeAngle" [8] "normal fuzzBumpNormal" [0 0 0] "int fuzzDoubleSided" [0] "int subsurfaceType" [0] "float subsurfaceGain" [0] "color subsurfaceColor" [0.83 0.791 0.753] 
+	"float subsurfaceDmfp" [10] "color subsurfaceDmfpColor" [0.851 0.557 0.395] "float shortSubsurfaceGain" [0] "color shortSubsurfaceColor" [0.9 0.9 0.9] "float shortSubsurfaceDmfp" [5] "float longSubsurfaceGain" [0] "color longSubsurfaceColor" [0.8 0 0] 
+	"float longSubsurfaceDmfp" [20] "color subsurfacePostTint" [1 1 1] "float subsurfaceDiffuseSwitch" [1] "int subsurfaceDoubleSided" [0] "float subsurfaceTransmitGain" [0] "int considerBackside" [1] "int continuationRayMode" [0] "int maxContinuationHits" [2] "float followTopology" [0] "string subsurfaceSubset" [""] "float singlescatterGain" [0] "color singlescatterColor" [0.83 0.791 0.753] 
+	"float singlescatterMfp" [10] "color singlescatterMfpColor" [0.851 0.557 0.395] "float singlescatterDirectionality" [0] "float singlescatterIor" [1.3] "float singlescatterBlur" [0] "float singlescatterDirectGain" [0] "color singlescatterDirectGainTint" [1 1 1] "int singlescatterDoubleSided" [0] "int singlescatterConsiderBackside" [1] 
+	"int singlescatterContinuationRayMode" [0] "int singlescatterMaxContinuationHits" [2] "int singlescatterDirectGainMode" [0] "string singlescatterSubset" [""] "color irradianceTint" [1 1 1] "float irradianceRoughness" [0] "float unitLength" [0.1] "float refractionGain" [0] "float reflectionGain" [0] "color refractionColor" [1 1 1] 
+	"float glassRoughness" [0.1] "float glassIor" [1.5] "int thinGlass" [0] "color ssAlbedo" [0 0 0] "color extinction" [0 0 0] "float g" [0] "int multiScatter" [0] "int enableOverlappingVolumes" [0] "float glowGain" [0] "color glowColor" [1 1 1] 
+	"normal bumpNormal" [0 0 0] "color shadowColor" [0 0 0] "int shadowMode" [0] "float presence" [1] "int presenceCached" [1] "__instanceid" ["KettleSurfaceYellow_0"]
+]]></Payload>
+        <Payload Id="initialShadingGroup" Label="" Source="1" Content="1"><![CDATA[##RenderMan RIB
+version 3.04
+Displacement "null" 
+]]></Payload>
+    </InjectablePayloads>
+    <TightBindings>
+        <Binding Key="kitchen_group/NewStove/pCube203/pCubeShape203" PayloadId="light_GraySG"/>
+        <Binding Key="kitchen_group/NewStove/pCube218/pCube218Shape" PayloadId="BurnerBlackMetalSG"/>
+        <Binding Key="kitchen_group/NewStove/pCube230/pCube230Shape" PayloadId="FridgeSG"/>
+        <Binding Key="kitchen_group/NewStove/pSphere41/pSphereShape41" PayloadId="FridgeShineySG"/>
+        <Binding Key="kitchen_group/NewStove/pCube204/pCubeShape204" PayloadId="light_GraySG"/>
+        <Binding Key="kitchen_group/NewStove/pCylinder130/pCylinderShape130" PayloadId="FridgeShineySG"/>
+        <Binding Key="kitchen_group/NewStove/pCylinder145/pCylinderShape145" PayloadId="FridgeShineySG"/>
+        <Binding Key="kitchen_group/NewStove/pCylinder102/pCylinderShape102" PayloadId="FridgeShineySG"/>
+        <Binding Key="kitchen_group/NewStove/pCube207/pCubeShape207" PayloadId="FridgeShineySG"/>
+        <Binding Key="kitchen_group/NewStove/pCube210/pCubeShape210" PayloadId="light_GraySG"/>
+        <Binding Key="kitchen_group/NewStove/pCylinder114/pCylinderShape114" PayloadId="light_GraySG"/>
+        <Binding Key="kitchen_group/NewStove/pCube243/pCube243Shape" PayloadId="FridgeSG"/>
+        <Binding Key="kitchen_group/NewStove/pCylinder128/pCylinderShape128" PayloadId="FridgeShineySG"/>
+        <Binding Key="kitchen_group/Teapot/pPipe26/pPipeShape26" PayloadId="light_GraySG"/>
+        <Binding Key="kitchen_group/NewStove/DustPan2/DustPan2Shape" PayloadId="FridgeSG"/>
+        <Binding Key="kitchen_group/NewStove/pSphere42/pSphereShape42" PayloadId="FridgeShineySG"/>
+        <Binding Key="kitchen_group/NewStove/pCube240/pCube240Shape" PayloadId="FridgeSG"/>
+        <Binding Key="kitchen_group/NewStove/pCube241/pCube241Shape" PayloadId="FridgeSG"/>
+        <Binding Key="kitchen_group/NewStove/pCube242/pCube242Shape" PayloadId="FridgeSG"/>
+        <Binding Key="kitchen_group/NewStove/pCylinder113/pCylinderShape113" PayloadId="FridgeShineySG"/>
+        <Binding Key="kitchen_group/NewStove/pCylinder106/pCylinderShape106" PayloadId="BurnerBlackMetalSG"/>
+        <Binding Key="kitchen_group/NewStove/pCylinder345/pCylinderShape345" PayloadId="light_GraySG"/>
+        <Binding Key="kitchen_group/NewStove/pCylinder107/pCylinderShape107" PayloadId="FridgeShineySG"/>
+        <Binding Key="kitchen_group/NewStove/pCylinder109/pCylinderShape109" PayloadId="BurnerBlackMetalSG"/>
+        <Binding Key="kitchen_group/NewStove/pCylinder108/pCylinderShape108" PayloadId="BurnerBlackMetalSG"/>
+        <Binding Key="kitchen_group/NewStove/pCylinder110/pCylinderShape110" PayloadId="FridgeShineySG"/>
+        <Binding Key="kitchen_group/NewStove/pCylinder146/pCylinderShape146" PayloadId="FridgeShineySG"/>
+        <Binding Key="kitchen_group/NewStove/pCylinder111/pCylinderShape111" PayloadId="BurnerBlackMetalSG"/>
+        <Binding Key="kitchen_group/NewStove/pCube416/pCubeShape416" PayloadId="light_GraySG"/>
+        <Binding Key="kitchen_group/NewStove/pCylinder144/pCylinderShape144" PayloadId="FridgeShineySG"/>
+        <Binding Key="kitchen_group/NewStove/pCylinder112/pCylinderShape112" PayloadId="BurnerBlackMetalSG"/>
+        <Binding Key="kitchen_group/NewStove/pCylinder143/pCylinderShape143" PayloadId="FridgeShineySG"/>
+        <Binding Key="kitchen_group/NewStove/pSphere37/pSphereShape37" PayloadId="FridgeShineySG"/>
+        <Binding Key="kitchen_group/NewStove/pCylinder118/pCylinderShape118" PayloadId="BurnerBlackMetalSG"/>
+        <Binding Key="kitchen_group/NewStove/pCylinder135/pCylinderShape135" PayloadId="FridgeShineySG"/>
+        <Binding Key="kitchen_group/NewStove/pCylinder119/pCylinderShape119" PayloadId="FridgeShineySG"/>
+        <Binding Key="kitchen_group/NewStove/pCylinder120/pCylinderShape120" PayloadId="BurnerBlackMetalSG"/>
+        <Binding Key="kitchen_group/NewStove/pCylinder129/pCylinderShape129" PayloadId="FridgeShineySG"/>
+        <Binding Key="kitchen_group/NewStove/pCube252/pCube252Shape" PayloadId="BurnerBlackMetalSG"/>
+        <Binding Key="kitchen_group/NewStove/pCylinder142/pCylinderShape142" PayloadId="FridgeShineySG"/>
+        <Binding Key="kitchen_group/NewStove/pSphere35/pSphereShape35" PayloadId="FridgeShineySG"/>
+        <Binding Key="kitchen_group/NewStove/pCube639/pCube639Shape" PayloadId="light_GraySG"/>
+        <Binding Key="kitchen_group/NewStove/pSphere43/pSphereShape43" PayloadId="FridgeShineySG"/>
+        <Binding Key="kitchen_group/NewStove/pCube253/pCube253Shape" PayloadId="BurnerBlackMetalSG"/>
+        <Binding Key="kitchen_group/NewStove/pCylinder140/pCylinderShape140" PayloadId="FridgeShineySG"/>
+        <Binding Key="kitchen_group/NewStove/pCylinder161/pCylinderShape161" PayloadId="light_GraySG"/>
+        <Binding Key="kitchen_group/NewStove/pCube254/pCube254Shape" PayloadId="BurnerBlackMetalSG"/>
+        <Binding Key="kitchen_group/NewStove/pCylinder134/pCylinderShape134" PayloadId="FridgeShineySG"/>
+        <Binding Key="kitchen_group/NewStove/pCylinder139/pCylinderShape139" PayloadId="FridgeShineySG"/>
+        <Binding Key="kitchen_group/NewStove/pCylinder133/pCylinderShape133" PayloadId="FridgeShineySG"/>
+        <Binding Key="kitchen_group/NewStove/pCube259/pCubeShape259" PayloadId="FridgeShineySG"/>
+        <Binding Key="kitchen_group/NewStove/pCylinder131/pCylinderShape131" PayloadId="FridgeShineySG"/>
+        <Binding Key="kitchen_group/NewStove/pCylinder136/pCylinderShape136" PayloadId="FridgeShineySG"/>
+        <Binding Key="kitchen_group/NewStove/pCylinder141/pCylinderShape141" PayloadId="FridgeShineySG"/>
+        <Binding Key="kitchen_group/NewStove/pSphere44/pSphereShape44" PayloadId="FridgeShineySG"/>
+        <Binding Key="kitchen_group/NewStove/pSphere34/pSphereShape34" PayloadId="FridgeShineySG"/>
+        <Binding Key="kitchen_group/NewStove/pSphere40/pSphereShape40" PayloadId="FridgeShineySG"/>
+        <Binding Key="kitchen_group/NewStove/pSphere39/pSphereShape39" PayloadId="FridgeShineySG"/>
+        <Binding Key="kitchen_group/NewStove/pSphere38/pSphereShape38" PayloadId="FridgeShineySG"/>
+        <Binding Key="kitchen_group/NewStove/pCylinder346/pCylinderShape346" PayloadId="light_GraySG"/>
+        <Binding Key="kitchen_group/NewStove/pSphere36/pSphereShape36" PayloadId="FridgeShineySG"/>
+        <Binding Key="kitchen_group/NewStove/pCylinder344/pCylinderShape344" PayloadId="light_GraySG"/>
+        <Binding Key="kitchen_group/NewStove/pCylinder347/pCylinderShape347" PayloadId="light_GraySG"/>
+        <Binding Key="kitchen_group/NewStove/pCylinder132/pCylinderShape132" PayloadId="FridgeShineySG"/>
+        <Binding Key="kitchen_group/NewStove/pCylinder370/pCylinderShape370" PayloadId="light_GraySG"/>
+        <Binding Key="kitchen_group/NewStove/pCylinder371/pCylinderShape371" PayloadId="light_GraySG"/>
+        <Binding Key="kitchen_group/NewStove/pCylinder372/pCylinderShape372" PayloadId="light_GraySG"/>
+        <Binding Key="kitchen_group/NewStove/pCylinder373/pCylinderShape373" PayloadId="light_GraySG"/>
+        <Binding Key="kitchen_group/NewStove/pCylinder162/pCylinderShape162" PayloadId="FridgeShineySG"/>
+        <Binding Key="kitchen_group/NewStove/pCylinder396/pCylinderShape396" PayloadId="FridgeShineySG"/>
+        <Binding Key="kitchen_group/NewStove/pCylinder397/pCylinderShape397" PayloadId="FridgeShineySG"/>
+        <Binding Key="kitchen_group/NewStove/pCylinder535/pCylinderShape535" PayloadId="FridgeShineySG"/>
+        <Binding Key="kitchen_group/Teapot/polySurface2/polySurfaceShape2" PayloadId="light_GraySG"/>
+        <Binding Key="kitchen_group/Teapot/polySurface1/polySurfaceShape1" PayloadId="KettleSurfaceYellowSG"/>
+        <Binding Key="kitchen_group/Teapot/pTorus4/pTorusShape4" PayloadId="light_GraySG"/>
+        <Binding Key="kitchen_group/Teapot/pSphere47/pSphereShape47" PayloadId="light_GraySG"/>
+        <Binding Key="kitchen_group/Teapot/pCylinder157/pCylinderShape157" PayloadId="light_GraySG"/>
+        <Binding Key="kitchen_group/room_blocker/room_blockerShape" PayloadId="light_GraySG"/>
+        <Binding Key="kitchen_group/RenderMan_Teapot/RenderMan_TeapotShape" PayloadId="light_GraySG"/>
+        <Binding Key="pPlane396/pPlaneShape396" PayloadId="initialShadingGroup"/>
+    </TightBindings>
+</RenderManLookFile>

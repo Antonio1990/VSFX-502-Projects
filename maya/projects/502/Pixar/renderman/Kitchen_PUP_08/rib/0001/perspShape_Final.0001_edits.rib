@@ -1,0 +1,2055 @@
+##RenderMan RIB
+version 3.04
+EditBegin "attribute" 
+EditEnd 
+Option "rerender" "int[2] lodrange" [0 0]
+##streammarker7307
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.827081 -0.268532 -0.49379 5.75328e-010  1.00128e-007 0.878498 -0.477747 -2.87113e-009  -0.562083 -0.395135 -0.726588 -5.77373e-010  -33.1462 -136.853 32.549 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7308
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.834848 -0.262991 -0.483596 -3.22526e-009  -1.18038e-008 0.878498 -0.477747 -6.53979e-010  -0.550481 -0.398846 -0.733412 2.5496e-010  -31.2751 -137.068 32.1539 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7309
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.887816 -0.211342 -0.4088 -3.16289e-009  1.0628e-007 0.888311 -0.459244 -1.98822e-009  -0.4602 -0.407723 -0.788655 -6.10181e-009  -17.0728 -136.563 27.0497 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7310
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342761 -1.16809e-010  3.25505e-008 0.863057 -0.505105 -8.9707e-011  -0.397148 -0.463563 -0.792075 -2.6993e-010  -7.49091 -141.171 33.5708 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7311
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342762 3.1943e-009  -1.42448e-008 0.863058 -0.505105 -9.50553e-010  -0.397148 -0.463563 -0.792075 -1.06017e-009  -7.49091 -141.171 33.0181 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7312
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917754 -0.200601 -0.342761 -4.97214e-010  0 0.863058 -0.505105 -4.37457e-010  -0.397148 -0.463563 -0.792075 -1.149e-009  -7.49091 -141.171 27.6406 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7313
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342761 -1.08984e-009  -1.77563e-008 0.863058 -0.505105 1.15543e-009  -0.397148 -0.463563 -0.792075 1.06705e-009  -7.49091 -141.171 26.5971 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7314
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342761 -2.36257e-011  0 0.863058 -0.505105 -2.19768e-011  -0.397148 -0.463563 -0.792075 -5.45957e-011  -7.49091 -141.171 25.0514 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7315
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342761 8.99664e-010  1.26109e-008 0.863058 -0.505105 -9.09565e-010  -0.397148 -0.463563 -0.792075 -2.98319e-010  -7.49091 -141.171 24.5413 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7316
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342762 -2.30816e-010  1.94944e-008 0.863058 -0.505105 -2.21653e-010  -0.397148 -0.463563 -0.792075 -5.33385e-010  -7.49091 -141.171 23.5288 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7317
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342762 3.67694e-009  -2.00711e-008 0.863058 -0.505105 7.40234e-010  -0.397148 -0.463563 -0.792075 -2.26441e-010  -7.49091 -141.171 22.5264 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7318
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342761 4.11266e-009  1.72052e-008 0.863057 -0.505105 1.09299e-009  -0.397148 -0.463563 -0.792075 5.37679e-010  -7.49091 -141.171 21.534 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7319
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342762 -5.93737e-011  -1.061e-008 0.863058 -0.505105 -6.05706e-011  -0.397148 -0.463563 -0.792075 -1.37205e-010  -7.49091 -141.171 20.5515 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7320
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342761 -2.74617e-010  2.17923e-008 0.863058 -0.505105 -2.85604e-010  -0.397148 -0.463563 -0.792075 -6.34602e-010  -7.49091 -141.171 19.5788 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7321
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342761 4.3941e-011  1.10389e-008 0.863058 -0.505105 4.61344e-011  -0.397148 -0.463563 -0.792075 1.01542e-010  -7.49091 -141.171 19.0961 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7322
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342762 3.46336e-010  -1.11815e-008 0.863057 -0.505105 7.24561e-010  -0.397148 -0.463563 -0.792075 5.64005e-010  -7.49091 -141.171 18.6158 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7323
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342761 2.18145e-010  -3.01971e-008 0.863058 -0.505105 5.50252e-010  -0.397148 -0.463563 -0.792075 1.69417e-010  -7.4909 -141.171 18.138 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7324
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342762 5.74018e-011  0 0.863058 -0.505105 6.19685e-011  -0.397148 -0.463563 -0.792075 1.32648e-010  -7.49091 -141.171 17.6625 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7325
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342762 5.74018e-011  0 0.863058 -0.505105 6.19685e-011  -0.397148 -0.463563 -0.792075 1.32648e-010  -7.49091 -141.171 17.6625 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7326
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342761 -2.45525e-010  -1.56667e-008 0.863058 -0.505105 -2.69893e-010  -0.397148 -0.463563 -0.792075 -5.67374e-010  -7.49091 -141.171 16.7187 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7327
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917754 -0.200601 -0.342762 4.70378e-010  0 0.863058 -0.505105 6.79595e-010  -0.397148 -0.463563 -0.792075 3.83611e-010  -7.49091 -141.171 16.2503 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7328
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342761 -1.03378e-010  -1.64205e-008 0.863058 -0.505105 -1.17693e-010  -0.397148 -0.463563 -0.792075 -2.38893e-010  -7.49091 -141.171 14.8592 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7329
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342761 2.13259e-010  4.19895e-009 0.863058 -0.505105 2.46954e-010  -0.397148 -0.463563 -0.792075 4.92812e-010  -7.49091 -141.171 13.9434 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7330
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342762 -2.38009e-010  -4.24576e-009 0.863058 -0.505105 -2.77934e-010  -0.397148 -0.463563 -0.792075 -5.50007e-010  -7.49091 -141.171 13.4889 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7331
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342762 -1.13792e-010  4.2925e-009 0.863057 -0.505105 -1.33987e-010  -0.397148 -0.463563 -0.792075 -2.62958e-010  -7.49091 -141.171 13.0367 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7332
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342762 -4.66055e-011  2.19289e-008 0.863058 -0.505105 -5.57815e-011  -0.397148 -0.463563 -0.792075 -1.07699e-010  -7.49091 -141.171 12.1391 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7333
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342762 -2.08265e-010  1.8286e-008 0.863058 -0.505105 -2.57321e-010  -0.397148 -0.463563 -0.792075 -4.81272e-010  -7.49091 -141.171 10.3706 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7334
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342762 -1.65792e-010  0 0.863058 -0.505105 -2.0644e-010  -0.397148 -0.463563 -0.792075 -3.83124e-010  -7.49091 -141.171 9.93402 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7335
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342761 -1.87768e-010  -9.32789e-009 0.863058 -0.505105 -2.35608e-010  -0.397148 -0.463563 -0.792075 -4.33906e-010  -7.49091 -141.171 9.49961 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7336
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342761 -1.72273e-010  9.42011e-009 0.863058 -0.505105 -2.17819e-010  -0.397148 -0.463563 -0.792075 -3.981e-010  -7.49091 -141.171 9.06738 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7337
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342761 2.88659e-010  -9.6959e-009 0.863058 -0.505105 3.7326e-010  -0.397148 -0.463563 -0.792075 6.67052e-010  -7.49091 -141.171 7.78362 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7338
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342761 1.38131e-010  -2.96371e-008 0.863058 -0.505105 1.81247e-010  -0.397148 -0.463563 -0.792075 3.19202e-010  -7.49091 -141.171 6.93846 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7339
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342761 -2.69232e-010  1.55013e-008 0.863058 -0.505105 -3.66022e-010  -0.397148 -0.463563 -0.792075 -6.22158e-010  -7.49091 -141.171 4.8623 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7340
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342762 1.36329e-010  -2.6062e-008 0.863058 -0.505105 1.86626e-010  -0.397148 -0.463563 -0.792075 3.15038e-010  -7.49091 -141.171 4.45328 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7341
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342761 -1.59444e-010  1.59082e-008 0.863058 -0.505105 -2.21266e-010  -0.397148 -0.463563 -0.792075 -3.68453e-010  -7.49091 -141.171 3.64138 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7342
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342761 1.03256e-009  0 0.863058 -0.505105 4.8951e-010  -0.397148 -0.463563 -0.792075 -3.10441e-010  -7.49091 -141.171 2.43871 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7343
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342761 1.92531e-009  -1.65818e-008 0.863058 -0.505105 -2.96208e-010  -0.397148 -0.463563 -0.792075 6.35845e-010  -7.49091 -141.171 1.64694 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7344
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342762 -1.85291e-010  -1.1322e-008 0.863058 -0.505105 -2.70952e-010  -0.397148 -0.463563 -0.792075 -4.28181e-010  -7.49091 -141.171 0.474069 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7345
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342761 -2.20721e-010  -5.70545e-009 0.863058 -0.505105 -3.24803e-010  -0.397148 -0.463563 -0.792075 -5.10057e-010  -7.49091 -141.171 0.0870116 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7346
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342762 -1.30391e-010  -2.31762e-008 0.863058 -0.505105 -1.94282e-010  -0.397148 -0.463563 -0.792075 -3.01315e-010  -7.49091 -141.171 -0.68128 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7347
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342762 2.40221e-010  0 0.863058 -0.505105 3.62343e-010  -0.397148 -0.463563 -0.792075 5.55119e-010  -7.49091 -141.171 -1.4419 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7348
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342761 -1.84352e-010  0 0.863058 -0.505105 -2.84808e-010  -0.397148 -0.463563 -0.792075 -4.26012e-010  -7.49091 -141.171 -2.94042 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7349
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342762 4.97578e-011  3.66096e-008 0.863058 -0.505105 7.73238e-011  -0.397148 -0.463563 -0.792075 1.14983e-010  -7.49091 -141.171 -3.31038 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7350
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342762 1.30033e-009  -1.84356e-008 0.863058 -0.505105 5.59241e-010  -0.397148 -0.463563 -0.792075 -3.08853e-010  -7.49091 -141.171 -3.67848 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7351
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342761 1.65143e-010  0 0.863058 -0.505105 2.62611e-010  -0.397148 -0.463563 -0.792075 3.81623e-010  -7.49091 -141.171 -4.77176 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7352
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342762 1.07011e-009  -1.26376e-008 0.863058 -0.505105 1.17762e-010  -0.397148 -0.463563 -0.792075 -9.71168e-010  -7.49091 -141.171 -5.13256 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7353
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342762 1.06932e-011  -1.28101e-008 0.863058 -0.505105 1.72926e-011  -0.397148 -0.463563 -0.792075 2.47104e-011  -7.49091 -141.171 -5.84872 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7354
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342762 1.36076e-010  0 0.863058 -0.505105 2.21276e-010  -0.397148 -0.463563 -0.792075 3.14454e-010  -7.49091 -141.171 -6.20411 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7355
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342761 -2.271e-011  2.5964e-008 0.863058 -0.505105 -3.7132e-011  -0.397148 -0.463563 -0.792075 -5.24797e-011  -7.49091 -141.171 -6.55772 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7356
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342762 -1.32989e-010  0 0.863058 -0.505105 -2.18629e-010  -0.397148 -0.463563 -0.792075 -3.07319e-010  -7.49091 -141.171 -6.90957 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7357
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342762 -1.32989e-010  0 0.863058 -0.505105 -2.18629e-010  -0.397148 -0.463563 -0.792075 -3.07319e-010  -7.49091 -141.171 -6.90957 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7358
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342761 -1.59645e-010  6.53317e-009 0.863058 -0.505105 -2.62469e-010  -0.397148 -0.463563 -0.792075 -3.68918e-010  -7.49091 -141.081 -6.90956 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7359
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342761 1.00302e-009  2.60417e-008 0.863058 -0.505105 -7.56704e-010  -0.397148 -0.463563 -0.792075 8.02568e-011  -7.58116 -141.081 -6.90957 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7360
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342762 -2.59883e-010  -1.28859e-008 0.863058 -0.505105 -4.27239e-010  -0.397148 -0.463563 -0.792075 -6.00555e-010  -7.85189 -141.171 -6.90957 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7361
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342762 -1.87152e-010  -1.91335e-008 0.863058 -0.505105 -3.07588e-010  -0.397148 -0.463563 -0.792075 -4.32483e-010  -8.12264 -141.532 -6.90957 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7362
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342762 1.72033e-010  -1.88714e-008 0.863058 -0.505106 2.82662e-010  -0.397148 -0.463563 -0.792075 3.97544e-010  -8.48363 -141.893 -6.90956 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7363
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342761 -4.77879e-011  0 0.863058 -0.505105 -7.85085e-011  -0.397148 -0.463563 -0.792075 -1.10431e-010  -8.66412 -142.074 -6.90957 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7364
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342761 -2.95532e-010  -6.20619e-009 0.863058 -0.505105 -4.85353e-010  -0.397148 -0.463563 -0.792075 -6.82934e-010  -8.84462 -142.525 -6.90956 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7365
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342762 2.17709e-010  1.21538e-008 0.863057 -0.505105 3.57401e-010  -0.397148 -0.463563 -0.792075 5.03096e-010  -9.38611 -143.067 -6.90956 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7366
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342761 6.39674e-011  -5.99029e-009 0.863058 -0.505106 1.04991e-010  -0.397148 -0.463563 -0.792075 1.4782e-010  -9.74709 -143.337 -6.90956 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7367
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342761 2.66869e-010  2.952e-008 0.863058 -0.505105 4.3793e-010  -0.397148 -0.463563 -0.792075 6.16698e-010  -10.1081 -143.608 -6.90957 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7368
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342762 1.74958e-011  0 0.863058 -0.505106 2.87049e-011  -0.397148 -0.463563 -0.792075 4.04305e-011  -10.4691 -143.879 -6.90956 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7369
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342761 -1.37452e-010  1.1507e-008 0.863058 -0.505105 -2.25483e-010  -0.397148 -0.463563 -0.792075 -3.17632e-010  -10.7398 -144.059 -6.90956 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7370
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342762 -9.26674e-011  0 0.863058 -0.505105 -1.51937e-010  -0.397148 -0.463563 -0.792075 -2.14142e-010  -11.6423 -144.781 -6.90956 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7371
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342761 -1.45467e-010  2.18215e-008 0.863058 -0.505105 -2.38477e-010  -0.397148 -0.463563 -0.792075 -3.36155e-010  -12.0033 -144.962 -6.90957 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7372
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342761 1.25272e-010  -2.03743e-008 0.863058 -0.505105 2.05251e-010  -0.397148 -0.463563 -0.792075 2.89487e-010  -13.5375 -145.774 -6.90956 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7373
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342762 1.21944e-010  -2.94246e-008 0.863058 -0.505105 1.99733e-010  -0.397148 -0.463563 -0.792075 2.81796e-010  -14.3497 -146.225 -6.90956 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7374
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342762 -3.76833e-011  0 0.863058 -0.505105 -6.17142e-011  -0.397148 -0.463563 -0.792075 -8.70811e-011  -14.8912 -146.406 -6.90956 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7375
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917754 -0.200602 -0.342762 2.91812e-010  9.46822e-009 0.863058 -0.505105 4.77871e-010  -0.397148 -0.463563 -0.792075 6.74338e-010  -15.0717 -146.496 -6.90957 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7376
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342761 1.9588e-010  -1.76635e-008 0.863057 -0.505105 3.20672e-010  -0.397148 -0.463563 -0.792075 4.52652e-010  -16.4254 -146.947 -6.90957 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7377
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342761 -1.41171e-010  0 0.863058 -0.505105 -2.3108e-010  -0.397148 -0.463563 -0.792075 -3.26228e-010  -16.7864 -147.128 -6.90957 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7378
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342761 1.8718e-010  -1.6912e-008 0.863058 -0.505105 3.06352e-010  -0.397148 -0.463563 -0.792075 4.32548e-010  -17.2376 -147.308 -6.90957 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7379
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342761 2.34513e-010  1.59818e-008 0.863057 -0.505105 3.83748e-010  -0.397148 -0.463563 -0.792075 5.41927e-010  -18.2304 -147.579 -6.90957 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7380
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342761 8.14667e-011  0 0.863058 -0.505105 1.33284e-010  -0.397148 -0.463563 -0.792075 1.88259e-010  -19.3133 -147.85 -6.90957 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7381
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342761 1.19554e-009  0 0.863058 -0.505106 -2.29936e-010  -0.397148 -0.463563 -0.792075 9.07651e-010  -20.3963 -148.121 -6.90956 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7382
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342762 -1.68768e-010  1.33636e-008 0.863058 -0.505105 -2.76046e-010  -0.397148 -0.463563 -0.792075 -3.90001e-010  -21.0281 -148.211 -6.90958 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7383
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342761 6.14021e-010  -6.39008e-008 0.863058 -0.505105 1.0042e-009  -0.397148 -0.463563 -0.792075 1.41892e-009  -21.6598 -148.391 -6.90956 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7384
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342762 -2.64447e-011  0 0.863058 -0.505106 -4.32408e-011  -0.397148 -0.463563 -0.792075 -6.11099e-011  -22.472 -148.662 -6.90956 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7385
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917754 -0.200603 -0.342762 2.16738e-009  -2.32352e-008 0.863058 -0.505105 -2.79324e-010  -0.397148 -0.463562 -0.792075 -1.421e-009  -22.9232 -148.752 -6.90958 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7386
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917754 -0.200602 -0.342761 -1.42099e-010  5.6483e-008 0.863058 -0.505105 -2.32309e-010  -0.397148 -0.463562 -0.792075 -3.28371e-010  -23.2842 -148.933 -6.90959 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7387
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917754 -0.200602 -0.342761 2.10143e-009  6.63026e-008 0.863058 -0.505105 8.20592e-012  -0.397148 -0.463562 -0.792075 -9.64702e-010  -23.555 -149.023 -6.90956 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7388
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917754 -0.200602 -0.342762 3.69583e-009  4.18924e-008 0.863058 -0.505105 -6.33754e-010  -0.397148 -0.463563 -0.792075 2.94284e-011  -24.1867 -149.203 -6.90957 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7389
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342762 4.22175e-009  2.06521e-008 0.863058 -0.505105 -1.53993e-011  -0.397148 -0.463563 -0.792075 8.90754e-010  -24.3672 -149.384 -6.90958 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7390
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917754 -0.200602 -0.342762 3.39085e-010  -4.02751e-008 0.863058 -0.505106 5.5418e-010  -0.397148 -0.463563 -0.792075 7.83578e-010  -24.6379 -149.384 -6.90956 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7391
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342761 1.6555e-010  -3.97398e-008 0.863057 -0.505105 2.70516e-010  -0.397148 -0.463563 -0.792075 3.82563e-010  -24.8184 -149.655 -6.90957 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7392
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917754 -0.200602 -0.342762 3.11925e-010  -1.92361e-008 0.863057 -0.505105 5.09639e-010  -0.397148 -0.463563 -0.792075 7.20819e-010  -25.1794 -149.835 -6.90956 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7393
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342761 2.19583e-011  -1.90651e-008 0.863058 -0.505106 3.58764e-011  -0.397148 -0.463563 -0.792075 5.07426e-011  -25.2697 -149.835 -6.90956 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7394
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917754 -0.200602 -0.342762 -2.56748e-009  -1.87746e-008 0.863058 -0.505105 -2.32595e-010  -0.397148 -0.463563 -0.792075 1.33082e-009  -25.4502 -150.016 -6.90957 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7395
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342762 -4.22309e-010  -1.86296e-008 0.863058 -0.505105 -6.89861e-010  -0.397148 -0.463563 -0.792075 -9.75898e-010  -25.5404 -150.106 -6.90957 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7396
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917754 -0.200601 -0.342762 5.96339e-010  -3.66284e-008 0.863057 -0.505105 9.74089e-010  -0.397148 -0.463563 -0.792075 1.37806e-009  -25.7209 -150.196 -6.90957 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7397
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917754 -0.200601 -0.342762 1.17859e-009  1.81436e-008 0.863058 -0.505105 2.83082e-010  -0.397148 -0.463563 -0.792075 -4.01646e-010  -25.8112 -150.196 -6.90957 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7398
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342761 -2.25232e-009  0 0.863057 -0.505105 -3.51234e-010  -0.397148 -0.463563 -0.792075 1.10973e-009  -25.8112 -150.286 -6.90957 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7399
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342762 2.99819e-009  -1.79992e-008 0.863058 -0.505105 2.0307e-010  -0.397148 -0.463563 -0.792075 -2.10007e-009  -25.9014 -150.286 -6.90957 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7400
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917754 -0.200602 -0.342762 5.1325e-010  -3.571e-008 0.863057 -0.505105 8.38265e-010  -0.397148 -0.463563 -0.792075 1.18605e-009  -25.9917 -150.377 -6.90958 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7401
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917754 -0.200602 -0.342762 2.85405e-010  -7.01627e-008 0.863058 -0.505106 4.6611e-010  -0.397148 -0.463563 -0.792075 6.59532e-010  -26.1721 -150.467 -6.90953 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7402
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917754 -0.200602 -0.342761 -1.68744e-010  0 0.863058 -0.505106 -2.75568e-010  -0.397148 -0.463562 -0.792075 -3.89943e-010  -26.3526 -150.557 -6.90955 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7403
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342762 -2.37281e-010  -1.69132e-008 0.863058 -0.505105 -3.8747e-010  -0.397148 -0.463563 -0.792075 -5.48324e-010  -26.5332 -150.647 -6.90959 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7404
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917754 -0.200603 -0.342762 1.66983e-009  -3.32001e-008 0.863057 -0.505105 1.313e-009  -0.397148 -0.463563 -0.792075 3.8989e-010  -26.7136 -150.738 -6.90957 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7405
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917754 -0.200602 -0.342762 -1.11759e-009  1.62873e-008 0.863058 -0.505106 -8.3872e-010  -0.397148 -0.463563 -0.792075 2.53672e-010  -26.8941 -150.828 -6.90956 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7406
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342761 -6.12549e-010  7.98743e-008 0.863058 -0.505105 -4.58487e-010  -0.397148 -0.463563 -0.792075 7.64232e-010  -27.0746 -150.918 -6.90956 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7407
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200604 -0.342762 -8.81439e-010  6.32205e-008 0.863058 -0.505105 -1.15504e-009  -0.397148 -0.463563 -0.792075 -2.36686e-010  -27.1649 -150.918 -6.90957 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7408
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917754 -0.200603 -0.342761 5.4558e-010  -3.05918e-008 0.863057 -0.505105 8.90748e-010  -0.397148 -0.463563 -0.792075 1.26076e-009  -27.4356 -150.918 -6.90957 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7409
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917754 -0.200602 -0.342762 1.89127e-010  5.85801e-008 0.863058 -0.505105 -1.31703e-009  -0.397148 -0.463563 -0.792075 -5.68619e-010  -27.7966 -151.008 -6.90957 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7410
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917754 -0.200602 -0.34276 3.92705e-010  2.82722e-008 0.863058 -0.505105 6.41119e-010  -0.397148 -0.463563 -0.792075 9.07491e-010  -28.0674 -151.008 -6.90959 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7411
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342761 1.7895e-009  6.98324e-008 0.863058 -0.505105 1.57294e-011  -0.397148 -0.463563 -0.792075 1.25784e-009  -28.1576 -151.008 -6.90956 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7412
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342761 2.05475e-009  1.36559e-008 0.863058 -0.505105 -1.63039e-010  -0.397148 -0.463563 -0.792075 9.77383e-010  -28.3381 -151.099 -6.90955 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7413
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342761 1.30062e-009  4.17627e-008 0.863058 -0.505105 -8.95451e-010  -0.397148 -0.463563 -0.792075 -3.57655e-011  -28.3381 -151.099 -7.25964 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7414
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200603 -0.342762 6.19785e-010  1.44492e-008 0.863058 -0.505105 -1.07139e-009  -0.397148 -0.463563 -0.792075 -2.34708e-010  -28.3381 -151.099 -7.95456 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7415
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917754 -0.200602 -0.342762 -1.64918e-010  -6.30374e-008 0.863058 -0.505106 -2.80061e-010  -0.397148 -0.463563 -0.792075 -3.81102e-010  -28.3381 -151.099 -9.66165 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7416
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917754 -0.200601 -0.342761 -2.15293e-009  8.65588e-008 0.863058 -0.505105 -1.57563e-009  -0.397148 -0.463563 -0.792075 -6.53089e-010  -28.3381 -151.099 -11.6544 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7417
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917754 -0.200602 -0.342762 1.56309e-010  -3.56488e-008 0.863057 -0.505105 2.75527e-010  -0.397148 -0.463563 -0.792075 3.61208e-010  -28.3381 -151.099 -12.3054 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7418
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342762 -1.86498e-009  -7.33382e-008 0.863057 -0.505105 1.61567e-010  -0.397148 -0.463563 -0.792075 1.6987e-009  -28.3381 -151.099 -12.95 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7419
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917754 -0.200603 -0.342762 -5.87551e-010  3.97008e-008 0.863058 -0.505105 -1.07288e-009  -0.397148 -0.463562 -0.792075 -1.35775e-009  -28.3381 -151.099 -14.8452 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7420
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917754 -0.200602 -0.342763 2.43046e-010  0 0.863058 -0.505105 4.47603e-010  -0.397148 -0.463563 -0.792075 5.61643e-010  -28.3381 -151.099 -15.4643 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7421
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342761 4.10187e-009  6.47723e-008 0.863058 -0.505105 1.64895e-010  -0.397148 -0.463564 -0.792075 1.03181e-009  -28.3381 -151.099 -16.9853 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7422
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917754 -0.200601 -0.342762 3.49073e-010  -2.18369e-008 0.863058 -0.505105 6.5908e-010  -0.397148 -0.463563 -0.792075 8.06662e-010  -28.3381 -151.099 -17.2849 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7423
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917754 -0.200602 -0.342762 1.22484e-010  4.51431e-008 0.863058 -0.505105 2.34071e-010  -0.397148 -0.463563 -0.792075 2.83043e-010  -28.3381 -151.099 -18.1749 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7424
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342762 2.71224e-009  0 0.863058 -0.505105 5.67752e-010  -0.397148 -0.463563 -0.792075 -2.24146e-010  -28.3381 -151.099 -20.2001 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7425
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.2006 -0.342762 -3.07546e-010  7.63613e-008 0.863058 -0.505105 -6.15427e-010  -0.397148 -0.463563 -0.792075 -7.10696e-010  -28.3381 -151.099 -21.6037 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7426
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342761 3.24035e-009  2.75557e-008 0.863058 -0.505105 5.99931e-010  -0.397148 -0.463563 -0.792075 -2.92031e-010  -28.3381 -151.099 -24.0431 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7427
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342761 2.99009e-011  -4.37324e-008 0.863058 -0.505105 6.32924e-011  -0.397148 -0.463563 -0.792075 6.9097e-011  -28.3381 -151.099 -25.8657 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7428
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342761 -2.20102e-010  4.44092e-008 0.863058 -0.505105 -4.69001e-010  -0.397148 -0.463563 -0.792075 -5.08626e-010  -28.3381 -151.099 -26.3748 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7429
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917754 -0.200601 -0.342762 3.45009e-009  0 0.863058 -0.505105 2.76521e-010  -0.397148 -0.463563 -0.792075 -7.24297e-010  -28.3381 -151.099 -27.3778 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7430
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342761 3.71586e-009  -3.0723e-008 0.863058 -0.505105 7.98755e-010  -0.397148 -0.463563 -0.792075 -1.72151e-010  -28.3381 -151.099 -27.6254 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7431
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342762 2.78595e-010  4.67479e-008 0.863058 -0.505105 6.07211e-010  -0.397148 -0.463563 -0.792075 6.43794e-010  -28.3381 -151.099 -28.1169 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7432
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342761 1.49104e-010  0 0.863058 -0.505105 3.28048e-010  -0.397148 -0.463563 -0.792075 3.44559e-010  -28.3381 -151.099 -28.845 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7433
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917754 -0.200601 -0.342762 3.63029e-009  -3.29088e-008 0.863058 -0.505105 1.23919e-010  -0.397148 -0.463563 -0.792075 -9.35591e-010  -28.3381 -151.099 -30.0344 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7434
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917754 -0.200601 -0.342762 3.63029e-009  -3.29088e-008 0.863058 -0.505105 1.23919e-010  -0.397148 -0.463563 -0.792075 -9.35591e-010  -28.3381 -151.099 -30.0344 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7435
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342761 9.30549e-011  -1.63295e-008 0.863058 -0.505105 2.07887e-010  -0.397148 -0.463563 -0.792075 2.15037e-010  -28.4589 -151.099 -30.0344 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7436
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342762 3.64453e-009  6.50679e-008 0.863058 -0.505105 2.49133e-010  -0.397148 -0.463563 -0.792075 -7.93952e-010  -28.5193 -151.099 -30.0344 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7437
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917754 -0.200602 -0.342762 3.95568e-011  1.59545e-008 0.863058 -0.505105 8.8371e-011  -0.397148 -0.463563 -0.792075 9.14104e-011  -28.8213 -151.099 -30.0344 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7438
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917754 -0.200601 -0.342762 1.34866e-010  0 0.863058 -0.505105 3.01294e-010  -0.397148 -0.463563 -0.792075 3.11656e-010  -28.9421 -151.099 -30.0344 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7439
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917754 -0.200602 -0.342762 -1.74328e-010  1.57046e-008 0.863058 -0.505105 -3.89452e-010  -0.397148 -0.463563 -0.792075 -4.02847e-010  -29.0629 -151.099 -30.0344 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7440
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342762 1.22955e-010  -1.52672e-008 0.863058 -0.505106 2.74684e-010  -0.397148 -0.463563 -0.792075 2.84132e-010  -29.4858 -151.099 -30.0344 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7441
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917754 -0.200601 -0.342762 7.84757e-011  -3.02844e-008 0.863058 -0.505105 1.75317e-010  -0.397148 -0.463563 -0.792075 1.81347e-010  -29.6066 -151.099 -30.0344 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7442
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342761 2.11544e-010  0 0.863058 -0.505105 4.72597e-010  -0.397148 -0.463563 -0.792075 4.88851e-010  -29.7878 -151.099 -30.0344 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7443
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917754 -0.200601 -0.342762 3.6204e-009  -2.92424e-008 0.863057 -0.505105 1.14502e-009  -0.397148 -0.463563 -0.792075 2.39036e-010  -30.0898 -150.917 -30.0344 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7444
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342762 1.31286e-010  -2.88527e-008 0.863057 -0.505106 2.93477e-010  -0.397148 -0.463563 -0.792075 3.03384e-010  -30.271 -150.857 -30.0344 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7445
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917754 -0.200602 -0.342761 2.66298e-009  2.71196e-008 0.863058 -0.505105 -2.17183e-010  -0.397148 -0.463563 -0.792075 -1.09942e-009  -31.0563 -150.434 -30.0344 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7446
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342761 1.69267e-010  0 0.863058 -0.505105 3.78909e-010  -0.397148 -0.463563 -0.792075 3.91153e-010  -31.2979 -150.313 -30.0344 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7447
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917754 -0.200601 -0.342761 2.83613e-010  0 0.863058 -0.505105 6.35768e-010  -0.397148 -0.463563 -0.792075 6.55392e-010  -32.2644 -149.77 -30.0344 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7448
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917754 -0.200602 -0.342762 -3.91227e-009  -7.08601e-008 0.863057 -0.505105 -4.34156e-010  -0.397148 -0.463563 -0.792075 -1.2079e-009  -32.6268 -149.589 -30.0344 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7449
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200601 -0.342762 2.19656e-009  0 0.863058 -0.505105 6.74119e-010  -0.397148 -0.463563 -0.792075 -4.79985e-011  -32.8684 -149.407 -30.0344 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7450
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917754 -0.200602 -0.342762 5.34491e-012  1.11977e-007 0.863058 -0.505105 1.19966e-011  -0.397148 -0.463563 -0.792075 1.23513e-011  -33.1704 -149.287 -30.0344 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7451
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342762 1.62296e-010  -2.14372e-008 0.863058 -0.505105 3.64502e-010  -0.397148 -0.463563 -0.792075 3.75044e-010  -33.5932 -149.045 -30.0344 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7452
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342761 1.77931e-009  0 0.863058 -0.505105 -3.17998e-010  -0.397148 -0.463563 -0.792075 -1.60347e-009  -34.3181 -148.864 -30.0344 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7453
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342762 -1.74643e-009  -1.97124e-008 0.863058 -0.505106 1.58108e-010  -0.397148 -0.463563 -0.792075 1.42944e-009  -34.3785 -148.803 -30.0344 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7454
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.200602 -0.342761 5.78504e-010  9.78325e-008 0.863058 -0.505105 -6.2263e-010  -0.397148 -0.463563 -0.792075 -1.26877e-009  -34.4389 -148.743 -30.0344 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7455
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917754 -0.200601 -0.342761 1.30245e-009  -9.71964e-008 0.863057 -0.505106 1.10343e-009  -0.397148 -0.463563 -0.792075 5.09894e-010  -34.4993 -148.743 -30.0344 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7456
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 0.1 10000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917754 -0.200603 -0.342763 9.23667e-010  -1.93121e-008 0.863058 -0.505106 3.52253e-010  -0.397148 -0.463563 -0.792075 -2.58312e-010  -34.5597 -148.743 -30.0344 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker7457
+EditBegin "attribute" "string scopename" ["spongeShape"]
+Pattern "PxrBump" "PxrBump4" "float scale" [1] "int disable" [0] "float inputBump" [0.571846] "string filename" [""] "int firstChannel" [0] "int atlasStyle" [0] "int invertT" [1] "float blur" [0] "int lerp" [1] "normal inputN" [1 0 0] "int reverse" [0] "float adjustAmount" [0] "float surfaceNormalMix" [0] "__instanceid" ["PxrBump4_29"]
+Bxdf "PxrSurface" "SpongePorous" "float diffuseGain" [1] "color diffuseColor" [0 0.769233 1] "float diffuseRoughness" [0] "float diffuseExponent" [1] "normal diffuseBumpNormal" [0 0 0] "int diffuseDoubleSided" [0] "int diffuseBackUseDiffuseColor" [1] "color diffuseBackColor" [0.18 0.18 0.18] 
+"float diffuseTransmitGain" [0] "color diffuseTransmitColor" [0.18 0.18 0.18] "int specularFresnelMode" [0] "color specularFaceColor" [0 0 0] "color specularEdgeColor" [0 0 0] "float specularFresnelShape" [5] "color specularIor" [1.5 1.5 1.5] 
+"color specularExtinctionCoeff" [0 0 0] "float specularRoughness" [0.2] "int specularModelType" [0] "float specularAnisotropy" [0] "vector specularAnisotropyDirection" [0 0 0] "normal specularBumpNormal" [0 0 0] "int specularDoubleSided" [0] 
+"int roughSpecularFresnelMode" [0] "color roughSpecularFaceColor" [0 0 0] "color roughSpecularEdgeColor" [0 0 0] "float roughSpecularFresnelShape" [5] "color roughSpecularIor" [1.5 1.5 1.5] "color roughSpecularExtinctionCoeff" [0 0 0] 
+"float roughSpecularRoughness" [0.6] "int roughSpecularModelType" [0] "float roughSpecularAnisotropy" [0] "vector roughSpecularAnisotropyDirection" [0 0 0] "normal roughSpecularBumpNormal" [0 0 0] "int roughSpecularDoubleSided" [0] "int clearcoatFresnelMode" [0] "color clearcoatFaceColor" [0 0 0] 
+"color clearcoatEdgeColor" [0 0 0] "float clearcoatFresnelShape" [5] "color clearcoatIor" [1.5 1.5 1.5] "color clearcoatExtinctionCoeff" [0 0 0] "float clearcoatRoughness" [0] "int clearcoatModelType" [0] "float clearcoatAnisotropy" [0] 
+"vector clearcoatAnisotropyDirection" [0 0 0] "normal clearcoatBumpNormal" [0 0 0] "int clearcoatDoubleSided" [0] "float specularEnergyCompensation" [0] "float clearcoatEnergyCompensation" [0] "float iridescenceFaceGain" [0] "float iridescenceEdgeGain" [0] "float iridescenceFresnelShape" [5] "int iridescenceMode" [0] 
+"color iridescencePrimaryColor" [1 0 0] "color iridescenceSecondaryColor" [0 0 1] "float iridescenceRoughness" [0.2] "float iridescenceCurve" [1] "float iridescenceScale" [1] "int iridescenceFlip" [0] "float iridescenceThickness" [800] "int iridescenceDoubleSided" [0] "float fuzzGain" [0] 
+"color fuzzColor" [1 1 1] "float fuzzConeAngle" [8] "normal fuzzBumpNormal" [0 0 0] "int fuzzDoubleSided" [0] "int subsurfaceType" [0] "float subsurfaceGain" [0] "color subsurfaceColor" [0.83 0.791 0.753] 
+"float subsurfaceDmfp" [10] "color subsurfaceDmfpColor" [0.851 0.557 0.395] "float shortSubsurfaceGain" [0] "color shortSubsurfaceColor" [0.9 0.9 0.9] "float shortSubsurfaceDmfp" [5] "float longSubsurfaceGain" [0] "color longSubsurfaceColor" [0.8 0 0] 
+"float longSubsurfaceDmfp" [20] "color subsurfacePostTint" [1 1 1] "float subsurfaceDiffuseSwitch" [1] "int subsurfaceDoubleSided" [0] "float subsurfaceTransmitGain" [0] "int considerBackside" [1] "int continuationRayMode" [0] "int maxContinuationHits" [2] "float followTopology" [0] "string subsurfaceSubset" [""] "float singlescatterGain" [0] "color singlescatterColor" [0.83 0.791 0.753] 
+"float singlescatterMfp" [10] "color singlescatterMfpColor" [0.851 0.557 0.395] "float singlescatterDirectionality" [0] "float singlescatterIor" [1.3] "float singlescatterBlur" [0] "float singlescatterDirectGain" [0] "color singlescatterDirectGainTint" [1 1 1] "int singlescatterDoubleSided" [0] "int singlescatterConsiderBackside" [1] 
+"int singlescatterContinuationRayMode" [0] "int singlescatterMaxContinuationHits" [2] "int singlescatterDirectGainMode" [0] "string singlescatterSubset" [""] "color irradianceTint" [1 1 1] "float irradianceRoughness" [0] "float unitLength" [0.1] "float refractionGain" [0] "float reflectionGain" [0] "color refractionColor" [1 1 1] 
+"float glassRoughness" [0.1] "float glassIor" [1.5] "int thinGlass" [0] "color ssAlbedo" [0 0 0] "color extinction" [0 0 0] "float g" [0] "int multiScatter" [0] "int enableOverlappingVolumes" [0] "float glowGain" [0] "color glowColor" [1 1 1] 
+"reference normal bumpNormal" ["PxrBump4:resultN"] "color shadowColor" [0 0 0] "int shadowMode" [0] "float presence" [1] "int presenceCached" [1] "__instanceid" ["SpongePorous_29"]
+EditEnd 
+##streammarker7458
+EditBegin "attribute" "string scopename" ["spongeShape"]
+Pattern "PxrMayaPlacement2d" "place2dTexture9" "float[2] coverage" [1 1] "float[2] translateFrame" [0 0] "float rotateFrame" [0] "int mirrorU" [0] "int mirrorV" [0] "int stagger" [0] "int wrapU" [1] "int wrapV" [1] "float[2] repeatUV" [1 1] "float[2] offset" [0 0] "float rotateUV" [0] 
+"float[2] noiseUV" [0 0] "__instanceid" ["place2dTexture9_30"]
+Pattern "PxrMayaNoise" "noise1" "float threshold" [0] "float amplitude" [1] "float ratio" [0.707] "float frequencyRatio" [2] "int depthMax" [3] "int inflection" [0] "float time" [0] "float frequency" [8] "float implode" [0] "float[2] implodeCenter" [0.5 0.5] "int noiseType" [1] "float density" [1] "float spottyness" [0.1] 
+"float sizeRand" [0] "float randomness" [1] "int falloff" [2] "color defaultColor" [0.5 0.5 0.5] "color colorGain" [1 1 1] "color colorOffset" [0 0 0] "float alphaGain" [1] 
+"float alphaOffset" [0] "int alphaIsLuminance" [0] "float filter" [1] "float filterOffset" [0] "int invert" [0] "reference struct manifold" ["place2dTexture9:result"] "__instanceid" ["noise1_30"]
+Pattern "PxrBump" "PxrBump4" "float scale" [1] "int disable" [0] "reference float inputBump" ["noise1:outAlpha"] "string filename" [""] "int firstChannel" [0] "int atlasStyle" [0] "int invertT" [1] "float blur" [0] "int lerp" [1] "normal inputN" [1 0 0] "int reverse" [0] "float adjustAmount" [0] "float surfaceNormalMix" [0] "__instanceid" ["PxrBump4_30"]
+Bxdf "PxrSurface" "SpongePorous" "float diffuseGain" [1] "color diffuseColor" [0 0.769233 1] "float diffuseRoughness" [0] "float diffuseExponent" [1] "normal diffuseBumpNormal" [0 0 0] "int diffuseDoubleSided" [0] "int diffuseBackUseDiffuseColor" [1] "color diffuseBackColor" [0.18 0.18 0.18] 
+"float diffuseTransmitGain" [0] "color diffuseTransmitColor" [0.18 0.18 0.18] "int specularFresnelMode" [0] "color specularFaceColor" [0 0 0] "color specularEdgeColor" [0 0 0] "float specularFresnelShape" [5] "color specularIor" [1.5 1.5 1.5] 
+"color specularExtinctionCoeff" [0 0 0] "float specularRoughness" [0.2] "int specularModelType" [0] "float specularAnisotropy" [0] "vector specularAnisotropyDirection" [0 0 0] "normal specularBumpNormal" [0 0 0] "int specularDoubleSided" [0] 
+"int roughSpecularFresnelMode" [0] "color roughSpecularFaceColor" [0 0 0] "color roughSpecularEdgeColor" [0 0 0] "float roughSpecularFresnelShape" [5] "color roughSpecularIor" [1.5 1.5 1.5] "color roughSpecularExtinctionCoeff" [0 0 0] 
+"float roughSpecularRoughness" [0.6] "int roughSpecularModelType" [0] "float roughSpecularAnisotropy" [0] "vector roughSpecularAnisotropyDirection" [0 0 0] "normal roughSpecularBumpNormal" [0 0 0] "int roughSpecularDoubleSided" [0] "int clearcoatFresnelMode" [0] "color clearcoatFaceColor" [0 0 0] 
+"color clearcoatEdgeColor" [0 0 0] "float clearcoatFresnelShape" [5] "color clearcoatIor" [1.5 1.5 1.5] "color clearcoatExtinctionCoeff" [0 0 0] "float clearcoatRoughness" [0] "int clearcoatModelType" [0] "float clearcoatAnisotropy" [0] 
+"vector clearcoatAnisotropyDirection" [0 0 0] "normal clearcoatBumpNormal" [0 0 0] "int clearcoatDoubleSided" [0] "float specularEnergyCompensation" [0] "float clearcoatEnergyCompensation" [0] "float iridescenceFaceGain" [0] "float iridescenceEdgeGain" [0] "float iridescenceFresnelShape" [5] "int iridescenceMode" [0] 
+"color iridescencePrimaryColor" [1 0 0] "color iridescenceSecondaryColor" [0 0 1] "float iridescenceRoughness" [0.2] "float iridescenceCurve" [1] "float iridescenceScale" [1] "int iridescenceFlip" [0] "float iridescenceThickness" [800] "int iridescenceDoubleSided" [0] "float fuzzGain" [0] 
+"color fuzzColor" [1 1 1] "float fuzzConeAngle" [8] "normal fuzzBumpNormal" [0 0 0] "int fuzzDoubleSided" [0] "int subsurfaceType" [0] "float subsurfaceGain" [0] "color subsurfaceColor" [0.83 0.791 0.753] 
+"float subsurfaceDmfp" [10] "color subsurfaceDmfpColor" [0.851 0.557 0.395] "float shortSubsurfaceGain" [0] "color shortSubsurfaceColor" [0.9 0.9 0.9] "float shortSubsurfaceDmfp" [5] "float longSubsurfaceGain" [0] "color longSubsurfaceColor" [0.8 0 0] 
+"float longSubsurfaceDmfp" [20] "color subsurfacePostTint" [1 1 1] "float subsurfaceDiffuseSwitch" [1] "int subsurfaceDoubleSided" [0] "float subsurfaceTransmitGain" [0] "int considerBackside" [1] "int continuationRayMode" [0] "int maxContinuationHits" [2] "float followTopology" [0] "string subsurfaceSubset" [""] "float singlescatterGain" [0] "color singlescatterColor" [0.83 0.791 0.753] 
+"float singlescatterMfp" [10] "color singlescatterMfpColor" [0.851 0.557 0.395] "float singlescatterDirectionality" [0] "float singlescatterIor" [1.3] "float singlescatterBlur" [0] "float singlescatterDirectGain" [0] "color singlescatterDirectGainTint" [1 1 1] "int singlescatterDoubleSided" [0] "int singlescatterConsiderBackside" [1] 
+"int singlescatterContinuationRayMode" [0] "int singlescatterMaxContinuationHits" [2] "int singlescatterDirectGainMode" [0] "string singlescatterSubset" [""] "color irradianceTint" [1 1 1] "float irradianceRoughness" [0] "float unitLength" [0.1] "float refractionGain" [0] "float reflectionGain" [0] "color refractionColor" [1 1 1] 
+"float glassRoughness" [0.1] "float glassIor" [1.5] "int thinGlass" [0] "color ssAlbedo" [0 0 0] "color extinction" [0 0 0] "float g" [0] "int multiScatter" [0] "int enableOverlappingVolumes" [0] "float glowGain" [0] "color glowColor" [1 1 1] 
+"reference normal bumpNormal" ["PxrBump4:resultN"] "color shadowColor" [0 0 0] "int shadowMode" [0] "float presence" [1] "int presenceCached" [1] "__instanceid" ["SpongePorous_30"]
+EditEnd 
+##streammarker7459
+EditBegin "attribute" "string scopename" ["spongeShape|shaderBallGeomShape1"]
+Pattern "PxrMayaPlacement2d" "place2dTexture9" "float[2] coverage" [1 1] "float[2] translateFrame" [0 0] "float rotateFrame" [0] "int mirrorU" [0] "int mirrorV" [0] "int stagger" [0] "int wrapU" [1] "int wrapV" [1] "float[2] repeatUV" [1 1] "float[2] offset" [0 0] "float rotateUV" [0] 
+"float[2] noiseUV" [0 0] "__instanceid" ["place2dTexture9_30"]
+Pattern "PxrMayaNoise" "noise1" "float threshold" [0] "float amplitude" [1] "float ratio" [0.707] "float frequencyRatio" [2] "int depthMax" [3] "int inflection" [0] "float time" [0] "float frequency" [8] "float implode" [0] "float[2] implodeCenter" [0.5 0.5] "int noiseType" [1] "float density" [1] "float spottyness" [0.1] 
+"float sizeRand" [0] "float randomness" [1] "int falloff" [2] "color defaultColor" [0.5 0.5 0.5] "color colorGain" [1 1 1] "color colorOffset" [0 0 0] "float alphaGain" [1] 
+"float alphaOffset" [0] "int alphaIsLuminance" [0] "float filter" [1] "float filterOffset" [0] "int invert" [0] "reference struct manifold" ["place2dTexture9:result"] "__instanceid" ["noise1_30"]
+Pattern "PxrBump" "PxrBump4" "float scale" [1] "int disable" [0] "reference float inputBump" ["noise1:outAlpha"] "string filename" [""] "int firstChannel" [0] "int atlasStyle" [0] "int invertT" [1] "float blur" [0] "int lerp" [1] "normal inputN" [1 0 0] "int reverse" [0] "float adjustAmount" [0] "float surfaceNormalMix" [0] "__instanceid" ["PxrBump4_30"]
+Bxdf "PxrSurface" "SpongePorous" "float diffuseGain" [1] "color diffuseColor" [0 0.769233 1] "float diffuseRoughness" [0] "float diffuseExponent" [1] "normal diffuseBumpNormal" [0 0 0] "int diffuseDoubleSided" [0] "int diffuseBackUseDiffuseColor" [1] "color diffuseBackColor" [0.18 0.18 0.18] 
+"float diffuseTransmitGain" [0] "color diffuseTransmitColor" [0.18 0.18 0.18] "int specularFresnelMode" [0] "color specularFaceColor" [0 0 0] "color specularEdgeColor" [0 0 0] "float specularFresnelShape" [5] "color specularIor" [1.5 1.5 1.5] 
+"color specularExtinctionCoeff" [0 0 0] "float specularRoughness" [0.2] "int specularModelType" [0] "float specularAnisotropy" [0] "vector specularAnisotropyDirection" [0 0 0] "normal specularBumpNormal" [0 0 0] "int specularDoubleSided" [0] 
+"int roughSpecularFresnelMode" [0] "color roughSpecularFaceColor" [0 0 0] "color roughSpecularEdgeColor" [0 0 0] "float roughSpecularFresnelShape" [5] "color roughSpecularIor" [1.5 1.5 1.5] "color roughSpecularExtinctionCoeff" [0 0 0] 
+"float roughSpecularRoughness" [0.6] "int roughSpecularModelType" [0] "float roughSpecularAnisotropy" [0] "vector roughSpecularAnisotropyDirection" [0 0 0] "normal roughSpecularBumpNormal" [0 0 0] "int roughSpecularDoubleSided" [0] "int clearcoatFresnelMode" [0] "color clearcoatFaceColor" [0 0 0] 
+"color clearcoatEdgeColor" [0 0 0] "float clearcoatFresnelShape" [5] "color clearcoatIor" [1.5 1.5 1.5] "color clearcoatExtinctionCoeff" [0 0 0] "float clearcoatRoughness" [0] "int clearcoatModelType" [0] "float clearcoatAnisotropy" [0] 
+"vector clearcoatAnisotropyDirection" [0 0 0] "normal clearcoatBumpNormal" [0 0 0] "int clearcoatDoubleSided" [0] "float specularEnergyCompensation" [0] "float clearcoatEnergyCompensation" [0] "float iridescenceFaceGain" [0] "float iridescenceEdgeGain" [0] "float iridescenceFresnelShape" [5] "int iridescenceMode" [0] 
+"color iridescencePrimaryColor" [1 0 0] "color iridescenceSecondaryColor" [0 0 1] "float iridescenceRoughness" [0.2] "float iridescenceCurve" [1] "float iridescenceScale" [1] "int iridescenceFlip" [0] "float iridescenceThickness" [800] "int iridescenceDoubleSided" [0] "float fuzzGain" [0] 
+"color fuzzColor" [1 1 1] "float fuzzConeAngle" [8] "normal fuzzBumpNormal" [0 0 0] "int fuzzDoubleSided" [0] "int subsurfaceType" [0] "float subsurfaceGain" [0] "color subsurfaceColor" [0.83 0.791 0.753] 
+"float subsurfaceDmfp" [10] "color subsurfaceDmfpColor" [0.851 0.557 0.395] "float shortSubsurfaceGain" [0] "color shortSubsurfaceColor" [0.9 0.9 0.9] "float shortSubsurfaceDmfp" [5] "float longSubsurfaceGain" [0] "color longSubsurfaceColor" [0.8 0 0] 
+"float longSubsurfaceDmfp" [20] "color subsurfacePostTint" [1 1 1] "float subsurfaceDiffuseSwitch" [1] "int subsurfaceDoubleSided" [0] "float subsurfaceTransmitGain" [0] "int considerBackside" [1] "int continuationRayMode" [0] "int maxContinuationHits" [2] "float followTopology" [0] "string subsurfaceSubset" [""] "float singlescatterGain" [0] "color singlescatterColor" [0.83 0.791 0.753] 
+"float singlescatterMfp" [10] "color singlescatterMfpColor" [0.851 0.557 0.395] "float singlescatterDirectionality" [0] "float singlescatterIor" [1.3] "float singlescatterBlur" [0] "float singlescatterDirectGain" [0] "color singlescatterDirectGainTint" [1 1 1] "int singlescatterDoubleSided" [0] "int singlescatterConsiderBackside" [1] 
+"int singlescatterContinuationRayMode" [0] "int singlescatterMaxContinuationHits" [2] "int singlescatterDirectGainMode" [0] "string singlescatterSubset" [""] "color irradianceTint" [1 1 1] "float irradianceRoughness" [0] "float unitLength" [0.1] "float refractionGain" [0] "float reflectionGain" [0] "color refractionColor" [1 1 1] 
+"float glassRoughness" [0.1] "float glassIor" [1.5] "int thinGlass" [0] "color ssAlbedo" [0 0 0] "color extinction" [0 0 0] "float g" [0] "int multiScatter" [0] "int enableOverlappingVolumes" [0] "float glowGain" [0] "color glowColor" [1 1 1] 
+"reference normal bumpNormal" ["PxrBump4:resultN"] "color shadowColor" [0 0 0] "int shadowMode" [0] "float presence" [1] "int presenceCached" [1] "__instanceid" ["SpongePorous_30"]
+EditEnd 
+##streammarker7460
+EditBegin "attribute" "string scopename" ["spongeShape|shaderBallGeomShape1"]
+Pattern "PxrMayaPlacement2d" "place2dTexture9" "float[2] coverage" [1 1] "float[2] translateFrame" [0 0] "float rotateFrame" [0] "int mirrorU" [0] "int mirrorV" [0] "int stagger" [0] "int wrapU" [1] "int wrapV" [1] "float[2] repeatUV" [1 1] "float[2] offset" [0 0] "float rotateUV" [0] 
+"float[2] noiseUV" [0 0] "__instanceid" ["place2dTexture9_31"]
+Pattern "PxrMayaNoise" "noise1" "float threshold" [0] "float amplitude" [1] "float ratio" [0.707] "float frequencyRatio" [2] "int depthMax" [3] "int inflection" [0] "float time" [0] "float frequency" [8] "float implode" [0] "float[2] implodeCenter" [0.5 0.5] "int noiseType" [1] "float density" [1] "float spottyness" [0.1] 
+"float sizeRand" [0] "float randomness" [1] "int falloff" [2] "color defaultColor" [0.5 0.5 0.5] "color colorGain" [1 1 1] "color colorOffset" [0 0 0] "float alphaGain" [1] 
+"float alphaOffset" [0] "int alphaIsLuminance" [0] "float filter" [1] "float filterOffset" [0] "int invert" [0] "reference struct manifold" ["place2dTexture9:result"] "__instanceid" ["noise1_31"]
+Pattern "PxrBump" "PxrBump4" "float scale" [1] "int disable" [0] "reference float inputBump" ["noise1:outAlpha"] "string filename" [""] "int firstChannel" [0] "int atlasStyle" [0] "int invertT" [1] "float blur" [0] "int lerp" [1] "normal inputN" [1 0 0] "int reverse" [0] "float adjustAmount" [0] "float surfaceNormalMix" [0] "__instanceid" ["PxrBump4_31"]
+Bxdf "PxrSurface" "SpongePorous" "float diffuseGain" [1] "color diffuseColor" [0 0.769233 1] "float diffuseRoughness" [0] "float diffuseExponent" [1] "normal diffuseBumpNormal" [0 0 0] "int diffuseDoubleSided" [0] "int diffuseBackUseDiffuseColor" [1] "color diffuseBackColor" [0.18 0.18 0.18] 
+"float diffuseTransmitGain" [0] "color diffuseTransmitColor" [0.18 0.18 0.18] "int specularFresnelMode" [0] "color specularFaceColor" [0 0 0] "color specularEdgeColor" [0 0 0] "float specularFresnelShape" [5] "color specularIor" [1.5 1.5 1.5] 
+"color specularExtinctionCoeff" [0 0 0] "float specularRoughness" [0.2] "int specularModelType" [0] "float specularAnisotropy" [0] "vector specularAnisotropyDirection" [0 0 0] "normal specularBumpNormal" [0 0 0] "int specularDoubleSided" [0] 
+"int roughSpecularFresnelMode" [0] "color roughSpecularFaceColor" [0 0 0] "color roughSpecularEdgeColor" [0 0 0] "float roughSpecularFresnelShape" [5] "color roughSpecularIor" [1.5 1.5 1.5] "color roughSpecularExtinctionCoeff" [0 0 0] 
+"float roughSpecularRoughness" [0.6] "int roughSpecularModelType" [0] "float roughSpecularAnisotropy" [0] "vector roughSpecularAnisotropyDirection" [0 0 0] "normal roughSpecularBumpNormal" [0 0 0] "int roughSpecularDoubleSided" [0] "int clearcoatFresnelMode" [0] "color clearcoatFaceColor" [0 0 0] 
+"color clearcoatEdgeColor" [0 0 0] "float clearcoatFresnelShape" [5] "color clearcoatIor" [1.5 1.5 1.5] "color clearcoatExtinctionCoeff" [0 0 0] "float clearcoatRoughness" [0] "int clearcoatModelType" [0] "float clearcoatAnisotropy" [0] 
+"vector clearcoatAnisotropyDirection" [0 0 0] "normal clearcoatBumpNormal" [0 0 0] "int clearcoatDoubleSided" [0] "float specularEnergyCompensation" [0] "float clearcoatEnergyCompensation" [0] "float iridescenceFaceGain" [0] "float iridescenceEdgeGain" [0] "float iridescenceFresnelShape" [5] "int iridescenceMode" [0] 
+"color iridescencePrimaryColor" [1 0 0] "color iridescenceSecondaryColor" [0 0 1] "float iridescenceRoughness" [0.2] "float iridescenceCurve" [1] "float iridescenceScale" [1] "int iridescenceFlip" [0] "float iridescenceThickness" [800] "int iridescenceDoubleSided" [0] "float fuzzGain" [0] 
+"color fuzzColor" [1 1 1] "float fuzzConeAngle" [8] "normal fuzzBumpNormal" [0 0 0] "int fuzzDoubleSided" [0] "int subsurfaceType" [0] "float subsurfaceGain" [0] "color subsurfaceColor" [0.83 0.791 0.753] 
+"float subsurfaceDmfp" [10] "color subsurfaceDmfpColor" [0.851 0.557 0.395] "float shortSubsurfaceGain" [0] "color shortSubsurfaceColor" [0.9 0.9 0.9] "float shortSubsurfaceDmfp" [5] "float longSubsurfaceGain" [0] "color longSubsurfaceColor" [0.8 0 0] 
+"float longSubsurfaceDmfp" [20] "color subsurfacePostTint" [1 1 1] "float subsurfaceDiffuseSwitch" [1] "int subsurfaceDoubleSided" [0] "float subsurfaceTransmitGain" [0] "int considerBackside" [1] "int continuationRayMode" [0] "int maxContinuationHits" [2] "float followTopology" [0] "string subsurfaceSubset" [""] "float singlescatterGain" [0] "color singlescatterColor" [0.83 0.791 0.753] 
+"float singlescatterMfp" [10] "color singlescatterMfpColor" [0.851 0.557 0.395] "float singlescatterDirectionality" [0] "float singlescatterIor" [1.3] "float singlescatterBlur" [0] "float singlescatterDirectGain" [0] "color singlescatterDirectGainTint" [1 1 1] "int singlescatterDoubleSided" [0] "int singlescatterConsiderBackside" [1] 
+"int singlescatterContinuationRayMode" [0] "int singlescatterMaxContinuationHits" [2] "int singlescatterDirectGainMode" [0] "string singlescatterSubset" [""] "color irradianceTint" [1 1 1] "float irradianceRoughness" [0] "float unitLength" [0.1] "float refractionGain" [0] "float reflectionGain" [0] "color refractionColor" [1 1 1] 
+"float glassRoughness" [0.1] "float glassIor" [1.5] "int thinGlass" [0] "color ssAlbedo" [0 0 0] "color extinction" [0 0 0] "float g" [0] "int multiScatter" [0] "int enableOverlappingVolumes" [0] "float glowGain" [0] "color glowColor" [1 1 1] 
+"reference normal bumpNormal" ["PxrBump4:resultN"] "color shadowColor" [0 0 0] "int shadowMode" [0] "float presence" [1] "int presenceCached" [1] "__instanceid" ["SpongePorous_31"]
+EditEnd 
+##streammarker7461
+EditBegin "attribute" "string scopename" ["spongeShape|shaderBallGeomShape1"]
+Pattern "PxrMayaPlacement2d" "place2dTexture9" "float[2] coverage" [1 1] "float[2] translateFrame" [0 0] "float rotateFrame" [0] "int mirrorU" [0] "int mirrorV" [0] "int stagger" [0] "int wrapU" [1] "int wrapV" [1] "float[2] repeatUV" [5 1] "float[2] offset" [0 0] "float rotateUV" [0] 
+"float[2] noiseUV" [0 0] "__instanceid" ["place2dTexture9_32"]
+Pattern "PxrMayaNoise" "noise1" "float threshold" [0] "float amplitude" [1] "float ratio" [0.707] "float frequencyRatio" [2] "int depthMax" [3] "int inflection" [0] "float time" [0] "float frequency" [8] "float implode" [0] "float[2] implodeCenter" [0.5 0.5] "int noiseType" [1] "float density" [1] "float spottyness" [0.1] 
+"float sizeRand" [0] "float randomness" [1] "int falloff" [2] "color defaultColor" [0.5 0.5 0.5] "color colorGain" [1 1 1] "color colorOffset" [0 0 0] "float alphaGain" [1] 
+"float alphaOffset" [0] "int alphaIsLuminance" [0] "float filter" [1] "float filterOffset" [0] "int invert" [0] "reference struct manifold" ["place2dTexture9:result"] "__instanceid" ["noise1_32"]
+Pattern "PxrBump" "PxrBump4" "float scale" [1] "int disable" [0] "reference float inputBump" ["noise1:outAlpha"] "string filename" [""] "int firstChannel" [0] "int atlasStyle" [0] "int invertT" [1] "float blur" [0] "int lerp" [1] "normal inputN" [1 0 0] "int reverse" [0] "float adjustAmount" [0] "float surfaceNormalMix" [0] "__instanceid" ["PxrBump4_32"]
+Bxdf "PxrSurface" "SpongePorous" "float diffuseGain" [1] "color diffuseColor" [0 0.769233 1] "float diffuseRoughness" [0] "float diffuseExponent" [1] "normal diffuseBumpNormal" [0 0 0] "int diffuseDoubleSided" [0] "int diffuseBackUseDiffuseColor" [1] "color diffuseBackColor" [0.18 0.18 0.18] 
+"float diffuseTransmitGain" [0] "color diffuseTransmitColor" [0.18 0.18 0.18] "int specularFresnelMode" [0] "color specularFaceColor" [0 0 0] "color specularEdgeColor" [0 0 0] "float specularFresnelShape" [5] "color specularIor" [1.5 1.5 1.5] 
+"color specularExtinctionCoeff" [0 0 0] "float specularRoughness" [0.2] "int specularModelType" [0] "float specularAnisotropy" [0] "vector specularAnisotropyDirection" [0 0 0] "normal specularBumpNormal" [0 0 0] "int specularDoubleSided" [0] 
+"int roughSpecularFresnelMode" [0] "color roughSpecularFaceColor" [0 0 0] "color roughSpecularEdgeColor" [0 0 0] "float roughSpecularFresnelShape" [5] "color roughSpecularIor" [1.5 1.5 1.5] "color roughSpecularExtinctionCoeff" [0 0 0] 
+"float roughSpecularRoughness" [0.6] "int roughSpecularModelType" [0] "float roughSpecularAnisotropy" [0] "vector roughSpecularAnisotropyDirection" [0 0 0] "normal roughSpecularBumpNormal" [0 0 0] "int roughSpecularDoubleSided" [0] "int clearcoatFresnelMode" [0] "color clearcoatFaceColor" [0 0 0] 
+"color clearcoatEdgeColor" [0 0 0] "float clearcoatFresnelShape" [5] "color clearcoatIor" [1.5 1.5 1.5] "color clearcoatExtinctionCoeff" [0 0 0] "float clearcoatRoughness" [0] "int clearcoatModelType" [0] "float clearcoatAnisotropy" [0] 
+"vector clearcoatAnisotropyDirection" [0 0 0] "normal clearcoatBumpNormal" [0 0 0] "int clearcoatDoubleSided" [0] "float specularEnergyCompensation" [0] "float clearcoatEnergyCompensation" [0] "float iridescenceFaceGain" [0] "float iridescenceEdgeGain" [0] "float iridescenceFresnelShape" [5] "int iridescenceMode" [0] 
+"color iridescencePrimaryColor" [1 0 0] "color iridescenceSecondaryColor" [0 0 1] "float iridescenceRoughness" [0.2] "float iridescenceCurve" [1] "float iridescenceScale" [1] "int iridescenceFlip" [0] "float iridescenceThickness" [800] "int iridescenceDoubleSided" [0] "float fuzzGain" [0] 
+"color fuzzColor" [1 1 1] "float fuzzConeAngle" [8] "normal fuzzBumpNormal" [0 0 0] "int fuzzDoubleSided" [0] "int subsurfaceType" [0] "float subsurfaceGain" [0] "color subsurfaceColor" [0.83 0.791 0.753] 
+"float subsurfaceDmfp" [10] "color subsurfaceDmfpColor" [0.851 0.557 0.395] "float shortSubsurfaceGain" [0] "color shortSubsurfaceColor" [0.9 0.9 0.9] "float shortSubsurfaceDmfp" [5] "float longSubsurfaceGain" [0] "color longSubsurfaceColor" [0.8 0 0] 
+"float longSubsurfaceDmfp" [20] "color subsurfacePostTint" [1 1 1] "float subsurfaceDiffuseSwitch" [1] "int subsurfaceDoubleSided" [0] "float subsurfaceTransmitGain" [0] "int considerBackside" [1] "int continuationRayMode" [0] "int maxContinuationHits" [2] "float followTopology" [0] "string subsurfaceSubset" [""] "float singlescatterGain" [0] "color singlescatterColor" [0.83 0.791 0.753] 
+"float singlescatterMfp" [10] "color singlescatterMfpColor" [0.851 0.557 0.395] "float singlescatterDirectionality" [0] "float singlescatterIor" [1.3] "float singlescatterBlur" [0] "float singlescatterDirectGain" [0] "color singlescatterDirectGainTint" [1 1 1] "int singlescatterDoubleSided" [0] "int singlescatterConsiderBackside" [1] 
+"int singlescatterContinuationRayMode" [0] "int singlescatterMaxContinuationHits" [2] "int singlescatterDirectGainMode" [0] "string singlescatterSubset" [""] "color irradianceTint" [1 1 1] "float irradianceRoughness" [0] "float unitLength" [0.1] "float refractionGain" [0] "float reflectionGain" [0] "color refractionColor" [1 1 1] 
+"float glassRoughness" [0.1] "float glassIor" [1.5] "int thinGlass" [0] "color ssAlbedo" [0 0 0] "color extinction" [0 0 0] "float g" [0] "int multiScatter" [0] "int enableOverlappingVolumes" [0] "float glowGain" [0] "color glowColor" [1 1 1] 
+"reference normal bumpNormal" ["PxrBump4:resultN"] "color shadowColor" [0 0 0] "int shadowMode" [0] "float presence" [1] "int presenceCached" [1] "__instanceid" ["SpongePorous_32"]
+EditEnd 
+##streammarker7462
+EditBegin "attribute" "string scopename" ["spongeShape|shaderBallGeomShape1"]
+Pattern "PxrMayaPlacement2d" "place2dTexture9" "float[2] coverage" [1 1] "float[2] translateFrame" [0 0] "float rotateFrame" [0] "int mirrorU" [0] "int mirrorV" [0] "int stagger" [0] "int wrapU" [1] "int wrapV" [1] "float[2] repeatUV" [5 5] "float[2] offset" [0 0] "float rotateUV" [0] 
+"float[2] noiseUV" [0 0] "__instanceid" ["place2dTexture9_33"]
+Pattern "PxrMayaNoise" "noise1" "float threshold" [0] "float amplitude" [1] "float ratio" [0.707] "float frequencyRatio" [2] "int depthMax" [3] "int inflection" [0] "float time" [0] "float frequency" [8] "float implode" [0] "float[2] implodeCenter" [0.5 0.5] "int noiseType" [1] "float density" [1] "float spottyness" [0.1] 
+"float sizeRand" [0] "float randomness" [1] "int falloff" [2] "color defaultColor" [0.5 0.5 0.5] "color colorGain" [1 1 1] "color colorOffset" [0 0 0] "float alphaGain" [1] 
+"float alphaOffset" [0] "int alphaIsLuminance" [0] "float filter" [1] "float filterOffset" [0] "int invert" [0] "reference struct manifold" ["place2dTexture9:result"] "__instanceid" ["noise1_33"]
+Pattern "PxrBump" "PxrBump4" "float scale" [1] "int disable" [0] "reference float inputBump" ["noise1:outAlpha"] "string filename" [""] "int firstChannel" [0] "int atlasStyle" [0] "int invertT" [1] "float blur" [0] "int lerp" [1] "normal inputN" [1 0 0] "int reverse" [0] "float adjustAmount" [0] "float surfaceNormalMix" [0] "__instanceid" ["PxrBump4_33"]
+Bxdf "PxrSurface" "SpongePorous" "float diffuseGain" [1] "color diffuseColor" [0 0.769233 1] "float diffuseRoughness" [0] "float diffuseExponent" [1] "normal diffuseBumpNormal" [0 0 0] "int diffuseDoubleSided" [0] "int diffuseBackUseDiffuseColor" [1] "color diffuseBackColor" [0.18 0.18 0.18] 
+"float diffuseTransmitGain" [0] "color diffuseTransmitColor" [0.18 0.18 0.18] "int specularFresnelMode" [0] "color specularFaceColor" [0 0 0] "color specularEdgeColor" [0 0 0] "float specularFresnelShape" [5] "color specularIor" [1.5 1.5 1.5] 
+"color specularExtinctionCoeff" [0 0 0] "float specularRoughness" [0.2] "int specularModelType" [0] "float specularAnisotropy" [0] "vector specularAnisotropyDirection" [0 0 0] "normal specularBumpNormal" [0 0 0] "int specularDoubleSided" [0] 
+"int roughSpecularFresnelMode" [0] "color roughSpecularFaceColor" [0 0 0] "color roughSpecularEdgeColor" [0 0 0] "float roughSpecularFresnelShape" [5] "color roughSpecularIor" [1.5 1.5 1.5] "color roughSpecularExtinctionCoeff" [0 0 0] 
+"float roughSpecularRoughness" [0.6] "int roughSpecularModelType" [0] "float roughSpecularAnisotropy" [0] "vector roughSpecularAnisotropyDirection" [0 0 0] "normal roughSpecularBumpNormal" [0 0 0] "int roughSpecularDoubleSided" [0] "int clearcoatFresnelMode" [0] "color clearcoatFaceColor" [0 0 0] 
+"color clearcoatEdgeColor" [0 0 0] "float clearcoatFresnelShape" [5] "color clearcoatIor" [1.5 1.5 1.5] "color clearcoatExtinctionCoeff" [0 0 0] "float clearcoatRoughness" [0] "int clearcoatModelType" [0] "float clearcoatAnisotropy" [0] 
+"vector clearcoatAnisotropyDirection" [0 0 0] "normal clearcoatBumpNormal" [0 0 0] "int clearcoatDoubleSided" [0] "float specularEnergyCompensation" [0] "float clearcoatEnergyCompensation" [0] "float iridescenceFaceGain" [0] "float iridescenceEdgeGain" [0] "float iridescenceFresnelShape" [5] "int iridescenceMode" [0] 
+"color iridescencePrimaryColor" [1 0 0] "color iridescenceSecondaryColor" [0 0 1] "float iridescenceRoughness" [0.2] "float iridescenceCurve" [1] "float iridescenceScale" [1] "int iridescenceFlip" [0] "float iridescenceThickness" [800] "int iridescenceDoubleSided" [0] "float fuzzGain" [0] 
+"color fuzzColor" [1 1 1] "float fuzzConeAngle" [8] "normal fuzzBumpNormal" [0 0 0] "int fuzzDoubleSided" [0] "int subsurfaceType" [0] "float subsurfaceGain" [0] "color subsurfaceColor" [0.83 0.791 0.753] 
+"float subsurfaceDmfp" [10] "color subsurfaceDmfpColor" [0.851 0.557 0.395] "float shortSubsurfaceGain" [0] "color shortSubsurfaceColor" [0.9 0.9 0.9] "float shortSubsurfaceDmfp" [5] "float longSubsurfaceGain" [0] "color longSubsurfaceColor" [0.8 0 0] 
+"float longSubsurfaceDmfp" [20] "color subsurfacePostTint" [1 1 1] "float subsurfaceDiffuseSwitch" [1] "int subsurfaceDoubleSided" [0] "float subsurfaceTransmitGain" [0] "int considerBackside" [1] "int continuationRayMode" [0] "int maxContinuationHits" [2] "float followTopology" [0] "string subsurfaceSubset" [""] "float singlescatterGain" [0] "color singlescatterColor" [0.83 0.791 0.753] 
+"float singlescatterMfp" [10] "color singlescatterMfpColor" [0.851 0.557 0.395] "float singlescatterDirectionality" [0] "float singlescatterIor" [1.3] "float singlescatterBlur" [0] "float singlescatterDirectGain" [0] "color singlescatterDirectGainTint" [1 1 1] "int singlescatterDoubleSided" [0] "int singlescatterConsiderBackside" [1] 
+"int singlescatterContinuationRayMode" [0] "int singlescatterMaxContinuationHits" [2] "int singlescatterDirectGainMode" [0] "string singlescatterSubset" [""] "color irradianceTint" [1 1 1] "float irradianceRoughness" [0] "float unitLength" [0.1] "float refractionGain" [0] "float reflectionGain" [0] "color refractionColor" [1 1 1] 
+"float glassRoughness" [0.1] "float glassIor" [1.5] "int thinGlass" [0] "color ssAlbedo" [0 0 0] "color extinction" [0 0 0] "float g" [0] "int multiScatter" [0] "int enableOverlappingVolumes" [0] "float glowGain" [0] "color glowColor" [1 1 1] 
+"reference normal bumpNormal" ["PxrBump4:resultN"] "color shadowColor" [0 0 0] "int shadowMode" [0] "float presence" [1] "int presenceCached" [1] "__instanceid" ["SpongePorous_33"]
+EditEnd 
+##streammarker7463
+EditBegin "attribute" "string scopename" ["spongeShape|shaderBallGeomShape1"]
+Pattern "PxrMayaPlacement2d" "place2dTexture9" "float[2] coverage" [1 1] "float[2] translateFrame" [0 0] "float rotateFrame" [0] "int mirrorU" [0] "int mirrorV" [0] "int stagger" [0] "int wrapU" [1] "int wrapV" [1] "float[2] repeatUV" [10 5] "float[2] offset" [0 0] "float rotateUV" [0] 
+"float[2] noiseUV" [0 0] "__instanceid" ["place2dTexture9_34"]
+Pattern "PxrMayaNoise" "noise1" "float threshold" [0] "float amplitude" [1] "float ratio" [0.707] "float frequencyRatio" [2] "int depthMax" [3] "int inflection" [0] "float time" [0] "float frequency" [8] "float implode" [0] "float[2] implodeCenter" [0.5 0.5] "int noiseType" [1] "float density" [1] "float spottyness" [0.1] 
+"float sizeRand" [0] "float randomness" [1] "int falloff" [2] "color defaultColor" [0.5 0.5 0.5] "color colorGain" [1 1 1] "color colorOffset" [0 0 0] "float alphaGain" [1] 
+"float alphaOffset" [0] "int alphaIsLuminance" [0] "float filter" [1] "float filterOffset" [0] "int invert" [0] "reference struct manifold" ["place2dTexture9:result"] "__instanceid" ["noise1_34"]
+Pattern "PxrBump" "PxrBump4" "float scale" [1] "int disable" [0] "reference float inputBump" ["noise1:outAlpha"] "string filename" [""] "int firstChannel" [0] "int atlasStyle" [0] "int invertT" [1] "float blur" [0] "int lerp" [1] "normal inputN" [1 0 0] "int reverse" [0] "float adjustAmount" [0] "float surfaceNormalMix" [0] "__instanceid" ["PxrBump4_34"]
+Bxdf "PxrSurface" "SpongePorous" "float diffuseGain" [1] "color diffuseColor" [0 0.769233 1] "float diffuseRoughness" [0] "float diffuseExponent" [1] "normal diffuseBumpNormal" [0 0 0] "int diffuseDoubleSided" [0] "int diffuseBackUseDiffuseColor" [1] "color diffuseBackColor" [0.18 0.18 0.18] 
+"float diffuseTransmitGain" [0] "color diffuseTransmitColor" [0.18 0.18 0.18] "int specularFresnelMode" [0] "color specularFaceColor" [0 0 0] "color specularEdgeColor" [0 0 0] "float specularFresnelShape" [5] "color specularIor" [1.5 1.5 1.5] 
+"color specularExtinctionCoeff" [0 0 0] "float specularRoughness" [0.2] "int specularModelType" [0] "float specularAnisotropy" [0] "vector specularAnisotropyDirection" [0 0 0] "normal specularBumpNormal" [0 0 0] "int specularDoubleSided" [0] 
+"int roughSpecularFresnelMode" [0] "color roughSpecularFaceColor" [0 0 0] "color roughSpecularEdgeColor" [0 0 0] "float roughSpecularFresnelShape" [5] "color roughSpecularIor" [1.5 1.5 1.5] "color roughSpecularExtinctionCoeff" [0 0 0] 
+"float roughSpecularRoughness" [0.6] "int roughSpecularModelType" [0] "float roughSpecularAnisotropy" [0] "vector roughSpecularAnisotropyDirection" [0 0 0] "normal roughSpecularBumpNormal" [0 0 0] "int roughSpecularDoubleSided" [0] "int clearcoatFresnelMode" [0] "color clearcoatFaceColor" [0 0 0] 
+"color clearcoatEdgeColor" [0 0 0] "float clearcoatFresnelShape" [5] "color clearcoatIor" [1.5 1.5 1.5] "color clearcoatExtinctionCoeff" [0 0 0] "float clearcoatRoughness" [0] "int clearcoatModelType" [0] "float clearcoatAnisotropy" [0] 
+"vector clearcoatAnisotropyDirection" [0 0 0] "normal clearcoatBumpNormal" [0 0 0] "int clearcoatDoubleSided" [0] "float specularEnergyCompensation" [0] "float clearcoatEnergyCompensation" [0] "float iridescenceFaceGain" [0] "float iridescenceEdgeGain" [0] "float iridescenceFresnelShape" [5] "int iridescenceMode" [0] 
+"color iridescencePrimaryColor" [1 0 0] "color iridescenceSecondaryColor" [0 0 1] "float iridescenceRoughness" [0.2] "float iridescenceCurve" [1] "float iridescenceScale" [1] "int iridescenceFlip" [0] "float iridescenceThickness" [800] "int iridescenceDoubleSided" [0] "float fuzzGain" [0] 
+"color fuzzColor" [1 1 1] "float fuzzConeAngle" [8] "normal fuzzBumpNormal" [0 0 0] "int fuzzDoubleSided" [0] "int subsurfaceType" [0] "float subsurfaceGain" [0] "color subsurfaceColor" [0.83 0.791 0.753] 
+"float subsurfaceDmfp" [10] "color subsurfaceDmfpColor" [0.851 0.557 0.395] "float shortSubsurfaceGain" [0] "color shortSubsurfaceColor" [0.9 0.9 0.9] "float shortSubsurfaceDmfp" [5] "float longSubsurfaceGain" [0] "color longSubsurfaceColor" [0.8 0 0] 
+"float longSubsurfaceDmfp" [20] "color subsurfacePostTint" [1 1 1] "float subsurfaceDiffuseSwitch" [1] "int subsurfaceDoubleSided" [0] "float subsurfaceTransmitGain" [0] "int considerBackside" [1] "int continuationRayMode" [0] "int maxContinuationHits" [2] "float followTopology" [0] "string subsurfaceSubset" [""] "float singlescatterGain" [0] "color singlescatterColor" [0.83 0.791 0.753] 
+"float singlescatterMfp" [10] "color singlescatterMfpColor" [0.851 0.557 0.395] "float singlescatterDirectionality" [0] "float singlescatterIor" [1.3] "float singlescatterBlur" [0] "float singlescatterDirectGain" [0] "color singlescatterDirectGainTint" [1 1 1] "int singlescatterDoubleSided" [0] "int singlescatterConsiderBackside" [1] 
+"int singlescatterContinuationRayMode" [0] "int singlescatterMaxContinuationHits" [2] "int singlescatterDirectGainMode" [0] "string singlescatterSubset" [""] "color irradianceTint" [1 1 1] "float irradianceRoughness" [0] "float unitLength" [0.1] "float refractionGain" [0] "float reflectionGain" [0] "color refractionColor" [1 1 1] 
+"float glassRoughness" [0.1] "float glassIor" [1.5] "int thinGlass" [0] "color ssAlbedo" [0 0 0] "color extinction" [0 0 0] "float g" [0] "int multiScatter" [0] "int enableOverlappingVolumes" [0] "float glowGain" [0] "color glowColor" [1 1 1] 
+"reference normal bumpNormal" ["PxrBump4:resultN"] "color shadowColor" [0 0 0] "int shadowMode" [0] "float presence" [1] "int presenceCached" [1] "__instanceid" ["SpongePorous_34"]
+EditEnd 
+##streammarker7464
+EditBegin "attribute" "string scopename" ["spongeShape|shaderBallGeomShape1"]
+Pattern "PxrMayaPlacement2d" "place2dTexture9" "float[2] coverage" [1 1] "float[2] translateFrame" [0 0] "float rotateFrame" [0] "int mirrorU" [0] "int mirrorV" [0] "int stagger" [0] "int wrapU" [1] "int wrapV" [1] "float[2] repeatUV" [10 10] "float[2] offset" [0 0] "float rotateUV" [0] 
+"float[2] noiseUV" [0 0] "__instanceid" ["place2dTexture9_35"]
+Pattern "PxrMayaNoise" "noise1" "float threshold" [0] "float amplitude" [1] "float ratio" [0.707] "float frequencyRatio" [2] "int depthMax" [3] "int inflection" [0] "float time" [0] "float frequency" [8] "float implode" [0] "float[2] implodeCenter" [0.5 0.5] "int noiseType" [1] "float density" [1] "float spottyness" [0.1] 
+"float sizeRand" [0] "float randomness" [1] "int falloff" [2] "color defaultColor" [0.5 0.5 0.5] "color colorGain" [1 1 1] "color colorOffset" [0 0 0] "float alphaGain" [1] 
+"float alphaOffset" [0] "int alphaIsLuminance" [0] "float filter" [1] "float filterOffset" [0] "int invert" [0] "reference struct manifold" ["place2dTexture9:result"] "__instanceid" ["noise1_35"]
+Pattern "PxrBump" "PxrBump4" "float scale" [1] "int disable" [0] "reference float inputBump" ["noise1:outAlpha"] "string filename" [""] "int firstChannel" [0] "int atlasStyle" [0] "int invertT" [1] "float blur" [0] "int lerp" [1] "normal inputN" [1 0 0] "int reverse" [0] "float adjustAmount" [0] "float surfaceNormalMix" [0] "__instanceid" ["PxrBump4_35"]
+Bxdf "PxrSurface" "SpongePorous" "float diffuseGain" [1] "color diffuseColor" [0 0.769233 1] "float diffuseRoughness" [0] "float diffuseExponent" [1] "normal diffuseBumpNormal" [0 0 0] "int diffuseDoubleSided" [0] "int diffuseBackUseDiffuseColor" [1] "color diffuseBackColor" [0.18 0.18 0.18] 
+"float diffuseTransmitGain" [0] "color diffuseTransmitColor" [0.18 0.18 0.18] "int specularFresnelMode" [0] "color specularFaceColor" [0 0 0] "color specularEdgeColor" [0 0 0] "float specularFresnelShape" [5] "color specularIor" [1.5 1.5 1.5] 
+"color specularExtinctionCoeff" [0 0 0] "float specularRoughness" [0.2] "int specularModelType" [0] "float specularAnisotropy" [0] "vector specularAnisotropyDirection" [0 0 0] "normal specularBumpNormal" [0 0 0] "int specularDoubleSided" [0] 
+"int roughSpecularFresnelMode" [0] "color roughSpecularFaceColor" [0 0 0] "color roughSpecularEdgeColor" [0 0 0] "float roughSpecularFresnelShape" [5] "color roughSpecularIor" [1.5 1.5 1.5] "color roughSpecularExtinctionCoeff" [0 0 0] 
+"float roughSpecularRoughness" [0.6] "int roughSpecularModelType" [0] "float roughSpecularAnisotropy" [0] "vector roughSpecularAnisotropyDirection" [0 0 0] "normal roughSpecularBumpNormal" [0 0 0] "int roughSpecularDoubleSided" [0] "int clearcoatFresnelMode" [0] "color clearcoatFaceColor" [0 0 0] 
+"color clearcoatEdgeColor" [0 0 0] "float clearcoatFresnelShape" [5] "color clearcoatIor" [1.5 1.5 1.5] "color clearcoatExtinctionCoeff" [0 0 0] "float clearcoatRoughness" [0] "int clearcoatModelType" [0] "float clearcoatAnisotropy" [0] 
+"vector clearcoatAnisotropyDirection" [0 0 0] "normal clearcoatBumpNormal" [0 0 0] "int clearcoatDoubleSided" [0] "float specularEnergyCompensation" [0] "float clearcoatEnergyCompensation" [0] "float iridescenceFaceGain" [0] "float iridescenceEdgeGain" [0] "float iridescenceFresnelShape" [5] "int iridescenceMode" [0] 
+"color iridescencePrimaryColor" [1 0 0] "color iridescenceSecondaryColor" [0 0 1] "float iridescenceRoughness" [0.2] "float iridescenceCurve" [1] "float iridescenceScale" [1] "int iridescenceFlip" [0] "float iridescenceThickness" [800] "int iridescenceDoubleSided" [0] "float fuzzGain" [0] 
+"color fuzzColor" [1 1 1] "float fuzzConeAngle" [8] "normal fuzzBumpNormal" [0 0 0] "int fuzzDoubleSided" [0] "int subsurfaceType" [0] "float subsurfaceGain" [0] "color subsurfaceColor" [0.83 0.791 0.753] 
+"float subsurfaceDmfp" [10] "color subsurfaceDmfpColor" [0.851 0.557 0.395] "float shortSubsurfaceGain" [0] "color shortSubsurfaceColor" [0.9 0.9 0.9] "float shortSubsurfaceDmfp" [5] "float longSubsurfaceGain" [0] "color longSubsurfaceColor" [0.8 0 0] 
+"float longSubsurfaceDmfp" [20] "color subsurfacePostTint" [1 1 1] "float subsurfaceDiffuseSwitch" [1] "int subsurfaceDoubleSided" [0] "float subsurfaceTransmitGain" [0] "int considerBackside" [1] "int continuationRayMode" [0] "int maxContinuationHits" [2] "float followTopology" [0] "string subsurfaceSubset" [""] "float singlescatterGain" [0] "color singlescatterColor" [0.83 0.791 0.753] 
+"float singlescatterMfp" [10] "color singlescatterMfpColor" [0.851 0.557 0.395] "float singlescatterDirectionality" [0] "float singlescatterIor" [1.3] "float singlescatterBlur" [0] "float singlescatterDirectGain" [0] "color singlescatterDirectGainTint" [1 1 1] "int singlescatterDoubleSided" [0] "int singlescatterConsiderBackside" [1] 
+"int singlescatterContinuationRayMode" [0] "int singlescatterMaxContinuationHits" [2] "int singlescatterDirectGainMode" [0] "string singlescatterSubset" [""] "color irradianceTint" [1 1 1] "float irradianceRoughness" [0] "float unitLength" [0.1] "float refractionGain" [0] "float reflectionGain" [0] "color refractionColor" [1 1 1] 
+"float glassRoughness" [0.1] "float glassIor" [1.5] "int thinGlass" [0] "color ssAlbedo" [0 0 0] "color extinction" [0 0 0] "float g" [0] "int multiScatter" [0] "int enableOverlappingVolumes" [0] "float glowGain" [0] "color glowColor" [1 1 1] 
+"reference normal bumpNormal" ["PxrBump4:resultN"] "color shadowColor" [0 0 0] "int shadowMode" [0] "float presence" [1] "int presenceCached" [1] "__instanceid" ["SpongePorous_35"]
+EditEnd 
+##streammarker7465
+EditBegin "attribute" "string scopename" ["spongeShape|shaderBallGeomShape1"]
+Pattern "PxrMayaPlacement2d" "place2dTexture9" "float[2] coverage" [1 1] "float[2] translateFrame" [0 0] "float rotateFrame" [0] "int mirrorU" [0] "int mirrorV" [0] "int stagger" [0] "int wrapU" [1] "int wrapV" [1] "float[2] repeatUV" [10 10] "float[2] offset" [0 0] "float rotateUV" [0] 
+"float[2] noiseUV" [0 0] "__instanceid" ["place2dTexture9_36"]
+Pattern "PxrMayaNoise" "noise1" "float threshold" [0] "float amplitude" [1] "float ratio" [0.707] "float frequencyRatio" [2] "int depthMax" [3] "int inflection" [0] "float time" [0] "float frequency" [8] "float implode" [0] "float[2] implodeCenter" [0.5 0.5] "int noiseType" [1] "float density" [1] "float spottyness" [0.1] 
+"float sizeRand" [0] "float randomness" [1] "int falloff" [2] "color defaultColor" [0.5 0.5 0.5] "color colorGain" [1 1 1] "color colorOffset" [0 0 0] "float alphaGain" [1] 
+"float alphaOffset" [0] "int alphaIsLuminance" [0] "float filter" [1] "float filterOffset" [0] "int invert" [0] "reference struct manifold" ["place2dTexture9:result"] "__instanceid" ["noise1_36"]
+Pattern "PxrBump" "PxrBump4" "float scale" [1] "int disable" [0] "reference float inputBump" ["noise1:outAlpha"] "string filename" [""] "int firstChannel" [0] "int atlasStyle" [0] "int invertT" [1] "float blur" [0] "int lerp" [1] "normal inputN" [1 0 0] "int reverse" [0] "float adjustAmount" [0] "float surfaceNormalMix" [0] "__instanceid" ["PxrBump4_36"]
+Bxdf "PxrSurface" "SpongePorous" "float diffuseGain" [1] "color diffuseColor" [0 0.769233 1] "float diffuseRoughness" [0] "float diffuseExponent" [1] "normal diffuseBumpNormal" [0 0 0] "int diffuseDoubleSided" [0] "int diffuseBackUseDiffuseColor" [1] "color diffuseBackColor" [0.18 0.18 0.18] 
+"float diffuseTransmitGain" [0] "color diffuseTransmitColor" [0.18 0.18 0.18] "int specularFresnelMode" [0] "color specularFaceColor" [0 0 0] "color specularEdgeColor" [0 0 0] "float specularFresnelShape" [5] "color specularIor" [1.5 1.5 1.5] 
+"color specularExtinctionCoeff" [0 0 0] "float specularRoughness" [0.2] "int specularModelType" [0] "float specularAnisotropy" [0] "vector specularAnisotropyDirection" [0 0 0] "normal specularBumpNormal" [0 0 0] "int specularDoubleSided" [0] 
+"int roughSpecularFresnelMode" [0] "color roughSpecularFaceColor" [0 0 0] "color roughSpecularEdgeColor" [0 0 0] "float roughSpecularFresnelShape" [5] "color roughSpecularIor" [1.5 1.5 1.5] "color roughSpecularExtinctionCoeff" [0 0 0] 
+"float roughSpecularRoughness" [0.6] "int roughSpecularModelType" [0] "float roughSpecularAnisotropy" [0] "vector roughSpecularAnisotropyDirection" [0 0 0] "normal roughSpecularBumpNormal" [0 0 0] "int roughSpecularDoubleSided" [0] "int clearcoatFresnelMode" [0] "color clearcoatFaceColor" [0 0 0] 
+"color clearcoatEdgeColor" [0 0 0] "float clearcoatFresnelShape" [5] "color clearcoatIor" [1.5 1.5 1.5] "color clearcoatExtinctionCoeff" [0 0 0] "float clearcoatRoughness" [0] "int clearcoatModelType" [0] "float clearcoatAnisotropy" [0] 
+"vector clearcoatAnisotropyDirection" [0 0 0] "normal clearcoatBumpNormal" [0 0 0] "int clearcoatDoubleSided" [0] "float specularEnergyCompensation" [0] "float clearcoatEnergyCompensation" [0] "float iridescenceFaceGain" [0] "float iridescenceEdgeGain" [0] "float iridescenceFresnelShape" [5] "int iridescenceMode" [0] 
+"color iridescencePrimaryColor" [1 0 0] "color iridescenceSecondaryColor" [0 0 1] "float iridescenceRoughness" [0.2] "float iridescenceCurve" [1] "float iridescenceScale" [1] "int iridescenceFlip" [0] "float iridescenceThickness" [800] "int iridescenceDoubleSided" [0] "float fuzzGain" [0] 
+"color fuzzColor" [1 1 1] "float fuzzConeAngle" [8] "normal fuzzBumpNormal" [0 0 0] "int fuzzDoubleSided" [0] "int subsurfaceType" [0] "float subsurfaceGain" [0] "color subsurfaceColor" [0.83 0.791 0.753] 
+"float subsurfaceDmfp" [10] "color subsurfaceDmfpColor" [0.851 0.557 0.395] "float shortSubsurfaceGain" [0] "color shortSubsurfaceColor" [0.9 0.9 0.9] "float shortSubsurfaceDmfp" [5] "float longSubsurfaceGain" [0] "color longSubsurfaceColor" [0.8 0 0] 
+"float longSubsurfaceDmfp" [20] "color subsurfacePostTint" [1 1 1] "float subsurfaceDiffuseSwitch" [1] "int subsurfaceDoubleSided" [0] "float subsurfaceTransmitGain" [0] "int considerBackside" [1] "int continuationRayMode" [0] "int maxContinuationHits" [2] "float followTopology" [0] "string subsurfaceSubset" [""] "float singlescatterGain" [0] "color singlescatterColor" [0.83 0.791 0.753] 
+"float singlescatterMfp" [10] "color singlescatterMfpColor" [0.851 0.557 0.395] "float singlescatterDirectionality" [0] "float singlescatterIor" [1.3] "float singlescatterBlur" [0] "float singlescatterDirectGain" [0] "color singlescatterDirectGainTint" [1 1 1] "int singlescatterDoubleSided" [0] "int singlescatterConsiderBackside" [1] 
+"int singlescatterContinuationRayMode" [0] "int singlescatterMaxContinuationHits" [2] "int singlescatterDirectGainMode" [0] "string singlescatterSubset" [""] "color irradianceTint" [1 1 1] "float irradianceRoughness" [0] "float unitLength" [0.1] "float refractionGain" [0] "float reflectionGain" [0] "color refractionColor" [1 1 1] 
+"float glassRoughness" [0.1] "float glassIor" [1.5] "int thinGlass" [0] "color ssAlbedo" [0 0 0] "color extinction" [0 0 0] "float g" [0] "int multiScatter" [0] "int enableOverlappingVolumes" [0] "float glowGain" [0] "color glowColor" [1 1 1] 
+"reference normal bumpNormal" ["PxrBump4:resultN"] "color shadowColor" [0 0 0] "int shadowMode" [0] "float presence" [1] "int presenceCached" [1] "__instanceid" ["SpongePorous_36"]
+EditEnd 
+##streammarker7466
+EditBegin "attribute" "string scopename" ["spongeShape|shaderBallGeomShape1"]
+Pattern "PxrMayaPlacement2d" "place2dTexture9" "float[2] coverage" [1 1] "float[2] translateFrame" [0 0] "float rotateFrame" [0] "int mirrorU" [0] "int mirrorV" [0] "int stagger" [0] "int wrapU" [1] "int wrapV" [1] "float[2] repeatUV" [10 10] "float[2] offset" [0 0] "float rotateUV" [0] 
+"float[2] noiseUV" [0 0] "__instanceid" ["place2dTexture9_37"]
+Pattern "PxrMayaNoise" "noise1" "float threshold" [0] "float amplitude" [1] "float ratio" [0.707] "float frequencyRatio" [2] "int depthMax" [3] "int inflection" [0] "float time" [0] "float frequency" [8] "float implode" [0] "float[2] implodeCenter" [0.5 0.5] "int noiseType" [1] "float density" [1] "float spottyness" [0.1] 
+"float sizeRand" [0] "float randomness" [1] "int falloff" [2] "color defaultColor" [0.140794 0.140794 0.140794] "color colorGain" [1 1 1] "color colorOffset" [0 0 0] "float alphaGain" [1] 
+"float alphaOffset" [0] "int alphaIsLuminance" [0] "float filter" [1] "float filterOffset" [0] "int invert" [0] "reference struct manifold" ["place2dTexture9:result"] "__instanceid" ["noise1_37"]
+Pattern "PxrBump" "PxrBump4" "float scale" [1] "int disable" [0] "reference float inputBump" ["noise1:outAlpha"] "string filename" [""] "int firstChannel" [0] "int atlasStyle" [0] "int invertT" [1] "float blur" [0] "int lerp" [1] "normal inputN" [1 0 0] "int reverse" [0] "float adjustAmount" [0] "float surfaceNormalMix" [0] "__instanceid" ["PxrBump4_37"]
+Bxdf "PxrSurface" "SpongePorous" "float diffuseGain" [1] "color diffuseColor" [0 0.769233 1] "float diffuseRoughness" [0] "float diffuseExponent" [1] "normal diffuseBumpNormal" [0 0 0] "int diffuseDoubleSided" [0] "int diffuseBackUseDiffuseColor" [1] "color diffuseBackColor" [0.18 0.18 0.18] 
+"float diffuseTransmitGain" [0] "color diffuseTransmitColor" [0.18 0.18 0.18] "int specularFresnelMode" [0] "color specularFaceColor" [0 0 0] "color specularEdgeColor" [0 0 0] "float specularFresnelShape" [5] "color specularIor" [1.5 1.5 1.5] 
+"color specularExtinctionCoeff" [0 0 0] "float specularRoughness" [0.2] "int specularModelType" [0] "float specularAnisotropy" [0] "vector specularAnisotropyDirection" [0 0 0] "normal specularBumpNormal" [0 0 0] "int specularDoubleSided" [0] 
+"int roughSpecularFresnelMode" [0] "color roughSpecularFaceColor" [0 0 0] "color roughSpecularEdgeColor" [0 0 0] "float roughSpecularFresnelShape" [5] "color roughSpecularIor" [1.5 1.5 1.5] "color roughSpecularExtinctionCoeff" [0 0 0] 
+"float roughSpecularRoughness" [0.6] "int roughSpecularModelType" [0] "float roughSpecularAnisotropy" [0] "vector roughSpecularAnisotropyDirection" [0 0 0] "normal roughSpecularBumpNormal" [0 0 0] "int roughSpecularDoubleSided" [0] "int clearcoatFresnelMode" [0] "color clearcoatFaceColor" [0 0 0] 
+"color clearcoatEdgeColor" [0 0 0] "float clearcoatFresnelShape" [5] "color clearcoatIor" [1.5 1.5 1.5] "color clearcoatExtinctionCoeff" [0 0 0] "float clearcoatRoughness" [0] "int clearcoatModelType" [0] "float clearcoatAnisotropy" [0] 
+"vector clearcoatAnisotropyDirection" [0 0 0] "normal clearcoatBumpNormal" [0 0 0] "int clearcoatDoubleSided" [0] "float specularEnergyCompensation" [0] "float clearcoatEnergyCompensation" [0] "float iridescenceFaceGain" [0] "float iridescenceEdgeGain" [0] "float iridescenceFresnelShape" [5] "int iridescenceMode" [0] 
+"color iridescencePrimaryColor" [1 0 0] "color iridescenceSecondaryColor" [0 0 1] "float iridescenceRoughness" [0.2] "float iridescenceCurve" [1] "float iridescenceScale" [1] "int iridescenceFlip" [0] "float iridescenceThickness" [800] "int iridescenceDoubleSided" [0] "float fuzzGain" [0] 
+"color fuzzColor" [1 1 1] "float fuzzConeAngle" [8] "normal fuzzBumpNormal" [0 0 0] "int fuzzDoubleSided" [0] "int subsurfaceType" [0] "float subsurfaceGain" [0] "color subsurfaceColor" [0.83 0.791 0.753] 
+"float subsurfaceDmfp" [10] "color subsurfaceDmfpColor" [0.851 0.557 0.395] "float shortSubsurfaceGain" [0] "color shortSubsurfaceColor" [0.9 0.9 0.9] "float shortSubsurfaceDmfp" [5] "float longSubsurfaceGain" [0] "color longSubsurfaceColor" [0.8 0 0] 
+"float longSubsurfaceDmfp" [20] "color subsurfacePostTint" [1 1 1] "float subsurfaceDiffuseSwitch" [1] "int subsurfaceDoubleSided" [0] "float subsurfaceTransmitGain" [0] "int considerBackside" [1] "int continuationRayMode" [0] "int maxContinuationHits" [2] "float followTopology" [0] "string subsurfaceSubset" [""] "float singlescatterGain" [0] "color singlescatterColor" [0.83 0.791 0.753] 
+"float singlescatterMfp" [10] "color singlescatterMfpColor" [0.851 0.557 0.395] "float singlescatterDirectionality" [0] "float singlescatterIor" [1.3] "float singlescatterBlur" [0] "float singlescatterDirectGain" [0] "color singlescatterDirectGainTint" [1 1 1] "int singlescatterDoubleSided" [0] "int singlescatterConsiderBackside" [1] 
+"int singlescatterContinuationRayMode" [0] "int singlescatterMaxContinuationHits" [2] "int singlescatterDirectGainMode" [0] "string singlescatterSubset" [""] "color irradianceTint" [1 1 1] "float irradianceRoughness" [0] "float unitLength" [0.1] "float refractionGain" [0] "float reflectionGain" [0] "color refractionColor" [1 1 1] 
+"float glassRoughness" [0.1] "float glassIor" [1.5] "int thinGlass" [0] "color ssAlbedo" [0 0 0] "color extinction" [0 0 0] "float g" [0] "int multiScatter" [0] "int enableOverlappingVolumes" [0] "float glowGain" [0] "color glowColor" [1 1 1] 
+"reference normal bumpNormal" ["PxrBump4:resultN"] "color shadowColor" [0 0 0] "int shadowMode" [0] "float presence" [1] "int presenceCached" [1] "__instanceid" ["SpongePorous_37"]
+EditEnd 
+##streammarker7467
+EditBegin "attribute" "string scopename" ["spongeShape|shaderBallGeomShape1"]
+Pattern "PxrMayaPlacement2d" "place2dTexture9" "float[2] coverage" [1 1] "float[2] translateFrame" [0 0] "float rotateFrame" [0] "int mirrorU" [0] "int mirrorV" [0] "int stagger" [0] "int wrapU" [1] "int wrapV" [1] "float[2] repeatUV" [10 10] "float[2] offset" [0 0] "float rotateUV" [0] 
+"float[2] noiseUV" [0 0] "__instanceid" ["place2dTexture9_38"]
+Pattern "PxrMayaNoise" "noise1" "float threshold" [0] "float amplitude" [1] "float ratio" [0.707] "float frequencyRatio" [2] "int depthMax" [3] "int inflection" [0] "float time" [0] "float frequency" [8] "float implode" [0] "float[2] implodeCenter" [0.5 0.5] "int noiseType" [1] "float density" [1] "float spottyness" [0.1] 
+"float sizeRand" [0] "float randomness" [1] "int falloff" [2] "color defaultColor" [1 1 1] "color colorGain" [1 1 1] "color colorOffset" [0 0 0] "float alphaGain" [1] 
+"float alphaOffset" [0] "int alphaIsLuminance" [0] "float filter" [1] "float filterOffset" [0] "int invert" [0] "reference struct manifold" ["place2dTexture9:result"] "__instanceid" ["noise1_38"]
+Pattern "PxrBump" "PxrBump4" "float scale" [1] "int disable" [0] "reference float inputBump" ["noise1:outAlpha"] "string filename" [""] "int firstChannel" [0] "int atlasStyle" [0] "int invertT" [1] "float blur" [0] "int lerp" [1] "normal inputN" [1 0 0] "int reverse" [0] "float adjustAmount" [0] "float surfaceNormalMix" [0] "__instanceid" ["PxrBump4_38"]
+Bxdf "PxrSurface" "SpongePorous" "float diffuseGain" [1] "color diffuseColor" [0 0.769233 1] "float diffuseRoughness" [0] "float diffuseExponent" [1] "normal diffuseBumpNormal" [0 0 0] "int diffuseDoubleSided" [0] "int diffuseBackUseDiffuseColor" [1] "color diffuseBackColor" [0.18 0.18 0.18] 
+"float diffuseTransmitGain" [0] "color diffuseTransmitColor" [0.18 0.18 0.18] "int specularFresnelMode" [0] "color specularFaceColor" [0 0 0] "color specularEdgeColor" [0 0 0] "float specularFresnelShape" [5] "color specularIor" [1.5 1.5 1.5] 
+"color specularExtinctionCoeff" [0 0 0] "float specularRoughness" [0.2] "int specularModelType" [0] "float specularAnisotropy" [0] "vector specularAnisotropyDirection" [0 0 0] "normal specularBumpNormal" [0 0 0] "int specularDoubleSided" [0] 
+"int roughSpecularFresnelMode" [0] "color roughSpecularFaceColor" [0 0 0] "color roughSpecularEdgeColor" [0 0 0] "float roughSpecularFresnelShape" [5] "color roughSpecularIor" [1.5 1.5 1.5] "color roughSpecularExtinctionCoeff" [0 0 0] 
+"float roughSpecularRoughness" [0.6] "int roughSpecularModelType" [0] "float roughSpecularAnisotropy" [0] "vector roughSpecularAnisotropyDirection" [0 0 0] "normal roughSpecularBumpNormal" [0 0 0] "int roughSpecularDoubleSided" [0] "int clearcoatFresnelMode" [0] "color clearcoatFaceColor" [0 0 0] 
+"color clearcoatEdgeColor" [0 0 0] "float clearcoatFresnelShape" [5] "color clearcoatIor" [1.5 1.5 1.5] "color clearcoatExtinctionCoeff" [0 0 0] "float clearcoatRoughness" [0] "int clearcoatModelType" [0] "float clearcoatAnisotropy" [0] 
+"vector clearcoatAnisotropyDirection" [0 0 0] "normal clearcoatBumpNormal" [0 0 0] "int clearcoatDoubleSided" [0] "float specularEnergyCompensation" [0] "float clearcoatEnergyCompensation" [0] "float iridescenceFaceGain" [0] "float iridescenceEdgeGain" [0] "float iridescenceFresnelShape" [5] "int iridescenceMode" [0] 
+"color iridescencePrimaryColor" [1 0 0] "color iridescenceSecondaryColor" [0 0 1] "float iridescenceRoughness" [0.2] "float iridescenceCurve" [1] "float iridescenceScale" [1] "int iridescenceFlip" [0] "float iridescenceThickness" [800] "int iridescenceDoubleSided" [0] "float fuzzGain" [0] 
+"color fuzzColor" [1 1 1] "float fuzzConeAngle" [8] "normal fuzzBumpNormal" [0 0 0] "int fuzzDoubleSided" [0] "int subsurfaceType" [0] "float subsurfaceGain" [0] "color subsurfaceColor" [0.83 0.791 0.753] 
+"float subsurfaceDmfp" [10] "color subsurfaceDmfpColor" [0.851 0.557 0.395] "float shortSubsurfaceGain" [0] "color shortSubsurfaceColor" [0.9 0.9 0.9] "float shortSubsurfaceDmfp" [5] "float longSubsurfaceGain" [0] "color longSubsurfaceColor" [0.8 0 0] 
+"float longSubsurfaceDmfp" [20] "color subsurfacePostTint" [1 1 1] "float subsurfaceDiffuseSwitch" [1] "int subsurfaceDoubleSided" [0] "float subsurfaceTransmitGain" [0] "int considerBackside" [1] "int continuationRayMode" [0] "int maxContinuationHits" [2] "float followTopology" [0] "string subsurfaceSubset" [""] "float singlescatterGain" [0] "color singlescatterColor" [0.83 0.791 0.753] 
+"float singlescatterMfp" [10] "color singlescatterMfpColor" [0.851 0.557 0.395] "float singlescatterDirectionality" [0] "float singlescatterIor" [1.3] "float singlescatterBlur" [0] "float singlescatterDirectGain" [0] "color singlescatterDirectGainTint" [1 1 1] "int singlescatterDoubleSided" [0] "int singlescatterConsiderBackside" [1] 
+"int singlescatterContinuationRayMode" [0] "int singlescatterMaxContinuationHits" [2] "int singlescatterDirectGainMode" [0] "string singlescatterSubset" [""] "color irradianceTint" [1 1 1] "float irradianceRoughness" [0] "float unitLength" [0.1] "float refractionGain" [0] "float reflectionGain" [0] "color refractionColor" [1 1 1] 
+"float glassRoughness" [0.1] "float glassIor" [1.5] "int thinGlass" [0] "color ssAlbedo" [0 0 0] "color extinction" [0 0 0] "float g" [0] "int multiScatter" [0] "int enableOverlappingVolumes" [0] "float glowGain" [0] "color glowColor" [1 1 1] 
+"reference normal bumpNormal" ["PxrBump4:resultN"] "color shadowColor" [0 0 0] "int shadowMode" [0] "float presence" [1] "int presenceCached" [1] "__instanceid" ["SpongePorous_38"]
+EditEnd 
+##streammarker7468
+EditBegin "attribute" "string scopename" ["spongeShape|shaderBallGeomShape1"]
+Pattern "PxrMayaPlacement2d" "place2dTexture9" "float[2] coverage" [1 1] "float[2] translateFrame" [0 0] "float rotateFrame" [0] "int mirrorU" [0] "int mirrorV" [0] "int stagger" [0] "int wrapU" [1] "int wrapV" [1] "float[2] repeatUV" [10 10] "float[2] offset" [0 0] "float rotateUV" [0] 
+"float[2] noiseUV" [0 0] "__instanceid" ["place2dTexture9_39"]
+Pattern "PxrMayaNoise" "noise1" "float threshold" [0] "float amplitude" [1] "float ratio" [0.707] "float frequencyRatio" [2] "int depthMax" [3] "int inflection" [0] "float time" [0] "float frequency" [8] "float implode" [0] "float[2] implodeCenter" [0.5 0.5] "int noiseType" [1] "float density" [1] "float spottyness" [0.1] 
+"float sizeRand" [0] "float randomness" [1] "int falloff" [2] "color defaultColor" [1 1 1] "color colorGain" [0.440433 0.440433 0.440433] "color colorOffset" [0 0 0] "float alphaGain" [1] 
+"float alphaOffset" [0] "int alphaIsLuminance" [0] "float filter" [1] "float filterOffset" [0] "int invert" [0] "reference struct manifold" ["place2dTexture9:result"] "__instanceid" ["noise1_39"]
+Pattern "PxrBump" "PxrBump4" "float scale" [1] "int disable" [0] "reference float inputBump" ["noise1:outAlpha"] "string filename" [""] "int firstChannel" [0] "int atlasStyle" [0] "int invertT" [1] "float blur" [0] "int lerp" [1] "normal inputN" [1 0 0] "int reverse" [0] "float adjustAmount" [0] "float surfaceNormalMix" [0] "__instanceid" ["PxrBump4_39"]
+Bxdf "PxrSurface" "SpongePorous" "float diffuseGain" [1] "color diffuseColor" [0 0.769233 1] "float diffuseRoughness" [0] "float diffuseExponent" [1] "normal diffuseBumpNormal" [0 0 0] "int diffuseDoubleSided" [0] "int diffuseBackUseDiffuseColor" [1] "color diffuseBackColor" [0.18 0.18 0.18] 
+"float diffuseTransmitGain" [0] "color diffuseTransmitColor" [0.18 0.18 0.18] "int specularFresnelMode" [0] "color specularFaceColor" [0 0 0] "color specularEdgeColor" [0 0 0] "float specularFresnelShape" [5] "color specularIor" [1.5 1.5 1.5] 
+"color specularExtinctionCoeff" [0 0 0] "float specularRoughness" [0.2] "int specularModelType" [0] "float specularAnisotropy" [0] "vector specularAnisotropyDirection" [0 0 0] "normal specularBumpNormal" [0 0 0] "int specularDoubleSided" [0] 
+"int roughSpecularFresnelMode" [0] "color roughSpecularFaceColor" [0 0 0] "color roughSpecularEdgeColor" [0 0 0] "float roughSpecularFresnelShape" [5] "color roughSpecularIor" [1.5 1.5 1.5] "color roughSpecularExtinctionCoeff" [0 0 0] 
+"float roughSpecularRoughness" [0.6] "int roughSpecularModelType" [0] "float roughSpecularAnisotropy" [0] "vector roughSpecularAnisotropyDirection" [0 0 0] "normal roughSpecularBumpNormal" [0 0 0] "int roughSpecularDoubleSided" [0] "int clearcoatFresnelMode" [0] "color clearcoatFaceColor" [0 0 0] 
+"color clearcoatEdgeColor" [0 0 0] "float clearcoatFresnelShape" [5] "color clearcoatIor" [1.5 1.5 1.5] "color clearcoatExtinctionCoeff" [0 0 0] "float clearcoatRoughness" [0] "int clearcoatModelType" [0] "float clearcoatAnisotropy" [0] 
+"vector clearcoatAnisotropyDirection" [0 0 0] "normal clearcoatBumpNormal" [0 0 0] "int clearcoatDoubleSided" [0] "float specularEnergyCompensation" [0] "float clearcoatEnergyCompensation" [0] "float iridescenceFaceGain" [0] "float iridescenceEdgeGain" [0] "float iridescenceFresnelShape" [5] "int iridescenceMode" [0] 
+"color iridescencePrimaryColor" [1 0 0] "color iridescenceSecondaryColor" [0 0 1] "float iridescenceRoughness" [0.2] "float iridescenceCurve" [1] "float iridescenceScale" [1] "int iridescenceFlip" [0] "float iridescenceThickness" [800] "int iridescenceDoubleSided" [0] "float fuzzGain" [0] 
+"color fuzzColor" [1 1 1] "float fuzzConeAngle" [8] "normal fuzzBumpNormal" [0 0 0] "int fuzzDoubleSided" [0] "int subsurfaceType" [0] "float subsurfaceGain" [0] "color subsurfaceColor" [0.83 0.791 0.753] 
+"float subsurfaceDmfp" [10] "color subsurfaceDmfpColor" [0.851 0.557 0.395] "float shortSubsurfaceGain" [0] "color shortSubsurfaceColor" [0.9 0.9 0.9] "float shortSubsurfaceDmfp" [5] "float longSubsurfaceGain" [0] "color longSubsurfaceColor" [0.8 0 0] 
+"float longSubsurfaceDmfp" [20] "color subsurfacePostTint" [1 1 1] "float subsurfaceDiffuseSwitch" [1] "int subsurfaceDoubleSided" [0] "float subsurfaceTransmitGain" [0] "int considerBackside" [1] "int continuationRayMode" [0] "int maxContinuationHits" [2] "float followTopology" [0] "string subsurfaceSubset" [""] "float singlescatterGain" [0] "color singlescatterColor" [0.83 0.791 0.753] 
+"float singlescatterMfp" [10] "color singlescatterMfpColor" [0.851 0.557 0.395] "float singlescatterDirectionality" [0] "float singlescatterIor" [1.3] "float singlescatterBlur" [0] "float singlescatterDirectGain" [0] "color singlescatterDirectGainTint" [1 1 1] "int singlescatterDoubleSided" [0] "int singlescatterConsiderBackside" [1] 
+"int singlescatterContinuationRayMode" [0] "int singlescatterMaxContinuationHits" [2] "int singlescatterDirectGainMode" [0] "string singlescatterSubset" [""] "color irradianceTint" [1 1 1] "float irradianceRoughness" [0] "float unitLength" [0.1] "float refractionGain" [0] "float reflectionGain" [0] "color refractionColor" [1 1 1] 
+"float glassRoughness" [0.1] "float glassIor" [1.5] "int thinGlass" [0] "color ssAlbedo" [0 0 0] "color extinction" [0 0 0] "float g" [0] "int multiScatter" [0] "int enableOverlappingVolumes" [0] "float glowGain" [0] "color glowColor" [1 1 1] 
+"reference normal bumpNormal" ["PxrBump4:resultN"] "color shadowColor" [0 0 0] "int shadowMode" [0] "float presence" [1] "int presenceCached" [1] "__instanceid" ["SpongePorous_39"]
+EditEnd 
+##streammarker7469
+EditBegin "attribute" "string scopename" ["spongeShape|shaderBallGeomShape1"]
+Pattern "PxrMayaPlacement2d" "place2dTexture9" "float[2] coverage" [1 1] "float[2] translateFrame" [0 0] "float rotateFrame" [0] "int mirrorU" [0] "int mirrorV" [0] "int stagger" [0] "int wrapU" [1] "int wrapV" [1] "float[2] repeatUV" [10 10] "float[2] offset" [0 0] "float rotateUV" [0] 
+"float[2] noiseUV" [0 0] "__instanceid" ["place2dTexture9_40"]
+Pattern "PxrMayaNoise" "noise1" "float threshold" [0] "float amplitude" [1] "float ratio" [0.707] "float frequencyRatio" [2] "int depthMax" [3] "int inflection" [0] "float time" [0] "float frequency" [8] "float implode" [0] "float[2] implodeCenter" [0.5 0.5] "int noiseType" [1] "float density" [1] "float spottyness" [0.1] 
+"float sizeRand" [0] "float randomness" [1] "int falloff" [2] "color defaultColor" [0.393502 0.393502 0.393502] "color colorGain" [0.440433 0.440433 0.440433] "color colorOffset" [0 0 0] "float alphaGain" [1] 
+"float alphaOffset" [0] "int alphaIsLuminance" [0] "float filter" [1] "float filterOffset" [0] "int invert" [0] "reference struct manifold" ["place2dTexture9:result"] "__instanceid" ["noise1_40"]
+Pattern "PxrBump" "PxrBump4" "float scale" [1] "int disable" [0] "reference float inputBump" ["noise1:outAlpha"] "string filename" [""] "int firstChannel" [0] "int atlasStyle" [0] "int invertT" [1] "float blur" [0] "int lerp" [1] "normal inputN" [1 0 0] "int reverse" [0] "float adjustAmount" [0] "float surfaceNormalMix" [0] "__instanceid" ["PxrBump4_40"]
+Bxdf "PxrSurface" "SpongePorous" "float diffuseGain" [1] "color diffuseColor" [0 0.769233 1] "float diffuseRoughness" [0] "float diffuseExponent" [1] "normal diffuseBumpNormal" [0 0 0] "int diffuseDoubleSided" [0] "int diffuseBackUseDiffuseColor" [1] "color diffuseBackColor" [0.18 0.18 0.18] 
+"float diffuseTransmitGain" [0] "color diffuseTransmitColor" [0.18 0.18 0.18] "int specularFresnelMode" [0] "color specularFaceColor" [0 0 0] "color specularEdgeColor" [0 0 0] "float specularFresnelShape" [5] "color specularIor" [1.5 1.5 1.5] 
+"color specularExtinctionCoeff" [0 0 0] "float specularRoughness" [0.2] "int specularModelType" [0] "float specularAnisotropy" [0] "vector specularAnisotropyDirection" [0 0 0] "normal specularBumpNormal" [0 0 0] "int specularDoubleSided" [0] 
+"int roughSpecularFresnelMode" [0] "color roughSpecularFaceColor" [0 0 0] "color roughSpecularEdgeColor" [0 0 0] "float roughSpecularFresnelShape" [5] "color roughSpecularIor" [1.5 1.5 1.5] "color roughSpecularExtinctionCoeff" [0 0 0] 
+"float roughSpecularRoughness" [0.6] "int roughSpecularModelType" [0] "float roughSpecularAnisotropy" [0] "vector roughSpecularAnisotropyDirection" [0 0 0] "normal roughSpecularBumpNormal" [0 0 0] "int roughSpecularDoubleSided" [0] "int clearcoatFresnelMode" [0] "color clearcoatFaceColor" [0 0 0] 
+"color clearcoatEdgeColor" [0 0 0] "float clearcoatFresnelShape" [5] "color clearcoatIor" [1.5 1.5 1.5] "color clearcoatExtinctionCoeff" [0 0 0] "float clearcoatRoughness" [0] "int clearcoatModelType" [0] "float clearcoatAnisotropy" [0] 
+"vector clearcoatAnisotropyDirection" [0 0 0] "normal clearcoatBumpNormal" [0 0 0] "int clearcoatDoubleSided" [0] "float specularEnergyCompensation" [0] "float clearcoatEnergyCompensation" [0] "float iridescenceFaceGain" [0] "float iridescenceEdgeGain" [0] "float iridescenceFresnelShape" [5] "int iridescenceMode" [0] 
+"color iridescencePrimaryColor" [1 0 0] "color iridescenceSecondaryColor" [0 0 1] "float iridescenceRoughness" [0.2] "float iridescenceCurve" [1] "float iridescenceScale" [1] "int iridescenceFlip" [0] "float iridescenceThickness" [800] "int iridescenceDoubleSided" [0] "float fuzzGain" [0] 
+"color fuzzColor" [1 1 1] "float fuzzConeAngle" [8] "normal fuzzBumpNormal" [0 0 0] "int fuzzDoubleSided" [0] "int subsurfaceType" [0] "float subsurfaceGain" [0] "color subsurfaceColor" [0.83 0.791 0.753] 
+"float subsurfaceDmfp" [10] "color subsurfaceDmfpColor" [0.851 0.557 0.395] "float shortSubsurfaceGain" [0] "color shortSubsurfaceColor" [0.9 0.9 0.9] "float shortSubsurfaceDmfp" [5] "float longSubsurfaceGain" [0] "color longSubsurfaceColor" [0.8 0 0] 
+"float longSubsurfaceDmfp" [20] "color subsurfacePostTint" [1 1 1] "float subsurfaceDiffuseSwitch" [1] "int subsurfaceDoubleSided" [0] "float subsurfaceTransmitGain" [0] "int considerBackside" [1] "int continuationRayMode" [0] "int maxContinuationHits" [2] "float followTopology" [0] "string subsurfaceSubset" [""] "float singlescatterGain" [0] "color singlescatterColor" [0.83 0.791 0.753] 
+"float singlescatterMfp" [10] "color singlescatterMfpColor" [0.851 0.557 0.395] "float singlescatterDirectionality" [0] "float singlescatterIor" [1.3] "float singlescatterBlur" [0] "float singlescatterDirectGain" [0] "color singlescatterDirectGainTint" [1 1 1] "int singlescatterDoubleSided" [0] "int singlescatterConsiderBackside" [1] 
+"int singlescatterContinuationRayMode" [0] "int singlescatterMaxContinuationHits" [2] "int singlescatterDirectGainMode" [0] "string singlescatterSubset" [""] "color irradianceTint" [1 1 1] "float irradianceRoughness" [0] "float unitLength" [0.1] "float refractionGain" [0] "float reflectionGain" [0] "color refractionColor" [1 1 1] 
+"float glassRoughness" [0.1] "float glassIor" [1.5] "int thinGlass" [0] "color ssAlbedo" [0 0 0] "color extinction" [0 0 0] "float g" [0] "int multiScatter" [0] "int enableOverlappingVolumes" [0] "float glowGain" [0] "color glowColor" [1 1 1] 
+"reference normal bumpNormal" ["PxrBump4:resultN"] "color shadowColor" [0 0 0] "int shadowMode" [0] "float presence" [1] "int presenceCached" [1] "__instanceid" ["SpongePorous_40"]
+EditEnd 
+##streammarker7470
+EditBegin "attribute" "string scopename" ["spongeShape|shaderBallGeomShape1"]
+Pattern "PxrMayaPlacement2d" "place2dTexture9" "float[2] coverage" [1 1] "float[2] translateFrame" [0 0] "float rotateFrame" [0] "int mirrorU" [0] "int mirrorV" [0] "int stagger" [0] "int wrapU" [1] "int wrapV" [1] "float[2] repeatUV" [10 10] "float[2] offset" [0 0] "float rotateUV" [0] 
+"float[2] noiseUV" [0 0] "__instanceid" ["place2dTexture9_41"]
+Pattern "PxrMayaNoise" "noise1" "float threshold" [0] "float amplitude" [1] "float ratio" [0.707] "float frequencyRatio" [2] "int depthMax" [3] "int inflection" [0] "float time" [0] "float frequency" [8] "float implode" [0] "float[2] implodeCenter" [0.5 0.5] "int noiseType" [1] "float density" [1] "float spottyness" [0.1] 
+"float sizeRand" [0] "float randomness" [1] "int falloff" [2] "color defaultColor" [0.393502 0.393502 0.393502] "color colorGain" [0.415162 0.415162 0.415162] "color colorOffset" [0 0 0] "float alphaGain" [1] 
+"float alphaOffset" [0] "int alphaIsLuminance" [0] "float filter" [1] "float filterOffset" [0] "int invert" [0] "reference struct manifold" ["place2dTexture9:result"] "__instanceid" ["noise1_41"]
+Pattern "PxrBump" "PxrBump4" "float scale" [1] "int disable" [0] "reference float inputBump" ["noise1:outAlpha"] "string filename" [""] "int firstChannel" [0] "int atlasStyle" [0] "int invertT" [1] "float blur" [0] "int lerp" [1] "normal inputN" [1 0 0] "int reverse" [0] "float adjustAmount" [0] "float surfaceNormalMix" [0] "__instanceid" ["PxrBump4_41"]
+Bxdf "PxrSurface" "SpongePorous" "float diffuseGain" [1] "color diffuseColor" [0 0.769233 1] "float diffuseRoughness" [0] "float diffuseExponent" [1] "normal diffuseBumpNormal" [0 0 0] "int diffuseDoubleSided" [0] "int diffuseBackUseDiffuseColor" [1] "color diffuseBackColor" [0.18 0.18 0.18] 
+"float diffuseTransmitGain" [0] "color diffuseTransmitColor" [0.18 0.18 0.18] "int specularFresnelMode" [0] "color specularFaceColor" [0 0 0] "color specularEdgeColor" [0 0 0] "float specularFresnelShape" [5] "color specularIor" [1.5 1.5 1.5] 
+"color specularExtinctionCoeff" [0 0 0] "float specularRoughness" [0.2] "int specularModelType" [0] "float specularAnisotropy" [0] "vector specularAnisotropyDirection" [0 0 0] "normal specularBumpNormal" [0 0 0] "int specularDoubleSided" [0] 
+"int roughSpecularFresnelMode" [0] "color roughSpecularFaceColor" [0 0 0] "color roughSpecularEdgeColor" [0 0 0] "float roughSpecularFresnelShape" [5] "color roughSpecularIor" [1.5 1.5 1.5] "color roughSpecularExtinctionCoeff" [0 0 0] 
+"float roughSpecularRoughness" [0.6] "int roughSpecularModelType" [0] "float roughSpecularAnisotropy" [0] "vector roughSpecularAnisotropyDirection" [0 0 0] "normal roughSpecularBumpNormal" [0 0 0] "int roughSpecularDoubleSided" [0] "int clearcoatFresnelMode" [0] "color clearcoatFaceColor" [0 0 0] 
+"color clearcoatEdgeColor" [0 0 0] "float clearcoatFresnelShape" [5] "color clearcoatIor" [1.5 1.5 1.5] "color clearcoatExtinctionCoeff" [0 0 0] "float clearcoatRoughness" [0] "int clearcoatModelType" [0] "float clearcoatAnisotropy" [0] 
+"vector clearcoatAnisotropyDirection" [0 0 0] "normal clearcoatBumpNormal" [0 0 0] "int clearcoatDoubleSided" [0] "float specularEnergyCompensation" [0] "float clearcoatEnergyCompensation" [0] "float iridescenceFaceGain" [0] "float iridescenceEdgeGain" [0] "float iridescenceFresnelShape" [5] "int iridescenceMode" [0] 
+"color iridescencePrimaryColor" [1 0 0] "color iridescenceSecondaryColor" [0 0 1] "float iridescenceRoughness" [0.2] "float iridescenceCurve" [1] "float iridescenceScale" [1] "int iridescenceFlip" [0] "float iridescenceThickness" [800] "int iridescenceDoubleSided" [0] "float fuzzGain" [0] 
+"color fuzzColor" [1 1 1] "float fuzzConeAngle" [8] "normal fuzzBumpNormal" [0 0 0] "int fuzzDoubleSided" [0] "int subsurfaceType" [0] "float subsurfaceGain" [0] "color subsurfaceColor" [0.83 0.791 0.753] 
+"float subsurfaceDmfp" [10] "color subsurfaceDmfpColor" [0.851 0.557 0.395] "float shortSubsurfaceGain" [0] "color shortSubsurfaceColor" [0.9 0.9 0.9] "float shortSubsurfaceDmfp" [5] "float longSubsurfaceGain" [0] "color longSubsurfaceColor" [0.8 0 0] 
+"float longSubsurfaceDmfp" [20] "color subsurfacePostTint" [1 1 1] "float subsurfaceDiffuseSwitch" [1] "int subsurfaceDoubleSided" [0] "float subsurfaceTransmitGain" [0] "int considerBackside" [1] "int continuationRayMode" [0] "int maxContinuationHits" [2] "float followTopology" [0] "string subsurfaceSubset" [""] "float singlescatterGain" [0] "color singlescatterColor" [0.83 0.791 0.753] 
+"float singlescatterMfp" [10] "color singlescatterMfpColor" [0.851 0.557 0.395] "float singlescatterDirectionality" [0] "float singlescatterIor" [1.3] "float singlescatterBlur" [0] "float singlescatterDirectGain" [0] "color singlescatterDirectGainTint" [1 1 1] "int singlescatterDoubleSided" [0] "int singlescatterConsiderBackside" [1] 
+"int singlescatterContinuationRayMode" [0] "int singlescatterMaxContinuationHits" [2] "int singlescatterDirectGainMode" [0] "string singlescatterSubset" [""] "color irradianceTint" [1 1 1] "float irradianceRoughness" [0] "float unitLength" [0.1] "float refractionGain" [0] "float reflectionGain" [0] "color refractionColor" [1 1 1] 
+"float glassRoughness" [0.1] "float glassIor" [1.5] "int thinGlass" [0] "color ssAlbedo" [0 0 0] "color extinction" [0 0 0] "float g" [0] "int multiScatter" [0] "int enableOverlappingVolumes" [0] "float glowGain" [0] "color glowColor" [1 1 1] 
+"reference normal bumpNormal" ["PxrBump4:resultN"] "color shadowColor" [0 0 0] "int shadowMode" [0] "float presence" [1] "int presenceCached" [1] "__instanceid" ["SpongePorous_41"]
+EditEnd 
+##streammarker7471
+EditBegin "attribute" "string scopename" ["spongeShape|shaderBallGeomShape1"]
+Pattern "PxrMayaPlacement2d" "place2dTexture9" "float[2] coverage" [1 1] "float[2] translateFrame" [0 0] "float rotateFrame" [0] "int mirrorU" [0] "int mirrorV" [0] "int stagger" [0] "int wrapU" [1] "int wrapV" [1] "float[2] repeatUV" [10 10] "float[2] offset" [0 0] "float rotateUV" [0] 
+"float[2] noiseUV" [0 0] "__instanceid" ["place2dTexture9_42"]
+Pattern "PxrMayaNoise" "noise1" "float threshold" [0] "float amplitude" [1] "float ratio" [0.707] "float frequencyRatio" [2] "int depthMax" [3] "int inflection" [0] "float time" [0] "float frequency" [8] "float implode" [0] "float[2] implodeCenter" [0.5 0.5] "int noiseType" [1] "float density" [1] "float spottyness" [0.1] 
+"float sizeRand" [0] "float randomness" [1] "int falloff" [2] "color defaultColor" [0.393502 0.393502 0.393502] "color colorGain" [0.415162 0.415162 0.415162] "color colorOffset" [1 1 1] "float alphaGain" [1] 
+"float alphaOffset" [0] "int alphaIsLuminance" [0] "float filter" [1] "float filterOffset" [0] "int invert" [0] "reference struct manifold" ["place2dTexture9:result"] "__instanceid" ["noise1_42"]
+Pattern "PxrBump" "PxrBump4" "float scale" [1] "int disable" [0] "reference float inputBump" ["noise1:outAlpha"] "string filename" [""] "int firstChannel" [0] "int atlasStyle" [0] "int invertT" [1] "float blur" [0] "int lerp" [1] "normal inputN" [1 0 0] "int reverse" [0] "float adjustAmount" [0] "float surfaceNormalMix" [0] "__instanceid" ["PxrBump4_42"]
+Bxdf "PxrSurface" "SpongePorous" "float diffuseGain" [1] "color diffuseColor" [0 0.769233 1] "float diffuseRoughness" [0] "float diffuseExponent" [1] "normal diffuseBumpNormal" [0 0 0] "int diffuseDoubleSided" [0] "int diffuseBackUseDiffuseColor" [1] "color diffuseBackColor" [0.18 0.18 0.18] 
+"float diffuseTransmitGain" [0] "color diffuseTransmitColor" [0.18 0.18 0.18] "int specularFresnelMode" [0] "color specularFaceColor" [0 0 0] "color specularEdgeColor" [0 0 0] "float specularFresnelShape" [5] "color specularIor" [1.5 1.5 1.5] 
+"color specularExtinctionCoeff" [0 0 0] "float specularRoughness" [0.2] "int specularModelType" [0] "float specularAnisotropy" [0] "vector specularAnisotropyDirection" [0 0 0] "normal specularBumpNormal" [0 0 0] "int specularDoubleSided" [0] 
+"int roughSpecularFresnelMode" [0] "color roughSpecularFaceColor" [0 0 0] "color roughSpecularEdgeColor" [0 0 0] "float roughSpecularFresnelShape" [5] "color roughSpecularIor" [1.5 1.5 1.5] "color roughSpecularExtinctionCoeff" [0 0 0] 
+"float roughSpecularRoughness" [0.6] "int roughSpecularModelType" [0] "float roughSpecularAnisotropy" [0] "vector roughSpecularAnisotropyDirection" [0 0 0] "normal roughSpecularBumpNormal" [0 0 0] "int roughSpecularDoubleSided" [0] "int clearcoatFresnelMode" [0] "color clearcoatFaceColor" [0 0 0] 
+"color clearcoatEdgeColor" [0 0 0] "float clearcoatFresnelShape" [5] "color clearcoatIor" [1.5 1.5 1.5] "color clearcoatExtinctionCoeff" [0 0 0] "float clearcoatRoughness" [0] "int clearcoatModelType" [0] "float clearcoatAnisotropy" [0] 
+"vector clearcoatAnisotropyDirection" [0 0 0] "normal clearcoatBumpNormal" [0 0 0] "int clearcoatDoubleSided" [0] "float specularEnergyCompensation" [0] "float clearcoatEnergyCompensation" [0] "float iridescenceFaceGain" [0] "float iridescenceEdgeGain" [0] "float iridescenceFresnelShape" [5] "int iridescenceMode" [0] 
+"color iridescencePrimaryColor" [1 0 0] "color iridescenceSecondaryColor" [0 0 1] "float iridescenceRoughness" [0.2] "float iridescenceCurve" [1] "float iridescenceScale" [1] "int iridescenceFlip" [0] "float iridescenceThickness" [800] "int iridescenceDoubleSided" [0] "float fuzzGain" [0] 
+"color fuzzColor" [1 1 1] "float fuzzConeAngle" [8] "normal fuzzBumpNormal" [0 0 0] "int fuzzDoubleSided" [0] "int subsurfaceType" [0] "float subsurfaceGain" [0] "color subsurfaceColor" [0.83 0.791 0.753] 
+"float subsurfaceDmfp" [10] "color subsurfaceDmfpColor" [0.851 0.557 0.395] "float shortSubsurfaceGain" [0] "color shortSubsurfaceColor" [0.9 0.9 0.9] "float shortSubsurfaceDmfp" [5] "float longSubsurfaceGain" [0] "color longSubsurfaceColor" [0.8 0 0] 
+"float longSubsurfaceDmfp" [20] "color subsurfacePostTint" [1 1 1] "float subsurfaceDiffuseSwitch" [1] "int subsurfaceDoubleSided" [0] "float subsurfaceTransmitGain" [0] "int considerBackside" [1] "int continuationRayMode" [0] "int maxContinuationHits" [2] "float followTopology" [0] "string subsurfaceSubset" [""] "float singlescatterGain" [0] "color singlescatterColor" [0.83 0.791 0.753] 
+"float singlescatterMfp" [10] "color singlescatterMfpColor" [0.851 0.557 0.395] "float singlescatterDirectionality" [0] "float singlescatterIor" [1.3] "float singlescatterBlur" [0] "float singlescatterDirectGain" [0] "color singlescatterDirectGainTint" [1 1 1] "int singlescatterDoubleSided" [0] "int singlescatterConsiderBackside" [1] 
+"int singlescatterContinuationRayMode" [0] "int singlescatterMaxContinuationHits" [2] "int singlescatterDirectGainMode" [0] "string singlescatterSubset" [""] "color irradianceTint" [1 1 1] "float irradianceRoughness" [0] "float unitLength" [0.1] "float refractionGain" [0] "float reflectionGain" [0] "color refractionColor" [1 1 1] 
+"float glassRoughness" [0.1] "float glassIor" [1.5] "int thinGlass" [0] "color ssAlbedo" [0 0 0] "color extinction" [0 0 0] "float g" [0] "int multiScatter" [0] "int enableOverlappingVolumes" [0] "float glowGain" [0] "color glowColor" [1 1 1] 
+"reference normal bumpNormal" ["PxrBump4:resultN"] "color shadowColor" [0 0 0] "int shadowMode" [0] "float presence" [1] "int presenceCached" [1] "__instanceid" ["SpongePorous_42"]
+EditEnd 
+##streammarker7472
+EditBegin "attribute" "string scopename" ["spongeShape|shaderBallGeomShape1"]
+Pattern "PxrMayaPlacement2d" "place2dTexture9" "float[2] coverage" [1 1] "float[2] translateFrame" [0 0] "float rotateFrame" [0] "int mirrorU" [0] "int mirrorV" [0] "int stagger" [0] "int wrapU" [1] "int wrapV" [1] "float[2] repeatUV" [10 10] "float[2] offset" [0 0] "float rotateUV" [0] 
+"float[2] noiseUV" [0 0] "__instanceid" ["place2dTexture9_43"]
+Pattern "PxrMayaNoise" "noise1" "float threshold" [0] "float amplitude" [1] "float ratio" [0.707] "float frequencyRatio" [2] "int depthMax" [3] "int inflection" [0] "float time" [0] "float frequency" [8] "float implode" [0] "float[2] implodeCenter" [0.5 0.5] "int noiseType" [0] "float density" [1] "float spottyness" [0.1] 
+"float sizeRand" [0] "float randomness" [1] "int falloff" [2] "color defaultColor" [0.393502 0.393502 0.393502] "color colorGain" [0.415162 0.415162 0.415162] "color colorOffset" [1 1 1] "float alphaGain" [1] 
+"float alphaOffset" [0] "int alphaIsLuminance" [0] "float filter" [1] "float filterOffset" [0] "int invert" [0] "reference struct manifold" ["place2dTexture9:result"] "__instanceid" ["noise1_43"]
+Pattern "PxrBump" "PxrBump4" "float scale" [1] "int disable" [0] "reference float inputBump" ["noise1:outAlpha"] "string filename" [""] "int firstChannel" [0] "int atlasStyle" [0] "int invertT" [1] "float blur" [0] "int lerp" [1] "normal inputN" [1 0 0] "int reverse" [0] "float adjustAmount" [0] "float surfaceNormalMix" [0] "__instanceid" ["PxrBump4_43"]
+Bxdf "PxrSurface" "SpongePorous" "float diffuseGain" [1] "color diffuseColor" [0 0.769233 1] "float diffuseRoughness" [0] "float diffuseExponent" [1] "normal diffuseBumpNormal" [0 0 0] "int diffuseDoubleSided" [0] "int diffuseBackUseDiffuseColor" [1] "color diffuseBackColor" [0.18 0.18 0.18] 
+"float diffuseTransmitGain" [0] "color diffuseTransmitColor" [0.18 0.18 0.18] "int specularFresnelMode" [0] "color specularFaceColor" [0 0 0] "color specularEdgeColor" [0 0 0] "float specularFresnelShape" [5] "color specularIor" [1.5 1.5 1.5] 
+"color specularExtinctionCoeff" [0 0 0] "float specularRoughness" [0.2] "int specularModelType" [0] "float specularAnisotropy" [0] "vector specularAnisotropyDirection" [0 0 0] "normal specularBumpNormal" [0 0 0] "int specularDoubleSided" [0] 
+"int roughSpecularFresnelMode" [0] "color roughSpecularFaceColor" [0 0 0] "color roughSpecularEdgeColor" [0 0 0] "float roughSpecularFresnelShape" [5] "color roughSpecularIor" [1.5 1.5 1.5] "color roughSpecularExtinctionCoeff" [0 0 0] 
+"float roughSpecularRoughness" [0.6] "int roughSpecularModelType" [0] "float roughSpecularAnisotropy" [0] "vector roughSpecularAnisotropyDirection" [0 0 0] "normal roughSpecularBumpNormal" [0 0 0] "int roughSpecularDoubleSided" [0] "int clearcoatFresnelMode" [0] "color clearcoatFaceColor" [0 0 0] 
+"color clearcoatEdgeColor" [0 0 0] "float clearcoatFresnelShape" [5] "color clearcoatIor" [1.5 1.5 1.5] "color clearcoatExtinctionCoeff" [0 0 0] "float clearcoatRoughness" [0] "int clearcoatModelType" [0] "float clearcoatAnisotropy" [0] 
+"vector clearcoatAnisotropyDirection" [0 0 0] "normal clearcoatBumpNormal" [0 0 0] "int clearcoatDoubleSided" [0] "float specularEnergyCompensation" [0] "float clearcoatEnergyCompensation" [0] "float iridescenceFaceGain" [0] "float iridescenceEdgeGain" [0] "float iridescenceFresnelShape" [5] "int iridescenceMode" [0] 
+"color iridescencePrimaryColor" [1 0 0] "color iridescenceSecondaryColor" [0 0 1] "float iridescenceRoughness" [0.2] "float iridescenceCurve" [1] "float iridescenceScale" [1] "int iridescenceFlip" [0] "float iridescenceThickness" [800] "int iridescenceDoubleSided" [0] "float fuzzGain" [0] 
+"color fuzzColor" [1 1 1] "float fuzzConeAngle" [8] "normal fuzzBumpNormal" [0 0 0] "int fuzzDoubleSided" [0] "int subsurfaceType" [0] "float subsurfaceGain" [0] "color subsurfaceColor" [0.83 0.791 0.753] 
+"float subsurfaceDmfp" [10] "color subsurfaceDmfpColor" [0.851 0.557 0.395] "float shortSubsurfaceGain" [0] "color shortSubsurfaceColor" [0.9 0.9 0.9] "float shortSubsurfaceDmfp" [5] "float longSubsurfaceGain" [0] "color longSubsurfaceColor" [0.8 0 0] 
+"float longSubsurfaceDmfp" [20] "color subsurfacePostTint" [1 1 1] "float subsurfaceDiffuseSwitch" [1] "int subsurfaceDoubleSided" [0] "float subsurfaceTransmitGain" [0] "int considerBackside" [1] "int continuationRayMode" [0] "int maxContinuationHits" [2] "float followTopology" [0] "string subsurfaceSubset" [""] "float singlescatterGain" [0] "color singlescatterColor" [0.83 0.791 0.753] 
+"float singlescatterMfp" [10] "color singlescatterMfpColor" [0.851 0.557 0.395] "float singlescatterDirectionality" [0] "float singlescatterIor" [1.3] "float singlescatterBlur" [0] "float singlescatterDirectGain" [0] "color singlescatterDirectGainTint" [1 1 1] "int singlescatterDoubleSided" [0] "int singlescatterConsiderBackside" [1] 
+"int singlescatterContinuationRayMode" [0] "int singlescatterMaxContinuationHits" [2] "int singlescatterDirectGainMode" [0] "string singlescatterSubset" [""] "color irradianceTint" [1 1 1] "float irradianceRoughness" [0] "float unitLength" [0.1] "float refractionGain" [0] "float reflectionGain" [0] "color refractionColor" [1 1 1] 
+"float glassRoughness" [0.1] "float glassIor" [1.5] "int thinGlass" [0] "color ssAlbedo" [0 0 0] "color extinction" [0 0 0] "float g" [0] "int multiScatter" [0] "int enableOverlappingVolumes" [0] "float glowGain" [0] "color glowColor" [1 1 1] 
+"reference normal bumpNormal" ["PxrBump4:resultN"] "color shadowColor" [0 0 0] "int shadowMode" [0] "float presence" [1] "int presenceCached" [1] "__instanceid" ["SpongePorous_43"]
+EditEnd 
+##streammarker7473
+EditBegin "attribute" "string scopename" ["spongeShape|shaderBallGeomShape1"]
+Pattern "PxrMayaPlacement2d" "place2dTexture9" "float[2] coverage" [1 1] "float[2] translateFrame" [0 0] "float rotateFrame" [0] "int mirrorU" [0] "int mirrorV" [0] "int stagger" [0] "int wrapU" [1] "int wrapV" [1] "float[2] repeatUV" [10 10] "float[2] offset" [0 0] "float rotateUV" [0] 
+"float[2] noiseUV" [0 0] "__instanceid" ["place2dTexture9_44"]
+Pattern "PxrMayaNoise" "noise1" "float threshold" [0] "float amplitude" [1] "float ratio" [0.707] "float frequencyRatio" [2] "int depthMax" [3] "int inflection" [0] "float time" [0] "float frequency" [8] "float implode" [0] "float[2] implodeCenter" [0.5 0.5] "int noiseType" [2] "float density" [1] "float spottyness" [0.1] 
+"float sizeRand" [0] "float randomness" [1] "int falloff" [2] "color defaultColor" [0.393502 0.393502 0.393502] "color colorGain" [0.415162 0.415162 0.415162] "color colorOffset" [1 1 1] "float alphaGain" [1] 
+"float alphaOffset" [0] "int alphaIsLuminance" [0] "float filter" [1] "float filterOffset" [0] "int invert" [0] "reference struct manifold" ["place2dTexture9:result"] "__instanceid" ["noise1_44"]
+Pattern "PxrBump" "PxrBump4" "float scale" [1] "int disable" [0] "reference float inputBump" ["noise1:outAlpha"] "string filename" [""] "int firstChannel" [0] "int atlasStyle" [0] "int invertT" [1] "float blur" [0] "int lerp" [1] "normal inputN" [1 0 0] "int reverse" [0] "float adjustAmount" [0] "float surfaceNormalMix" [0] "__instanceid" ["PxrBump4_44"]
+Bxdf "PxrSurface" "SpongePorous" "float diffuseGain" [1] "color diffuseColor" [0 0.769233 1] "float diffuseRoughness" [0] "float diffuseExponent" [1] "normal diffuseBumpNormal" [0 0 0] "int diffuseDoubleSided" [0] "int diffuseBackUseDiffuseColor" [1] "color diffuseBackColor" [0.18 0.18 0.18] 
+"float diffuseTransmitGain" [0] "color diffuseTransmitColor" [0.18 0.18 0.18] "int specularFresnelMode" [0] "color specularFaceColor" [0 0 0] "color specularEdgeColor" [0 0 0] "float specularFresnelShape" [5] "color specularIor" [1.5 1.5 1.5] 
+"color specularExtinctionCoeff" [0 0 0] "float specularRoughness" [0.2] "int specularModelType" [0] "float specularAnisotropy" [0] "vector specularAnisotropyDirection" [0 0 0] "normal specularBumpNormal" [0 0 0] "int specularDoubleSided" [0] 
+"int roughSpecularFresnelMode" [0] "color roughSpecularFaceColor" [0 0 0] "color roughSpecularEdgeColor" [0 0 0] "float roughSpecularFresnelShape" [5] "color roughSpecularIor" [1.5 1.5 1.5] "color roughSpecularExtinctionCoeff" [0 0 0] 
+"float roughSpecularRoughness" [0.6] "int roughSpecularModelType" [0] "float roughSpecularAnisotropy" [0] "vector roughSpecularAnisotropyDirection" [0 0 0] "normal roughSpecularBumpNormal" [0 0 0] "int roughSpecularDoubleSided" [0] "int clearcoatFresnelMode" [0] "color clearcoatFaceColor" [0 0 0] 
+"color clearcoatEdgeColor" [0 0 0] "float clearcoatFresnelShape" [5] "color clearcoatIor" [1.5 1.5 1.5] "color clearcoatExtinctionCoeff" [0 0 0] "float clearcoatRoughness" [0] "int clearcoatModelType" [0] "float clearcoatAnisotropy" [0] 
+"vector clearcoatAnisotropyDirection" [0 0 0] "normal clearcoatBumpNormal" [0 0 0] "int clearcoatDoubleSided" [0] "float specularEnergyCompensation" [0] "float clearcoatEnergyCompensation" [0] "float iridescenceFaceGain" [0] "float iridescenceEdgeGain" [0] "float iridescenceFresnelShape" [5] "int iridescenceMode" [0] 
+"color iridescencePrimaryColor" [1 0 0] "color iridescenceSecondaryColor" [0 0 1] "float iridescenceRoughness" [0.2] "float iridescenceCurve" [1] "float iridescenceScale" [1] "int iridescenceFlip" [0] "float iridescenceThickness" [800] "int iridescenceDoubleSided" [0] "float fuzzGain" [0] 
+"color fuzzColor" [1 1 1] "float fuzzConeAngle" [8] "normal fuzzBumpNormal" [0 0 0] "int fuzzDoubleSided" [0] "int subsurfaceType" [0] "float subsurfaceGain" [0] "color subsurfaceColor" [0.83 0.791 0.753] 
+"float subsurfaceDmfp" [10] "color subsurfaceDmfpColor" [0.851 0.557 0.395] "float shortSubsurfaceGain" [0] "color shortSubsurfaceColor" [0.9 0.9 0.9] "float shortSubsurfaceDmfp" [5] "float longSubsurfaceGain" [0] "color longSubsurfaceColor" [0.8 0 0] 
+"float longSubsurfaceDmfp" [20] "color subsurfacePostTint" [1 1 1] "float subsurfaceDiffuseSwitch" [1] "int subsurfaceDoubleSided" [0] "float subsurfaceTransmitGain" [0] "int considerBackside" [1] "int continuationRayMode" [0] "int maxContinuationHits" [2] "float followTopology" [0] "string subsurfaceSubset" [""] "float singlescatterGain" [0] "color singlescatterColor" [0.83 0.791 0.753] 
+"float singlescatterMfp" [10] "color singlescatterMfpColor" [0.851 0.557 0.395] "float singlescatterDirectionality" [0] "float singlescatterIor" [1.3] "float singlescatterBlur" [0] "float singlescatterDirectGain" [0] "color singlescatterDirectGainTint" [1 1 1] "int singlescatterDoubleSided" [0] "int singlescatterConsiderBackside" [1] 
+"int singlescatterContinuationRayMode" [0] "int singlescatterMaxContinuationHits" [2] "int singlescatterDirectGainMode" [0] "string singlescatterSubset" [""] "color irradianceTint" [1 1 1] "float irradianceRoughness" [0] "float unitLen

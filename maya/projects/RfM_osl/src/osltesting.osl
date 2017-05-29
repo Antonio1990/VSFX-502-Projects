@@ -1,0 +1,11 @@
+shader osltesting
+(
+output color ResultRGB = 0,
+output float ResultF = 0
+)
+
+{
+color uv_color = color(u,v,0);
+ResultRGB = uv_color;
+ResultF = fresnel(vector I, vector N, float 1.0);
+}

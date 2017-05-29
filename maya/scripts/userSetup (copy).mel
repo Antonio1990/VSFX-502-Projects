@@ -1,0 +1,55 @@
+// The purpose of this script is to add two search paths to python.
+// The script assumes the Maya.env script has set the MAYA_USER_DIR
+// environment variable. For example, 
+// WINDOWS:
+//     MAYA_USER_DIR=C:/Users/YOURNAME/Documents/maya
+// OSX:
+//     MAYA_USER_DIR=/Users/YOURNAME/Documents/maya
+// LINUX:
+//     MAYA_USER_DIR=/home/YOURNAME/maya
+//
+// Malcolm Kesson
+// Jan 20 2016
+
+string $maya_user_dir = getenv("MAYA_USER_DIR");
+print("MAYA_USER_DIR has been set to \"" + $maya_user_dir + "\".\n");
+
+string $rfm_python_path = $maya_user_dir + "/projects/RfM_python";
+string $maya_scripts_path = $maya_user_dir + "/scripts";
+
+python("import sys");
+python("sys.path.append('" + $rfm_python_path + "')");
+python("sys.path.append('" + $maya_scripts_path + "')");
+string $rman_bin_path = getenv("RMANTREE") + "/bin";
+python("sys.path.append('" + $rman_bin_path + "')");
+
+
+print("The userSetup.mel has appended the following paths to PYTHONPATH:\n");
+print("    \"" + $rfm_python_path + "\"\n");
+print("    \"" + $maya_scripts_path + "\"\n");
+print("    \"" + $rman_bin_path + "\"\n");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

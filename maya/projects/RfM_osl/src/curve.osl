@@ -1,0 +1,38 @@
+
+shader curve(
+float s = 0 [[int lockgeom = 0,
+		string widget = "null",]],
+float t = 0 [[int lockgeom = 0,
+		string widget = "null",]],
+color col1 = color(1,1,1),
+color col2 = color(0,0,0),
+output color resultRGB = 0
+)
+
+
+
+{
+	float x = s * 2.0 - 1.0;
+	float y = t + 0.5;
+	vector uv = vector(x,y,0);
+    float res1 = length(x);
+    float res = 1.0 - length(x);
+    res = res * res1;
+    res *= 4.0;
+    float n = 0.75;
+    if(x<=0.0){
+        res *= n;
+        if(y<res)
+            resultRGB=col1;
+        else
+            resultRGB=col2;
+    	}
+    else
+    {
+    	res*=-n;
+    if(y<res)
+        resultRGB=col1;
+    else
+        resultRGB=col2;
+    }
+}

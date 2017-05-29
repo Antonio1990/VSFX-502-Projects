@@ -1,0 +1,2261 @@
+##RenderMan RIB
+version 3.04
+EditBegin "attribute" 
+EditEnd 
+Option "rerender" "int[2] lodrange" [0 0]
+##streammarker1284
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.72176 -0.061989 -0.689362 -2.22527e-11  2.29269e-09 0.995981 -0.089561 1.91186e-13  -0.692143 -0.0646416 -0.71886 2.42853e-11  -57.2832 -123.902 882.042 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1285
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.745476 -0.0735849 -0.662458 -3.59654e-11  5.47603e-09 0.993887 -0.1104 3.47172e-13  -0.666533 -0.0823003 -0.740919 3.63494e-11  -54.3867 -125.581 882.716 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1286
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.763796 -0.0779722 -0.640731 -4.52809e-12  3.18608e-09 0.992677 -0.120801 4.44091e-14  -0.645458 -0.0922676 -0.758202 4.30431e-12  -52.0215 -126.492 882.56 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1287
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.790155 -0.0740399 -0.608419 -2.16356e-11  9.10271e-10 0.992677 -0.120801 1.89857e-13  -0.612907 -0.0954518 -0.784368 1.87568e-11  -48.3984 -126.746 880.471 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1288
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.802818 -0.0782186 -0.591072 -1.35744e-10  3.63121e-09 0.991357 -0.13119 -1.48631e-11  -0.596225 -0.105321 -0.795879 -6.24726e-11  -46.5546 -127.632 880.817 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1289
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.815128 -0.0759958 -0.574275 3.21115e-11  -7.7161e-09 0.991357 -0.13119 -2.72243e-13  -0.579281 -0.106936 -0.808083 -2.53443e-11  -44.6903 -127.757 879.87 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1290
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.830984 -0.0729803 -0.551488 6.32877e-13  -4.5387e-10 0.991357 -0.13119 -4.95345e-15  -0.556296 -0.109017 -0.823802 -4.68719e-13  -42.1743 -127.916 878.667 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1291
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.838671 -0.0657931 -0.54065 -1.39859e-11  -6.82634e-09 0.992677 -0.120801 1.50987e-11  -0.544639 -0.101313 -0.832529 9.08103e-11  -40.9039 -127.198 876.756 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1292
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.849893 -0.063657 -0.523097 4.02655e-11  -1.8203e-09 0.992677 -0.120801 1.4717e-11  -0.526956 -0.102668 -0.843669 5.2072e-11  -38.9833 -127.299 875.926 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1293
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.857167 -0.0622173 -0.511266 -2.87148e-11  -6.37091e-09 0.992677 -0.120801 1.78843e-13  -0.515038 -0.103547 -0.85089 1.89681e-11  -37.6934 -127.364 875.394 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1294
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.864275 -0.0607654 -0.499336 -3.32896e-11  0 0.992677 -0.120801 1.98336e-13  -0.50302 -0.104406 -0.857946 2.12608e-11  -36.3962 -127.427 874.881 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1295
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.877983 -0.0578266 -0.475186 -1.27881e-11  -5.00534e-09 0.992677 -0.120801 1.49882e-11  -0.478692 -0.106062 -0.871553 8.43219e-11  -33.7806 -127.545 873.908 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1296
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.884581 -0.0563401 -0.462971 4.13804e-11  -2.27509e-09 0.992677 -0.120801 -2.14195e-13  -0.466387 -0.106859 -0.878103 -2.38072e-11  -32.4628 -127.601 873.449 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1297
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.891006 -0.0548426 -0.450666 -1.46994e-10  -4.09504e-09 0.992677 -0.120801 -1.48732e-11  -0.45399 -0.107635 -0.884481 -7.37277e-11  -31.1386 -127.654 873.008 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1298
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.894154 -0.0540899 -0.44448 -2.40865e-11  1.36499e-09 0.992677 -0.120801 1.15627e-13  -0.447759 -0.108015 -0.887606 1.31242e-11  -30.4743 -127.68 872.795 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1299
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.900319 -0.0480493 -0.432571 -1.58206e-11  -2.28088e-09 0.993887 -0.1104 6.59626e-14  -0.435231 -0.0993949 -0.894815 8.30758e-12  -29.1412 -126.877 871.048 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1300
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.903335 -0.0473543 -0.426313 1.13762e-11  -1.59659e-09 0.993887 -0.1104 -4.61691e-14  -0.428935 -0.0997279 -0.897813 -5.86194e-12  -28.4725 -126.899 870.848 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1301
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.909236 -0.0416222 -0.414195 -3.3489e-12  1.60055e-09 0.994989 -0.0999858 7.6901e-12  -0.416281 -0.0909107 -0.90468 7.75894e-11  -27.1309 -126.068 869.138 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1302
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.91496 -0.0319311 -0.40228 -7.72707e-11  9.18862e-10 0.996864 -0.0791264 2.01565e-13  -0.403545 -0.0723975 -0.912091 3.68559e-11  -25.7841 -124.309 866.148 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1303
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.917755 -0.0272773 -0.39621 8.61745e-12  4.60422e-10 0.997639 -0.0686831 -1.8965e-14  -0.397148 -0.0630342 -0.915587 -4.02926e-12  -25.1087 -123.403 864.674 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1304
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.92321 -0.0143391 -0.384027 3.22149e-11  -5.78868e-10 0.999304 -0.0373126 -3.63599e-14  -0.384295 -0.0344474 -0.922567 -1.44646e-11  -23.7544 -120.573 860.5 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1305
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.925871 -0.0101436 -0.377705 6.20579e-11  -4.63881e-10 0.99964 -0.0268461 -4.88688e-14  -0.377841 -0.024856 -0.925537 -2.72907e-11  -23.0756 -119.6 859.079 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1306
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.928486 -0.00608174 -0.371318 -1.1683e-12  2.32308e-10 0.999866 -0.0163766 5.43752e-16  -0.371368 -0.0152055 -0.928361 5.03043e-13  -22.3955 -118.61 857.673 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1307
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.931056 0.00166622 -0.364873 -6.02606e-12  4.36809e-11 0.99999 0.00456659 -4.78346e-13  -0.364877 0.00425176 -0.931046 7.81843e-11  -21.7144 -116.582 855.056 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1308
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.931056 -0.00215471 -0.36487 2.66962e-11  -4.36218e-11 0.999982 -0.00590534 -4.33698e-15  -0.364877 -0.00549819 -0.93104 -1.12509e-11  -21.7144 -117.603 856.283 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1309
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.940881 -0.0161832 -0.338351 -9.97214e-11  1.15557e-10 0.998858 -0.0477751 1.12548e-13  -0.338738 -0.0449507 -0.939806 3.84029e-11  -18.9797 -121.587 860.725 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1310
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.027973 -0.31108 -5.27094e-11  1.71852e-09 0.995981 -0.089561 9.37725e-14  -0.312335 -0.0850805 -0.946154 1.84277e-11  -16.2302 -125.398 865.408 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1311
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.952129 -0.0369284 -0.303457 -3.67368e-11  4.54754e-09 0.992677 -0.120801 8.38054e-14  -0.305695 -0.115018 -0.945157 1.25182e-11  -15.5408 -128.108 869.28 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1312
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.95424 -0.0392311 -0.296456 -9.23824e-11  -7.93558e-09 0.991357 -0.13119 -1.49746e-11  -0.299041 -0.125187 -0.945993 -1.13214e-10  -14.8506 -128.994 870.521 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1313
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.95424 -0.0392311 -0.296456 -5.84825e-12  -6.35131e-09 0.991357 -0.13119 -1.51849e-11  -0.299041 -0.125187 -0.945993 -1.41935e-10  -14.8506 -125.937 870.521 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1314
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.95424 -0.0392311 -0.296456 9.10847e-11  -4.9933e-09 0.991357 -0.13119 -2.14764e-13  -0.299041 -0.125187 -0.945993 -3.02449e-11  -14.8506 -121.86 870.521 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1315
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.95424 -0.0392311 -0.296456 2.7244e-11  -3.40605e-09 0.991357 -0.13119 -6.42372e-14  -0.299041 -0.125187 -0.945993 -9.04644e-12  -14.8506 -118.802 870.521 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1316
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.95424 -0.0392311 -0.296456 5.7656e-11  -4.77118e-09 0.991357 -0.13119 -1.54331e-11  -0.299041 -0.125187 -0.945993 -1.63087e-10  -15.8698 -115.745 870.521 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1317
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.95424 -0.039231 -0.296456 -5.95739e-11  -7.73228e-09 0.991357 -0.13119 1.69573e-13  -0.299041 -0.125187 -0.945993 2.00122e-11  -17.9081 -110.649 870.521 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1318
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.95424 -0.0392311 -0.296456 -7.00033e-11  -5.00455e-09 0.991357 -0.13119 2.10676e-13  -0.299041 -0.125187 -0.945993 2.3606e-11  -18.9273 -109.629 870.521 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1319
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.95424 -0.0392312 -0.296456 8.55035e-11  -5.00584e-09 0.991357 -0.13119 -1.58419e-11  -0.299041 -0.125187 -0.945993 -1.72927e-10  -19.9465 -108.61 870.521 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1320
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.95424 -0.0392311 -0.296456 -7.44121e-11  -4.32795e-09 0.991357 -0.13119 2.60408e-13  -0.299041 -0.125187 -0.945993 2.53815e-11  -21.985 -102.495 870.521 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1321
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.95424 -0.0392311 -0.296456 5.07216e-11  -2.7356e-09 0.991357 -0.13119 -1.94102e-13  -0.299041 -0.125187 -0.945993 -1.74323e-11  -24.0233 -98.4183 870.521 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1322
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.95424 -0.0392312 -0.296456 -5.15121e-11  -6.15901e-09 0.991357 -0.13119 2.1401e-13  -0.299041 -0.125187 -0.945993 1.78377e-11  -26.0617 -95.3608 870.521 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1323
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.95424 -0.0392311 -0.296456 -7.02464e-11  -5.47888e-09 0.991357 -0.13119 3.149e-13  -0.299041 -0.125187 -0.945993 2.45076e-11  -28.1001 -91.284 870.521 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1324
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.95424 -0.0392311 -0.296456 8.7025e-11  -4.56747e-09 0.991357 -0.13119 1.48023e-11  -0.299041 -0.125187 -0.945993 3.98598e-11  -29.1193 -89.2456 870.521 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1325
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.95424 -0.0392311 -0.296456 -8.33617e-11  -5.48662e-09 0.991357 -0.13119 1.56961e-11  -0.299041 -0.125187 -0.945993 9.98261e-11  -31.1576 -83.1304 870.521 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1326
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.95424 -0.0392311 -0.296456 -1.07012e-10  -8.69554e-09 0.991357 -0.13119 5.85401e-13  -0.299041 -0.125187 -0.945993 3.81715e-11  -34.2152 -78.0345 870.521 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1327
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.95424 -0.0392311 -0.296456 1.4846e-12  -8.24385e-09 0.991357 -0.13119 -8.61151e-15  -0.299041 -0.125187 -0.945993 -5.3344e-13  -36.2536 -73.9577 870.521 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1328
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.95424 -0.0392311 -0.296456 8.49278e-11  -3.66806e-09 0.991357 -0.13119 -5.20712e-13  -0.299041 -0.125187 -0.945993 -3.07383e-11  -38.292 -66.8234 870.521 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1329
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.95424 -0.0392311 -0.296456 1.20962e-10  -5.5067e-09 0.991357 -0.13119 -1.76859e-11  -0.299041 -0.125187 -0.945993 -1.88731e-10  -40.3304 -61.7274 870.521 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1330
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.95424 -0.0392311 -0.296456 -4.80511e-11  -5.05062e-09 0.991357 -0.13119 3.2646e-13  -0.299041 -0.125187 -0.945993 1.76436e-11  -42.3688 -58.6698 870.521 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1331
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.95424 -0.0392311 -0.296456 2.09787e-12  -5.973e-09 0.991357 -0.13119 -1.49497e-14  -0.299041 -0.125187 -0.945993 -7.7582e-13  -44.4072 -54.593 870.521 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1332
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.95424 -0.0392311 -0.296456 3.78489e-11  -6.89565e-09 0.991357 -0.13119 -2.82306e-13  -0.299041 -0.125187 -0.945993 -1.40967e-11  -46.4456 -51.5355 870.521 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1333
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.95424 -0.0392311 -0.296456 -6.61919e-12  -7.82079e-09 0.991357 -0.13119 5.26796e-14  -0.299041 -0.125187 -0.945993 2.4915e-12  -49.5031 -47.4587 870.521 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1334
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.95424 -0.0392311 -0.296456 -6.89274e-11  -6.90431e-09 0.991357 -0.13119 5.71578e-13  -0.299041 -0.125187 -0.945993 2.61269e-11  -51.5415 -44.4011 870.521 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1335
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.95424 -0.0392311 -0.296456 -2.62829e-11  -4.14447e-09 0.991357 -0.13119 1.61958e-11  -0.299041 -0.125187 -0.945993 8.1172e-11  -52.5607 -41.3435 870.521 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1336
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.95424 -0.045431 -0.29557 5.51264e-11  5.04962e-09 0.988392 -0.151922 -5.39456e-13  -0.299041 -0.144971 -0.943164 -2.09535e-11  -52.5607 -43.0666 871.405 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1337
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.958323 -0.055189 -0.280307 -1.2275e-12  2.73443e-09 0.981164 -0.193179 1.66001e-11  -0.285688 -0.185128 -0.940271 7.07576e-11  -51.3351 -46.5953 872.568 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1338
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.960294 -0.0567587 -0.273156 -1.14065e-11  -9.09668e-10 0.979087 -0.203443 -3.32515e-11  -0.278991 -0.195365 -0.940211 -1.36137e-10  -50.7185 -47.5099 872.712 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1339
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.962218 -0.0609643 -0.265367 5.25381e-12  4.5288e-09 0.974612 -0.223903 -7.12548e-14  -0.27228 -0.215443 -0.937789 -1.80902e-12  -50.0994 -49.2645 873.382 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1340
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.964095 -0.0648659 -0.257512 -8.42737e-11  -8.11407e-09 0.969709 -0.244264 -3.29879e-11  -0.265556 -0.235494 -0.934892 -1.10885e-10  -49.4779 -51.0108 874.094 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1341
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.964095 -0.067559 -0.256819 -4.3741e-11  0 0.967098 -0.254405 6.62942e-13  -0.265556 -0.245271 -0.932374 1.46622e-11  -49.4779 -51.8367 874.632 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1342
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.964095 -0.0729225 -0.255347 1.1371e-12  8.49604e-08 0.961558 -0.274603 -1.21374e-11  -0.265556 -0.264743 -0.927033 4.12822e-12  -49.4779 -53.4713 875.735 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1343
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.965926 -0.0736747 -0.248112 1.76112e-11  5.3324e-08 0.958629 -0.284657 -1.07185e-10  -0.258819 -0.274958 -0.925965 1.11459e-10  -48.854 -54.3776 875.97 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1344
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.965926 -0.0762688 -0.247327 -1.23716e-11  5.15375e-08 0.955596 -0.29468 1.26229e-10  -0.258819 -0.284639 -0.923035 -4.61716e-11  -48.854 -55.1836 876.544 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1345
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.965926 -0.0762688 -0.247327 -2.4386e-12  3.87996e-08 0.955596 -0.29468 2.48812e-11  -0.258819 -0.284639 -0.923035 -9.10098e-12  -49.8732 -55.1836 876.544 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1346
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.965926 -0.0762689 -0.247326 -1.70232e-11  0 0.955596 -0.29468 1.74298e-10  -0.258819 -0.284639 -0.923035 -6.35313e-11  -52.9308 -54.1644 876.544 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1347
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.965926 -0.0762689 -0.247326 1.83053e-12  -1.33173e-08 0.955596 -0.29468 7.87316e-12  -0.258819 -0.284639 -0.923035 7.27203e-11  -55.9883 -53.1452 876.544 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1348
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.965926 -0.0762689 -0.247326 -4.85388e-12  1.33633e-08 0.955596 -0.29468 5.00489e-11  -0.258819 -0.284639 -0.923035 -1.81149e-11  -55.9884 -52.126 876.544 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1349
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.965926 -0.0762687 -0.247326 1.68763e-11  0 0.955596 -0.29468 -1.64504e-10  -0.258819 -0.284639 -0.923035 1.35457e-10  -58.0268 -51.1068 876.544 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1350
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.965926 -0.0762688 -0.247326 -1.00663e-13  -1.35579e-08 0.955596 -0.29468 1.04162e-12  -0.258819 -0.284639 -0.923035 -3.75678e-13  -59.0459 -51.1068 876.544 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1351
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.965926 -0.0762688 -0.247327 8.88615e-12  -4.0822e-08 0.955596 -0.29468 -9.19503e-11  -0.258819 -0.284639 -0.923035 3.31636e-11  -60.0651 -51.1068 876.544 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1352
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.965926 -0.0762687 -0.247326 8.68613e-12  -5.46272e-08 0.955596 -0.29468 -8.98806e-11  -0.258819 -0.284639 -0.923035 3.24171e-11  -61.0843 -51.1068 876.544 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1353
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.965926 -0.0762688 -0.247326 -1.53446e-11  2.75075e-08 0.955596 -0.29468 1.59343e-10  -0.258819 -0.284639 -0.923035 -5.72669e-11  -62.1035 -50.0877 876.544 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1354
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.965926 -0.0762689 -0.247327 9.43395e-13  1.38034e-08 0.955596 -0.29468 -3.77815e-11  -0.258819 -0.284639 -0.923035 9.10916e-11  -63.1227 -50.0876 876.544 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1355
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.965926 -0.0762688 -0.247327 -4.46257e-12  4.15589e-08 0.955596 -0.29468 1.10403e-11  -0.258819 -0.284639 -0.923035 7.38238e-11  -64.1419 -50.0876 876.544 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1356
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.965926 -0.0762688 -0.247326 -6.06855e-12  2.78022e-08 0.955596 -0.29468 6.32418e-11  -0.258819 -0.284639 -0.923035 -2.26481e-11  -64.1419 -49.0685 876.544 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1357
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.965926 -0.0762688 -0.247326 1.12053e-11  -5.60025e-08 0.955596 -0.29468 -1.16773e-10  -0.258819 -0.284639 -0.923035 4.18186e-11  -66.1803 -49.0684 876.544 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1358
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.965926 -0.0762687 -0.247326 7.15e-13  4.2298e-08 0.955596 -0.29468 -7.47779e-12  -0.258819 -0.284639 -0.923035 2.66842e-12  -67.1995 -48.0492 876.544 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1359
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.965926 -0.0762689 -0.247326 -5.30697e-12  4.24477e-08 0.955596 -0.29468 5.55025e-11  -0.258819 -0.284639 -0.923035 -1.98059e-11  -68.2186 -48.0493 876.544 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1360
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.965926 -0.0762688 -0.247327 -1.24442e-11  4.25975e-08 0.955596 -0.29468 1.30147e-10  -0.258819 -0.284639 -0.923035 -4.64424e-11  -69.2379 -48.0493 876.544 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1361
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.965926 -0.0762688 -0.247326 -9.75773e-12  4.27462e-08 0.955596 -0.29468 2.87095e-11  -0.258819 -0.284639 -0.923035 6.89554e-11  -69.2379 -47.0301 876.544 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1362
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.965926 -0.0762689 -0.247326 -2.47121e-11  3.5913e-09 0.955596 -0.29468 6.26074e-13  -0.258819 -0.284639 -0.923035 8.72345e-12  -71.2763 -46.0109 876.544 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1363
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.965926 -0.0762689 -0.247326 5.60229e-11  0 0.955596 -0.29468 3.12749e-11  -0.258819 -0.284639 -0.923035 4.41333e-11  -72.2955 -44.9917 876.544 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1364
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.965926 -0.0762689 -0.247327 -9.20156e-11  -1.79762e-09 0.955596 -0.29468 2.39932e-12  -0.258819 -0.284639 -0.923035 3.27105e-11  -73.3146 -43.9725 876.544 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1365
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.965926 -0.0762689 -0.247327 -8.77183e-11  -1.79858e-09 0.955596 -0.29468 2.35229e-12  -0.258819 -0.284639 -0.923035 3.14012e-11  -75.353 -43.9725 876.544 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1366
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.964095 -0.078254 -0.253764 8.43837e-13  -1.79795e-09 0.955596 -0.29468 -2.28574e-14  -0.265556 -0.2841 -0.921286 -3.09314e-13  -75.9532 -43.8169 877.049 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1367
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.960294 -0.0766116 -0.268266 4.50683e-11  -7.22016e-09 0.961558 -0.274603 3.1393e-11  -0.278991 -0.263699 -0.923378 4.75674e-11  -77.1425 -41.9184 877.175 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1368
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.960294 -0.0709768 -0.269812 -9.96398e-12  -7.251e-09 0.967098 -0.254405 2.38268e-13  -0.278991 -0.244304 -0.928698 3.83801e-12  -77.1425 -40.3164 876.314 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1369
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.958323 -0.0697834 -0.277034 3.83819e-11  3.63204e-09 0.969709 -0.244264 -8.90512e-13  -0.285688 -0.234084 -0.929294 -1.51312e-11  -77.7315 -39.3767 876.421 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1370
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.958322 -0.0668786 -0.27775 -6.73156e-11  0 0.972213 -0.234096 1.96763e-11  -0.285688 -0.22434 -0.931694 9.68417e-11  -77.7315 -38.5703 876.012 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1371
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.958322 -0.0639663 -0.278435 1.39339e-11  5.4689e-09 0.974611 -0.223903 1.77391e-11  -0.285688 -0.214571 -0.933992 6.48536e-11  -77.7315 -37.7595 875.613 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1372
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.956305 -0.0654628 -0.284949 9.58697e-11  3.64532e-09 0.974612 -0.223903 -2.06133e-12  -0.292372 -0.214119 -0.932026 -3.86929e-11  -78.3168 -37.6376 876.144 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1373
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.95424 -0.0639003 -0.292134 4.86675e-11  -1.82568e-09 0.976903 -0.213684 1.68105e-11  -0.299041 -0.203906 -0.9322 5.07071e-11  -78.8981 -36.711 876.29 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1374
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.95424 -0.0546927 -0.293997 -2.61452e-11  0 0.983133 -0.182894 1.78529e-11  -0.299041 -0.174525 -0.938145 8.18634e-11  -78.8982 -34.2762 875.175 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1375
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0571242 -0.307067 -7.16349e-11  -3.66884e-09 0.983133 -0.182894 1.86307e-11  -0.312335 -0.173744 -0.933948 1.02325e-10  -80.0494 -34.0732 876.266 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1376
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 -1.34596e-10  1.83722e-09 0.984994 -0.172588 1.94917e-11  -0.312335 -0.163954 -0.935717 1.29612e-10  -80.0494 -33.2655 875.913 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1377
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539055 -0.307648 -1.34094e-11  2.75584e-09 0.984994 -0.172588 2.30506e-13  -0.312335 -0.163954 -0.935717 5.79361e-12  -80.0494 -33.2655 871.958 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1378
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 -8.77676e-11  9.18622e-10 0.984994 -0.172588 1.52286e-12  -0.312335 -0.163954 -0.935717 3.80054e-11  -80.0494 -33.2655 864.096 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1379
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 1.21758e-11  -9.18631e-10 0.984994 -0.172589 -2.13246e-13  -0.312335 -0.163954 -0.935717 -5.28432e-12  -80.0494 -33.2655 856.3 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1380
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539055 -0.307648 3.77257e-11  9.18636e-10 0.984994 -0.172588 -6.63823e-13  -0.312335 -0.163954 -0.935717 -1.63916e-11  -80.0494 -33.2655 852.426 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1381
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539055 -0.307648 1.91801e-11  -9.1864e-10 0.984994 -0.172588 1.70216e-11  -0.312335 -0.163954 -0.935717 6.56432e-11  -80.0494 -33.2655 848.568 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1382
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539055 -0.307648 1.91801e-11  -9.1864e-10 0.984994 -0.172588 1.70216e-11  -0.312335 -0.163954 -0.935717 6.56432e-11  -80.0494 -33.2655 848.568 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1383
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 9.55975e-11  9.18645e-10 0.984994 -0.172588 -1.69796e-12  -0.312335 -0.163954 -0.935717 -4.16318e-11  -80.0494 -33.2655 844.726 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1384
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 9.55975e-11  9.18645e-10 0.984994 -0.172588 -1.69796e-12  -0.312335 -0.163954 -0.935717 -4.16318e-11  -80.0494 -33.2655 844.726 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1385
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 1.06634e-10  2.75595e-09 0.984994 -0.172588 -1.90287e-12  -0.312335 -0.163954 -0.935717 -4.64914e-11  -80.0494 -33.2655 840.9 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1386
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 1.04295e-10  9.18659e-10 0.984994 -0.172588 -1.87866e-12  -0.312335 -0.163954 -0.935717 -4.55768e-11  -80.0494 -33.2655 833.296 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1387
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 9.16076e-11  -9.18663e-10 0.984994 -0.172588 -1.65788e-12  -0.312335 -0.163954 -0.935717 -4.00792e-11  -80.0494 -33.2655 829.518 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1388
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 8.37026e-11  0 0.984994 -0.172588 -1.52195e-12  -0.312335 -0.163954 -0.935717 -3.66635e-11  -80.0494 -33.2655 825.755 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1389
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 5.9584e-11  0 0.984994 -0.172588 -1.0885e-12  -0.312335 -0.163954 -0.935717 -2.61297e-11  -80.0494 -33.2655 822.008 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1390
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 1.60144e-11  3.67471e-09 0.984994 -0.172588 -2.93935e-13  -0.312335 -0.163954 -0.935717 -7.03115e-12  -80.0494 -33.2655 818.276 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1391
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 -5.33256e-11  -9.18687e-10 0.984994 -0.172588 9.8801e-13  -0.312335 -0.163954 -0.935717 2.34683e-11  -80.0494 -33.2655 810.859 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1392
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 6.0037e-11  -2.75607e-09 0.984994 -0.172588 1.65341e-11  -0.312335 -0.163954 -0.935717 5.15886e-11  -80.0494 -33.2655 807.174 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1393
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 -3.51601e-11  9.18701e-10 0.984994 -0.172588 1.83682e-11  -0.312335 -0.163954 -0.935717 9.43343e-11  -80.0494 -33.2655 799.849 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1394
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 -8.87113e-11  -9.18705e-10 0.984994 -0.172588 1.67489e-12  -0.312335 -0.163954 -0.935717 3.92291e-11  -80.0494 -33.2654 796.209 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1395
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 6.09664e-11  -9.1871e-10 0.984994 -0.172588 -1.1565e-12  -0.312335 -0.163954 -0.935717 -2.69927e-11  -80.0494 -33.2655 792.585 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1396
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 -1.37031e-11  3.67486e-09 0.984994 -0.172588 2.61171e-13  -0.312335 -0.163954 -0.935717 6.07439e-12  -80.0494 -33.2655 788.975 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1397
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 1.48488e-11  9.18725e-10 0.984994 -0.172588 -2.85693e-13  -0.312335 -0.163954 -0.935717 -6.5984e-12  -80.0494 -33.2655 781.801 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1398
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 -7.47264e-11  0 0.984994 -0.172588 1.44456e-12  -0.312335 -0.163954 -0.935717 3.32473e-11  -80.0494 -33.2655 778.236 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1399
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 3.5704e-11  -9.18734e-10 0.984994 -0.172588 -6.93477e-13  -0.312335 -0.163954 -0.935717 -1.59051e-11  -80.0494 -33.2655 774.686 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1400
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 3.5704e-11  -9.18734e-10 0.984994 -0.172588 -6.93477e-13  -0.312335 -0.163954 -0.935717 -1.59051e-11  -80.0494 -33.2655 774.686 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1401
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 8.58105e-11  1.83749e-09 0.984994 -0.172588 -2.34182e-11  -0.312335 -0.163954 -0.935717 -2.06412e-10  -80.0494 -33.2655 767.63 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1402
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 8.58105e-11  1.83749e-09 0.984994 -0.172588 -2.34182e-11  -0.312335 -0.163954 -0.935717 -2.06412e-10  -80.0494 -33.2655 767.63 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1403
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 -6.18997e-12  -9.18754e-10 0.984994 -0.172588 1.22527e-13  -0.312335 -0.163954 -0.935717 2.77127e-12  -80.0494 -33.2655 760.633 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1404
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 7.52358e-11  0 0.984994 -0.172588 -1.49633e-12  -0.312335 -0.163954 -0.935717 -3.37259e-11  -80.0494 -33.2655 757.156 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1405
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 -7.70397e-12  5.51258e-09 0.984994 -0.172588 -2.18309e-11  -0.312335 -0.163954 -0.935717 -1.67899e-10  -80.0494 -33.2655 753.693 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1406
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 2.19219e-11  9.18769e-10 0.984994 -0.172588 -4.40156e-13  -0.312335 -0.163954 -0.935717 -9.85191e-12  -80.0494 -33.2655 750.245 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1407
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 -2.55481e-11  1.83757e-09 0.984994 -0.172588 5.20333e-13  -0.312335 -0.163954 -0.935717 1.15258e-11  -80.0494 -33.2655 739.986 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1408
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539055 -0.307648 2.99125e-11  -9.18788e-10 0.984994 -0.172588 -6.12128e-13  -0.312335 -0.163954 -0.935717 -1.35122e-11  -80.0494 -33.2655 736.595 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1409
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 8.35082e-11  1.8376e-09 0.984994 -0.172588 1.65948e-11  -0.312335 -0.163954 -0.935717 4.90729e-11  -80.0494 -33.2655 729.855 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1410
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 -7.17692e-11  9.18808e-10 0.984994 -0.172588 1.49696e-12  -0.312335 -0.163954 -0.935717 3.25899e-11  -80.0494 -33.2655 723.17 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1411
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 -5.44286e-11  -1.83763e-09 0.984994 -0.172588 1.14071e-12  -0.312335 -0.163954 -0.935717 2.47483e-11  -80.0494 -33.2655 719.849 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1412
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 -6.09583e-11  -2.75647e-09 0.984994 -0.172588 1.28983e-12  -0.312335 -0.163954 -0.935717 2.7791e-11  -80.0494 -33.2655 713.247 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1413
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 -7.5343e-11  2.75649e-09 0.984994 -0.172588 2.01265e-11  -0.312335 -0.163954 -0.935717 1.23889e-10  -80.0494 -33.2655 709.966 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1414
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 -9.36942e-11  -3.67534e-09 0.984994 -0.172588 2.05613e-11  -0.312335 -0.163954 -0.935717 1.32766e-10  -80.0494 -33.2655 706.7 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1415
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 1.07342e-10  2.75652e-09 0.984994 -0.172588 -2.30413e-12  -0.312335 -0.163954 -0.935717 -4.9135e-11  -80.0494 -33.2655 703.447 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1416
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 3.1851e-11  0 0.984994 -0.172588 1.79765e-11  -0.312335 -0.163954 -0.935717 7.6656e-11  -80.0494 -33.2655 696.981 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1417
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 -2.76016e-11  -2.75656e-09 0.984994 -0.172588 6.01062e-13  -0.312335 -0.163954 -0.935717 1.2686e-11  -80.0494 -33.2655 693.768 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1418
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 -7.22029e-11  2.75658e-09 0.984994 -0.172588 1.57988e-12  -0.312335 -0.163954 -0.935717 3.32306e-11  -80.0494 -33.2655 690.568 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1419
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 9.66686e-12  -9.1887e-10 0.984994 -0.172588 -3.78412e-11  -0.312335 -0.163954 -0.935717 -1.90651e-10  -80.0494 -33.2655 684.209 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1420
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 7.74958e-12  -3.67552e-09 0.984994 -0.172588 1.87163e-11  -0.312335 -0.163954 -0.935717 9.04335e-11  -80.0494 -33.2655 677.902 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1421
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 1.76359e-12  -9.18891e-10 0.984994 -0.172588 -3.972e-14  -0.312335 -0.163954 -0.935717 -8.18464e-13  -80.0494 -33.2655 671.648 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1422
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 8.46145e-11  0 0.984994 -0.172588 -1.91493e-12  -0.312335 -0.163954 -0.935717 -3.93242e-11  -80.0494 -33.2655 668.54 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1423
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 -6.91679e-11  9.18902e-10 0.984994 -0.172588 1.57293e-12  -0.312335 -0.163954 -0.935717 3.2191e-11  -80.0494 -33.2655 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1424
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 -6.91679e-11  9.18902e-10 0.984994 -0.172588 1.57293e-12  -0.312335 -0.163954 -0.935717 3.2191e-11  -80.0494 -33.2655 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1425
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 4.12413e-11  3.67476e-09 0.984994 -0.172588 -9.28178e-13  -0.312335 -0.163954 -0.935717 -1.91357e-11  -79.2553 -34.0596 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1426
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 -9.91213e-11  -9.18194e-10 0.984994 -0.172588 2.20759e-12  -0.312335 -0.163954 -0.935717 4.5852e-11  -78.4611 -36.4421 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1427
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 5.83115e-11  9.17411e-10 0.984994 -0.172588 -1.28503e-12  -0.312335 -0.163954 -0.935717 -2.6892e-11  -77.6669 -40.4129 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1428
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 -9.72876e-12  0 0.984994 -0.172588 2.12118e-13  -0.312335 -0.163954 -0.935717 4.47301e-12  -76.8728 -42.0012 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1429
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539055 -0.307648 3.31594e-11  0 0.984994 -0.172588 1.8114e-11  -0.312335 -0.163954 -0.935717 8.05086e-11  -76.0786 -42.7954 665.445 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1430
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539055 -0.307648 9.11832e-11  5.50014e-09 0.984994 -0.172588 -1.96676e-12  -0.312335 -0.163954 -0.935717 -4.17953e-11  -76.0786 -43.5896 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1431
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 1.42192e-11  9.16404e-10 0.984994 -0.172588 -3.06697e-13  -0.312335 -0.163954 -0.935717 -6.51758e-12  -76.0786 -45.1779 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1432
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 -6.83253e-11  4.58092e-09 0.984994 -0.172588 1.45776e-12  -0.312335 -0.163954 -0.935717 3.1222e-11  -75.2845 -45.972 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1433
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 -8.73529e-11  -1.83151e-09 0.984994 -0.172588 2.06385e-11  -0.312335 -0.163954 -0.935717 1.35573e-10  -75.2845 -48.3545 665.445 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1434
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539055 -0.307648 1.15183e-11  -1.83106e-09 0.984994 -0.172588 -2.43059e-13  -0.312335 -0.163954 -0.935717 -5.24726e-12  -74.4903 -49.1487 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1435
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539055 -0.307648 8.13093e-11  -3.66097e-09 0.984994 -0.172588 -1.71579e-12  -0.312335 -0.163954 -0.935717 -3.70412e-11  -74.4903 -50.737 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1436
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 -8.14581e-11  -5.48973e-09 0.984994 -0.172588 1.71893e-12  -0.312335 -0.163954 -0.935717 3.7109e-11  -74.4903 -52.3253 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1437
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 6.58789e-11  0 0.984994 -0.172588 1.73324e-11  -0.312335 -0.163954 -0.935717 6.55959e-11  -74.4903 -53.1195 665.445 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1438
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 9.15919e-11  -3.65834e-09 0.984994 -0.172588 -1.91141e-12  -0.312335 -0.163954 -0.935717 -4.15971e-11  -73.6961 -53.9136 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1439
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 -5.96133e-11  -9.14213e-10 0.984994 -0.172588 1.23015e-12  -0.312335 -0.163954 -0.935717 2.69903e-11  -72.902 -55.502 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1440
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 1.00152e-10  5.48303e-09 0.984994 -0.172588 -2.04337e-12  -0.312335 -0.163954 -0.935717 -4.52045e-11  -72.1078 -57.0903 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1441
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539055 -0.307648 9.64811e-11  -3.65385e-09 0.984994 -0.172588 1.66064e-11  -0.312335 -0.163954 -0.935717 5.20583e-11  -71.3136 -58.6786 665.445 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1442
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 -1.15499e-11  6.39119e-09 0.984994 -0.172588 2.32959e-13  -0.312335 -0.163954 -0.935717 5.19697e-12  -71.3137 -61.0611 665.445 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1443
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 -4.65642e-11  -9.12357e-10 0.984994 -0.172588 1.94252e-11  -0.312335 -0.163954 -0.935717 1.1631e-10  -70.5195 -64.2377 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1444
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539055 -0.307648 -3.43621e-12  -1.82413e-09 0.984994 -0.172588 1.85605e-11  -0.312335 -0.163954 -0.935717 9.69586e-11  -70.5195 -65.826 665.445 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1445
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 -3.51511e-11  5.46866e-09 0.984994 -0.172588 -3.61287e-11  -0.312335 -0.163954 -0.935717 -1.75037e-10  -68.9312 -68.2086 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1446
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 -5.53436e-12  1.82211e-09 0.984994 -0.172588 1.06484e-13  -0.312335 -0.163954 -0.935717 2.45933e-12  -68.137 -69.7969 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1447
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 -4.72914e-11  -5.46282e-09 0.984994 -0.172588 9.09912e-13  -0.312335 -0.163954 -0.935717 2.10151e-11  -68.137 -72.9735 665.445 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1448
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 1.71139e-11  0 0.984994 -0.172588 -3.33251e-13  -0.312335 -0.163954 -0.935717 -7.62883e-12  -68.9311 -75.356 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1449
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539055 -0.307648 8.35774e-11  -9.09442e-10 0.984994 -0.172588 -1.60807e-12  -0.312335 -0.163954 -0.935717 -3.71397e-11  -68.137 -78.5326 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1450
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 1.0776e-10  -1.8181e-09 0.984994 -0.172588 -2.04837e-12  -0.312335 -0.163954 -0.935717 -4.77357e-11  -67.3428 -80.1209 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1451
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 -2.01987e-11  -3.63461e-09 0.984994 -0.172588 1.86262e-11  -0.312335 -0.163954 -0.935717 1.04148e-10  -66.5487 -81.7093 665.445 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1452
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 8.0648e-11  0 0.984994 -0.172588 -1.51433e-12  -0.312335 -0.163954 -0.935717 -3.56134e-11  -66.5487 -83.2976 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1453
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539055 -0.307648 -6.80347e-11  9.07707e-10 0.984994 -0.172588 1.246e-12  -0.312335 -0.163954 -0.935717 2.98543e-11  -64.9604 -85.6801 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1454
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 2.73368e-11  -9.07559e-10 0.984994 -0.172588 -5.00653e-13  -0.312335 -0.163954 -0.935717 -1.19957e-11  -64.9604 -86.4742 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1455
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 6.69476e-12  -2.72191e-09 0.984994 -0.172588 -1.21062e-13  -0.312335 -0.163954 -0.935717 -2.92843e-12  -64.1662 -87.2684 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1456
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 3.75943e-11  3.62862e-09 0.984994 -0.172588 -6.79822e-13  -0.312335 -0.163954 -0.935717 -1.64446e-11  -64.1662 -88.0626 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1457
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539053 -0.307648 6.39975e-12  1.81401e-09 0.984994 -0.172588 -1.15727e-13  -0.312335 -0.163954 -0.935717 -2.79939e-12  -64.1662 -88.8567 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1458
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539055 -0.307648 -9.57001e-11  -9.06493e-10 0.984994 -0.172588 1.68637e-12  -0.312335 -0.163954 -0.935717 4.15959e-11  -62.5779 -90.445 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1459
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 1.75313e-11  -2.71915e-09 0.984994 -0.172588 -3.04884e-13  -0.312335 -0.163954 -0.935717 -7.59565e-12  -61.7837 -90.445 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1460
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539055 -0.307648 -7.85111e-11  0 0.984994 -0.172588 1.36538e-12  -0.312335 -0.163954 -0.935717 3.40159e-11  -61.7837 -91.2392 665.445 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1461
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 -3.17746e-11  -9.05823e-10 0.984994 -0.172588 1.84741e-11  -0.312335 -0.163954 -0.935717 1.08737e-10  -60.9895 -92.8275 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1462
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 1.506e-11  -1.81142e-09 0.984994 -0.172588 -2.54971e-13  -0.312335 -0.163954 -0.935717 -6.48328e-12  -60.1954 -92.8275 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1463
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539053 -0.307648 5.76623e-12  1.81112e-09 0.984994 -0.172588 -9.76239e-14  -0.312335 -0.163954 -0.935717 -2.48234e-12  -60.1954 -93.6217 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1464
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 3.97192e-11  -6.33521e-09 0.984994 -0.172588 1.71424e-11  -0.312335 -0.163954 -0.935717 7.79431e-11  -58.6071 -95.21 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1465
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 -7.06946e-11  1.80953e-09 0.984994 -0.172588 1.14814e-12  -0.312335 -0.163954 -0.935717 3.01409e-11  -57.8129 -96.0042 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1466
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539055 -0.307648 1.12443e-10  0 0.984994 -0.172588 -1.82617e-12  -0.312335 -0.163954 -0.935717 -4.79406e-11  -57.8129 -96.7983 665.445 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1467
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539053 -0.307648 4.32823e-12  0 0.984994 -0.172588 -6.83083e-14  -0.312335 -0.163954 -0.935717 -1.83343e-12  -56.2246 -97.5925 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1468
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539055 -0.307648 9.6726e-11  -2.71186e-09 0.984994 -0.172588 -1.50438e-12  -0.312335 -0.163954 -0.935717 -4.08398e-11  -55.4304 -98.3866 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1469
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539055 -0.307648 -8.65044e-11  6.32684e-09 0.984994 -0.172588 1.89e-11  -0.312335 -0.163954 -0.935717 1.31207e-10  -54.6363 -98.3866 665.445 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1470
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 1.25494e-11  4.52053e-09 0.984994 -0.172588 -1.95181e-13  -0.312335 -0.163954 -0.935717 -5.29864e-12  -55.4304 -97.5925 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1471
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 -6.93859e-11  -9.04567e-10 0.984994 -0.172588 1.07916e-12  -0.312335 -0.163954 -0.935717 2.92962e-11  -55.4304 -95.21 665.445 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1472
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 7.7798e-11  -2.71451e-09 0.984994 -0.172588 -1.22781e-12  -0.312335 -0.163954 -0.935717 -3.29551e-11  -56.2246 -94.4158 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1473
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 -1.91202e-11  0 0.984994 -0.172588 3.01756e-13  -0.312335 -0.163954 -0.935717 8.09926e-12  -56.2246 -93.6217 665.445 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1474
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539055 -0.307648 1.0306e-10  -1.81029e-09 0.984994 -0.172588 1.60507e-11  -0.312335 -0.163954 -0.935717 5.12062e-11  -56.2246 -92.8275 665.445 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1475
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 7.81198e-13  0 0.984994 -0.172588 -1.23289e-14  -0.312335 -0.163954 -0.935717 -3.30914e-13  -56.2246 -92.0334 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1476
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 9.42272e-11  -9.05449e-10 0.984994 -0.172588 1.6195e-11  -0.312335 -0.163954 -0.935717 5.49512e-11  -56.2246 -91.2392 665.445 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1477
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539055 -0.307648 -6.57804e-11  -9.05869e-10 0.984994 -0.172588 1.05323e-12  -0.312335 -0.163954 -0.935717 2.7955e-11  -57.0187 -89.6509 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1478
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 5.63772e-12  9.06021e-10 0.984994 -0.172588 -9.02674e-14  -0.312335 -0.163954 -0.935717 -2.39589e-12  -57.0187 -88.8567 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1479
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 6.61984e-11  -9.06174e-10 0.984994 -0.172588 1.66744e-11  -0.312335 -0.163954 -0.935717 6.6765e-11  -57.0188 -88.0626 665.445 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1480
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539055 -0.307648 6.7862e-11  9.06327e-10 0.984994 -0.172588 1.66502e-11  -0.312335 -0.163954 -0.935717 6.60597e-11  -57.0187 -87.2684 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1481
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539055 -0.307648 9.04435e-11  2.71944e-09 0.984994 -0.172588 -1.44812e-12  -0.312335 -0.163954 -0.935717 -3.84362e-11  -57.0188 -86.4742 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1482
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539055 -0.307648 7.05646e-11  9.06632e-10 0.984994 -0.172588 -1.12983e-12  -0.312335 -0.163954 -0.935717 -2.99882e-11  -57.0188 -85.6801 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1483
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539054 -0.307648 4.27171e-11  4.53392e-09 0.984994 -0.172588 -6.83959e-13  -0.312335 -0.163954 -0.935717 -1.81537e-11  -57.0188 -84.8859 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1484
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539055 -0.307648 -2.99145e-12  3.62775e-09 0.984994 -0.172588 4.78972e-14  -0.312335 -0.163954 -0.935717 1.27129e-12  -57.0187 -84.0918 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1485
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539056 -0.307648 -6.80194e-11  -9.0709e-10 0.984994 -0.172588 1.88381e-11  -0.312335 -0.163954 -0.935717 1.23815e-10  -57.0187 -83.2976 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1486
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539053 -0.307648 7.07472e-11  9.07242e-10 0.984994 -0.172588 -1.13276e-12  -0.312335 -0.163954 -0.935717 -3.00658e-11  -57.0188 -82.5034 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1487
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539055 -0.307648 -6.69492e-11  3.62958e-09 0.984994 -0.172588 -3.44359e-11  -0.312335 -0.163954 -0.935717 -1.61372e-10  -57.0188 -81.7093 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1488
+EditBegin "option" 
+Identity 
+#Camera perspShape
+Clipping 5 100000
+Projection "perspective" "fov" [54.4322]
+ScreenWindow -1 1 -0.5625 0.5625
+Shutter 0 0
+ConcatTransform [ 0.949972 -0.0539055 -0.307648 4.30509e-11  2.72251e-09 0.984994 -0.172588 -6.99181e-13  -0.312335 -0.163954 -0.935717 -1.83549e-11  -57.8129 -81.7093 665.446 1 ]
+Camera "world" "float[2] shutteropening" [0 1]
+EditEnd 
+##streammarker1489

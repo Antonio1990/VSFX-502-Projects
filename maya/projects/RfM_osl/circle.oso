@@ -1,0 +1,69 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.7.4.pixar38bde12
+# options: -IF:\502\maya\projects\RfM_osl\src -o F:\502\maya\projects\RfM_osl\circle.oso
+shader circle	%meta{int,rfm_nodeid,13} %meta{string,rfm_classification,"rendernode/RenderMan/pattern"} %meta{string,help,"Node to create parameterized circle shape"} 
+param	float	s	0		%meta{int,lockgeom,0} %meta{string,widget,"null"}  %read{1,1} %write{2147483647,-1}
+param	float	t	0		%meta{int,lockgeom,0} %meta{string,widget,"null"}  %read{1,1} %write{2147483647,-1}
+param	float	x_pos	0.75		%meta{string,label,"X_Position"}  %read{3,3} %write{2147483647,-1}
+param	float	y_pos	0.75		%meta{string,label,"Y_Position"}  %read{6,6} %write{2147483647,-1}
+param	float	rad	0.1		%meta{string,label,"Radius"}  %read{9,9} %write{2147483647,-1}
+param	color	col	1 1 0		%meta{string,label,"Circle Color"}  %read{17,17} %write{2147483647,-1}
+param	color	col2	0 0 1		%meta{string,label,"Background Color"}  %read{18,18} %write{2147483647,-1}
+oparam	color	resultRGB	0 0 0		%read{2147483647,-1} %write{17,18}
+local	vector	___305_uv	%read{2,8} %write{1,7}
+local	float	___305_circle	%read{9,9} %write{8,8}
+temp	float	$tmp1	%read{15,15} %write{11,13}
+const	string	$const1	"isInCircle"		%read{0,0} %write{2147483647,-1}
+const	int	$const2	0		%read{2,4} %write{2147483647,-1}
+const	float	$const3	0		%read{1,15} %write{2147483647,-1}
+temp	float	$tmp2	%read{3,3} %write{2,2}
+temp	float	$tmp3	%read{4,4} %write{3,3}
+const	int	$const4	1		%read{5,7} %write{2147483647,-1}
+temp	float	$tmp4	%read{6,6} %write{5,5}
+temp	float	$tmp5	%read{7,7} %write{6,6}
+temp	int	$tmp6	%read{10,10} %write{9,9}
+const	float	$const5	1		%read{11,11} %write{2147483647,-1}
+temp	int	$tmp7	%read{16,16} %write{15,15}
+code ___main___
+# F:\\502\\maya\\projects\\RfM_osl\\src\\circle.osl:52
+# 	resultRGB=col;
+	functioncall	$const1 15 	%filename{"F:\\502\\maya\\projects\\RfM_osl\\src\\circle.osl"} %line{52} %argrw{"r"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\circle.osl:3
+# 	uv[0] = uv[0] - x_pos;
+	vector		___305_uv s t $const3 	%line{3} %argrw{"wrrr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\circle.osl:4
+# 	uv[1] = uv[1] - y_pos;
+	compref		$tmp2 ___305_uv $const2 	%line{4} %argrw{"wrr"}
+	sub		$tmp3 $tmp2 x_pos 	%argrw{"wrr"}
+	compassign	___305_uv $const2 $tmp3 	%argrw{"wrr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\circle.osl:5
+# 	float circle = length(uv);
+	compref		$tmp4 ___305_uv $const4 	%line{5} %argrw{"wrr"}
+	sub		$tmp5 $tmp4 y_pos 	%argrw{"wrr"}
+	compassign	___305_uv $const4 $tmp5 	%argrw{"wrr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\circle.osl:6
+# 	if(circle <= R)
+	length		___305_circle ___305_uv 	%line{6} %argrw{"wr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\circle.osl:7
+# 		return 1.0;
+	le		$tmp6 ___305_circle rad 	%line{7} %argrw{"wrr"}
+	if		$tmp6 13 15 	%argrw{"r"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\circle.osl:8
+# 	else
+	assign		$tmp1 $const5 	%line{8} %argrw{"wr"}
+	return
+# F:\\502\\maya\\projects\\RfM_osl\\src\\circle.osl:10
+# 	}
+	assign		$tmp1 $const3 	%line{10} %argrw{"wr"}
+	return
+# F:\\502\\maya\\projects\\RfM_osl\\src\\circle.osl:52
+# 	resultRGB=col;
+	neq		$tmp7 $tmp1 $const3 	%line{52} %argrw{"wrr"}
+	if		$tmp7 18 19 	%argrw{"r"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\circle.osl:53
+# else
+	assign		resultRGB col 	%line{53} %argrw{"wr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\circle.osl:55
+# //circle = clamp(circle,0.0,1.0);
+	assign		resultRGB col2 	%line{55} %argrw{"wr"}
+	end

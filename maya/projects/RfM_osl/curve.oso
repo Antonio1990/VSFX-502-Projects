@@ -1,0 +1,90 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.7.4.pixar38bde12
+# options: -IF:\502\maya\projects\RfM_osl\src -o F:\502\maya\projects\RfM_osl\curve.oso
+shader curve
+param	float	s	0		%meta{int,lockgeom,0} %meta{string,widget,"null"}  %read{0,0} %write{2147483647,-1}
+param	float	t	0		%meta{int,lockgeom,0} %meta{string,widget,"null"}  %read{2,2} %write{2147483647,-1}
+param	color	col1	1 1 1		%read{17,23} %write{2147483647,-1}
+param	color	col2	0 0 0		%read{18,24} %write{2147483647,-1}
+oparam	color	resultRGB	0 0 0		%read{2147483647,-1} %write{17,24}
+local	float	x	%read{3,12} %write{1,1}
+local	float	y	%read{3,21} %write{2,2}
+local	vector	uv	%read{2147483647,-1} %write{3,3}
+local	float	res1	%read{9,9} %write{5,5}
+local	float	res	%read{9,21} %write{8,20}
+local	float	n	%read{14,19} %write{11,11}
+const	float	$const1	2		%read{0,0} %write{2147483647,-1}
+temp	float	$tmp1	%read{1,1} %write{0,0}
+const	float	$const2	1		%read{1,8} %write{2147483647,-1}
+const	float	$const3	0.5		%read{2,2} %write{2147483647,-1}
+const	float	$const5	0		%read{3,12} %write{2147483647,-1}
+temp	vector	$tmp2	%read{5,5} %write{4,4}
+temp	float	$tmp3	%read{8,8} %write{7,7}
+temp	vector	$tmp4	%read{7,7} %write{6,6}
+const	float	$const6	4		%read{10,10} %write{2147483647,-1}
+const	float	$const7	0.75		%read{11,11} %write{2147483647,-1}
+temp	int	$tmp5	%read{13,13} %write{12,12}
+temp	int	$tmp6	%read{16,16} %write{15,15}
+temp	float	$tmp7	%read{20,20} %write{19,19}
+temp	int	$tmp8	%read{22,22} %write{21,21}
+code ___main___
+# F:\\502\\maya\\projects\\RfM_osl\\src\\curve.osl:16
+# 	float y = t + 0.5;
+	mul		$tmp1 s $const1 	%filename{"F:\\502\\maya\\projects\\RfM_osl\\src\\curve.osl"} %line{16} %argrw{"wrr"}
+	sub		x $tmp1 $const2 	%argrw{"wrr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\curve.osl:17
+# 	vector uv = vector(x,y,0);
+	add		y t $const3 	%line{17} %argrw{"wrr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\curve.osl:18
+#     float res1 = length(x);
+	vector		uv x y $const5 	%line{18} %argrw{"wrrr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\curve.osl:19
+#     float res = 1.0 - length(x);
+	assign		$tmp2 x 	%line{19} %argrw{"wr"}
+	length		res1 $tmp2 	%argrw{"wr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\curve.osl:20
+#     res = res * res1;
+	assign		$tmp4 x 	%line{20} %argrw{"wr"}
+	length		$tmp3 $tmp4 	%argrw{"wr"}
+	sub		res $const2 $tmp3 	%argrw{"wrr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\curve.osl:21
+#     res *= 4.0;
+	mul		res res res1 	%line{21} %argrw{"wrr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\curve.osl:22
+#     float n = 0.75;
+	mul		res res $const6 	%line{22} %argrw{"wrr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\curve.osl:23
+#     if(x<=0.0){
+	assign		n $const7 	%line{23} %argrw{"wr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\curve.osl:24
+#         res *= n;
+	le		$tmp5 x $const5 	%line{24} %argrw{"wrr"}
+	if		$tmp5 19 25 	%argrw{"r"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\curve.osl:25
+#         if(y<res)
+	mul		res res n 	%line{25} %argrw{"wrr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\curve.osl:26
+#             resultRGB=col1;
+	lt		$tmp6 y res 	%line{26} %argrw{"wrr"}
+	if		$tmp6 18 19 	%argrw{"r"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\curve.osl:27
+#         else
+	assign		resultRGB col1 	%line{27} %argrw{"wr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\curve.osl:29
+#     	}
+	assign		resultRGB col2 	%line{29} %argrw{"wr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\curve.osl:33
+#     if(y<res)
+	neg		$tmp7 n 	%line{33} %argrw{"wr"}
+	mul		res res $tmp7 	%argrw{"wrr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\curve.osl:34
+#         resultRGB=col1;
+	lt		$tmp8 y res 	%line{34} %argrw{"wrr"}
+	if		$tmp8 24 25 	%argrw{"r"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\curve.osl:35
+#     else
+	assign		resultRGB col1 	%line{35} %argrw{"wr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\curve.osl:37
+#     }
+	assign		resultRGB col2 	%line{37} %argrw{"wr"}
+	end

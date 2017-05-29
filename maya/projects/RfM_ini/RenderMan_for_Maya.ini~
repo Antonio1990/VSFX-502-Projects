@@ -1,0 +1,60 @@
+# It is assumed that "Maya.env" has set the correct path
+# Malcolm Kesson
+# Dec 26 2015
+# Sep 14 2016
+
+set projdir [file join [GetEnv MAYA_USER_DIR] "projects"]
+set rms_mel_dir "$projdir/RfM_mel"
+set rfm_osl_dir "$projdir/RfM_osl"
+
+# Register the RiMel user interface (.rman) scripts.
+set rman_names ""
+if { [file exists $rms_mel_dir] } {
+    set scripts [glob -nocomplain -directory $rms_mel_dir *rman]
+    foreach item $scripts {       
+        set scriptName [file tail $item]
+		LoadExtension rman [file join $rms_mel_dir $scriptName]
+		append rman_names "$scriptName\n"
+		}
+	}
+::RMS::LogMsg INFO "The custom RenderMan_for_Maya.ini has loaded the following .rman scripts:"
+::RMS::LogMsg INFO "$rman_names"
+
+::RMS::LogMsg INFO "Loading nodeid:1 CutrBBones.args"
+LoadExtension args [file join $projdir "RfM_ris/Args/CutrBBones.args"]
+
+::RMS::LogMsg INFO "Loading nodeid:2 CutrColorByHeight.args"
+LoadExtension args [file join $projdir "RfM_ris/Args/CutrColorByHeight.args"]
+
+::RMS::LogMsg INFO "Loading nodeid:3 CutrColorByObjectID.args"
+LoadExtension args [file join $projdir "RfM_ris/Args/CutrColorByObjectID.args"]
+
+::RMS::LogMsg INFO "Loading nodeid:4 CutrFaceColor.args"
+LoadExtension args [file join $projdir "RfM_ris/Args/CutrFaceColor.args"]
+
+::RMS::LogMsg INFO "Loading nodeid:5 CutrPaperCup.args"
+LoadExtension args [file join $projdir "RfM_ris/Args/CutrPaperCup.args"]
+
+::RMS::LogMsg INFO "Loading nodeid:6 CutrPetals.args"
+LoadExtension args [file join $projdir "RfM_ris/Args/CutrPetals.args"]
+
+::RMS::LogMsg INFO "Loading nodeid:7 CutrSideMask.args"
+LoadExtension args [file join $projdir "RfM_ris/Args/CutrSideMask.args"]
+
+::RMS::LogMsg INFO "Loading nodeid:8 CutrSparky.args"
+LoadExtension args [file join $projdir "RfM_ris/Args/CutrSparky.args"]
+
+::RMS::LogMsg INFO "Loading nodeid:9 CutrVelvet.args"
+LoadExtension args [file join $projdir "RfM_ris/Args/CutrVelvet.args"]
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# Register any osl shaders that have "int rfm_nodeid = UNIQUE_INT" metadata
+set osofiles [glob -nocomplain "${rfm_osl_dir}/*.oso"]
+foreach osofile $osofiles {
+    LoadExtension osl "$osofile"
+    ::RMS::LogMsg INFO "$osofile"
+    }
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+SetPref TextEditor TextEdit
+SetPref ShaderCompilerCleanup 0
+

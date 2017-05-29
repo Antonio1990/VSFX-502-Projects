@@ -1,0 +1,9 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.7.4.pixar38bde12
+# options: -IF:\502\maya\projects\RfM_osl\src -o F:\502\maya\projects\RfM_osl\sinewave.oso
+shader sinewave
+param	float	s	0		%meta{int,lockgeom,0} %meta{string,widget,"null"}  %read{2147483647,-1} %write{2147483647,-1}
+param	float	t	0		%meta{int,lockgeom,0} %meta{string,widget,"null"}  %read{2147483647,-1} %write{2147483647,-1}
+oparam	color	resultRGB	0 0 0		%read{2147483647,-1} %write{2147483647,-1}
+code ___main___
+	end

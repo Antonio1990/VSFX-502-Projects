@@ -1,0 +1,34 @@
+global proc getUVColorsAndPositions(int $uStep, int $vStep, 
+									string $fileNodeName,
+									string $tformNode,
+									vector $colors[],
+									vector $positions[]) {
+int 	$u, $v, 
+		$nu = $uStep, $nv = $vStep;   // steps in u and v
+float	$minU = 0, $minV = 0, // u/v - start and ending
+		$maxU = 1, $maxV = 1; // the surface - slightly less than 0 to 1
+
+// Grab all our texture map samples
+$colors = `colorAtPoint -o RGB -su $nu -sv $nv -mu $minU -mv $minV 
+				-xu $maxU -xv $maxV $fileNodeName`;
+
+float $deltaU = ($maxU - $minU)/($nu - 1);	// step size in u
+float $deltaV = ($maxV - $minV)/($nv - 1);  // step size in v
+float $currU, $currV;
+
+$currU = $minU;
+int $counter = 0;
+for($n = 0; $n < $nu; $n++) {
+	$currU += $deltaU;
+	$currV = $minV;
+	for($i = 0; $i < $nv; $i++) {
+		float $p[] = `pointOnSurface -u $currU -v $currV $tformNode`;
+	//	print($p);
+	//	print("\n");
+		vector $vert = <<$p[0], $p[1], $p[2]>>;
+		$positions[$counter++] = $vert;
+		$currV += $deltaV;
+		}		
+	//$currV += $deltaV;
+	}
+}

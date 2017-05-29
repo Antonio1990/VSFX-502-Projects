@@ -1,0 +1,24 @@
+<!--
+Aurthor: Malcolm Kesson
+Date:     25th Sept. 2015
+-->
+<args format="1.0">
+    <shaderType>
+        <tag value="pattern"/>
+    </shaderType>
+    <help>
+        Brief documentation goes here...
+    </help>
+    
+    <page name="Velvet Edge" open="True">
+        <param name="edge_width" label="Width" type="float" default="0.5" input="True" min="0" max="1" widget="default"/>
+        <param name="edge_color" label="Color" type="color" default="0.5 0.8 0.4" input="True" widget="color" tag="color and pattern"/>
+        <param name="edge_brightness" label="Brightness" type="float" default="1" input="True" min="0" max="1" widget="default"/>
+    </page>
+    <page name="Velvet Base" open="True">
+        <param name="base_color" label="Color" type="color" default="0.3 0.5 0.3" input="True" widget="color" tag="color and pattern"/>
+        <param name="base_brightness" label="Brightness" type="float" default="1" input="True" min="0" max="1" widget="default"/>
+    </page>
+        <output name="resultRGB"  tag="color|vector|normal|point|pattern"/>
+    <rfmdata nodeid="9" classification="rendernode/RenderMan/pattern"/>
+</args>

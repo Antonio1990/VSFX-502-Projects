@@ -1,0 +1,19 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.7.4.pixar38bde12
+# options: -IF:\502\maya\projects\RfM_osl\src -o F:\502\maya\projects\RfM_osl\noisetest.oso
+shader noisetest
+param	float	posx	0.2		%read{2147483647,-1} %write{2147483647,-1}
+param	float	posy	0.30000001		%read{2147483647,-1} %write{2147483647,-1}
+param	float	posz	1.2		%read{2147483647,-1} %write{2147483647,-1}
+param	float	s	0		%meta{int,lockgeom,0} %meta{string,widget,"null"}  %read{2147483647,-1} %write{2147483647,-1}
+param	float	t	0		%meta{int,lockgeom,0} %meta{string,widget,"null"}  %read{0,0} %write{2147483647,-1}
+oparam	color	resultRGB	0 0 0		%read{2147483647,-1} %write{1,1}
+local	float	ncolor	%read{1,1} %write{0,0}
+code ___main___
+# F:\\502\\maya\\projects\\RfM_osl\\src\\noisetest.osl:21
+# 
+	cellnoise	ncolor t 	%filename{"F:\\502\\maya\\projects\\RfM_osl\\src\\noisetest.osl"} %line{21} %argrw{"wr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\noisetest.osl:23
+# }
+	color		resultRGB ncolor ncolor ncolor 	%line{23} %argrw{"wrrr"}
+	end

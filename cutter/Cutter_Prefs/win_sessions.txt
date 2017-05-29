@@ -681,3 +681,187 @@ closedAt: Wednesday 10 May 2017 at 0:20 AM
 openedBytes: 657
 closedBytes: 657
 saved: 1
+===================================
+DATE: Friday 12 May 2017 at 1:47 PM
+VERSION: 7.7.8
+---
+openedPath: F:\502\maya\projects\RfM_osl\src\curve.osl
+closedPath: F:\502\maya\projects\RfM_osl\src\curve.osl
+openedAt: Friday 12 May 2017 at 1:16 PM
+closedAt: Friday 12 May 2017 at 1:47 PM
+openedBytes: 616
+closedBytes: 616
+saved: 1
+---
+openedPath: F:\502\maya\projects\RfM_osl\src\dist2Color.osl
+closedPath: F:\502\maya\projects\RfM_osl\src\dist2Color.osl
+openedAt: Friday 12 May 2017 at 1:14 PM
+closedAt: Friday 12 May 2017 at 1:15 PM
+openedBytes: 420
+closedBytes: 420
+saved: 0
+===================================
+DATE: Friday 12 May 2017 at 10:58 PM
+VERSION: 7.7.8
+---
+openedPath: F:\502\maya\projects\RfM_osl\src\curve.osl
+closedPath: F:\502\maya\projects\RfM_osl\src\curve.osl
+openedAt: Friday 12 May 2017 at 7:13 PM
+closedAt: Friday 12 May 2017 at 10:58 PM
+openedBytes: 616
+closedBytes: 0
+saved: 33
+---
+openedPath: F:\502\maya\projects\RfM_osl\src\Savannah\Home\Student\maya\projects\RfM_osl\src\rectangle.osl
+closedPath: F:\502\maya\projects\RfM_osl\src\Savannah\Home\Student\maya\projects\RfM_osl\src\rectangle.osl
+openedAt: Friday 12 May 2017 at 7:45 PM
+closedAt: Friday 12 May 2017 at 7:45 PM
+openedBytes: 0
+closedBytes: 0
+saved: 0
+---
+openedPath: F:\502\maya\projects\RfM_osl\src\rectangle.osl
+closedPath: F:\502\maya\projects\RfM_osl\src\rectangle.osl
+openedAt: Friday 12 May 2017 at 10:58 PM
+closedAt: Friday 12 May 2017 at 10:58 PM
+openedBytes: 1478
+closedBytes: 1478
+saved: 0
+---
+openedPath: F:\502\maya\projects\RfM_osl\src\Crescent.osl
+closedPath: F:\502\maya\projects\RfM_osl\src\Crescent.osl
+openedAt: Friday 12 May 2017 at 8:14 PM
+closedAt: Friday 12 May 2017 at 10:58 PM
+openedBytes: 1180
+closedBytes: 1180
+saved: 0
+---
+openedPath: F:\502\maya\projects\RfM_osl\src\circle.osl
+closedPath: F:\502\maya\projects\RfM_osl\src\circle.osl
+openedAt: Friday 12 May 2017 at 8:14 PM
+closedAt: Friday 12 May 2017 at 10:58 PM
+openedBytes: 1053
+closedBytes: 1053
+saved: 0
+===================================
+DATE: Sunday 14 May 2017 at 8:23 PM
+VERSION: 7.7.8
+---
+openedPath: F:\502\maya\projects\RfM_osl\src\rectangle.osl
+closedPath: F:\502\maya\projects\RfM_osl\src\rectangle.osl
+openedAt: Sunday 14 May 2017 at 8:22 PM
+closedAt: Sunday 14 May 2017 at 8:23 PM
+openedBytes: 1478
+closedBytes: 1478
+saved: 0
+===================================
+DATE: Wednesday 17 May 2017 at 11:47 PM
+VERSION: 7.7.8
+---
+openedPath: F:\502\maya\projects\RfM_osl\src\sinewave.osl
+closedPath: F:\502\maya\projects\RfM_osl\src\sinewave.osl
+openedAt: Wednesday 17 May 2017 at 10:56 PM
+closedAt: Wednesday 17 May 2017 at 11:47 PM
+openedBytes: 191
+closedBytes: 1134
+saved: 21
+---
+openedPath: F:\502\maya\projects\RfM_osl\src\rectangle.osl
+closedPath: F:\502\maya\projects\RfM_osl\src\rectangle.osl
+openedAt: Wednesday 17 May 2017 at 10:54 PM
+closedAt: Wednesday 17 May 2017 at 11:47 PM
+openedBytes: 1478
+closedBytes: 1478
+saved: 0
+---
+openedPath: F:\502\maya\projects\RfM_osl\src\circle.osl
+closedPath: F:\502\maya\projects\RfM_osl\src\circle.osl
+openedAt: Wednesday 17 May 2017 at 11:9 PM
+closedAt: Wednesday 17 May 2017 at 11:47 PM
+openedBytes: 1053
+closedBytes: 1053
+saved: 0
+===================================
+DATE: Friday 19 May 2017 at 4:37 PM
+VERSION: 7.7.8
+---
+openedPath: F:\502\maya\projects\RfM_osl\src\sinewave.osl
+closedPath: F:\502\maya\projects\RfM_osl\src\sinewave.osl
+openedAt: Friday 19 May 2017 at 0:12 PM
+closedAt: Friday 19 May 2017 at 4:37 PM
+openedBytes: 1134
+closedBytes: 1134
+saved: 0
+---
+openedPath: F:\502\maya\projects\RfM_osl\src\noisetest.osl
+closedPath: F:\502\maya\projects\RfM_osl\src\noisetest.osl
+openedAt: Friday 19 May 2017 at 0:14 PM
+closedAt: Friday 19 May 2017 at 4:37 PM
+openedBytes: 86
+closedBytes: 342
+saved: 21
+---
+openedPath: F:\502\maya\projects\RfM_osl\src\Crescent.osl
+closedPath: F:\502\maya\projects\RfM_osl\src\Crescent.osl
+openedAt: Friday 19 May 2017 at 0:18 PM
+closedAt: Friday 19 May 2017 at 0:18 PM
+openedBytes: 1180
+closedBytes: 1180
+saved: 0
+===================================
+DATE: Monday 22 May 2017 at 4:16 PM
+VERSION: 7.7.8
+---
+openedPath: F:\502\maya\projects\RfM_osl\src\streak.osl
+closedPath: F:\502\maya\projects\RfM_osl\src\streak.osl
+openedAt: Monday 22 May 2017 at 2:24 PM
+closedAt: Monday 22 May 2017 at 4:16 PM
+openedBytes: 301
+closedBytes: 328
+saved: 8
+---
+openedPath: F:\502\maya\projects\RfM_osl\src\noisetest.osl
+closedPath: F:\502\maya\projects\RfM_osl\src\noisetest.osl
+openedAt: Monday 22 May 2017 at 2:16 PM
+closedAt: Monday 22 May 2017 at 2:16 PM
+openedBytes: 342
+closedBytes: 342
+saved: 0
+===================================
+DATE: Sunday 28 May 2017 at 5:28 PM
+VERSION: 7.7.8
+---
+openedPath: F:\502\maya\projects\RfM_osl\src\streak.osl
+closedPath: F:\502\maya\projects\RfM_osl\src\streak.osl
+openedAt: Sunday 28 May 2017 at 3:35 PM
+closedAt: Sunday 28 May 2017 at 5:16 PM
+openedBytes: 333
+closedBytes: 0
+saved: 10
+---
+openedPath: F:\502\maya\projects\RfM_osl\src\noisetest.osl
+closedPath: F:\502\maya\projects\RfM_osl\src\noisetest.osl
+openedAt: Sunday 28 May 2017 at 3:30 PM
+closedAt: Sunday 28 May 2017 at 3:30 PM
+openedBytes: 342
+closedBytes: 342
+saved: 0
+---
+openedPath: F:\502\maya\projects\RfM_osl\src\streak.osl
+closedPath: F:\502\maya\projects\RfM_osl\src\streak_02.osl
+openedAt: Sunday 28 May 2017 at 5:16 PM
+closedAt: Sunday 28 May 2017 at 5:28 PM
+openedBytes: 494
+closedBytes: 523
+saved: 1
+===================================
+DATE: Sunday 28 May 2017 at 10:56 PM
+VERSION: 7.7.8
+---
+openedPath: F:\502\maya\projects\RfM_osl\src\streak_02.osl
+closedPath: F:\502\maya\projects\RfM_osl\src\streak_02.osl
+openedAt: Sunday 28 May 2017 at 9:55 PM
+closedAt: Sunday 28 May 2017 at 10:56 PM
+openedBytes: 523
+closedBytes: 942
+saved: 15

@@ -1,0 +1,17 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.7.4.pixar38bde12
+# options: -IF:\502\maya\projects\RfM_osl\src -o F:\502\maya\projects\RfM_osl\osltesting.oso
+shader osltesting
+oparam	color	ResultRGB	0 0 0		%read{2147483647,-1} %write{1,1}
+global	float	u	%read{0,0} %write{2147483647,-1}
+global	float	v	%read{0,0} %write{2147483647,-1}
+local	color	uv_color	%read{1,1} %write{0,0}
+const	float	$const2	0		%read{0,0} %write{2147483647,-1}
+code ___main___
+# F:\\502\\maya\\projects\\RfM_osl\\src\\osltesting.osl:8
+# ResultRGB = uv_color;
+	color		uv_color u v $const2 	%filename{"F:\\502\\maya\\projects\\RfM_osl\\src\\osltesting.osl"} %line{8} %argrw{"wrrr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\osltesting.osl:9
+# }
+	assign		ResultRGB uv_color 	%line{9} %argrw{"wr"}
+	end

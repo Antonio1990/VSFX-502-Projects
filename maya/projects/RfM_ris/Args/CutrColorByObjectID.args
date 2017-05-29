@@ -1,0 +1,23 @@
+
+<args format="1.0">
+	<shaderType>
+		<tag value="pattern"/>
+	</shaderType>
+	<help>
+		Reads "Attribute "identifier" "float id" [4.0]
+		to set a color randomly between "Color Min" and
+		"Color Max".
+	</help>
+	
+	<param name="rgb_1" label="Color Min" type="color" default="1 1 0" input="True" widget="color" tag="color and pattern"/>
+	<param name="rgb_2" label="Color Max" type="color" default="1 0 1" input="True" widget="color" tag="color and pattern"/>
+	<param name="cycle" label="Color Cycle" type="int"   default="100" input="False" min="0" max="1000" widget="default"/>
+	
+	<param name="do_random" label="Randomize" type="int"   default="0" input="False" widget="checkbox" tag="int and pattern"/> 
+
+	
+	<output name="resultRGB"  tag="color|vector|normal|point|pattern"/>
+
+
+	<rfmdata nodeid="3" classification="rendernode/RenderMan/pattern"/>
+</args>

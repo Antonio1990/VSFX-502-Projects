@@ -1,0 +1,56 @@
+float hash(float seed)
+{
+return mod(sin(seed*1.0),1.0);
+}
+
+float horizontal(vector uv, float r, float t)
+{
+	float result = abs(uv[1])-r;
+    float res2 = 1.0 - result;
+    float res3 = result * -1.0;
+    res3 = 1.0 - res3;
+    result = res2 * res3;
+    //result = pow(result,8800.0);
+    //result += 1.0;
+    result = smoothstep(.05/t,0.0,1.0-result);
+    return result;
+}
+
+float horiwave(vector uv, float frequency, float amplitude)
+{
+float result = sin(uv[0]*frequency);
+return result * amplitude * uv[0];
+}
+
+color makewave(vector uv,float frequency, float amplitude, float zoffset, color col, float speed)
+{
+
+    uv[0] += time*speed;
+    //float mask = horiwaves(uv,frequency,amplitude);
+	float mask = sin(uv[0]*frequency);
+	mask = mask * amplitude * uv[0];
+	uv[0] -= mask;
+	uv[1] -= mask;
+    float result = horizontal(uv,zoffset);
+    color colorpass = result*col;
+    return colorpass;
+}
+
+shader sinewave
+(
+float s = 0
+	[[
+	int lockgeom = 0,
+	string widget = "null",
+	]],
+float t = 0
+	[[
+	int lockgeom = 0,
+	string widget = "null",
+	]],
+output color resultRGB = 0
+)
+
+{
+
+}

@@ -1,0 +1,119 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.7.4.pixar38bde12
+# options: -IF:\502\maya\projects\RfM_osl\src -o F:\502\maya\projects\RfM_osl\crescent.oso
+shader crescent	%meta{int,rfm_nodeid,12} %meta{string,rfm_classification,"rendernode/RenderMan/pattern"} %meta{string,help,"Node to create parameterized Crescent Shape "} 
+param	float	s	0		%meta{int,lockgeom,0} %meta{string,widget,"null"}  %read{1,17} %write{2147483647,-1}
+param	float	t	0		%meta{int,lockgeom,0} %meta{string,widget,"null"}  %read{1,17} %write{2147483647,-1}
+param	float	x_pos	0.75		%meta{string,label,"X_Position"}  %read{3,15} %write{2147483647,-1}
+param	float	y_pos	0.75		%meta{string,label,"Y_Position"}  %read{6,22} %write{2147483647,-1}
+param	float	rad	0.1		%meta{string,label,"Radius"}  %read{9,25} %write{2147483647,-1}
+param	color	col	1 1 0		%meta{string,label,"Circle Color"}  %read{36,36} %write{2147483647,-1}
+param	color	col2	0 0 1		%meta{string,label,"Background Color"}  %read{37,37} %write{2147483647,-1}
+oparam	color	resultRGB	0 0 0		%read{2147483647,-1} %write{36,37}
+local	vector	___305_uv	%read{2,24} %write{1,23}
+local	float	___305_circle	%read{9,25} %write{8,24}
+local	float	t1	%read{32,34} %write{11,32}
+local	float	t2	%read{31,32} %write{27,31}
+local	float	res	%read{2147483647,-1} %write{33,33}
+const	string	$const1	"isInCircle"		%read{0,16} %write{2147483647,-1}
+const	int	$const2	0		%read{2,20} %write{2147483647,-1}
+const	float	$const3	0		%read{1,33} %write{2147483647,-1}
+temp	float	$tmp1	%read{3,3} %write{2,2}
+temp	float	$tmp2	%read{4,4} %write{3,3}
+const	int	$const4	1		%read{5,23} %write{2147483647,-1}
+temp	float	$tmp3	%read{6,6} %write{5,5}
+temp	float	$tmp4	%read{7,7} %write{6,6}
+temp	int	$tmp5	%read{10,10} %write{9,9}
+const	float	$const5	1		%read{11,34} %write{2147483647,-1}
+const	float	$const6	0.1		%read{15,15} %write{2147483647,-1}
+temp	float	$tmp6	%read{19,19} %write{15,15}
+temp	float	$tmp7	%read{19,19} %write{18,18}
+temp	float	$tmp8	%read{20,20} %write{19,19}
+temp	float	$tmp9	%read{22,22} %write{21,21}
+temp	float	$tmp10	%read{23,23} %write{22,22}
+temp	int	$tmp11	%read{26,26} %write{25,25}
+temp	int	$tmp12	%read{35,35} %write{34,34}
+code ___main___
+# F:\\502\\maya\\projects\\RfM_osl\\src\\Crescent.osl:52
+# float t2 = isInCircle(s, t, x_pos+0.1, y_pos, rad);
+	functioncall	$const1 15 	%filename{"F:\\502\\maya\\projects\\RfM_osl\\src\\Crescent.osl"} %line{52} %argrw{"r"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\Crescent.osl:3
+# 	uv[0] = uv[0] - x_pos;
+	vector		___305_uv s t $const3 	%line{3} %argrw{"wrrr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\Crescent.osl:4
+# 	uv[1] = uv[1] - y_pos;
+	compref		$tmp1 ___305_uv $const2 	%line{4} %argrw{"wrr"}
+	sub		$tmp2 $tmp1 x_pos 	%argrw{"wrr"}
+	compassign	___305_uv $const2 $tmp2 	%argrw{"wrr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\Crescent.osl:5
+# 	float circle = length(uv);
+	compref		$tmp3 ___305_uv $const4 	%line{5} %argrw{"wrr"}
+	sub		$tmp4 $tmp3 y_pos 	%argrw{"wrr"}
+	compassign	___305_uv $const4 $tmp4 	%argrw{"wrr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\Crescent.osl:6
+# 	if(circle <= R)
+	length		___305_circle ___305_uv 	%line{6} %argrw{"wr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\Crescent.osl:7
+# 		return 1.0;
+	le		$tmp5 ___305_circle rad 	%line{7} %argrw{"wrr"}
+	if		$tmp5 13 15 	%argrw{"r"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\Crescent.osl:8
+# 	else
+	assign		t1 $const5 	%line{8} %argrw{"wr"}
+	return
+# F:\\502\\maya\\projects\\RfM_osl\\src\\Crescent.osl:10
+# 	}
+	assign		t1 $const3 	%line{10} %argrw{"wr"}
+	return
+# F:\\502\\maya\\projects\\RfM_osl\\src\\Crescent.osl:53
+# t2 = 1.0 - t2;
+	add		$tmp6 x_pos $const6 	%line{53} %argrw{"wrr"}
+	functioncall	$const1 31 	%argrw{"r"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\Crescent.osl:3
+# 	uv[0] = uv[0] - x_pos;
+	vector		___305_uv s t $const3 	%line{3} %argrw{"wrrr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\Crescent.osl:4
+# 	uv[1] = uv[1] - y_pos;
+	compref		$tmp7 ___305_uv $const2 	%line{4} %argrw{"wrr"}
+	sub		$tmp8 $tmp7 $tmp6 	%argrw{"wrr"}
+	compassign	___305_uv $const2 $tmp8 	%argrw{"wrr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\Crescent.osl:5
+# 	float circle = length(uv);
+	compref		$tmp9 ___305_uv $const4 	%line{5} %argrw{"wrr"}
+	sub		$tmp10 $tmp9 y_pos 	%argrw{"wrr"}
+	compassign	___305_uv $const4 $tmp10 	%argrw{"wrr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\Crescent.osl:6
+# 	if(circle <= R)
+	length		___305_circle ___305_uv 	%line{6} %argrw{"wr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\Crescent.osl:7
+# 		return 1.0;
+	le		$tmp11 ___305_circle rad 	%line{7} %argrw{"wrr"}
+	if		$tmp11 29 31 	%argrw{"r"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\Crescent.osl:8
+# 	else
+	assign		t2 $const5 	%line{8} %argrw{"wr"}
+	return
+# F:\\502\\maya\\projects\\RfM_osl\\src\\Crescent.osl:10
+# 	}
+	assign		t2 $const3 	%line{10} %argrw{"wr"}
+	return
+# F:\\502\\maya\\projects\\RfM_osl\\src\\Crescent.osl:54
+# 
+	sub		t2 $const5 t2 	%line{54} %argrw{"wrr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\Crescent.osl:56
+# 
+	mul		t1 t1 t2 	%line{56} %argrw{"wrr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\Crescent.osl:58
+# if(t1 >= 1.0)
+	assign		res $const3 	%line{58} %argrw{"wr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\Crescent.osl:59
+# 	resultRGB=col;
+	ge		$tmp12 t1 $const5 	%line{59} %argrw{"wrr"}
+	if		$tmp12 37 38 	%argrw{"r"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\Crescent.osl:60
+# else
+	assign		resultRGB col 	%line{60} %argrw{"wr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\Crescent.osl:62
+# //circle = clamp(circle,0.0,1.0);
+	assign		resultRGB col2 	%line{62} %argrw{"wr"}
+	end

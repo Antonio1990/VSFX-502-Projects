@@ -1,0 +1,1883 @@
+##RenderMan RIB
+#Created by RenderMan for Maya 21.3 (@1715407 Feb 15 2017)
+#Thu Apr 06 11:42:00 PM Eastern Daylight Time 2017
+version 3.04
+Option "ribparse" "string varsubst" [""]
+Option "ribparse" "string varsubst" ["$"]
+IfBegin "!defined(RMSPROJ_FROM_ENV)" 
+	Option "user" "string RMSPROJ" ["C:/Users/User/Desktop/502/maya/projects/502/Pixar/"]
+IfEnd 
+IfBegin "!defined(RMSTREE)" 
+	Option "user" "string RMSTREE" ["C:/Program Files/Pixar/RenderManForMaya-21.3-maya2017/"]
+IfEnd 
+Option "searchpath" "string resource" ["${RMSPROJ}:@"]
+Option "searchpath" "string archive" ["${RMSPROJ}:."]
+Option "searchpath" "string display" ["${RMSTREE}/bin:@"]
+Option "searchpath" "string shader" ["${RMSTREE}/lib/shaders/:${RMANTREE}/lib/shaders://C/Users/User/Documents/maya/projects/RfM_osl:@"]
+Option "searchpath" "string texture" ["${RMSPROJ}:${RMSTREE}/lib/textures/:@"]
+Option "searchpath" "string rixplugin" ["${RMSTREE}/lib/shaders/://C/Users/User/Documents/maya/projects/RfM_ris:@"]
+Option "searchpath" "string dirmap" [""]
+Option "searchpath" "string rifilter" ["${RMSTREE}/lib/rif/:${RMANTREE}/lib/plugins:@"]
+Option "searchpath" "string procedural" ["${RMSTREE}/lib/plugins/:${RMSTREE}/lib/plugins:${RMANTREE}/lib/plugins:@"]
+##rifcontrol insert begin -rif RLFInjector -rifend
+FrameBegin 1
+	Identity 
+	Option "user" "string pass_id" ["perspShape_Final"] "string pass_phase" ["/Job/Frames/Images"] "string pass_class" ["Final"] "string pass_flavor" [""] "string pass_crew" [""] "string pass_camera_name" ["perspShape"] "string pass_camera_flavor" [""] "string pass_layer" [""] "string renderer" ["RIS"] "int pass_features_trace" [1] "int input_color_profile" [0]
+	Option "shading" "int directlightingservices" [1]
+	Option "trace" "int maxdepth" [10]
+	PixelVariance 0.05
+	Option "bucket" "string order" ["spiral"]
+	Option "limits" "int[2] bucketsize" [16 16]
+	Option "trace" "float decimationrate" [1]
+	Option "hair" "float minwidth" [0.5]
+	Option "user" "int iesIgnoreWatts" [1]
+	Option "statistics" "int level" [1]
+	Option "statistics" "string filename" ["stdout"]
+	Option "statistics" "string xmlfilename" ["renderman/Kitchen_PUP_06/rib/0001/perspShape_Final.0001.xml"]
+	Option "limits" "color zthreshold" [0.996 0.996 0.996]
+	Option "limits" "color othreshold" [0.996 0.996 0.996]
+	Option "limits" "int texturememory" [2097152]
+	Option "limits" "int geocachememory" [2097152]
+	Option "limits" "int proceduralmemory" [0]
+	Option "limits" "int deepshadowtiles" [1000]
+	Option "limits" "int deepshadowmemory" [102400]
+	Option "limits" "int brickmemory" [10240]
+	Option "user" "float sceneUnits" [1]
+	Option "lpe" "string diffuse2" ["Diffuse"]
+	Option "lpe" "string diffuse3" ["Subsurface"]
+	Option "lpe" "string specular2" ["Specular"]
+	Option "lpe" "string specular3" ["RoughSpecular"]
+	Option "lpe" "string specular4" ["Clearcoat"]
+	Option "lpe" "string specular5" ["Iridescence"]
+	Option "lpe" "string specular6" ["Fuzz"]
+	Option "lpe" "string specular7" ["SingleScatter"]
+	Option "lpe" "string specular8" ["Glass"]
+	Option "limits" "int opacitycachememory" [1024000]
+	CropWindow 0 1 0 1
+	Hider "raytrace" "int adaptall" [0] "int incremental" [1] "string pixelfiltermode" ["weighted"] "int minsamples" [0] "int minextrasamples" [0] "int maxsamples" [64] "float darkfalloff" [0.025]
+	Integrator "PxrPathTracer" "PxrPathTracer" "int maxPathLength" [10] "int maxContinuationLength" [-1] "string sampleMode" ["bxdf"] "int numLightSamples" [1] "int numBxdfSamples" [1] "int numIndirectSamples" [1] "int numDiffuseSamples" [1] "int numSpecularSamples" [1] "int numSubsurfaceSamples" [1] "int numRefractionSamples" [1] "int allowCaustics" [0] "int accumOpacity" [0] "int rouletteDepth" [4] "float rouletteThreshold" [0.2] "int clampDepth" [2] "float clampLuminance" [10] "string imagePlaneSubset" ["rman__imageplane"]
+	Format 960 540 1
+	Display "renderman/Kitchen_PUP_06/images/Kitchen_PUP_06.exr" "openexr" "rgba" "string filter" ["gaussian"] "float[2] filterwidth" [2 2] "int[4] quantize" [0 0 0 0] "float dither" [0] "float[2] exposure" [1 1] "float[3] remap" [0 0 0]
+	#Camera perspShape
+	Clipping 0.1 10000
+	Projection "perspective" "fov" [54.4322]
+	ScreenWindow -1 1 -0.5625 0.5625
+	Shutter 0 0
+	ConcatTransform [ 0.823136 -0.276495 -0.495981 9.65184e-012  2.80068e-008 0.873447 -0.48692 4.30129e-011  -0.567844 -0.400802 -0.718966 8.70774e-011  -199.644 -93.7219 93.7951 1 ]
+	Camera "world" "float[2] shutteropening" [0 1]
+	Option "user" "color camera_bg" [0 0 0] "float camera_bga" [0]
+	DisplayFilter "PxrBackgroundDisplayFilter" "background" "color backgroundColor" [0 0 0]
+	ResourceBegin 
+		WorldBegin 
+			##RLF ScopeBegin -name perspShape_Final -localbinding 1 -rlffilename renderman/Kitchen_PUP_06/rib/0001/perspShape_Final.0001.rlf -namespace 
+			ScopedCoordinateSystem "world_ref"
+			TransformBegin 
+				ConcatTransform [ 1 0 0 0  0 1 0 0  0 0 1 0  0 0 0 1 ]
+				ScopedCoordinateSystem "place3dTexture1"
+			TransformEnd 
+			Attribute "user" "float[17] place2dTexture1" [1 1 0 0 0
+				0 0 0 1 1 1 1 0 0 0 0 0]
+			Attribute "user" "float[17] place2dTexture3" [1 1 0 0 0
+				0 0 0 1 1 200 200 0 0 0 0 0]
+			Attribute "visibility" "int transmission" [1] "int indirect" [1]
+			Bxdf "PxrDiffuse" "default" 
+			Attribute "user" "int shader_bindingstrength" [0]
+			Attribute "trace" "int maxdiffusedepth" [1] "int maxspeculardepth" [2] "int samplemotion" [1] "float autobias" [1] "float bias" [0.001] "int displacements" [1]
+			Attribute "dice" "string referencecamera" ["worldcamera"] "float minlength" [-1] "float micropolygonlength" [1] "int watertight" [0]
+			Attribute "procedural" "int reentrant" [1]
+			Attribute "displacementbound" "string coordinatesystem" ["shader"] "float sphere" [0]
+			AttributeBegin 
+				Attribute "identifier" "string name" ["PxrDistantLightShape1"]
+				Transform [ 39.985 -20.711 122.703 0  74.0098 181.549 6.52619 0  -171.468 67.4823 67.2665 0  -376.393 172.777 39.4495 1 ]
+				Rotate 180 0 1 0
+				Scale 1 -1 1
+				Attribute "visibility" "int camera" [0]
+				Attribute "visibility" "int indirect" [0] "int transmission" [0]
+				Attribute "visibility" "int camera" [0]
+				Light "PxrDistantLight" "PxrDistantLightShape1" "float intensity" [5000] "float exposure" [3] "float angleExtent" [0.53] "color lightColor" [0.618 0.788894 1] "int enableTemperature" [1] "float temperature" [10000] "float emissionFocus" [0] "color emissionFocusTint" [0 0 0] "float specular" [1] 
+					"float diffuse" [1] "int enableShadows" [1] "color shadowColor" [0 0 0] "float shadowDistance" [-1] "float shadowFalloff" [-1] "float shadowFalloffGamma" [1] "string shadowSubset" [""] "string shadowExcludeSubset" [""] "int areaNormalize" [0] "int traceLightPaths" [0] "int thinShadow" [1] "int fixedSampleCount" [0] "string lightGroup" [""] "float importanceMultiplier" [1] 
+					"__instanceid" ["PxrDistantLightShape1_0"]
+			AttributeEnd 
+			Illuminate "PxrDistantLightShape1" 1
+			AttributeBegin 
+				Attribute "identifier" "string name" ["PxrEnvDayLightShape1"]
+				Attribute "grouping" "string membership" ["+rman__imageplane"]
+				Transform [ 27.0154 0 0 0  0 27.0154 0 0  0 0 27.0154 0  -366.997 0 -323.761 1 ]
+				Rotate -90 1 0 0
+				Scale -1 1 1
+				Attribute "visibility" "int camera" [1]
+				Attribute "visibility" "int indirect" [0] "int transmission" [0]
+				Attribute "visibility" "int camera" [1]
+				Light "PxrEnvDayLight" "PxrEnvDayLightShape1" "float intensity" [1] "float exposure" [0] "vector sunDirection" [0 0 1] "float haziness" [1.8] "color skyTint" [0.130995 0.21868 0.369] "color sunTint" [0.23 0.513681 1] 
+					"float sunSize" [1] "int month" [11] "int day" [1] "int year" [2015] "float hour" [23] "float zone" [-6.1573] "float latitude" [-88] "float longitude" [-107.191] "float specular" [1] "float diffuse" [1] "int enableShadows" [1] "color shadowColor" [0 0 0] 
+					"float shadowDistance" [-1] "float shadowFalloff" [-1] "float shadowFalloffGamma" [1] "string shadowSubset" [""] "string shadowExcludeSubset" [""] "int traceLightPaths" [0] "int thinShadow" [1] "int fixedSampleCount" [0] "string lightGroup" [""] "float importanceMultiplier" [1] "__instanceid" ["PxrEnvDayLightShape1_0"]
+			AttributeEnd 
+			Illuminate "PxrEnvDayLightShape1" 1
+			AttributeBegin 
+				Attribute "identifier" "string name" ["PxrSphereLightShape1"]
+				Transform [ 37.4623 0 0 0  0 8.31831e-015 37.4623 0  0 -18.3149 4.06673e-015 0  -29.7476 231.488 77.7219 1 ]
+				Rotate 180 0 1 0
+				Scale 1 -1 1
+				Attribute "visibility" "int camera" [0]
+				Attribute "visibility" "int indirect" [0] "int transmission" [0]
+				Attribute "visibility" "int camera" [0]
+				Light "PxrSphereLight" "PxrSphereLightShape1" "float intensity" [10] "float exposure" [1] "color lightColor" [1 1 1] "int enableTemperature" [1] "float temperature" [4000] "float emissionFocus" [0] "color emissionFocusTint" [0 0 0] "float specular" [1] "float diffuse" [1] 
+					"float intensityNearDist" [0] "float coneAngle" [90] "float coneSoftness" [0] "string iesProfile" [""] "float iesProfileScale" [0] "int enableShadows" [1] "color shadowColor" [0 0 0] "float shadowDistance" [-1] "float shadowFalloff" [-1] "float shadowFalloffGamma" [1] "string shadowSubset" [""] "string shadowExcludeSubset" [""] 
+					"int areaNormalize" [0] "int traceLightPaths" [0] "int thinShadow" [1] "int fixedSampleCount" [0] "string lightGroup" [""] "float importanceMultiplier" [1] "__instanceid" ["PxrSphereLightShape1_0"]
+			AttributeEnd 
+			Illuminate "PxrSphereLightShape1" 1
+			AttributeBegin 
+				Attribute "identifier" "string name" ["PxrRectLightShape1"]
+				Transform [ -11.8921 0 -347.152 0  0 347.355 0 0  347.152 0 -11.8921 0  384.909 129.158 108.57 1 ]
+				Rotate 180 0 1 0
+				Scale 1 -1 1
+				Attribute "visibility" "int camera" [0]
+				Attribute "visibility" "int indirect" [0] "int transmission" [0]
+				Attribute "visibility" "int camera" [0]
+				Light "PxrRectLight" "PxrRectLightShape1" "float intensity" [0.25] "float exposure" [0] "color lightColor" [1 1 1] "string lightColorMap" [""] "int enableTemperature" [1] "float temperature" [10000] "float emissionFocus" [0] "color emissionFocusTint" [0 0 0] "float specular" [0.101124] 
+					"float diffuse" [1] "float intensityNearDist" [0] "float coneAngle" [90] "float coneSoftness" [0] "string iesProfile" [""] "float iesProfileScale" [0] "int enableShadows" [1] "color shadowColor" [0 0 0] "float shadowDistance" [-1] "float shadowFalloff" [-1] "float shadowFalloffGamma" [1] 
+					"string shadowSubset" [""] "string shadowExcludeSubset" [""] "int areaNormalize" [0] "int traceLightPaths" [0] "int thinShadow" [1] "int fixedSampleCount" [0] "string lightGroup" [""] "float importanceMultiplier" [1] "__instanceid" ["PxrRectLightShape1_0"]
+			AttributeEnd 
+			Illuminate "PxrRectLightShape1" 1
+			AttributeBegin 
+			AttributeEnd 
+			AttributeBegin 
+			AttributeEnd 
+			AttributeBegin 
+			AttributeEnd 
+			AttributeBegin 
+			AttributeEnd 
+			AttributeBegin 
+				Attribute "identifier" "string name" ["kitchen_group"]
+				Attribute "identifier" "float id" [176]
+				ConcatTransform [ 1 0 -0 0  -0 2.22045e-016 -1 0  0 1 2.22045e-016 0  0 0 4.13022e-016 1 ]
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+					Attribute "identifier" "string name" ["NewStove"]
+					Attribute "identifier" "float id" [73]
+					ConcatTransform [ 1 0 0 0  0 2.22045e-016 1 0  0 -1 2.22045e-016 0  -90.9458 -2.30954 -5.88652e-015 1 ]
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCube203"]
+						Attribute "identifier" "float id" [236]
+						ConcatTransform [ 67.4452 0 0 0  0 14.6322 0 0  0 0 4.33807 0  238.834 75.7324 -137.033 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCubeShape203"]
+								Attribute "identifier" "float id" [2315]
+								Sides 1
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,light_GraySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCubeShape203.job.rib"] "float[6] bound" [-0.500429 0.500428 -0.502372 0.764963 -0.541597 0.782886] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCube204"]
+						Attribute "identifier" "float id" [237]
+						ConcatTransform [ 18.1689 0 -0 0  -0 5.99303 -1.45828 0  0 0.184217 0.757069 0  209.954 110.716 -135.08 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCubeShape204"]
+								Attribute "identifier" "float id" [2316]
+								Sides 1
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,light_GraySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCubeShape204.job.rib"] "float[6] bound" [-0.499999 0.5 -0.45159 0.5 -0.500015 0.735903] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCube207"]
+						Attribute "identifier" "float id" [238]
+						ConcatTransform [ 28.8829 0 0 0  0 1.76439 0 0  0 0 5.67241 0  239.257 25.482 -63.4737 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCubeShape207"]
+								Attribute "identifier" "float id" [2317]
+								Sides 1
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeShineySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCubeShape207.job.rib"] "float[6] bound" [-0.60848 0.547579 -0.451591 0.923474 -0.5 0.421625] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCube210"]
+						Attribute "identifier" "float id" [239]
+						ConcatTransform [ 7.39183 0 0 0  0 8.62506 0 0  0 0 4.03286 0  219.071 120.281 -137.686 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCubeShape210"]
+								Attribute "identifier" "float id" [2318]
+								Sides 1
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,light_GraySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCubeShape210.job.rib"] "float[6] bound" [-0.560902 0.499998 -0.451591 0.923472 -0.5 0.500008] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCube218"]
+						Attribute "identifier" "float id" [240]
+						ConcatTransform [ 0.998804 0.0488995 0 0  -0.0488995 0.998804 0 0  0 0 1 0  4.91946 -10.6101 0 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCube218Shape"]
+								Attribute "identifier" "float id" [2256]
+								Sides 1
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,BurnerBlackMetalSG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCube218Shape.job.rib"] "float[6] bound" [206.442 232.152 92.0989 97.466 -100.845 -75.0961] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCube230"]
+						Attribute "identifier" "float id" [241]
+						ConcatTransform [ 1 0 0 0  0 1 0 0  0 0 1 0  96.7826 0 0 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCube230Shape"]
+								Attribute "identifier" "float id" [2257]
+								Sides 1
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeSG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCube230Shape.job.rib"] "float[6] bound" [100.001 183.719 82.6211 116.35 -139.881 -68.7989] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["BurnerVariants"]
+						Attribute "identifier" "float id" [19]
+						ConcatTransform [ 1 0 0 0  0 1 0 0  0 0 1 0  0 0 0 1 ]
+						AttributeBegin 
+						AttributeEnd 
+						AttributeBegin 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["DustPan2"]
+						Attribute "identifier" "float id" [45]
+						ConcatTransform [ 1 0 0 0  0 1 0 0  0 0 1 0  96.7826 0 0 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["DustPan2Shape"]
+								Attribute "identifier" "float id" [1929]
+								Sides 1
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeSG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/DustPan2Shape.job.rib"] "float[6] bound" [100.105 184.119 0.00488663 15.1294 -139.736 -68.9408] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder102"]
+						Attribute "identifier" "float id" [570]
+						ConcatTransform [ 3.51987 0 0 0  0 1.52022e-016 0.684646 0  0 -1.75879 3.9053e-016 0  226.932 25.9151 -68.0344 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape102"]
+								Attribute "identifier" "float id" [2642]
+								Sides 1
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeShineySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape102.job.rib"] "float[6] bound" [-1.10558 1.10557 -1 1.16378 -1.19401 1.19401] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCube243"]
+						Attribute "identifier" "float id" [245]
+						ConcatTransform [ 1 0 0 0  0 0.982841 0 0  0 0 1 0  96.7826 0.97436 0 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCube243Shape"]
+								Attribute "identifier" "float id" [2261]
+								Sides 1
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeSG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCube243Shape.job.rib"] "float[6] bound" [100.253 183.851 30.4269 83.1397 -139.861 -73.8006] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCube240"]
+						Attribute "identifier" "float id" [242]
+						ConcatTransform [ 1 0 0 0  0 1 0 0  0 0 1 0  96.7826 0 0 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCube240Shape"]
+								Attribute "identifier" "float id" [2258]
+								Sides 1
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeSG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCube240Shape.job.rib"] "float[6] bound" [100.298 183.805 14.8292 30.8065 -139.85 -73.8119] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCube241"]
+						Attribute "identifier" "float id" [243]
+						ConcatTransform [ 1 0 0 0  0 0.990894 0 0  0 0 0.0816871 0  0 0 -7.10543e-014 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCube241Shape"]
+								Attribute "identifier" "float id" [2259]
+								Sides 1
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeSG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCube241Shape.job.rib"] "float[6] bound" [197.065 280.604 31.0805 83.5105 -904.3 -838.899] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCube242"]
+						Attribute "identifier" "float id" [244]
+						ConcatTransform [ 1 0 0 0  0 0.775988 0 0  0 0 0.0816871 0  96.7826 -33.8001 -62.5732 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCube242Shape"]
+								Attribute "identifier" "float id" [2260]
+								Sides 1
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeSG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCube242Shape.job.rib"] "float[6] bound" [100.287 183.817 62.8645 83.1397 -139.531 -74.1303] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder106"]
+						Attribute "identifier" "float id" [571]
+						ConcatTransform [ 6.5042 0 0 0  0 0.218225 0 0  0 0 6.5042 0  219.154 92.2055 -88.2154 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape106"]
+								Attribute "identifier" "float id" [2643]
+								Sides 1
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,BurnerBlackMetalSG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape106.job.rib"] "float[6] bound" [-1 0.999998 -1 2.40721 -1 1] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder107"]
+						Attribute "identifier" "float id" [572]
+						ConcatTransform [ 2.56909 0 0 0  0 0.543631 0 0  0 0 2.56909 0  219.154 92.6639 -88.215 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape107"]
+								Attribute "identifier" "float id" [2644]
+								Sides 1
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeShineySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape107.job.rib"] "float[6] bound" [-1 1 -1 1 -1 1] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder108"]
+						Attribute "identifier" "float id" [573]
+						ConcatTransform [ 2.71747 0 0 0  0 0.144834 0 0  0 0 2.71747 0  219.154 93.1503 -88.215 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape108"]
+								Attribute "identifier" "float id" [2645]
+								Sides 1
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,BurnerBlackMetalSG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape108.job.rib"] "float[6] bound" [-1 1.00001 -1.46182 1 -1 1] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder109"]
+						Attribute "identifier" "float id" [574]
+						ConcatTransform [ 5.42666 0 0 0  0 0.182072 0 0  0 0 5.42666 0  219.154 92.131 -115.351 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape109"]
+								Attribute "identifier" "float id" [2646]
+								Sides 1
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,BurnerBlackMetalSG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape109.job.rib"] "float[6] bound" [-1 0.999998 -1 2.40721 -1 1] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder110"]
+						Attribute "identifier" "float id" [575]
+						ConcatTransform [ 2.12968 0 0 0  0 0.539498 0 0  0 0 2.12968 0  219.154 92.5696 -115.35 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape110"]
+								Attribute "identifier" "float id" [2647]
+								Sides 1
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeShineySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape110.job.rib"] "float[6] bound" [-1 1 -1 1 -1 1] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder111"]
+						Attribute "identifier" "float id" [576]
+						ConcatTransform [ 2.25269 0 0 0  0 0.120062 0 0  0 0 2.25269 0  219.154 93.2372 -115.35 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape111"]
+								Attribute "identifier" "float id" [2648]
+								Sides 1
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,BurnerBlackMetalSG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape111.job.rib"] "float[6] bound" [-1 1.00001 -1.46182 1 -1 1] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder112"]
+						Attribute "identifier" "float id" [577]
+						ConcatTransform [ 5.42666 0 0 0  0 0.182072 0 0  0 0 5.42666 0  257.591 92.131 -115.351 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape112"]
+								Attribute "identifier" "float id" [2649]
+								Sides 1
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,BurnerBlackMetalSG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape112.job.rib"] "float[6] bound" [-1 0.999998 -1 2.40721 -1 1] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder113"]
+						Attribute "identifier" "float id" [578]
+						ConcatTransform [ 2.12968 0 0 0  0 0.291723 0 0  0 0 2.12968 0  257.591 92.3412 -115.35 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape113"]
+								Attribute "identifier" "float id" [2650]
+								Sides 1
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeShineySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape113.job.rib"] "float[6] bound" [-1 1 -1 1 -1 1] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder114"]
+						Attribute "identifier" "float id" [579]
+						ConcatTransform [ 2.25269 0 0 0  0 0.120062 0 0  0 0 2.25269 0  257.591 92.7793 -115.35 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape114"]
+								Attribute "identifier" "float id" [2651]
+								Sides 1
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,light_GraySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape114.job.rib"] "float[6] bound" [-1 1.00001 -1.46182 1 -1 1] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder118"]
+						Attribute "identifier" "float id" [580]
+						ConcatTransform [ 2.71747 0 0 0  0 0.144834 0 0  0 0 2.71747 0  257.447 93.1503 -88.215 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape118"]
+								Attribute "identifier" "float id" [2652]
+								Sides 1
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,BurnerBlackMetalSG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape118.job.rib"] "float[6] bound" [-1 1.00001 -1.46182 1 -1 1] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder119"]
+						Attribute "identifier" "float id" [581]
+						ConcatTransform [ 2.56909 0 0 0  0 0.543631 0 0  0 0 2.56909 0  257.447 92.6639 -88.215 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape119"]
+								Attribute "identifier" "float id" [2653]
+								Sides 1
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeShineySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape119.job.rib"] "float[6] bound" [-1 1 -1 1 -1 1] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder120"]
+						Attribute "identifier" "float id" [582]
+						ConcatTransform [ 6.5042 0 0 0  0 0.218225 0 0  0 0 6.5042 0  257.447 92.2055 -88.2154 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape120"]
+								Attribute "identifier" "float id" [2654]
+								Sides 1
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,BurnerBlackMetalSG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape120.job.rib"] "float[6] bound" [-1 0.999998 -1 2.40721 -1 1] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder129"]
+						Attribute "identifier" "float id" [584]
+						ConcatTransform [ 0.996227 0.086791 0 0  -0.0867025 0.99521 0.0451604 0  0.00391951 -0.04499 0.99898 0  8.96368 -26.0427 -4.06934 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape129"]
+								Attribute "identifier" "float id" [2656]
+								Sides 1
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeShineySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape129.job.rib"] "float[6] bound" [265.267 275.275 83.5929 93.6014 -68.2806 -66.1103] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCube252"]
+						Attribute "identifier" "float id" [251]
+						ConcatTransform [ 0.999847 -0.0144426 0.0098899 0  0.0143509 0.999854 0.00928313 0  -0.0100225 -0.00913978 0.999908 0  -2.21484 2.37726 -30.2821 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCube252Shape"]
+								Attribute "identifier" "float id" [2262]
+								Sides 1
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,BurnerBlackMetalSG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCube252Shape.job.rib"] "float[6] bound" [206.442 232.152 92.0989 97.466 -100.845 -75.0961] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCube253"]
+						Attribute "identifier" "float id" [252]
+						ConcatTransform [ 0.999933 0.0115668 0 0  -0.0115668 0.999933 0 0  0 0 1 0  39.7745 -2.4244 0 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCube253Shape"]
+								Attribute "identifier" "float id" [2263]
+								Sides 1
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,BurnerBlackMetalSG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCube253Shape.job.rib"] "float[6] bound" [206.442 232.152 92.0989 97.466 -100.845 -75.0961] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCube254"]
+						Attribute "identifier" "float id" [253]
+						ConcatTransform [ 1 0 0 0  0 1 0 0  0 0 1 0  38.6582 0 -27.2209 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCube254Shape"]
+								Attribute "identifier" "float id" [2264]
+								Sides 1
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,BurnerBlackMetalSG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCube254Shape.job.rib"] "float[6] bound" [206.442 232.152 92.0989 97.466 -100.845 -75.0961] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder130"]
+						Attribute "identifier" "float id" [585]
+						ConcatTransform [ 3.51987 0 0 0  0 1.52022e-016 0.684646 0  0 -1.75879 3.9053e-016 0  249.594 25.9151 -68.0344 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape130"]
+								Attribute "identifier" "float id" [2657]
+								Sides 1
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeShineySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape130.job.rib"] "float[6] bound" [-1.10558 1.10557 -1 1.16378 -1.19401 1.19401] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder133"]
+						Attribute "identifier" "float id" [588]
+						ConcatTransform [ 3.51987 0 0 0  0 1.52022e-016 0.684646 0  0 -1.75879 3.9053e-016 0  -6.39788 49.9282 -0.00267474 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape133"]
+								Attribute "identifier" "float id" [2660]
+								Sides 1
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeShineySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape133.job.rib"] "float[6] bound" [63.3663 65.5774 -100.06 -97.8957 -15.9286 -13.5406] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCube259"]
+						Attribute "identifier" "float id" [256]
+						ConcatTransform [ 45.2447 0 0 0  0 2.54568 0 0  0 0 6.04574 0  -132.774 38.6446 4.1549 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCubeShape259"]
+								Attribute "identifier" "float id" [2326]
+								Sides 1
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeShineySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCubeShape259.job.rib"] "float[6] bound" [7.67523 8.83129 13.9908 15.3658 -11.6522 -10.7306] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder136"]
+						Attribute "identifier" "float id" [591]
+						ConcatTransform [ 3.51987 0 0 0  0 1.52022e-016 0.684646 0  0 -1.75879 3.9053e-016 0  11.3577 49.9282 -0.00267474 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape136"]
+								Attribute "identifier" "float id" [2663]
+								Sides 1
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeShineySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape136.job.rib"] "float[6] bound" [69.8044 72.0156 -100.06 -97.8957 -15.9286 -13.5406] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder139"]
+						Attribute "identifier" "float id" [592]
+						ConcatTransform [ 1 0 -0 0  -0 0.999236 -0.0390903 0  0 0.0390903 0.999236 0  0 2.68297 3.41215 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape139"]
+								Attribute "identifier" "float id" [2664]
+								Sides 1
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeShineySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape139.job.rib"] "float[6] bound" [248.695 258.703 83.5929 93.6014 -68.2806 -66.1103] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder141"]
+						Attribute "identifier" "float id" [594]
+						ConcatTransform [ 1 0 0 0  0 0.998935 0.0461507 0  0 -0.0461507 0.998935 0  0 -2.99321 -4.16011 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape141"]
+								Attribute "identifier" "float id" [2666]
+								Sides 1
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeShineySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape141.job.rib"] "float[6] bound" [204.108 214.117 83.5929 93.6014 -68.2806 -66.1103] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder143"]
+						Attribute "identifier" "float id" [596]
+						ConcatTransform [ 0.997726 -0.0644058 -0.0198729 0  0.0611383 0.988898 -0.135438 0  0.0283753 0.133915 0.990586 0  -3.01083 24.3148 16.1295 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape143"]
+								Attribute "identifier" "float id" [2668]
+								Sides 1
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeShineySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape143.job.rib"] "float[6] bound" [218.141 228.15 83.5929 93.6014 -68.2806 -66.1103] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder146"]
+						Attribute "identifier" "float id" [599]
+						ConcatTransform [ 0.981117 -0.193414 -8.67362e-019 0  0.192807 0.978036 0.0791882 0  -0.0153161 -0.0776929 0.99686 0  -13.6131 42.7773 -7.22594 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape146"]
+								Attribute "identifier" "float id" [2671]
+								Sides 1
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeShineySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape146.job.rib"] "float[6] bound" [232.582 243.383 83.197 93.9973 -68.3896 -66.0476] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder140"]
+						Attribute "identifier" "float id" [593]
+						ConcatTransform [ 1 0 -0 0  -0 0.999236 -0.0390903 0  0 0.0390903 0.999236 0  0 2.6345 3.41297 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape140"]
+								Attribute "identifier" "float id" [2665]
+								Sides 2
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeShineySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape140.job.rib"] "float[6] bound" [252.201 255.182 84.1752 92.9384 -67.6745 -64.495] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder142"]
+						Attribute "identifier" "float id" [595]
+						ConcatTransform [ 1 0 0 0  0 0.998935 0.0461507 0  0 -0.0461507 0.998935 0  0 -2.936 -4.15863 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape142"]
+								Attribute "identifier" "float id" [2667]
+								Sides 2
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeShineySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape142.job.rib"] "float[6] bound" [207.615 210.595 84.1752 92.9384 -67.6745 -64.495] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder144"]
+						Attribute "identifier" "float id" [597]
+						ConcatTransform [ 0.997726 -0.0644058 -0.0198729 0  0.0611383 0.988898 -0.135438 0  0.0283753 0.133915 0.990586 0  -3.04582 24.1483 16.1406 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape144"]
+								Attribute "identifier" "float id" [2669]
+								Sides 2
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeShineySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape144.job.rib"] "float[6] bound" [221.648 224.628 84.1752 92.9384 -67.6745 -64.495] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder145"]
+						Attribute "identifier" "float id" [598]
+						ConcatTransform [ 0.998326 0.0578459 0 0  -0.0576642 0.99519 0.0791882 0  0.00458071 -0.0790556 0.99686 0  5.80796 -18.5308 -7.22179 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape145"]
+								Attribute "identifier" "float id" [2670]
+								Sides 2
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeShineySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape145.job.rib"] "float[6] bound" [236.367 239.583 83.8257 93.2822 -67.8337 -64.4026] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder128"]
+						Attribute "identifier" "float id" [583]
+						ConcatTransform [ 0.996227 0.086791 0 0  -0.0867025 0.99521 0.0451604 0  0.00391951 -0.04499 0.99898 0  8.9585 -25.9863 -4.06792 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape128"]
+								Attribute "identifier" "float id" [2655]
+								Sides 2
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeShineySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape128.job.rib"] "float[6] bound" [268.773 271.754 84.1752 92.9384 -67.6745 -64.495] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pSphere44"]
+						Attribute "identifier" "float id" [1417]
+						ConcatTransform [ 0.662099 0 0 0  0 8.87781e-017 0.399821 0  0 -0.662099 1.47015e-016 0  268.964 93.9722 -68.7853 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pSphereShape44"]
+								Attribute "identifier" "float id" [3484]
+								Sides 2
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeShineySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pSphereShape44.job.rib"] "float[6] bound" [-1 1 0 1 -0.951057 0.951057] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pSphere43"]
+						Attribute "identifier" "float id" [1416]
+						ConcatTransform [ 0.662099 0 0 0  0 8.87781e-017 0.399821 0  0 -0.662099 1.47015e-016 0  271.358 93.9722 -68.7853 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pSphereShape43"]
+								Attribute "identifier" "float id" [3483]
+								Sides 2
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeShineySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pSphereShape43.job.rib"] "float[6] bound" [-1 1 0 1 -0.951057 0.951057] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pSphere42"]
+						Attribute "identifier" "float id" [1415]
+						ConcatTransform [ 0.662099 0 0 0  0 8.87781e-017 0.399821 0  0 -0.662099 1.47015e-016 0  252.509 93.9722 -68.7853 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pSphereShape42"]
+								Attribute "identifier" "float id" [3482]
+								Sides 2
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeShineySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pSphereShape42.job.rib"] "float[6] bound" [-1 1 0 1 -0.951057 0.951057] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pSphere41"]
+						Attribute "identifier" "float id" [1414]
+						ConcatTransform [ 0.662099 0 0 0  0 8.87781e-017 0.399821 0  0 -0.662099 1.47015e-016 0  254.903 93.9722 -68.7853 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pSphereShape41"]
+								Attribute "identifier" "float id" [3481]
+								Sides 2
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeShineySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pSphereShape41.job.rib"] "float[6] bound" [-1 1 0 1 -0.951057 0.951057] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pSphere40"]
+						Attribute "identifier" "float id" [1413]
+						ConcatTransform [ 0.662099 0 0 0  0 8.87781e-017 0.399821 0  0 -0.662099 1.47015e-016 0  240.221 94.3304 -68.7853 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pSphereShape40"]
+								Attribute "identifier" "float id" [3480]
+								Sides 2
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeShineySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pSphereShape40.job.rib"] "float[6] bound" [-1 1 0 1 -0.951057 0.951057] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pSphere39"]
+						Attribute "identifier" "float id" [1412]
+						ConcatTransform [ 0.662099 0 0 0  0 8.87781e-017 0.399821 0  0 -0.662099 1.47015e-016 0  237.93 94.6091 -68.7853 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pSphereShape39"]
+								Attribute "identifier" "float id" [3479]
+								Sides 2
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeShineySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pSphereShape39.job.rib"] "float[6] bound" [-1 1 0 1 -0.951057 0.951057] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pSphere38"]
+						Attribute "identifier" "float id" [1411]
+						ConcatTransform [ 0.662099 0 0 0  0 8.87781e-017 0.399821 0  0 -0.662099 1.47015e-016 0  235.576 94.3304 -68.7853 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pSphereShape38"]
+								Attribute "identifier" "float id" [3478]
+								Sides 2
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeShineySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pSphereShape38.job.rib"] "float[6] bound" [-1 1 0 1 -0.951057 0.951057] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pSphere37"]
+						Attribute "identifier" "float id" [1410]
+						ConcatTransform [ 0.662099 0 0 0  0 8.87781e-017 0.399821 0  0 -0.662099 1.47015e-016 0  210.386 93.8697 -68.7853 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pSphereShape37"]
+								Attribute "identifier" "float id" [3477]
+								Sides 2
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeShineySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pSphereShape37.job.rib"] "float[6] bound" [-1 1 0 1 -0.951057 0.951057] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pSphere36"]
+						Attribute "identifier" "float id" [1409]
+						ConcatTransform [ 0.662099 0 0 0  0 8.87781e-017 0.399821 0  0 -0.662099 1.47015e-016 0  207.992 93.8697 -68.6392 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pSphereShape36"]
+								Attribute "identifier" "float id" [3476]
+								Sides 2
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeShineySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pSphereShape36.job.rib"] "float[6] bound" [-1 1.00002 -0.0664368 0.999985 -0.95105 0.95108] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pSphere35"]
+						Attribute "identifier" "float id" [1408]
+						ConcatTransform [ 0.662099 0 0 0  0 8.87781e-017 0.399821 0  0 -0.662099 1.47015e-016 0  221.883 93.8697 -68.7853 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pSphereShape35"]
+								Attribute "identifier" "float id" [3475]
+								Sides 2
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeShineySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pSphereShape35.job.rib"] "float[6] bound" [-1 1 0 1 -0.951057 0.951057] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pSphere34"]
+						Attribute "identifier" "float id" [1407]
+						ConcatTransform [ 0.662099 0 0 0  0 8.87781e-017 0.399821 0  0 -0.662099 1.47015e-016 0  224.277 93.8697 -68.7853 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pSphereShape34"]
+								Attribute "identifier" "float id" [3474]
+								Sides 2
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeShineySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pSphereShape34.job.rib"] "float[6] bound" [-1 1 0 1 -0.951057 0.951057] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder344"]
+						Attribute "identifier" "float id" [720]
+						ConcatTransform [ 1.42287e-016 7.11435e-017 0.640804 0  0.135165 0 -4.5019e-017 0  -7.11435e-017 0.640804 -1.42287e-016 0  197.073 19.1682 -72.1036 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape344"]
+								Attribute "identifier" "float id" [2788]
+								Sides 2
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,light_GraySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape344.job.rib"] "float[6] bound" [-1 0.999992 -1.00012 0.999756 -0.951065 0.951057] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder345"]
+						Attribute "identifier" "float id" [721]
+						ConcatTransform [ 1.42287e-016 7.11435e-017 0.640804 0  0.135165 0 -4.5019e-017 0  -7.11435e-017 0.640804 -1.42287e-016 0  197.073 25.9607 -72.1036 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape345"]
+								Attribute "identifier" "float id" [2789]
+								Sides 2
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,light_GraySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape345.job.rib"] "float[6] bound" [-1 0.999992 -1.00012 0.999756 -0.951065 0.951057] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder346"]
+						Attribute "identifier" "float id" [722]
+						ConcatTransform [ 1.42287e-016 7.11435e-017 0.640804 0  0.135165 0 -4.5019e-017 0  -7.11435e-017 0.640804 -1.42287e-016 0  197.008 35.9521 -72.1036 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape346"]
+								Attribute "identifier" "float id" [2790]
+								Sides 2
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,light_GraySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape346.job.rib"] "float[6] bound" [-1 0.999992 -1.00012 0.999756 -0.951065 0.951057] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder347"]
+						Attribute "identifier" "float id" [723]
+						ConcatTransform [ 1.42287e-016 7.11435e-017 0.640804 0  0.135165 0 -4.5019e-017 0  -7.11435e-017 0.640804 -1.42287e-016 0  197.073 77.6812 -72.1036 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape347"]
+								Attribute "identifier" "float id" [2791]
+								Sides 2
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,light_GraySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape347.job.rib"] "float[6] bound" [-1 0.999992 -1.00012 0.999756 -0.951065 0.951057] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCube416"]
+						Attribute "identifier" "float id" [408]
+						ConcatTransform [ 8.52179 0 -0 0  -0 1.0487e-015 -4.72291 0  0 0.770493 1.71084e-016 0  218.821 128.641 -137.653 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCubeShape416"]
+								Attribute "identifier" "float id" [2478]
+								Sides 1
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,light_GraySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCubeShape416.job.rib"] "float[6] bound" [-0.50911 0.509112 -0.522442 0.51696 -1.18276 0.603581] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder135"]
+						Attribute "identifier" "float id" [590]
+						ConcatTransform [ 2.0674 0 0 0  0 2.22045e-016 1 0  0 -1 2.22045e-016 0  108.009 49.9282 0.495284 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape135"]
+								Attribute "identifier" "float id" [2662]
+								Sides 2
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeShineySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape135.job.rib"] "float[6] bound" [72.7917 75.0277 -67.9933 -66.0705 -27.1046 -24.8686] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder134"]
+						Attribute "identifier" "float id" [589]
+						ConcatTransform [ 2.0674 0 0 0  0 2.22045e-016 1 0  0 -1 2.22045e-016 0  90.2539 49.9282 0.495284 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape134"]
+								Attribute "identifier" "float id" [2661]
+								Sides 2
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeShineySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape134.job.rib"] "float[6] bound" [61.8342 64.0702 -67.9933 -66.0705 -27.1046 -24.8686] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder132"]
+						Attribute "identifier" "float id" [587]
+						ConcatTransform [ 2.0674 0 0 0  0 2.22045e-016 1 0  0 -1 2.22045e-016 0  249.681 25.9866 -67.1321 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape132"]
+								Attribute "identifier" "float id" [2659]
+								Sides 2
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeShineySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape132.job.rib"] "float[6] bound" [-1.118 1.118 -1.05893 0.863863 -1.118 1.118] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder131"]
+						Attribute "identifier" "float id" [586]
+						ConcatTransform [ 2.0674 0 0 0  0 2.22045e-016 1 0  0 -1 2.22045e-016 0  227.028 25.9866 -67.1321 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape131"]
+								Attribute "identifier" "float id" [2658]
+								Sides 2
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeShineySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape131.job.rib"] "float[6] bound" [-1.118 1.118 -1.05893 0.863863 -1.118 1.118] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder161"]
+						Attribute "identifier" "float id" [609]
+						ConcatTransform [ 1.78436 0 -0 0  -0 5.62733e-017 -0.253432 0  0 1.78436 3.96207e-016 0  208.981 88.6763 -68.5329 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape161"]
+								Attribute "identifier" "float id" [2681]
+								Sides 2
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,light_GraySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape161.job.rib"] "float[6] bound" [-1 1 -1 1 -1 1] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder370"]
+						Attribute "identifier" "float id" [778]
+						ConcatTransform [ 1.78436 0 -0 0  -0 5.62733e-017 -0.253432 0  0 1.78436 3.96207e-016 0  223.572 88.6763 -68.5329 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape370"]
+								Attribute "identifier" "float id" [2846]
+								Sides 2
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,light_GraySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape370.job.rib"] "float[6] bound" [-1 1 -1 1 -1 1] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder371"]
+						Attribute "identifier" "float id" [779]
+						ConcatTransform [ 1.78436 0 -0 0  -0 5.62733e-017 -0.253432 0  0 1.78436 3.96207e-016 0  238.15 88.6763 -68.5329 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape371"]
+								Attribute "identifier" "float id" [2847]
+								Sides 2
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,light_GraySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape371.job.rib"] "float[6] bound" [-1 1 -1 1 -1 1] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder372"]
+						Attribute "identifier" "float id" [780]
+						ConcatTransform [ 1.78436 0 -0 0  -0 5.62733e-017 -0.253432 0  0 1.78436 3.96207e-016 0  253.883 88.6763 -68.5329 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape372"]
+								Attribute "identifier" "float id" [2848]
+								Sides 2
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,light_GraySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape372.job.rib"] "float[6] bound" [-1 1 -1 1 -1 1] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder373"]
+						Attribute "identifier" "float id" [781]
+						ConcatTransform [ 1.78436 0 -0 0  -0 5.62733e-017 -0.253432 0  0 1.78436 3.96207e-016 0  270.51 88.6763 -68.5329 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape373"]
+								Attribute "identifier" "float id" [2849]
+								Sides 2
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,light_GraySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape373.job.rib"] "float[6] bound" [-1 1 -1 1 -1 1] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder162"]
+						Attribute "identifier" "float id" [610]
+						ConcatTransform [ 1.42287e-016 -7.11435e-017 -0.640804 0  -0.336836 0 -1.12189e-016 0  7.11435e-017 0.640804 -1.42287e-016 0  280.819 35.9521 -72.1036 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape162"]
+								Attribute "identifier" "float id" [2682]
+								Sides 2
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeShineySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape162.job.rib"] "float[6] bound" [-1 0.999992 -1.00012 0.999756 -0.951065 0.951057] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder396"]
+						Attribute "identifier" "float id" [805]
+						ConcatTransform [ 1.42287e-016 -7.11435e-017 -0.640804 0  -0.234101 0 -7.79714e-017 0  7.11435e-017 0.640804 -1.42287e-016 0  280.716 26.0026 -72.1036 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape396"]
+								Attribute "identifier" "float id" [2873]
+								Sides 2
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeShineySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape396.job.rib"] "float[6] bound" [-1 0.999992 -1.00012 0.999756 -0.951065 0.951057] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder397"]
+						Attribute "identifier" "float id" [806]
+						ConcatTransform [ 1.42287e-016 -7.11435e-017 -0.640804 0  -0.234101 0 -7.79714e-017 0  7.11435e-017 0.640804 -1.42287e-016 0  280.716 19.205 -72.1036 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape397"]
+								Attribute "identifier" "float id" [2874]
+								Sides 2
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeShineySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape397.job.rib"] "float[6] bound" [-1 0.999992 -1.00012 0.999756 -0.951065 0.951057] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder535"]
+						Attribute "identifier" "float id" [1066]
+						ConcatTransform [ 1.42287e-016 -7.11435e-017 -0.640804 0  -0.336836 0 -1.12189e-016 0  7.11435e-017 0.640804 -1.42287e-016 0  280.819 77.674 -72.1036 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape535"]
+								Attribute "identifier" "float id" [3134]
+								Sides 2
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,FridgeShineySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape535.job.rib"] "float[6] bound" [-1 0.999992 -1.00012 0.999756 -0.951065 0.951057] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCube639"]
+						Attribute "identifier" "float id" [555]
+						ConcatTransform [ 1 0 0 0  0 0.990894 0 0  0 0 0.0816871 0  0 2.84217e-014 -125.424 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCube639Shape"]
+								Attribute "identifier" "float id" [2267]
+								Sides 1
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,light_GraySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCube639Shape.job.rib"] "float[6] bound" [197.065 280.604 31.0805 83.5105 -904.3 -838.899] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+				AttributeEnd 
+				AttributeBegin 
+					Attribute "identifier" "string name" ["Teapot"]
+					Attribute "identifier" "float id" [113]
+					ConcatTransform [ 0.937584 -0.347758 0 0  5.55112e-017 1.11022e-016 1 0  -0.347758 -0.937584 1.11022e-016 0  -22.2237 60.3478 0.437684 1 ]
+					AttributeBegin 
+						Attribute "identifier" "string name" ["polySurface2"]
+						Attribute "identifier" "float id" [1850]
+						ConcatTransform [ 11.3307 -0.232148 -0.0137104 0  -0.0885029 -4.3314 0.199081 0  -0.0243497 -0.519845 -11.3211 0  159.428 101.065 -114.574 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["polySurfaceShape2"]
+								Attribute "identifier" "float id" [3669]
+								Sides 1
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,light_GraySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/polySurfaceShape2.job.rib"] "float[6] bound" [-0.601481 0.601481 -2.59904 -1.93649 -0.60148 0.601483] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["polySurface1"]
+						Attribute "identifier" "float id" [1849]
+						ConcatTransform [ 11.7568 0 -1.52227 0  -7.13402e-017 -4.53659 -5.50972e-016 0  -1.52227 1.45181e-015 -11.7568 0  159.601 101.613 -114.959 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["polySurfaceShape1"]
+								Attribute "identifier" "float id" [3668]
+								Sides 1
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,KettleSurfaceYellowSG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/polySurfaceShape1.job.rib"] "float[6] bound" [-1 0.999996 -1.82775 1 -0.999998 1] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pTorus4"]
+						Attribute "identifier" "float id" [1469]
+						ConcatTransform [ 4.08598e-016 -2.04299e-016 -3.68032 0  3.68032 -3.20341e-013 2.04299e-016 0  -3.20545e-013 -3.68032 4.08598e-016 0  159.906 114.191 -114.475 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pTorusShape4"]
+								Attribute "identifier" "float id" [3543]
+								Sides 1
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,light_GraySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pTorusShape4.job.rib"] "float[6] bound" [-3.50854 3.44755 -0.249996 0.319988 -2.90686 1.56985] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pPipe26"]
+						Attribute "identifier" "float id" [1106]
+						ConcatTransform [ 1.5047 0 -0 0  -0 3.23256e-015 -14.5582 0  0 1.5047 3.34111e-016 0  160.124 123.737 -113.884 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pPipeShape26"]
+								Attribute "identifier" "float id" [3173]
+								Sides 1
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,light_GraySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pPipeShape26.job.rib"] "float[6] bound" [-1.14123 1.14123 -0.5 0.5 -1.14123 1.14123] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pSphere47"]
+						Attribute "identifier" "float id" [1419]
+						ConcatTransform [ 1.48408 -0.0304066 -0.00179578 0  0.0276385 1.35265 -0.0621708 0  0.0031893 0.0680889 1.48283 0  135.501 149.524 -84.4186 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pSphereShape47"]
+								Attribute "identifier" "float id" [3486]
+								Sides 2
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,light_GraySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pSphereShape47.job.rib"] "float[6] bound" [16.0819 17.6826 -26.0231 -23.8326 -22.5736 -20.9729] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pCylinder157"]
+						Attribute "identifier" "float id" [607]
+						ConcatTransform [ 2.11981 0 -0 0  -0 -1.13801 -1.11868 0  0 1.11868 -1.13801 0  159.265 108.292 -101.423 1 ]
+						AttributeBegin 
+							AttributeBegin 
+								Attribute "identifier" "string name" ["pCylinderShape157"]
+								Attribute "identifier" "float id" [2679]
+								Sides 2
+								Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+								Attribute "shade" "string transmissionhitmode" ["shader"]
+								Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+								##RLF Inject SurfaceShading -attribute sets@,light_GraySG,
+								TransformBegin 
+									Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pCylinderShape157.job.rib"] "float[6] bound" [-1.61031 1.64116 -2.93744 4.1271 -2.50208 1.40115] "int __immediatesubdivide" [0]
+								TransformEnd 
+							AttributeEnd 
+						AttributeEnd 
+					AttributeEnd 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+				AttributeEnd 
+				AttributeBegin 
+					Attribute "identifier" "string name" ["room_blocker"]
+					Attribute "identifier" "float id" [1898]
+					ConcatTransform [ 551.478 0 0 0  0 5.81915e-014 262.071 0  0 -447.406 9.93441e-014 0  79.2321 -71.0042 125.572 1 ]
+					AttributeBegin 
+						AttributeBegin 
+							Attribute "identifier" "string name" ["room_blockerShape"]
+							Attribute "identifier" "float id" [3705]
+							Sides 1
+							ReverseOrientation 
+							Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+							Attribute "shade" "string transmissionhitmode" ["shader"]
+							Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+							##RLF Inject SurfaceShading -attribute sets@,light_GraySG,
+							TransformBegin 
+								Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/room_blockerShape.job.rib"] "float[6] bound" [-0.5 0.996077 -0.5 0.5 -0.5 1.17977] "int __immediatesubdivide" [0]
+							TransformEnd 
+						AttributeEnd 
+					AttributeEnd 
+				AttributeEnd 
+				AttributeBegin 
+					Attribute "identifier" "string name" ["RenderMan_Teapot"]
+					Attribute "identifier" "float id" [92]
+					ConcatTransform [ 3.58706 0 0 0  0 7.96488e-016 3.58706 0  0 -3.58706 7.96488e-016 0  196.287 -145.149 79.3825 1 ]
+					AttributeBegin 
+						AttributeBegin 
+							Attribute "identifier" "string name" ["RenderMan_TeapotShape"]
+							Attribute "identifier" "float id" [1947]
+							Sides 2
+							Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+							Attribute "shade" "string transmissionhitmode" ["shader"]
+							Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+							##RLF Inject SurfaceShading -attribute sets@,light_GraySG,
+							TransformBegin 
+								Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/RenderMan_TeapotShape.job.rib"] "float[6] bound" [-0.995655 1.01177 0.244712 2.34177 -1.28363 1.116] "int __immediatesubdivide" [0]
+							TransformEnd 
+						AttributeEnd 
+					AttributeEnd 
+				AttributeEnd 
+			AttributeEnd 
+			AttributeBegin 
+				Attribute "identifier" "string name" ["PxrEnvDayLight1"]
+				Attribute "identifier" "float id" [88]
+				ConcatTransform [ 27.0154 0 0 0  0 27.0154 0 0  0 0 27.0154 0  -366.997 0 -323.761 1 ]
+				AttributeBegin 
+				AttributeEnd 
+			AttributeEnd 
+			AttributeBegin 
+				Attribute "identifier" "string name" ["PxrSphereLight1"]
+				Attribute "identifier" "float id" [90]
+				ConcatTransform [ 37.4623 0 0 0  0 8.31831e-015 37.4623 0  0 -18.3149 4.06673e-015 0  -29.7476 231.488 77.7219 1 ]
+				AttributeBegin 
+				AttributeEnd 
+			AttributeEnd 
+			AttributeBegin 
+				Attribute "identifier" "string name" ["PxrDistantLight1"]
+				Attribute "identifier" "float id" [87]
+				ConcatTransform [ 39.985 -20.711 122.703 0  74.0098 181.549 6.52619 0  -171.468 67.4823 67.2665 0  -376.393 172.777 39.4495 1 ]
+				AttributeBegin 
+				AttributeEnd 
+			AttributeEnd 
+			AttributeBegin 
+				Attribute "identifier" "string name" ["PxrRectLight1"]
+				Attribute "identifier" "float id" [89]
+				ConcatTransform [ -11.8921 0 -347.152 0  0 347.355 0 0  347.152 0 -11.8921 0  384.909 129.158 108.57 1 ]
+				AttributeBegin 
+				AttributeEnd 
+			AttributeEnd 
+			AttributeBegin 
+				Attribute "identifier" "string name" ["Camera_01"]
+				Attribute "identifier" "float id" [23]
+				ConcatTransform [ 14.2766 0 -6.17801 0  -0.617714 15.478 -1.42745 0  6.14706 1.55537 14.205 0  314.749 180.982 546.933 1 ]
+				AttributeBegin 
+				AttributeEnd 
+			AttributeEnd 
+			AttributeBegin 
+				Attribute "identifier" "string name" ["Camera_02"]
+				Attribute "identifier" "float id" [24]
+				ConcatTransform [ 15.8144 -4.11856e-016 -25.1128 0  -4.07491 29.284 -2.56611 0  24.78 4.81558 15.6048 0  551.966 179.22 276.822 1 ]
+				AttributeBegin 
+				AttributeEnd 
+			AttributeEnd 
+			AttributeBegin 
+				Attribute "identifier" "string name" ["pPlane396"]
+				Attribute "identifier" "float id" [1395]
+				ConcatTransform [ 217.322 21.5253 0 0  -13.6181 137.49 0 0  0 0 491.833 0  -299.878 56.4705 0 1 ]
+				AttributeBegin 
+					AttributeBegin 
+						Attribute "identifier" "string name" ["pPlaneShape396"]
+						Attribute "identifier" "float id" [3462]
+						Sides 2
+						Attribute "visibility" "int camera" [1] "int indirect" [1] "int transmission" [1]
+						Attribute "shade" "string transmissionhitmode" ["shader"]
+						Attribute "grouping" "string membership" ["+reflection,refraction,shadow"]
+						##RLF Inject SurfaceShading -attribute sets@,initialShadingGroup,
+						TransformBegin 
+							Procedural2 "DelayedReadArchive2" "SimpleBound" "string filename" ["renderman/Kitchen_PUP_06/rib/job/staticGeoCache.job.zip!renderman/Kitchen_PUP_06/rib/job/pPlaneShape396.job.rib"] "float[6] bound" [-0.5 0.5 -1.11022e-016 1.11022e-016 -0.5 0.5] "int __immediatesubdivide" [0]
+						TransformEnd 
+					AttributeEnd 
+				AttributeEnd 
+			AttributeEnd 
+			AttributeBegin 
+				Attribute "identifier" "string name" ["group"]
+				Attribute "identifier" "float id" [171]
+				ConcatTransform [ -0.825799 0.563965 0 0  -0.563965 -0.825799 -0 0  -0 0 1 0  -519.657 425.728 0 1 ]
+			AttributeEnd 
+			AttributeBegin 
+				Attribute "identifier" "string name" ["place3dTexture1"]
+				Attribute "identifier" "float id" [1848]
+				ConcatTransform [ 1 0 0 0  0 1 0 0  0 0 1 0  0 0 0 1 ]
+			AttributeEnd 
+			##RLF ScopeEnd -name perspShape_Final
+		WorldEnd 
+	ResourceEnd 
+	##streammarker 1960
+FrameEnd 

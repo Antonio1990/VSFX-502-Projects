@@ -1,0 +1,19 @@
+shader streak (
+	float lifespan = 1,
+	float Age = 1,
+	color startColor = color(1,0,0),
+	color endColor = color(0,0,1),
+	float OpacityInput = 1,
+	float dPdtime_scale = 1,
+	output float resultOpacity = 0,
+	output color resultRGB = 0,
+	output color resultGlow = 0)
+{
+//float avglife = Age/lifespan;
+float glow_intensity = (1.0-Age) * 2.0;
+resultOpacity = OpacityInput;
+resultRGB = mix(endColor,startColor, v);
+resultGlow = resultRGB * glow_intensity;
+}
+
+

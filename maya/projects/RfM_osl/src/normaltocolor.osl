@@ -1,0 +1,26 @@
+//normal to color.osl
+//File name and shader name the same
+
+shader normaltocolor
+(
+	float shadingmix = 0.0/100.0,
+	int shadingType = 0,  
+	string spacename = "object",
+	output color resultRGB = 0,
+	output float resultF = 0.0
+)
+
+{
+normal ntuse = transform("object",Ng);
+normal nt = transform("object",N);
+//nt = nt * -1.0;
+
+//if(shadingType != 0)
+	//ntuse = N;
+float np = dot(nt,N);
+vector ng = mix(ntuse,nt,shadingmix);
+//vector tc = cross(dPdu,dPdv);
+resultRGB = fabs(ng);
+resultF = np;
+}
+

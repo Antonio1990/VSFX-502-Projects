@@ -1,4 +1,4 @@
-    Launched at: 2017_5_10_0.9:18
+    Launched at: 2017_5_28_9.55:3
     Warning: DirPresetsPanel.addDefaultDirectories() - cannot find users maya directory at,
         "C:/Documents and Settings/My Documents/maya".
     Warning: DirPresetsPanel.addDefaultDirectories() - cannot find users maya directory at,
@@ -12,10 +12,10 @@ Users account name is "taizyd"
 The environment variable "CUTTER_USERS_DIR" has not been found.
 The environment variable "CUTTER_APP_DIR" has not been found.
 Users $HOME directory is "C:\Users\taizyd"
-Users PWD is "F:\502\vsfx502\cutter"
+Users PWD is "F:\502\vsfx502\VSFX-502-Projects\cutter"
 
-    Exception:DocOpenAction - java.lang.Exception: Front window does not use a KTextPane
+    Info:KAbstractWindow.removeMayaClient table size is 0
     Info:KAbstractWindow.removeMayaClient table size is 0
     Warning: Preferences.updateBackup() regenerating "prefs.ini"
     Error 2: Preferences.updateBackup() unable to read "prefs.ini"
-Cutter exited at 2017_5_10_0.20:3059
+Cutter exited at 2017_5_28_10.56:16635

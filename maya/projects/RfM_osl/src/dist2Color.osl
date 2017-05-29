@@ -1,0 +1,15 @@
+shader
+dist2Color(float mindistance = 0,
+	float maxdistance = 15.0,
+	color mincolor = color(1,0,0),
+	color maxcolor = color(0,0,1),
+	string spacename = "object",
+	output color resultRGB = 0,
+	output float resultF = 0)
+{
+point p = transform(spacename, P);
+float dist = distance(p, point(0,0,0));
+float blend = smoothstep(mindistance, maxdistance, dist);
+resultRGB = mix(mincolor, maxcolor, blend);
+resultF = 1 - blend;
+}

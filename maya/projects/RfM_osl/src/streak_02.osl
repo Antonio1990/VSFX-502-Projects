@@ -1,0 +1,40 @@
+shader streak (
+	color ppspeed = 0,
+	float b_useVelocityGradient = 1
+	[[
+		string widget = "checkBox",
+	]],
+	
+	float glowIntensity = 2.0,
+	float Age = 1.0,
+	color Color1 = color(1,0,0),
+	color Color2 = color(0,0,1),
+	color Color3 = color(0,1,0),
+	float OpacityInput = 1.0,
+	float dPdtime_scale = 1.0,
+	output float resultOpacity = 0,
+	output color resultRGB = 0,
+	output color resultGlow = 0)
+{
+//float avglife = Age/lifespan;
+color bgcolor = color(0,0,0);
+float gradval = 0;
+if(b_useVelocityGradient == 1)
+	gradval = ppspeed[0];
+else
+	gradval = Age;
+float glow_intensity = (1.0-Age) * 2.0;
+float v1 = 0.0;
+float v2 = 0.0;
+if(gradval<=0.5)
+	v1 = mix(0.0,1.0,gradval*2.0);
+else
+	v2 = mix(0.0,1.0,(gradval-0.5)*2.0);
+resultOpacity = OpacityInput;
+resultRGB = mix(Color1,Color2, v1);
+resultRGB = mix(resultRGB,Color3,v2);
+resultRGB = mix(resultRGB,bgcolor,v);
+resultGlow = resultRGB * glow_intensity;
+}
+
+

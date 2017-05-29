@@ -1,0 +1,91 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.7.4.pixar38bde12
+# options: -IF:\502\maya\projects\RfM_osl\src -o F:\502\maya\projects\RfM_osl\streak.oso
+shader streak
+param	color	ppspeed	0 0 0		%read{4,4} %write{2147483647,-1}
+param	float	b_useVelocityGradient	1		%meta{string,widget,"checkBox"}  %read{2,2} %write{2147483647,-1}
+param	float	glowIntensity	2		%read{2147483647,-1} %write{2147483647,-1}
+param	float	Age	1		%read{5,6} %write{2147483647,-1}
+param	color	Color1	1 0 0		%read{18,18} %write{2147483647,-1}
+param	color	Color2	0 0 1		%read{18,18} %write{2147483647,-1}
+param	color	Color3	0 1 0		%read{19,19} %write{2147483647,-1}
+param	float	OpacityInput	1		%read{17,17} %write{2147483647,-1}
+param	float	dPdtime_scale	1		%read{2147483647,-1} %write{2147483647,-1}
+oparam	float	resultOpacity	0		%read{2147483647,-1} %write{17,17}
+oparam	color	resultRGB	0 0 0		%read{19,21} %write{18,20}
+oparam	color	resultGlow	0 0 0		%read{2147483647,-1} %write{21,21}
+global	float	v	%read{20,20} %write{2147483647,-1}
+local	color	bgcolor	%read{20,20} %write{0,0}
+local	float	gradval	%read{10,14} %write{1,5}
+local	float	glow_intensity	%read{21,21} %write{7,7}
+local	float	v1	%read{18,18} %write{8,13}
+local	float	v2	%read{19,19} %write{9,16}
+const	color	$const1	0 0 0		%read{0,0} %write{2147483647,-1}
+const	int	$const2	0		%read{1,4} %write{2147483647,-1}
+const	int	$const3	1		%read{2,2} %write{2147483647,-1}
+temp	int	$tmp1	%read{3,3} %write{2,2}
+const	float	$const4	1		%read{6,16} %write{2147483647,-1}
+temp	float	$tmp2	%read{7,7} %write{6,6}
+const	float	$const5	2		%read{7,15} %write{2147483647,-1}
+const	float	$const6	0		%read{8,16} %write{2147483647,-1}
+const	float	$const7	0.5		%read{10,14} %write{2147483647,-1}
+temp	int	$tmp3	%read{11,11} %write{10,10}
+temp	float	$tmp4	%read{13,13} %write{12,12}
+temp	float	$tmp5	%read{15,15} %write{14,14}
+temp	float	$tmp6	%read{16,16} %write{15,15}
+code ___main___
+# F:\\502\\maya\\projects\\RfM_osl\\src\\streak_02.osl:21
+# float gradval = 0;
+	assign		bgcolor $const1 	%filename{"F:\\502\\maya\\projects\\RfM_osl\\src\\streak_02.osl"} %line{21} %argrw{"wr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\streak_02.osl:22
+# if(b_useVelocityGradient == 1)
+	assign		gradval $const2 	%line{22} %argrw{"wr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\streak_02.osl:23
+# 	gradval = ppspeed[0];
+	eq		$tmp1 b_useVelocityGradient $const3 	%line{23} %argrw{"wrr"}
+	if		$tmp1 5 6 	%argrw{"r"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\streak_02.osl:24
+# else
+	compref		gradval ppspeed $const2 	%line{24} %argrw{"wrr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\streak_02.osl:26
+# float glow_intensity = (1.0-Age) * 2.0;
+	assign		gradval Age 	%line{26} %argrw{"wr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\streak_02.osl:27
+# float v1 = 0.0;
+	sub		$tmp2 $const4 Age 	%line{27} %argrw{"wrr"}
+	mul		glow_intensity $tmp2 $const5 	%argrw{"wrr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\streak_02.osl:28
+# float v2 = 0.0;
+	assign		v1 $const6 	%line{28} %argrw{"wr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\streak_02.osl:29
+# if(gradval<=0.5)
+	assign		v2 $const6 	%line{29} %argrw{"wr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\streak_02.osl:30
+# 	v1 = mix(0.0,1.0,gradval*2.0);
+	le		$tmp3 gradval $const7 	%line{30} %argrw{"wrr"}
+	if		$tmp3 14 17 	%argrw{"r"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\streak_02.osl:31
+# else
+	mul		$tmp4 gradval $const5 	%line{31} %argrw{"wrr"}
+	mix		v1 $const6 $const4 $tmp4 	%argrw{"wrrr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\streak_02.osl:33
+# resultOpacity = OpacityInput;
+	sub		$tmp5 gradval $const7 	%line{33} %argrw{"wrr"}
+	mul		$tmp6 $tmp5 $const5 	%argrw{"wrr"}
+	mix		v2 $const6 $const4 $tmp6 	%argrw{"wrrr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\streak_02.osl:34
+# resultRGB = mix(Color1,Color2, v1);
+	assign		resultOpacity OpacityInput 	%line{34} %argrw{"wr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\streak_02.osl:35
+# resultRGB = mix(resultRGB,Color3,v2);
+	mix		resultRGB Color1 Color2 v1 	%line{35} %argrw{"wrrr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\streak_02.osl:36
+# resultRGB = mix(resultRGB,bgcolor,v);
+	mix		resultRGB resultRGB Color3 v2 	%line{36} %argrw{"wrrr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\streak_02.osl:37
+# resultGlow = resultRGB * glow_intensity;
+	mix		resultRGB resultRGB bgcolor v 	%line{37} %argrw{"wrrr"}
+# F:\\502\\maya\\projects\\RfM_osl\\src\\streak_02.osl:38
+# }
+	mul		resultGlow resultRGB glow_intensity 	%line{38} %argrw{"wrr"}
+	end

@@ -1,0 +1,33 @@
+<!--
+Author:	Malcolm Kesson
+Date:	30 March 2016
+Name:   CutrPetals
+-->
+<args format="1.0">
+	<shaderType>
+		<tag value="pattern"/>
+	</shaderType>
+	<help>
+		Pipe output float to a material's presence input.
+	</help>
+	
+	<param name="manifold" label="Manifold" type="struct" default="" widget="default">
+		<tags>
+			<tag value="struct"/>
+			<tag value="manifold"/>
+		</tags>
+	</param>
+	<param name="invert" label="Flip Vertical" type="int"   default="0" input="False" widget="checkbox" tag="int and pattern"/> 
+	
+	<page name="Petals" open="True">
+		<param name="petal_scale" label="Petal Scale" type="float" default="1" input="True" min="0.01" max="2" widget="default"/>
+		<param name="petal_length" label="Petal Length" type="float" default="0.5" input="True" min="0.01" max="1" widget="default"/>
+		<param name="petal_width" label="Petal Width" type="float" default="0.5" input="True" min="0.01" max="1" widget="default"/>
+	</page>
+	<page name="Stem" open="True">
+		<param name="stem_width" label="Stem Width" type="float" default="0.04" input="True" min="0" max="1" widget="default"/>
+		<param name="stem_length" label="Stem Length" type="float" default="0.5" input="True" min="0" max="1" widget="default"/>
+	</page>		
+	<output name="resultF"  tag="float|pattern"/>
+	<rfmdata nodeid="6" classification="rendernode/RenderMan/pattern"/>
+</args>

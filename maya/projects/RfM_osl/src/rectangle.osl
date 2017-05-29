@@ -1,0 +1,76 @@
+// A barebones example showing how to access 'st' texture
+// coordinates and how to output a color. The shader assumes
+// the values of 's' and 't' are in the range 0 to 1.
+shader
+rectangle
+[[
+int rfm_nodeid = 11,
+string rfm_classification = "rendernode/RenderMan/pattern",
+string help = "Node to create rectangle with adjustable parameters."
+]]
+(
+    float s = 0 
+		[[
+		int lockgeom = 0,
+		string widget = "null",
+		]],
+    float t = 0
+		[[
+		int lockgeom = 0,
+		string widget = "null",
+		]],
+	 float s_in = 0,
+	 float t_in = 0,
+	int flip = 1
+		[[
+		string label = "Flip Colors",
+		string widget = "checkBox",
+		]],
+	float xpos = 0
+		[[
+		string label = "X_Position",
+		]],
+	float ypos = 0 [[string label = "X_Position",]],
+	float recwidth = 0 
+		[[
+		string label = "Width",
+		]],
+	float recheight = 0 
+		[[
+		string label = "Height",
+		]],
+	color color1 = color(1,0,0) 
+		[[
+		string label = "Rectangle Color",
+		]],
+	color color2 = color(0,1,0)
+		[[
+		string label = "Rectangle Color",
+		]],
+	output color resultRGB = 0)
+{
+	float p = (isconnected(s_in)) ? s_in : s;
+	float q = (isconnected(t_in)) ? t_in : t;
+	p = mod(p,1);
+	q = mod(q,1);
+	float LS = xpos - recwidth/2;
+	float RS = xpos + recwidth/2;
+	
+	float LT = ypos - recheight/2;
+	float RT = ypos + recheight/2;
+	
+	if((p >= LS && q>=LT) && (p<=RS && q<=RT))
+		if(flip == 1)
+			resultRGB= color2;
+		else 
+			resultRGB= color1;
+			
+	else
+		if(flip == 1)
+		
+			resultRGB = color1;
+		else
+			resultRGB = color2;
+			
+			
+}

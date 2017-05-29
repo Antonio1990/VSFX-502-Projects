@@ -1,0 +1,38 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.6.8.pixar 7a897f6
+shader dist2Color
+param	float	mindistance	0		%read{3,3} %write{2147483647,-1}
+param	float	maxdistance	15		%read{3,3} %write{2147483647,-1}
+param	color	mincolor	1 0 0		%read{4,4} %write{2147483647,-1}
+param	color	maxcolor	0 0 1		%read{4,4} %write{2147483647,-1}
+param	string	spacename	"object"		%read{1,1} %write{2147483647,-1}
+oparam	color	resultRGB	0 0 0		%read{2147483647,-1} %write{4,4}
+oparam	float	resultF	0		%read{2147483647,-1} %write{5,5}
+global	point	P	%read{1,1} %write{2147483647,-1}
+local	point	p	%read{2,2} %write{1,1}
+local	float	dist	%read{3,3} %write{2,2}
+local	float	blend	%read{4,5} %write{3,3}
+const	string	$const1	"transform"		%read{0,0} %write{2147483647,-1}
+const	string	$const2	"common"		%read{1,1} %write{2147483647,-1}
+const	point	$const3	0 0 0		%read{2,2} %write{2147483647,-1}
+const	float	$const5	1		%read{5,5} %write{2147483647,-1}
+code ___main___
+# /home/mkesson/mount/fachome/STUDENT_STARTER_FILES/CUSTOMIZATIONS/RfM_osl/src/dist2Color.osl:10
+# point p = transform(spacename, P);
+	functioncall	$const1 2 	%filename{"/home/mkesson/mount/fachome/STUDENT_STARTER_FILES/CUSTOMIZATIONS/RfM_osl/src/dist2Color.osl"} %line{10} %argrw{"r"}
+# /opt/pixar/RenderManProServer-21.0/lib/osl/include/stdosl.h:243
+# 
+	transform	p $const2 spacename P 	%filename{"/opt/pixar/RenderManProServer-21.0/lib/osl/include/stdosl.h"} %line{243} %argrw{"wrrr"}
+# /home/mkesson/mount/fachome/STUDENT_STARTER_FILES/CUSTOMIZATIONS/RfM_osl/src/dist2Color.osl:11
+# float dist = distance(p, point(0,0,0));
+	distance	dist p $const3 	%filename{"/home/mkesson/mount/fachome/STUDENT_STARTER_FILES/CUSTOMIZATIONS/RfM_osl/src/dist2Color.osl"} %line{11} %argrw{"wrr"}
+# /home/mkesson/mount/fachome/STUDENT_STARTER_FILES/CUSTOMIZATIONS/RfM_osl/src/dist2Color.osl:12
+# float blend = smoothstep(mindistance, maxdistance, dist);
+	smoothstep	blend mindistance maxdistance dist 	%line{12} %argrw{"wrrr"}
+# /home/mkesson/mount/fachome/STUDENT_STARTER_FILES/CUSTOMIZATIONS/RfM_osl/src/dist2Color.osl:13
+# resultRGB = mix(mincolor, maxcolor, blend);
+	mix		resultRGB mincolor maxcolor blend 	%line{13} %argrw{"wrrr"}
+# /home/mkesson/mount/fachome/STUDENT_STARTER_FILES/CUSTOMIZATIONS/RfM_osl/src/dist2Color.osl:14
+# resultF = 1 - blend;
+	sub		resultF $const5 blend 	%line{14} %argrw{"wrr"}
+	end
